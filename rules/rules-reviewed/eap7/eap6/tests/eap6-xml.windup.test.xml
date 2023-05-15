@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<ruletest xmlns="http://windup.jboss.org/schema/jboss-ruleset" id="eap6-xml-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>data</testDataPath>
+    <ruleset>
+        <rules>
+            <rule id="eap6-xml-05000-test">
+                <when>
+                    <not>
+                        <classification-exists classification="JMS proprietary resource definitions"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Classification for all the *-jms.xml files not found!"/>
+                </perform>
+            </rule>
+            <rule id="eap6-xml-06000-test">
+                <when>
+                    <not>
+                       <iterable-filter size="3">
+                         <to-file-model>
+                          <classification-exists classification="JBoss deployment structure dependencies \(jboss-deployment-structure.xml\)"/>
+                         </to-file-model>
+                       </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Classification jboss deployment structure not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

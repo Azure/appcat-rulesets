@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<ruleset id="logging"
+    xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset detects logging configurations that may be problematic when migrating an application to a cloud environment.
+        </description>
+        <dependencies>
+          <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+          <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <sourceTechnology id="java"/>
+        <sourceTechnology id="java-ee"/>
+        <targetTechnology id="cloud-readiness"/>
+        <tag>logging</tag>
+    </metadata>
+    <rules>
+        <rule id="logging-0000">
+            <when>
+              <or>
+                <filecontent filename="log4j.{extension}" pattern="{appenderpattern}"/>
+                <javaclass references="org.apache.{*}log4j.{*}FileAppender{*}">
+                    <location>IMPORT</location>
+                </javaclass>
+                <javaclass references="java.util.logging.FileHandler{*}">
+                    <location>IMPORT</location>
+                </javaclass>
+                <javaclass references="ch.qos.logback.core.FileAppender">
+                    <location>IMPORT</location>
+                </javaclass>
+                <javaclass references="org.pmw.tinylog.writers.FileWriter">
+                    <location>IMPORT</location>
+                </javaclass>
+              </or>
+            </when>
+            <perform>
+                <iteration>
+                    <when>
+                        <not>
+                            <has-hint />
+                        </not>
+                    </when>
+                    <perform>
+                        <hint title="Logging to file system" effort="1" category-id="cloud-mandatory">
+                            <message>
+                            If the application writes logs to a file system, local log files may be lost if an instance terminates or restarts.
+
+                            Recommendations
+
+                            * Use a centralized log management system.
+                            * Log to standard output and allow the cloud platform to manage the logging.
+                            * Use shared storage for log files.
+                            </message>
+                            <link href="https://12factor.net/logs" title="Twelve-factor app - Logs"/>
+                            <link href="https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html" title="OpenShift Container Platform: Understanding cluster logging"/>
+                            <tag>logging</tag>
+                        </hint>
+                        <technology-tag level="INFORMATIONAL">Logging to file system</technology-tag>
+                    </perform>
+                </iteration>
+            </perform>
+            <where param="appenderpattern">
+              <matches pattern="((Daily)?Rolling)?FileAppender"/>
+            </where>
+            <where param="extension">
+              <matches pattern="(xml|properties)"/>
+            </where>
+        </rule>
+        <rule id="logging-0001">
+          <when>
+              <javaclass references="java.util.logging.SocketHandler{*}"/>
+          </when>
+            <perform>
+                <iteration>
+                    <hint title="Logging to Socket Handler" effort="3" category-id="cloud-mandatory">
+                        <message>
+                        If an application writes logs with `SocketHandler`, an alternative method is required. Socket communication is not suitable for a cloud environment because it requires fixed communication with a target host.
+
+                        Recommendations
+
+                        * Use a centralized log management system.
+                        * Log to standard output and allow the cloud platform to manage the logging.
+                        * Use shared storage for log files.
+                        </message>
+                        <link href="https://12factor.net/logs" title="Twelve-factor app - Logs"/>
+                        <link href="https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html" title="OpenShift Container Platform: Understanding cluster logging"/>
+                        <tag>logging</tag>
+                    </hint>
+                </iteration>
+                <technology-tag level="INFORMATIONAL">Logging to Socket Handler</technology-tag>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>

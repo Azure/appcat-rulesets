@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ruletest xmlns="http://windup.jboss.org/schema/jboss-ruleset" id="websphere-ignore-references-tests">
+    <testDataPath>data</testDataPath>
+    <sourceMode>false</sourceMode>
+    <rulePath>../</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="websphere-ignore-01000-test">
+                <when>
+                      <or>
+                        <file-exists filename="IgnoreTest1.java" />
+                        <not>
+                          <file-exists filename="IgnoreTest1.class" />
+                        </not>
+                      </or>
+                </when>
+                <perform>
+                    <fail message="IgnoreTest1.class should have been ignored and not decompiled." />
+                </perform>
+            </rule>
+            <rule id="websphere-ignore-02000-test">
+                <when>
+                      <or>
+                        <file-exists filename="R4A0RUBean.java" />
+                        <not>
+                          <file-exists filename="R4A0RUBean.class" />
+                        </not>
+                      </or>
+                </when>
+                <perform>
+                    <fail message="IgnoreTestBean.class should have been ignored and not decompiled." />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

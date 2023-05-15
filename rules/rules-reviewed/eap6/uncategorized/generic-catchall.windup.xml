@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+<ruleset id="generic-catchall" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset provides analysis of generic proprietary classes and constructs that may require individual attention when
+            migrating to JBoss EAP 6+.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,2.3.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-java,2.3.0.Final" />
+        </dependencies>
+        <sourceTechnology id="java" />
+        <sourceTechnology id="javaee" />
+        <sourceTechnology id="soa" />
+        <targetTechnology id="eap" versionRange="[6,)" />
+        <phase>PostMigrationRulesPhase</phase>
+    </metadata>
+    <rules>
+        <rule id="generic-catchall-00000">
+            <when>
+                <javaclass references="{domain}.oswego.cs.dl.util.concurrent.{*}" />
+            </when>
+            <perform>
+                <iteration>
+                    <when>
+                        <not>
+                            <has-hint />
+                        </not>
+                    </when>
+                    <perform>
+                        <hint title="Doug Lea Concurrency util" effort="0" category-id="optional">
+                            <message>
+                            This is an old Doug Lea Concurrency util type and needs to be migrated to a compatible `java.util.concurrent` API.
+                            There is currently no detailed information about this type.
+                            </message>
+                            <link title="java.util.concurrent JAVA API Documentation" href="https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html" />
+                            <tag>catchall</tag>
+                        </hint>
+                    </perform>
+                </iteration>
+            </perform>
+            <where param="domain">
+               <matches pattern="(edu|EDU)" />
+            </where>
+        </rule>
+        <rule id="generic-catchall-00001">
+            <when>
+                <javaclass references="edu.emory.mathcs.backport.java.util.{*}" />
+            </when>
+            <perform>
+                <iteration>
+                    <when>
+                        <not>
+                            <has-hint />
+                        </not>
+                    </when>
+                    <perform>
+                        <hint title="backport-util-concurrent type reference" effort="0" category-id="optional">
+                            <message>
+                                This type is the backport of java.util.concurrent API, introduced in Java 5.0 and further refined in Java 6.0, to older Java platforms.
+                                You should use java.util.concurrent API instead.
+                            </message>
+                            <tag>catchall</tag>
+                        </hint>
+                    </perform>
+                </iteration>
+            </perform>
+        </rule>
+        <rule id="generic-catchall-00002">
+            <when>
+               <javaclass references="org.mule.{package-remainder}.{type}" />
+            </when>
+            <perform>
+                <iteration>
+                    <when>
+                        <not>
+                            <has-hint />
+                        </not>
+                    </when>
+                    <perform>
+                        <hint title="Mule API reference" effort="0" category-id="optional">
+                            <message>
+                                Mule API `org.mule.{package-remainder}.{type}` was used.
+                                You should convert these types to Apache Camel.
+                            </message>
+                            <link href="http://camel.apache.org" title="Apache Camel" />
+                            <tag>catchall</tag>
+                            <tag>mule</tag>
+                        </hint>
+                    </perform>
+                </iteration>
+            </perform>
+            <where param="package-remainder">
+               <matches pattern="(.*)?" />
+            </where>
+            <where param="type">
+               <matches pattern="[^.]+" />
+            </where>
+        </rule>
+        <rule id="generic-catchall-00003">
+            <when>
+                <javaclass references="mx4j.{package-remainder}.{type}" />
+            </when>
+            <perform>
+                <iteration>
+                    <when>
+                        <not>
+                            <has-hint />
+                        </not>
+                    </when>
+                    <perform>
+                        <hint title="MX4J type reference" effort="0" category-id="optional">
+                           <message>MX4J `mx4j.{package-remainder}.{type}` reference was used.</message>
+                            <tag>catchall</tag>
+                            <tag>mx4j</tag>
+                        </hint>
+                    </perform>
+                </iteration>
+            </perform>
+            <where param="package-remainder">
+               <matches pattern="(.*)?" />
+            </where>
+            <where param="type">
+               <matches pattern="[^.]+" />
+            </where>
+        </rule>
+        <rule id="generic-catchall-00100">
+            <when>
+                <javaclass references="org.osoa.sca.annotations.{type}" />
+            </when>
+            <perform>
+                <iteration>
+                    <when>
+                        <not>
+                            <has-hint />
+                        </not>
+                    </when>
+                    <perform>
+                        <hint title="Apache Tuscany type reference" effort="0" category-id="potential">
+                            <message>Apache Tuscany `org.osoa.sca.annotations.{type}` reference was used.</message>
+                            <tag>catchall</tag>
+                            <tag>soa</tag>
+                            <tag>apache-tuscany</tag>
+                        </hint>
+                    </perform>
+                </iteration>
+             </perform>
+             <where param="type">
+                <matches pattern="[^.]+" />
+            </where>
+        </rule>
+        <rule id="generic-catchall-00200">
+            <when>
+                <javaclass references="amx_.{*}">
+                    <location>IMPORT</location>
+                </javaclass>
+            </when>
+            <perform>
+               <iteration>
+                  <when>
+                     <not>
+                        <has-hint />
+                     </not>
+                  </when>
+                  <perform>
+                     <hint title="Tibco ActiveMatrix Stub" effort="0" category-id="optional">
+                          <message>Tibco ActiveMatrix Stub; regenerate the SOAP Client for the class</message>
+                          <tag>tibco</tag>
+                          <tag>soa</tag>
+                     </hint>
+                  </perform>
+               </iteration>
+            </perform>
+        </rule>
+        <rule id="generic-catchall-00300">
+            <when>
+                <javaclass references="com.tibco.{package-remainder}.{type}">
+                </javaclass>
+            </when>
+            <perform>
+                <iteration>
+                    <when>
+                        <not>
+                            <has-hint />
+                        </not>
+                    </when>
+                    <perform>
+                        <hint title="Tibco type reference" effort="0" category-id="optional">
+                            <message>
+                                Tibco `com.tibco.{package-remainder}.{type}` reference found.
+                                No specific details available.
+                            </message>
+                            <tag>catchall</tag>
+                            <tag>tibco</tag>
+                        </hint>
+                    </perform>
+                </iteration>
+            </perform>
+            <where param="package-remainder">
+               <matches pattern="(.*)?" />
+            </where>
+            <where param="type">
+               <matches pattern="[^.]+" />
+            </where>
+        </rule>
+        <rule id="generic-catchall-00400">
+            <when>
+                <javaclass references="com.crystaldecisions.{package-remainder}.{type}">
+                </javaclass>
+            </when>
+            <perform>
+               <iteration>
+                  <when>
+                     <not>
+                        <has-hint />
+                     </not>
+                  </when>
+                  <perform>
+                     <hint effort="0" title="SAP CrystalReports type reference" category-id="optional">
+                        <message>SAP CrystalReports `com.crystaldecisions.{package-remainder}.{type}` reference found.
+                         No specific details available.</message>
+                          <tag>catchall</tag>
+                          <tag>sap</tag>
+                     </hint>
+                  </perform>
+               </iteration>
+            </perform>
+           <where param="package-remainder">
+               <matches pattern="(.*)?" />
+            </where>
+            <where param="type">
+               <matches pattern="[^.]+" />
+            </where>
+        </rule>
+        <rule id="generic-catchall-00500">
+            <when>
+               <javaclass references="com.iona.{package-remainder}.{type}">
+                </javaclass>
+            </when>
+            <perform>
+               <iteration>
+                  <when>
+                     <not>
+                        <has-hint />
+                     </not>
+                  </when>
+                  <perform>
+                     <hint title="IONA type reference" effort="0" category-id="optional">
+                        <message>IONA `com.iona.{package-remainder}.{type}` reference found.
+                         No specific details available.</message>
+                          <tag>catchall</tag>
+                          <tag>iona</tag>
+                     </hint>
+                  </perform>
+               </iteration>
+            </perform>
+            <where param="package-remainder">
+               <matches pattern="(.*)?" />
+            </where>
+            <where param="type">
+               <matches pattern="[^.]+" />
+            </where>
+        </rule>
+        <rule id="generic-catchall-00600">
+            <when>
+                <javaclass references="org.apache.{subpackage}.{*}">
+                </javaclass>
+            </when>
+            <perform>
+               <iteration>
+                  <when>
+                     <not>
+                        <has-hint />
+                     </not>
+                  </when>
+                  <perform>
+                     <hint title="Apache org.apache.{subpackage} type reference" effort="0" category-id="optional">
+                          <message>Apache `org.apache.{subpackage}` API reference found.
+                          No specific details available.</message>
+                          <tag>catchall</tag>
+                          <tag>apache</tag>
+                     </hint>
+                  </perform>
+               </iteration>
+            </perform>
+            <where param="subpackage">
+               <matches pattern="(activeio|activemq)" />
+            </where>
+        </rule>
+        <rule id="generic-catchall-00700">
+            <when>
+                 <javaclass references="org.{subpackage}.{package-remainder}{type}"/>
+            </when>
+            <perform>
+               <iteration>
+                  <when>
+                     <not>
+                        <has-hint />
+                     </not>
+                  </when>
+                  <perform>
+                     <hint title="JBoss API reference" effort="0" category-id="potential">
+                        <message>`org.{subpackage}.{package-remainder}{type}` reference found. No specific details available.</message>
+                          <tag>catchall</tag>
+                          <tag>jboss</tag>
+                     </hint>
+                  </perform>
+               </iteration>
+            </perform>
+            <where param="subpackage">
+               <matches pattern="(jboss|jbpm)" />
+            </where>
+           <where param="package-remainder">
+               <matches pattern="([a-z]+\.)*" />
+            </where>
+            <where param="type">
+               <matches pattern="[^.()]+" />
+            </where>
+        </rule>
+        <rule id="generic-catchall-00900">
+            <when>
+               <javaclass references="java.sql.DriverManager">
+               </javaclass>
+            </when>
+            <perform>
+               <iteration>
+                  <when>
+                     <not>
+                        <has-hint />
+                     </not>
+                  </when>
+                  <perform>
+                     <hint title="java.sql.DriverManager type reference" effort="0" category-id="optional">
+                        <message>`java.sql.DriverManager` type reference found. No specific details available.</message>
+                        <tag>catchall</tag>
+                        <tag>jdbc</tag>
+                     </hint>
+                  </perform>
+               </iteration>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>

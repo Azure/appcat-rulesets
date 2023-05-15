@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<ruletest id="springboot-di-to-quarkus-tests"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>data/springboot-di</testDataPath>
+    <rulePath>../springboot-di-to-quarkus.windup.xml</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="springboot-di-to-quarkus-00000-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="Replace the SpringBoot Dependency Injection artifact with Quarkus `spring-di` extension"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[springboot-di-to-quarkus-extension] SpringBoot Dependency artifact replaced by Quarkus extension was not found!" />
+                </perform>
+            </rule>
+            <rule id="springboot-di-to-quarkus-00001-test">
+                <when>
+                    <not>
+                        <iterable-filter size="3"> 
+                            <hint-exists message="Quarkus only supports the java-based configuration of Spring beans"/>
+                        </iterable-filter> 
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[springboot-di-to-quarkus-extension] Test failure - springboot-di-to-quarkus-00001-test" />
+                </perform>
+            </rule>
+            <rule id="springboot-di-to-quarkus-00002-test">
+                <when>
+                    <not>
+                        <iterable-filter size="5">
+                            <hint-exists message="Spring infrastructure classes*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[springboot-di-to-quarkus-extension] SpringBoot infrastructure classes hint was not found!" />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

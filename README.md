@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Project
 
 > This repo has been populated by an initial template to help get you started. Please
@@ -31,3 +32,26 @@ trademarks or logos is subject to and must follow
 [Microsoft's Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general).
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
+=======
+Windup Rulesets
+===============
+
+Rules and rulesets contributed by community.
+
+Follow the [Get Involved](https://github.com/windup/windup/wiki/Get-Involved) in Windup wiki.
+
+
+Directory structure
+-----------
+
+The `rules` module repository is organized in subdirectories:
+
+* `rules-reviewed`: this is where you can make contribution and add new rules 
+* `rules-generated`: these rules are automatically generated (from the Quarkus main git repo) and you should not add new rules here
+
+Testing the rules
+-----------
+
+To limit the XML-based tests (`windup.test.xml`) which are run, use `-DrunTestsMatching=...`. 
+The value can be any part of the test filename to match. Like, `-DrunTestsMatching=hsearch`.
+>>>>>>> 3556140ade68ddb9aadf2502aa7ecdc69f6a7d66

@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<ruletest id="generic-catchall" xmlns="http://windup.jboss.org/schema/jboss-ruleset">
+   <testDataPath>data</testDataPath>
+   <rulePath>../generic-catchall.windup.xml</rulePath>
+   <ruleset>
+      <rules>
+         <rule id="generic-catchall-00000-test">
+            <when>
+               <not>
+                  <hint-exists message="This is an old Doug Lea Concurrency util type.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="Doug Lea Concurrency util hint was not found!" />
+            </perform>
+         </rule>
+         <rule id="generic-catchall-00001-test">
+            <when>
+               <not>
+                  <hint-exists message=".*This type is the backport of java.util.concurrent API.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="backport-util-concurrent classification was not found" />
+            </perform>
+         </rule>
+         <rule id="generic-catchall-00002-test">
+            <when>
+               <not>
+                  <hint-exists message=".*org.mule.* was used.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="Mule API type hint was not found!" />
+            </perform>
+         </rule>
+         <rule id="generic-catchall-00003-test">
+            <when>
+               <not>
+                  <hint-exists message="MX4J .*mx4j\..*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="MX4J hint was not found" />
+            </perform>
+         </rule>
+         <rule id="generic-catchall-00003-hint-test">
+            <when>
+               <not>
+                  <hint-exists message="MX4J.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="MX4J hint was not found" />
+            </perform>
+         </rule>
+         <rule id="generic-catchall-00100-test">
+            <when>
+               <not>
+                  <hint-exists message=".*org.osoa.sca.annotations.* reference was used." />
+               </not>
+            </when>
+            <perform>
+               <fail message="Apache Tuscany hint was not found" />
+            </perform>
+         </rule>
+         <rule id="generic-catchall-00200-hint-test">
+            <when>
+               <not>
+                  <hint-exists message="Tibco ActiveMatrix Stub.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="Tibco generated stub hint was not found" />
+            </perform>
+         </rule>       
+         <rule id="generic-catchall-00300-test">
+            <when>
+               <not>
+                  <hint-exists message=".*com.tibco.* reference found.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="Tibco generated stub hint was not found" />
+            </perform>
+         </rule>
+        <rule id="generic-catchall-00400-hint-test">
+            <when>
+               <not>
+                  <hint-exists message=".*com.crystaldecisions.* reference found.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="SAP CrystalReports type reference hint was not found" />
+            </perform>
+         </rule>
+         <rule id="generic-catchall-00500-hint-test">
+            <when>
+               <not>
+                  <hint-exists message=".*com.iona.* reference found.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="IONA com.iona.* reference hint was not found" />
+            </perform>
+         </rule>
+         <rule id="generic-catchall-00600-hint-test">
+            <when>
+               <not>
+                  <hint-exists message=".*org.apache.activeio.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="Apache org.apache.activeio API reference hint was not found" />
+            </perform>
+         </rule>
+         <rule id="generic-catchall-00601-hint-test">
+            <when>
+               <not>
+                  <hint-exists message=".*org.apache.activemq.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="Apache org.apache.activemq API reference hint was not found" />
+            </perform>
+         </rule>         
+         <rule id="generic-catchall-00700-hint-test">
+            <when>
+               <not>
+                  <hint-exists message="org.jboss.* reference found.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="jboss type reference hint was not found" />
+            </perform>
+         </rule>
+         <rule id="generic-catchall-00700-jbpm1-test">
+            <when>
+               <not>
+                  <hint-exists message=".*org.jbpm.db.JbpmSession.* reference found.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="jbpm type org.jbpm.db.JbpmSession reference hint was not found" />
+            </perform>       
+         </rule>           
+         <rule id="generic-catchall-00700-jbpm2-test">
+            <when>
+               <not>
+                  <hint-exists message=".*org.jbpm.JbpmContext.* reference found.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="jbpm type org.jbpm.JbpmContext reference hint was not found" />
+            </perform>       
+         </rule>
+         <rule id="generic-catchall-00900-hint-test">
+            <when>
+               <not>
+                  <hint-exists message=".*java.sql.DriverManager.*" />
+               </not>
+            </when>
+            <perform>
+               <fail message="java.sql.DriverManager type reference hint was not found" />
+            </perform>
+         </rule>
+      </rules>
+   </ruleset>
+</ruletest>

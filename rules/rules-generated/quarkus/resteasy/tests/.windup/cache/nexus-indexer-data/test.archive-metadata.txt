@@ -1,0 +1,1 @@
+5ac30ceb936db0ae382fd57de9aa19eafe7dffde org.jboss.resteasy:resteasy-multipart-provider:2.3.4.RELEASE

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<ruleset id="spring-boot-to-azure-eureka"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            Identify eureka dependencies.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
+        </dependencies>
+        <sourceTechnology id="springboot"/>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-container-apps"/>
+        <tag>eureka</tag>
+    </metadata>
+    <rules>
+        <rule id="spring-boot-to-azure-eureka-01000">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-netflix-eureka{*}"/>
+                    </project>
+                    <project>
+                        <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-starter-netflix-eureka{*}"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.netflix.eureka" artifactId="{*}"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <hint title="eureka" category-id="information" effort="0">
+                    <message>
+                        <![CDATA[
+                        The application uses Eureka.
+
+                        Azure Spring Apps will host eureka server for you.
+                        Eureka connection configurations will be injected automatically by ASA, if you put these configurations in your Config Server, please remove them.
+                        ]]>
+                    </message>
+                    <link title="Azure Spring Apps - Enable Service Registration" href="https://learn.microsoft.com/azure/spring-apps/how-to-service-registration?pivots=programming-language-java"/>
+                    <link title="Azure Spring Apps - Access Config Server and Service Registry" href="https://learn.microsoft.com/azure/spring-apps/how-to-access-data-plane-azure-ad-rbac"/>
+                    <link title="Restricted configurations" href="http://aka.ms/spring-cloud-to-asa?pivots=sc-standard-tier#remove-restricted-configurations"/>
+                    <tag>eureka</tag>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Eureka</technology-tag>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>

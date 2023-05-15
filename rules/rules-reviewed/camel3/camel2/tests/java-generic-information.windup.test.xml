@@ -1,0 +1,620 @@
+<?xml version="1.0"?>
+<ruletest id="java-generic-information-tests"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>data/java-generic-information</testDataPath>
+    <rulePath>../java-generic-information.windup.xml</rulePath>
+    <rulePath>../java-generic-information.windup.groovy</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="java-generic-information-00000-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="The class `org.apache.camel.processor.aggregate.AggregationStrategy` has been moved to `org.apache.camel.AggregationStrategy`"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] 'AggregationStrategy' moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00001-test">
+                <when>
+                    <not>
+                        <iterable-filter size="3">
+                            <hint-exists
+                                    message="The class `org.apache.camel.impl.*` has been moved to `org.apache.camel.support.*`*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] 'org.apache.camel.impl' moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00002-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="zip` and `gzip` dataformats were renamed.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[generic-information] Camel dependency moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00004-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists
+                                    message="The class `org.apache.camel.impl.*` has been removed. Use `org.apache.camel.support.DefaultRegistry` instead."/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[generic-information] Camel dependency moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00005-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="The class `org.apache.camel.processor.loadbalancer.SimpleLoadBalancerSupport` has been removed.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[generic-information] Camel dependency moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00006-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="The class `org.apache.camel.support.ReloadStrategySupport` has been removed."/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[generic-information] Class removed not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00006-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="The class `org.apache.camel.impl.FileWatcherReloadStrategy` has been removed."/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[generic-information] Class removed not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00008-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists
+                                    message="The class `org.apache.camel.util.toolbox.AggregationStrategies` has been moved to `org.apache.camel.builder.AggregationStrategies`."/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] 'AggregationStrategy' moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00009-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="The class `org.apache.camel.management.JmxSystemPropertyKeys` has been moved to ` org.apache.camel.api.management.JmxSystemPropertyKeys`."/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] 'JmxSystemPropertyKeys' moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00010-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="`includeRoutes` method has been removed"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] `includeRoutes` moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00011-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="Annotation `org.apache.camel.language.Bean.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] Annotation moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00012-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="Annotation `org.apache.camel.language.Simple.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] Annotation moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00013-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="Annotation `org.apache.camel.language.SpEL"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] Annotation moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00014-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="Annotation `org.apache.camel.InvokeOnHeader.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] Annotation moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00015-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="Annotation `org.apache.camel.Constant"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] Annotation moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00016-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="Class `org.apache.camel.builder.xml.XPathBuilder.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] Class moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00017-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="Annotation `org.apache.camel.language.XPath"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] Annotation moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00018-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="Exception `org.apache.camel.builder.xml.InvalidXPathExpression.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] Exception moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00019-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="Exception `org.apache.camel.processor.validation.PredicateValidationException.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] Exception moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00021-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="xslt method was removed from `org.apache.camel.util.toolbox.AggregationStrategies.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] Exception moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00022-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="The class `org.apache.camel.language.LanguageAnnotation` has been moved to `org.apache.camel.support.language.LanguageAnnotation`*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] 'LanguageAnnotation' moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00023-test">
+                <when>
+                    <not>
+                        <iterable-filter size="3">
+                            <hint-exists
+                                    message="The class `org.apache.camel.util.*` has been moved to `org.apache.camel.support.*`*. It has been moved out of `org.apache.camel:camel-core` and into `org.apache.camel:camel-support"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] `org.apache.camel.util.*` moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00024-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="The class `org.apache.camel.util.ServiceHelper` has been moved to `org.apache.camel.support.service.ServiceHelper`*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] `org.apache.camel.util.ServiceHelper` moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00025-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="The class `org.apache.camel.spi.RestProducerFactoryHelper` has been moved to `org.apache.camel.support.RestProducerFactoryHelper`*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] `org.apache.camel.spi.RestProducerFactoryHelper` moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00026-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="The class `org.apache.camel.util.ObjectHelper` has been moved out of the `org.apache.camel:camel-core` and has been split into two classes*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] `org.apache.camel.util.ObjectHelper` moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00027-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="The class `org.apache.camel.support.RoutePolicySupport` has been moved*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] `org.apache.camel.support.RoutePolicySupport` moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00028-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists
+                                    message="The class `org.apache.camel.impl.ThrottlingInflightRoutePolicy` has been moved to `org.apache.camel.throttling.ThrottlingInflightRoutePolicy`*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] `org.apache.camel.impl.ThrottlingInflightRoutePolicy` moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00029-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="The class `org.apache.camel.processor.idempotent*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] Idempotent repositories moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00030-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="Annotation `org.apache.camel.FallbackConverter` has been removed*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] `org.apache.camel.FallbackConverter` removed hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00031-test">
+                <when>
+                    <not>
+                        <iterable-filter size="3">
+                            <hint-exists
+                                    message="The class `org.apache.camel.util.toolbox.XsltAggregationStrategy` has been moved*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] `org.apache.camel.util.toolbox.XsltAggregationStrategy` moved hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00032-test">
+                <when>
+                    <not>
+                        <iterable-filter size="3">
+                            <hint-exists message="The `getProperties` and `setProperty` methods have been removed*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-generic-information] `org.apache.camel.CamelContext` `getProperties` removed hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00033-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="The default FHIR specification*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[xml-major-upgrade-components] 'camel-fhir' dependency upgrade hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00034-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="`org.apache.camel.ThreadPoolRejectedPolicy` was moved to `org.*`"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-moved-classes] moved org.apache.camel.ThreadPoolRejectedPolicy hint not found."/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00035-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="`The org.apache.camel.support.DefaultRegistry.*`"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Wrong usage of SimpleRegistry hint nof found"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00036-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="Methods `getOut`, `hasOut` on `Exchange.*`"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Hint about deprecated getOut/hasOut methods is missing."/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00037-test">
+                <when>
+                    <not>
+                        <iterable-filter size="4">
+                            <hint-exists message="Fault API was removed from `org.apache.camel.Message.*`"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Hint about removed fault API is missing."/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00038-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="Methods for controlling routes were moved from `CamelContext.*`"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Hint about moved control methods is missing."/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00039-test">
+                <when>
+                    <not>
+                        <iterable-filter size="3">
+                            <hint-exists message="The methods `getCamelContextMap.*`"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Removed getCamelContextMap,getCamelContexts methods hint not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00040-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="`org.apache.camel.util.jsse.*` was moved to `org.*`"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Moved jsse classes hint not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00041-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="`org.apache.camel.util.jndi.JndiContext` was moved to `org.*`"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JndiContext moved hint not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00042-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists
+                                    message="An override the `createRegistry` method for beans registration is no longer necessary*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="createRegistry method hint not found"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00043-test">
+            <when>
+                <not>
+                    <iterable-filter size="2">
+                        <hint-exists message="`org.apache.camel.management.event.*` was moved to `org.*`"/>
+                    </iterable-filter>
+                </not>
+            </when>
+            <perform>
+                <fail message="Moved jmx event classes hint not found!"/>
+            </perform>
+        </rule>
+            <rule id="java-generic-information-00044-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="Testing with `adviceWith` changed. It's necessary to use `RouteReifier`*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Moved jmx event classes hint not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00045-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="Routes with multiple inputs such as `.*`"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Multiple inputs route hint not found!"/>
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00046-test">
+                <when>
+                    <not>
+                        <iterable-filter size="6">
+                            <hint-exists message="The functionality to change the simple language tokens for start/end functions has been removed*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-moved-classes] removed Simple Language hint not found." />
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00047-test">
+                <when>
+                    <not>
+                        <iterable-filter size="3">
+                            <hint-exists message="The `uri` attribute in the*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-moved-classes] `uri` attribute deprecated hint not found" />
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00048-test">
+                <when>
+                    <not>
+                        <iterable-filter size="3">
+                            <hint-exists message="The `ref` attribute in the*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-moved-classes] `ref` attribute removed hint not found" />
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00049-test">
+                <when>
+                    <not>
+                        <iterable-filter size="15">
+                            <hint-exists message="The method `org.apache.camel.CamelContext*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-moved-classes] moved CamelContext methods hint not found." />
+                </perform>
+            </rule>
+            <rule id="java-generic-information-00050-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="The duplicate method `org.apache.camel.CamelContext*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[java-moved-classes] duplicate ModelHelper methods hint not found." />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

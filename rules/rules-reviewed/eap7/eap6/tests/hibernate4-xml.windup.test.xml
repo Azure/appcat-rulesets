@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<ruletest xmlns="http://windup.jboss.org/schema/jboss-ruleset" id="hibernate4-xml-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>data/data-hibernate4</testDataPath>
+    <rulePath>../hibernate4-xml.windup.xml</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="hibernate4-xml-00001-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <to-file-model>
+                                <hint-exists
+                                    message=".*Replace configuration transaction property .*hibernate.transaction.factory_class.*" />
+                            </to-file-model>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="There should be hint for property hibernate.transaction.factory_class" />
+                </perform>
+            </rule>
+            <rule id="hibernate4-xml-00002-test">
+                <when>
+                    <not>
+                        <hint-exists message=".*Use .*org.hibernate.id.enhanced.SequenceStyleGenerator.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="There should be hint for generator class!" />
+                </perform>
+            </rule>
+            <rule id="hibernate4-xml-00003-test">
+                <when>
+                    <not>
+                        <hint-exists message="Identifier generator.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="There should be hint for generator shortcut class shortcut!" />
+                </perform>
+            </rule>
+            <rule id="hibernate4-xml-00004-test">
+                <when>
+                    <not>
+                        <hint-exists message="Since Hibernate 5, the .*org.hibernate.hql.spi.TemporaryTableBulkIdStrategy.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="There should be hint for generator shortcut class shortcut!" />
+                </perform>
+            </rule>
+            <rule id="hibernate4-xml-00005-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <to-file-model>
+                                <hint-exists message="Since Hibernate 5, the .*org.hibernate.hql.spi.PersistentTableBulkIdStrategy.*" />
+                            </to-file-model>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="There should be 2 hints for moved PersistentTableBulkIdStrategy class!" />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
