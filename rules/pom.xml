@@ -8,6 +8,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
+    <groupId>com.azure</groupId>
     <artifactId>windup-rulesets</artifactId>
     <name>Windup Rulesets for Azure</name>
 
