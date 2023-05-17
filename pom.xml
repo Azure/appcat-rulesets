@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss</groupId>
+        <artifactId>jboss-parent</artifactId>
+        <version>22</version>
+        <relativePath />
+    </parent>
+
+    <groupId>com.azure</groupId>
+    <artifactId>windup-rulesets-azure-parent</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>Windup Rulesets for Azure Parent</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>rules</module>
+        <module>rules-themed</module>
+    </modules>
+
+    <properties>
+        <windup.scm.connection>scm:git:https://github.com/azure/windup-rulesets.git</windup.scm.connection>
+        <windup.developer.connection>scm:git:git@github.com:azure/windup-rulesets.git</windup.developer.connection>
+        <windup.scm.url>http://github.com/azure/windup-rulesets</windup.scm.url>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <version.windup>1.0.0-SNAPSHOT</version.windup>
+    </properties>
+
+    <scm>
+        <tag>master</tag>
+        <connection>${windup.scm.connection}</connection>
+        <developerConnection>${windup.developer.connection}</developerConnection>
+        <url>${windup.scm.url}</url>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub</system>
+        <url>https://github.com/azure/windup-rulesets/issues</url>
+    </issueManagement>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <repositories>
+      <repository>
+        <id>sonatype-snapshots-repo</id>
+        <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        <releases>
+          <enabled>false</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jboss.windup</groupId>
+                <artifactId>windup-bom</artifactId>
+                <version>${version.windup}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
