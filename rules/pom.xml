@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -162,44 +164,9 @@
         </profile>
 
         <profile>
-            <id>windup</id>
-            <activation>
-                <property>
-                    <name>!downstream</name>
-                </property>
-            </activation>
-            <build>
-                <resources>
-                    <resource>
-                        <filtering>false</filtering>
-                        <directory>labels/windup</directory>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-
-        <profile>
-            <id>azure-cat</id>
-            <activation>
-                <property>
-                    <name>downstream</name>
-                    <value>azure-cat</value>
-                </property>
-            </activation>
-            <build>
-                <resources>
-                    <resource>
-                        <filtering>false</filtering>
-                        <directory>labels/mta</directory>
-                    </resource>
-                </resources>
-            </build>
-        </profile>
-
-        <profile>
             <id>surefire-jdk17</id>
             <activation>
-              <jdk>17</jdk>
+                <jdk>17</jdk>
             </activation>
             <build>
                 <plugins>
@@ -218,6 +185,10 @@
 
     <build>
         <resources>
+            <resource>
+                <filtering>false</filtering>
+                <directory>labels/azure</directory>
+            </resource>
             <resource>
                 <filtering>false</filtering>
                 <directory>rules-reviewed</directory>
@@ -287,39 +258,40 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-               	<artifactId>maven-surefire-plugin</artifactId>
+                <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <!-- http://maven.apache.org/surefire/maven-surefire-plugin/faq.html#late-property-evaluation -->
+                    <!--
+                    http://maven.apache.org/surefire/maven-surefire-plugin/faq.html#late-property-evaluation -->
                     <argLine>@{arguments}</argLine>
                     <excludes>
                         <exclude>**/WindupRulesMultipleTests*</exclude>
                     </excludes>
-               	</configuration>
+                </configuration>
             </plugin>
             <plugin>
-               <groupId>org.apache.maven.plugins</groupId>
-               <artifactId>maven-jar-plugin</artifactId>
-               <configuration>
-                  <includes>
-                     <include>**/*.windup.xml</include>
-                     <include>**/*.technology.metadata.xml</include>
-                     <include>**/*.windup.technologytransformer.xml</include>
-                     <include>**/*.windup.categories.xml</include>
-                     <include>**/*.windup.label.xml</include>
-                     <include>**/*.windup.groovy</include>
-                     <include>**/*.rhamt.xml</include>
-                     <include>**/*.rhamt.groovy</include>
-                     <include>**/*.rhamt.label.xml</include>
-                     <include>**/*.mta.xml</include>
-                     <include>**/*.mta.groovy</include>
-                     <include>**/*.mta.label.xml</include>
-                     <include>eap6/api-jars/*.jar</include>
-                     <include>eap7/api-jars/*.jar</include>
-                     <include>openjdk11/api-jars/*.jar</include>
-                     <include>**/*.xsl</include>
-                     <include>**/rewrite.yml</include>
-                  </includes>
-               </configuration>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*.windup.xml</include>
+                        <include>**/*.technology.metadata.xml</include>
+                        <include>**/*.windup.technologytransformer.xml</include>
+                        <include>**/*.windup.categories.xml</include>
+                        <include>**/*.windup.label.xml</include>
+                        <include>**/*.windup.groovy</include>
+                        <include>**/*.rhamt.xml</include>
+                        <include>**/*.rhamt.groovy</include>
+                        <include>**/*.rhamt.label.xml</include>
+                        <include>**/*.mta.xml</include>
+                        <include>**/*.mta.groovy</include>
+                        <include>**/*.mta.label.xml</include>
+                        <include>eap6/api-jars/*.jar</include>
+                        <include>eap7/api-jars/*.jar</include>
+                        <include>openjdk11/api-jars/*.jar</include>
+                        <include>**/*.xsl</include>
+                        <include>**/rewrite.yml</include>
+                    </includes>
+                </configuration>
             </plugin>
             <!--
             we need to download the CSS files each time we generate the surefire report due to
