@@ -14,6 +14,10 @@
     <artifactId>windup-rulesets</artifactId>
     <name>Windup Rulesets for Azure</name>
 
+    <properties>
+        <azure.tests>rules-reviewed/azure</azure.tests>
+    </properties>
+
     <dependencies>
         <!-- Windup deps -->
         <dependency>
@@ -262,7 +266,7 @@
                 <configuration>
                     <!--
                     http://maven.apache.org/surefire/maven-surefire-plugin/faq.html#late-property-evaluation -->
-                    <argLine>@{arguments}</argLine>
+                    <argLine>-DrunTestsMatching=${azure.tests} @{arguments}</argLine>
                     <excludes>
                         <exclude>**/WindupRulesMultipleTests*</exclude>
                     </excludes>
