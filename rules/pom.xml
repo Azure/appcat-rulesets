@@ -12,7 +12,7 @@
 
     <groupId>com.azure</groupId>
     <artifactId>windup-rulesets</artifactId>
-    <name>Windup Rulesets for Azure</name>
+    <name>Windup Rulesets</name>
 
     <properties>
         <azure.tests>rules-reviewed/azure</azure.tests>
