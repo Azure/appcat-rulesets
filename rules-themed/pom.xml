@@ -67,8 +67,13 @@
         </plugins>
     </build>
 
-    <modules>
-        <module>rules-azure</module>
-    </modules>
+    <profiles>
+        <profile>
+            <id>microsoft</id>
+            <modules>
+                <module>rules-azure</module>
+            </modules>
+        </profile>
+    </profiles>
 
 </project>
