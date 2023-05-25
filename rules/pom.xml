@@ -1,22 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.azure</groupId>
-        <artifactId>windup-rulesets-azure-parent</artifactId>
+        <groupId>org.jboss.windup.rules</groupId>
+        <artifactId>windup-rulesets-parent</artifactId>
         <version>6.3.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.azure</groupId>
     <artifactId>windup-rulesets</artifactId>
     <name>Windup Rulesets</name>
-
-    <properties>
-        <rulesets.test>rules-reviewed/technology-useage,rules-reviewed/azure</rulesets.test>
-    </properties>
 
     <dependencies>
         <!-- Windup deps -->
@@ -136,18 +129,27 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.7</version>
+            <version>1.7.30</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>2.0.7</version>
+            <version>1.7.30</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <profiles>
+        <profile>
+            <id>java7</id>
+            <properties>
+                <arguments>-Xms512m -Xmx4096m -XX:MaxMetaspaceSize=2048m -XX:ReservedCodeCacheSize=128m</arguments>
+            </properties>
+            <activation>
+                <jdk>1.7</jdk>
+            </activation>
+        </profile>
         <profile>
             <id>java8</id>
             <properties>
@@ -168,9 +170,76 @@
         </profile>
 
         <profile>
+            <id>windup</id>
+            <activation>
+                <property>
+                    <name>!downstream</name>
+                </property>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <filtering>false</filtering>
+                        <directory>labels/windup</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>mta</id>
+            <activation>
+                <property>
+                    <name>downstream</name>
+                    <value>mta</value>
+                </property>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <filtering>false</filtering>
+                        <directory>labels/mta</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>tackle</id>
+            <activation>
+                <property>
+                    <name>downstream</name>
+                    <value>tackle</value>
+                </property>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <filtering>false</filtering>
+                        <directory>labels/tackle</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>mtr</id>
+            <activation>
+                <property>
+                    <name>downstream</name>
+                    <value>mtr</value>
+                </property>
+            </activation>
+            <build>
+                <resources>
+                    <resource>
+                        <filtering>false</filtering>
+                        <directory>labels/mtr</directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
             <id>surefire-jdk17</id>
             <activation>
-                <jdk>17</jdk>
+              <jdk>17</jdk>
             </activation>
             <build>
                 <plugins>
@@ -183,18 +252,19 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile>  
+        </profile>
     </profiles>
+
 
     <build>
         <resources>
             <resource>
                 <filtering>false</filtering>
-                <directory>labels/azure</directory>
+                <directory>rules-reviewed</directory>
             </resource>
             <resource>
                 <filtering>false</filtering>
-                <directory>rules-reviewed</directory>
+                <directory>rules-generated</directory>
             </resource>
         </resources>
 
@@ -229,7 +299,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>xml-maven-plugin</artifactId>
-                <version>1.0.2</version>
+                <version>1.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -261,40 +331,39 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
+               	<artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <!--
-                    http://maven.apache.org/surefire/maven-surefire-plugin/faq.html#late-property-evaluation -->
-                    <argLine>-DrunTestsMatching=${rulesets.test} -Dtest=WindupRulesTest @{arguments}</argLine>
+                    <!-- http://maven.apache.org/surefire/maven-surefire-plugin/faq.html#late-property-evaluation -->
+                    <argLine>@{arguments}</argLine>
                     <excludes>
                         <exclude>**/WindupRulesMultipleTests*</exclude>
                     </excludes>
-                </configuration>
+               	</configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <includes>
-                        <include>**/*.windup.xml</include>
-                        <include>**/*.technology.metadata.xml</include>
-                        <include>**/*.windup.technologytransformer.xml</include>
-                        <include>**/*.windup.categories.xml</include>
-                        <include>**/*.windup.label.xml</include>
-                        <include>**/*.windup.groovy</include>
-                        <include>**/*.rhamt.xml</include>
-                        <include>**/*.rhamt.groovy</include>
-                        <include>**/*.rhamt.label.xml</include>
-                        <include>**/*.mta.xml</include>
-                        <include>**/*.mta.groovy</include>
-                        <include>**/*.mta.label.xml</include>
-                        <include>eap6/api-jars/*.jar</include>
-                        <include>eap7/api-jars/*.jar</include>
-                        <include>openjdk11/api-jars/*.jar</include>
-                        <include>**/*.xsl</include>
-                        <include>**/rewrite.yml</include>
-                    </includes>
-                </configuration>
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-jar-plugin</artifactId>
+               <configuration>
+                  <includes>
+                     <include>**/*.windup.xml</include>
+                     <include>**/*.technology.metadata.xml</include>
+                     <include>**/*.windup.technologytransformer.xml</include>
+                     <include>**/*.windup.categories.xml</include>
+                     <include>**/*.windup.label.xml</include>
+                     <include>**/*.windup.groovy</include>
+                     <include>**/*.rhamt.xml</include>
+                     <include>**/*.rhamt.groovy</include>
+                     <include>**/*.rhamt.label.xml</include>
+                     <include>**/*.mta.xml</include>
+                     <include>**/*.mta.groovy</include>
+                     <include>**/*.mta.label.xml</include>
+                     <include>eap6/api-jars/*.jar</include>
+                     <include>eap7/api-jars/*.jar</include>
+                     <include>openjdk11/api-jars/*.jar</include>
+                     <include>**/*.xsl</include>
+                      <include>**/rewrite.yml</include>
+                  </includes>
+               </configuration>
             </plugin>
             <!--
             we need to download the CSS files each time we generate the surefire report due to

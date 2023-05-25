@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<ruleset id="websphere-catchall" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset provides analysis of WebSphere proprietary classes and constructs that may require individual attention when
+            migrating to JBoss EAP 6+. Specifically, this ruleset catches proprietary references that did not have more specific hints or
+            classifications added to them.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,2.7.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-java,2.7.0.Final" />
+        </dependencies>
+        <sourceTechnology id="websphere" />
+        <targetTechnology id="eap" versionRange="[6,8)"/>
+        <phase>PostMigrationRulesPhase</phase>
+    </metadata>
+    <rules>
+        <rule id="websphere-catchall-db2-00000">
+            <when>
+                <javaclass references="com.ibm.db2.jcc.{type}" />
+            </when>
+            <perform>
+                <iteration>
+                    <when>
+                        <not>
+                            <has-hint />
+                        </not>
+                    </when>
+                    <perform>
+                        <hint title="IBM DB2 driver type reference" effort="1" category-id="potential">
+                            <message>
+                                This is a reference to the IBM DB2 driver type (`com.ibm.db2.jcc.{type}`). It probably does not need to be migrated. However the IBM DB2 driver should be configured properly.
+                            </message>
+                            <link href="https://access.redhat.com/solutions/93693" title="Configure datasource settings in EAP 6" />
+                        </hint>
+                    </perform>
+                </iteration>
+            </perform>
+            <where param="type">
+                <matches pattern="[^.]+" />
+            </where>
+        </rule>
+        <rule id="websphere-catchall-00000">
+            <when>
+                <javaclass references="{package}.{type}" />
+            </when>
+            <perform>
+                <iteration>
+                    <when>
+                        <not>
+                            <has-hint />
+                        </not>
+                    </when>
+                    <perform>
+                        <hint title="IBM proprietary type reference" effort="0" category-id="potential">
+                            <message>
+                                This is an IBM proprietary type (`{package}.{type}`) and needs to be migrated to a compatible API. There is currently no detailed
+                                information about this type.
+                            </message>
+                            <tag>catchall</tag>
+                        </hint>
+                    </perform>
+                </iteration>
+            </perform>
+            <where param="package">
+                <matches pattern="(com\.)?(websphere|ibm)(\..*)?" />
+            </where>
+            <where param="type">
+                <matches pattern="[^.]+" />
+            </where>
+        </rule>
+        <rule id="websphere-catchall-00001">
+            <when>
+                <javaclass references="ilog.{subpackage}.{type}" />
+            </when>
+            <perform>
+                <iteration>
+                    <when>
+                        <not>
+                            <has-hint />
+                        </not>
+                    </when>
+                    <perform>
+                        <hint title="IBM ILog proprietary type reference" effort="0" category-id="potential">
+                            <message>
+                                This is an IBM ILog proprietary type (`ilog.{subpackage}.{type}`) and needs to be migrated to a compatible API. There is currently no detailed
+                                information about this type.
+                            </message>
+                            <tag>catchall</tag>
+                        </hint>
+                    </perform>
+                </iteration>
+            </perform>
+            <where param="subpackage">
+                <matches pattern=".*" />
+            </where>
+            <where param="type">
+                <matches pattern="[^.]+" />
+            </where>
+        </rule>
+    </rules>
+</ruleset>

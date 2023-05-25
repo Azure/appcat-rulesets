@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<ruletest xmlns="http://windup.jboss.org/schema/jboss-ruleset">
+    <testDataPath>data</testDataPath>
+    <rulePath>../</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="websphere-jms-eap7-00000-test">
+                <when>
+                    <not>
+                        <classification-exists classification="IBM JMS" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="IBM JMS Classification not found" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-01000-test-1">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsTopicConnectionFactory" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsTopicConnectionFactory was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-01000-test-2">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsQueueConnectionFactory.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsQueueConnectionFactory was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-01000-test-3">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsConnectionFactory .*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsConnectionFactory was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-01000-test-4">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsXAConnectionFactory .*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsXAConnectionFactory was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-01000-test-5">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsXAQueueConnectionFactory .*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsXAQueueConnectionFactory was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-01000-test-6">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsXATopicConnectionFactory .*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsXATopicConnectionFactory was not detected" />
+                </perform>
+            </rule>
+
+
+
+            <rule id="websphere-jms-eap7-02000-test-1">
+                <when>
+                    <not>
+                        <hint-exists message="IBM JMS API Producers are.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsMsgProducer was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-02000-test-2">
+                <when>
+                    <not>
+                        <hint-exists message="IBM JMS API Consumers are.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsMsgConsumer was not detected" />
+                </perform>
+            </rule>
+
+
+            <rule id="websphere-jms-eap7-03000-test-1">
+                <when>
+                    <not>
+                        <hint-exists message=".*JMSBytesMessage.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JMSBytesMessage was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-03000-test-2">
+                <when>
+                    <not>
+                        <hint-exists message=".*JMSMapMessage.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JMSMapMessage was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-03000-test-3">
+                <when>
+                    <not>
+                        <hint-exists message=".*JMSMessage.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JMSMessage was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-03000-test-4">
+                <when>
+                    <not>
+                        <hint-exists message=".*JMSStreamMessage.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JMSStreamMessage was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-03000-test-32">
+                <when>
+                    <not>
+                        <hint-exists message=".*JMSTextMessage.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JMSTextMessage was not detected" />
+                </perform>
+            </rule>
+
+
+
+            <rule id="websphere-jms-eap7-04000-test-1">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsTopic.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsTopic was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-2">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsQueue.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsQueue was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-3">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsDestination.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsDestination was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-4">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsConnection.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsConnection was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-5">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsConnectionMetaData.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsConnectionMetaData was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-6">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsDestination.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsDestination was not detected" />
+                </perform>
+            </rule>
+
+            <rule id="websphere-jms-eap7-04000-test-7">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsQueue.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsQueue was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-8">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsQueueBrowser.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsQueueBrowser was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-9">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsQueueConnection.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsQueueConnection was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-10">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsQueueReceiver.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsQueueReceiver was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-11">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsQueueSender.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsQueueSender was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-12">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsQueueSession.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsQueueSession was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-13">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsSession.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsSession was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-14">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsTemporaryQueue.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsTemporaryQueue was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-15">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsTemporaryTopic.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsTemporaryTopic was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-16">
+                <when>
+                    <not>
+                        <hint-exists message=".*com.ibm.msg.client.jms.JmsTopicPublisher.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsTopic was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-17">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsTopicConnection.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsTopicConnection was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-18">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsTopicPublisher.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsTopicPublisher was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-19">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsTopicSession.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsTopicSession was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-20">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsTopicSubscriber.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsTopicSubscriber was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-21">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsXAConnection.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsXAConnection was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-22">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsXAQueueConnection.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsXAQueueConnection was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-23">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsXAQueueSession.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsXAQueueSession was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-24">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsXASession.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsXASession was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-25">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsXATopicConnection.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsXATopicConnection was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-26">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsXATopicSession.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsXATopicSession was not detected" />
+                </perform>
+            </rule>
+            <rule id="websphere-jms-eap7-04000-test-27">
+                <when>
+                    <not>
+                        <hint-exists message=".*JmsTopicPublisher.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JmsTopicPublisher was not detected" />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

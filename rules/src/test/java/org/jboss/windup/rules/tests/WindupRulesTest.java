@@ -8,10 +8,10 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
@@ -110,7 +110,7 @@ public class WindupRulesTest
     @Inject
     private WindupProcessor processor;
 
-    private Map<String, Pattern> testToExecutePatterns = new HashMap<>();
+    private Pattern testToExecutePattern;
 
     @Test
     public void testWindupRules()
@@ -263,20 +263,14 @@ public class WindupRulesTest
     private boolean shouldExecuteTest(File testFile)
     {
         String testToExecute = System.getProperty(RUN_TEST_MATCHING);
-
         if (StringUtils.isBlank(testToExecute))
             return true;
 
-        if (testToExecutePatterns.isEmpty()) 
-            List.of(testToExecute.split(",")).forEach(test -> testToExecutePatterns.put(test, Pattern.compile(test)));
+        if (testToExecutePattern == null)
+            testToExecutePattern = Pattern.compile(testToExecute);
 
-        boolean foundAny = testToExecutePatterns.values()
-                                                .stream()
-                                                .map((testToExecutePattern) -> testToExecutePattern.matcher(testFile.toString()).find())
-                                                .filter(v -> Boolean.TRUE.equals(v))
-                                                .count() > 0;
-        
-        if (!foundAny)
+        Matcher m = testToExecutePattern.matcher(testFile.toString());
+        if (!m.find())
         {
             LOG.info("Skipping test: " + testFile + " as it does not match pattern: " + testToExecute);
             return false;

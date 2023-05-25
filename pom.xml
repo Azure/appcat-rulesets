@@ -9,11 +9,11 @@
         <relativePath />
     </parent>
 
-    <groupId>com.azure</groupId>
-    <artifactId>windup-rulesets-azure-parent</artifactId>
+    <groupId>org.jboss.windup.rules</groupId>
+    <artifactId>windup-rulesets-parent</artifactId>
     <version>6.3.0-SNAPSHOT</version>
 
-    <name>Windup Rulesets for Azure Parent</name>
+    <name>Windup Rulesets Parent</name>
     <packaging>pom</packaging>
 
     <modules>
@@ -22,9 +22,9 @@
     </modules>
 
     <properties>
-        <windup.scm.connection>scm:git:https://github.com/azure/windup-rulesets.git</windup.scm.connection>
-        <windup.developer.connection>scm:git:git@github.com:azure/windup-rulesets.git</windup.developer.connection>
-        <windup.scm.url>http://github.com/azure/windup-rulesets</windup.scm.url>
+        <windup.scm.connection>scm:git:https://github.com/windup/windup-rulesets.git</windup.scm.connection>
+        <windup.developer.connection>scm:git:git@github.com:windup/windup-rulesets.git</windup.developer.connection>
+        <windup.scm.url>http://github.com/windup/windup-rulesets</windup.scm.url>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
@@ -40,9 +40,21 @@
     </scm>
 
     <issueManagement>
-        <system>GitHub</system>
-        <url>https://github.com/azure/windup-rulesets/issues</url>
+        <system>JBoss Jira</system>
+        <url>https://issues.jboss.org/browse/WINDUP</url>
     </issueManagement>
+    <mailingLists>
+        <mailingList>
+            <name>Windup Rules Development and Usage</name>
+            <post>windup-users@lists.jboss.org</post>
+            <archive>http://lists.jboss.org/pipermail/windup-users/</archive>
+        </mailingList>
+        <mailingList>
+            <name>Windup Core Development</name>
+            <post>windup-dev@lists.jboss.org</post>
+            <archive>http://lists.jboss.org/pipermail/windup-dev/</archive>
+        </mailingList>
+    </mailingLists>
 
     <distributionManagement>
         <snapshotRepository>

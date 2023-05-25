@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<ruleset xmlns="http://windup.jboss.org/schema/jboss-ruleset" id="hibernate-xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+
+    <metadata>
+        <description>
+            This ruleset provides analysis of Hibernate older version xml configuration files and their migration to newer one.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,2.3.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-java,2.3.0.Final" />
+        </dependencies>
+        <sourceTechnology id="hibernate" versionRange="[,3.9)" />
+        <targetTechnology id="hibernate" versionRange="[4,)" />
+        <tag>hibernate</tag>
+        <tag>configuration</tag>
+    </metadata>
+
+    <rules>
+        <rule id="hibernate-xml-01000">
+            <when>
+                <xmlfile as="1" matches="/hibernate-mapping" />
+                <xmlfile as="2" matches="//*[@type='string']" from="1" />
+            </when>
+            <perform>
+                <iteration over="2">
+                    <hint title="Hibernate: Deprecated 'string' CLOB data type" effort="1" category-id="mandatory">
+                        <message>In versions of Hibernate prior to 3.5, text type was mapped to JDBC CLOB. A new Hibernate type, `materialized_clob`, was added in Hibernate 4 to map Java `String` properties to JDBC CLOB</message>
+                        <link href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/index#Migrate_Your_Hibernate_3.5.x_Application_to_Hibernate_4.x" title="Hibernate 3 to 4 - JDBC CLOB migration" />
+                        <tag>hibernate</tag>
+                        <tag>configuration</tag>
+                    </hint>
+                </iteration>
+            </perform>
+        </rule>
+	<rule id="hibernate-xml-02000">
+            <when>
+               <xmlfile as="1" matches="/hibernate-configuration" />
+               <xmlfile as="2" matches="//property[@name='hibernate.jdbc.use_streams_for_binary']" from="1" />
+            </when>
+            <perform>
+                <iteration over="2">
+                    <hint title="hibernate.jdbc.use_streams_for_binary must be set according to the provider" effort="1" category-id="mandatory">
+                         <message><![CDATA[
+                        If you are using Oracle and using the ```materialized_clob``` or ```materialized_blob``` properties, this global environment variable must be set to true.
+			If you are using PostgreSQL and using the CLOB or BLOB properties, this global environment variable  must be set to false.
+                    ]]></message>
+                        <link href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/index#Migrate_Your_Hibernate_3.5.x_Application_to_Hibernate_4.x" title="Hibernate 3.5 to 4 - properties" />
+                        <tag>hibernate</tag>
+                        <tag>configuration</tag>
+                    </hint>
+                </iteration>
+            </perform>
+        </rule>
+        <rule id="hibernate-xml-03000">
+            <when>
+               <filecontent filename="hibernate-configuration.xml" pattern="org.hibernate.connection"/>
+            </when>
+            <perform>
+                 <hint title="Hibernate: Removed package org.hibernate.connection" effort="1" category-id="mandatory">
+                     <message>From Hibernate 4.0 there were moved classes from package `org.hibernate.connection` to package `org.hibernate.service.jdbc.connections.internal`.
+                     You should change your Hibernate setup to replace references to the old package names.
+                     </message>
+                     <tag>hibernate</tag>
+                     <tag>configuration</tag>
+                     <quickfix name="hibernate-connection" type="REPLACE">
+                        <replacement>org.hibernate.service.jdbc.connections.internal.</replacement>
+                        <search>org.hibernate.connection.</search>
+                     </quickfix>
+                 </hint>
+            </perform>
+        </rule>
+        <rule id="hibernate-xml-04000">
+            <when>
+                <xmlfile  system-id="http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd" />
+            </when>
+            <perform>
+                 <classification issue-display-mode="all" title="Hibernate: Deprecated dtd configuration namespace" category-id="mandatory" effort="1" >
+                    <description> Hibernate 4.0 uses http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd instead.
+                     </description>
+                     <link href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/index#Migrate_Your_Hibernate_3.5.x_Application_to_Hibernate_4.x" title="Hibernate 3.5 to 4 - DTD" />
+                     <tag>hibernate</tag>
+                     <tag>configuration</tag>
+                 </classification>
+            </perform>
+        </rule>
+        <rule id="hibernate-xml-05000">
+            <when>
+                <xmlfile system-id="http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" />
+            </when>
+            <perform>
+                 <classification issue-display-mode="all" title="Hibernate: Deprecated dtd mapping namespace" category-id="mandatory" effort="1" >
+                    <description> Hibernate 4.0 uses http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd instead.
+                     </description>
+                     <link href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/6.4/html-single/migration_guide/index#Migrate_Your_Hibernate_3.5.x_Application_to_Hibernate_4.x" title="Hibernate 3.5 to 4 - DTD" />
+                     <tag>hibernate</tag>
+                     <tag>configuration</tag>
+                 </classification>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>

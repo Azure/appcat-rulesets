@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<ruletest xmlns="http://windup.jboss.org/schema/jboss-ruleset" id="weblogic-catchall-tests">
+    <testDataPath>data-catchall</testDataPath>
+    <rulePath>../weblogic-catchall.windup.xml</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="weblogic-catchall-01000-test">
+                <when>
+                    <not>
+                        <hint-exists message="This is a WebLogic proprietary type .*com\.bea\.BeaImport.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="com.bea catchall hint not found" />
+                </perform>
+            </rule>
+            <rule id="weblogic-catchall-02000-test">
+                <when>
+                    <not>
+                        <hint-exists message="This is an Oracle proprietary type .*com\.oracle\.ProprietaryOracleClass.*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="com.oracle.* catchall hint not found" />
+                </perform>
+            </rule>
+            <rule id="weblogic-catchall-03000-test">
+                <when>
+                    <not>
+                        <hint-exists message="This is an Oracle proprietary type .*com\.tangosol\..*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="com.tangosol catchall hint not found" />
+                </perform>
+            </rule>
+            <rule id="weblogic-catchall-04000-test">
+                <when>
+                    <not>
+                        <hint-exists message="This is a WebLogic proprietary type \(.*com\.weblogic\..*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="com.weblogic catchall hint not found" />
+                </perform>
+            </rule>
+            <rule id="weblogic-catchall-05000-test">
+                <when>
+                    <not>
+                        <hint-exists message="This is a WebLogic proprietary type .*bea\..*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="bea.* catchall hint not found" />
+                </perform>
+            </rule>
+            <rule id="weblogic-catchall-06000-test">
+                <when>
+                    <not>
+                        <hint-exists message="This is an Oracle proprietary type \(`oracle\..*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="oracle.* catchall hint not found" />
+                </perform>
+            </rule>
+            <rule id="weblogic-catchall-07000-test">
+                <when>
+                    <not>
+                        <hint-exists message=".*oracle.sql\..*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="oracle.sql.* catchall hint not found" />
+                </perform>
+            </rule>
+            <rule id="weblogic-catchall-08000-test">
+                <when>
+                    <not>
+                        <hint-exists message="This is a WebLogic proprietary type \(`weblogic\..*" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="weblogic.* catchall hint not found" />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

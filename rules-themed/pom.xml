@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.azure</groupId>
-        <artifactId>windup-rulesets-azure-parent</artifactId>
+        <groupId>org.jboss.windup.rules</groupId>
+        <artifactId>windup-rulesets-parent</artifactId>
         <version>6.3.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.azure</groupId>
     <artifactId>windup-rulesets-themed</artifactId>
     <name>Windup Rulesets Themed Parent</name>
     <packaging>pom</packaging>
@@ -35,13 +32,13 @@
                             <phase>prepare-package</phase>
                             <configuration>
                                 <artifactItems>
-                                    <artifactItem>
-                                        <groupId>org.jboss.windup.rules</groupId>
-                                        <artifactId>windup-rulesets</artifactId>
-                                        <version>${project.version}</version>
-                                        <outputDirectory>${project.build.outputDirectory}</outputDirectory>
-                                    </artifactItem>
-                                </artifactItems>
+                                     <artifactItem>
+                                         <groupId>org.jboss.windup.rules</groupId>
+                                         <artifactId>windup-rulesets</artifactId>
+                                         <version>${project.version}</version>
+                                         <outputDirectory>${project.build.outputDirectory}</outputDirectory>
+                                     </artifactItem>
+                               </artifactItems>
                             </configuration>
                         </execution>
                     </executions>
@@ -56,19 +53,46 @@
                 <inherited>false</inherited>
                 <executions>
                     <execution>
-                        <!--This
-                        matches and thus overrides execution defined above -->
+                        <!--This matches and thus overrides execution defined above -->
                         <id>unpack</id>
                         <!-- Unbind from lifecycle for this POM -->
-                        <phase />
+                        <phase/>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
 
-    <modules>
-        <module>rules-azure</module>
-    </modules>
+    <profiles>
+        <profile>
+            <id>windup</id>
+            <activation>
+                <property>
+                    <name>!skipThemeWindup</name>
+                </property>
+            </activation>
+            <modules>
+                <module>rules-windup</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>tackle</id>
+            <modules>
+                <module>rules-tackle</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>mtr</id>
+            <modules>
+                <module>rules-mtr</module>
+            </modules>
+        </profile>
+        <profile>
+            <id>mta</id>
+            <modules>
+                <module>rules-mta</module>
+            </modules>
+        </profile>
+    </profiles>
 
 </project>

@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<ruletest id="xml-moved-components-tests"
+        xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>data/xml-moved-components/application0</testDataPath>
+    <rulePath>../xml-moved-components.windup.xml</rulePath>
+    <rulePath>../xml-moved-components.windup.groovy</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="xml-moved-components-groovy-00000-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="`*camel-bean`, `camel-browse`, `camel-controlbus`, `camel-dataformat`, `camel-dataset`, `camel-direct-vm`, `camel-direct`, `camel-file`, `camel-language`, `camel-log`, `camel-ref`, `camel-rest`, `camel-scheduler`, `camel-stub`, `camel-timer`, `camel-validator`, `camel-vm`, `camel-xslt`, `camel-zip-deflater.*`" />
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[xml-moved-components] Camel dependency moved hint was not found!"/>
+                </perform>
+            </rule>
+
+            <rule id="xml-moved-components-00012-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="All the classes from `org.apache.camel.util.component.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="All the classes from `org.apache.camel.util.component`have been moved "/>
+                </perform>
+            </rule>
+            <rule id="xml-moved-components-00013-test">
+                <when>
+                    <not>
+                        <iterable-filter size="3">
+                            <hint-exists message="The class `org.apache.camel.impl.*` has been moved to `org.apache.camel.impl.engine`.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="All the classes from `org.apache.camel.util.component`.* "/>
+                </perform>
+            </rule>
+            <rule id="xml-moved-components-00014-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="The class `org.apache.camel.main.Main` has been moved out of `org.apache.camel:camel-core` and into its own JAR named `org.apache.camel:camel-main`*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="`org.apache.camel.main.Main` dependency move hint not found! "/>
+                </perform>
+            </rule>
+            <rule id="xml-moved-components-00015-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="If you run Camel standalone with just `camel-core` as a dependency, and you want JMX enabled out of the box, then you need to add `org.apache.camel:camel-management` as a dependency.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JMX dependency move hint not found! "/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<ruleset xmlns="http://windup.jboss.org/schema/jboss-ruleset" id="springboot-di-to-quarkus"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset gives hints to migrate from SpringBoot DI to Quarkus spring-di extension
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final" />
+        </dependencies>
+        <sourceTechnology id="springboot" />
+        <targetTechnology id="quarkus" />
+    </metadata>
+    <rules>
+        <rule id="springboot-di-to-quarkus-00000">
+            <when>
+                <dependency groupId="org.springframework" artifactId="spring-beans"/>
+            </when>
+            <perform>
+                <hint title="Replace the SpringBoot Dependency Injection artifact with Quarkus 'spring-di' extension" effort="1" category-id="potential">
+                    <message>
+                        Replace the SpringBoot Dependency Injection artifact with Quarkus `spring-di` extension
+
+                        Spring DI is in spring-beans artifact brought transitively by any `org.springframework.boot:spring-boot-*` dependency
+                        Add Quarkus dependency `io.quarkus:quarkus-spring-di`
+                    </message>
+                    <link title="Quarkus DI Guide" href="https://quarkus.io/guides/spring-di" />
+                </hint>
+            </perform>
+        </rule>
+        <!-- WINDUPRULE-885 -->
+        <rule id="springboot-di-to-quarkus-00001">
+            <when>
+                <or>
+                    <xmlfile matches="//*/b:bean/@class">
+                             <namespace prefix="b" uri="http://www.springframework.org/schema/beans"/>
+                    </xmlfile>
+                    <xmlfile matches="//*/c:annotation-config">
+                                <namespace prefix="c" uri="http://www.springframework.org/schema/context"/>
+                    </xmlfile>
+                </or>
+            </when>
+            <perform>
+                <hint title="For Spring DI the XML-based bean configuration metadata is not supported by Quarkus " effort="1" category-id="mandatory">
+                    <message>Quarkus only supports the java-based configuration of Spring beans.</message>
+                    <link title="Quarkus Extension for Spring DI API- Guide " href="https://quarkus.io/guides/spring-di"/>
+                    <link title="Quarkus Extension for Spring DI API - Technical Limitations" href="https://quarkus.io/guides/spring-di#important-technical-note"/>
+                </hint>
+            </perform>
+        </rule>
+        <!-- WINDUPRULE-886 -->
+        <rule id="springboot-di-to-quarkus-00002">
+            <when>
+                <javaclass references="org.springframework.beans.factory.config.BeanFactoryPostProcessor">
+                    <location>IMPLEMENTS_TYPE</location>
+                </javaclass>
+                <javaclass references="org.springframework.beans.factory.config.BeanPostProcessor">
+                    <location>IMPLEMENTS_TYPE</location>
+                </javaclass>
+                <javaclass references="org.springframework.beans.factory.config.DestructionAwareBeanPostProcessor">
+                    <location>IMPLEMENTS_TYPE</location>
+                </javaclass>
+                <javaclass references="org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessor">
+                    <location>IMPLEMENTS_TYPE</location>
+                </javaclass>
+                <javaclass references="org.springframework.beans.factory.config.SmartInstantiationAwareBeanPostProcessor">
+                    <location>IMPLEMENTS_TYPE</location>
+                </javaclass>
+            </when>
+            <perform>
+                <hint title="Spring DI infrastructure classes not supported by Quarkus" effort="3" category-id="mandatory">
+                    <message>Spring infrastructure classes (like `org.springframework.beans.factory.config.BeanPostProcessor` , `org.springframework.context.ApplicationContext` for example) will not be executed.</message>
+                    <link title="Quarkus DI Guide - important technical note" href="https://quarkus.io/guides/spring-di#important-technical-note"/>
+                </hint>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>

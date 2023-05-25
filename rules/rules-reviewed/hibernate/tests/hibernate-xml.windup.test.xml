@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<ruletest id="weblogic-xml-descriptors-tests" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+
+    <testDataPath>data</testDataPath>
+    <rulePath>../</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="hibernate-xml-01000-test">
+                <when>
+                    <not>
+                        <hint-exists message="In versions of Hibernate prior to 3.5, text type was mapped to JDBC CLOB.*" in="hibernate-mapping.xml" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Hibernate deprecated string type hint not found!" />
+                </perform>
+            </rule>
+            <rule id="hibernate-xml-01000-test2">
+                <when>
+                    <hint-exists message="In versions of Hibernate prior to 3.5, text type was mapped to JDBC CLOB.*" in="hibernate-fake-mapping.xml" />
+                </when>
+                <perform>
+                    <fail message="Hibernate deprecated string type hint not found!" />
+                </perform>
+            </rule>
+	       <rule id="hibernate-xml-02000">
+                <when>
+			<not>
+                    		<hint-exists message="If you are using Oracle and using the" />
+			</not>
+                </when>
+                <perform>
+                    <fail message="Hibernate properties configuration hint not found!" />
+                </perform>
+            </rule>
+            <rule id="hibernate-xml-03000">
+                <when>
+                    <not>
+                        <hint-exists message="From Hibernate 4.0 there were moved classes from package .*org.hibernate.connection.*"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Hibernate hint for Removed package org.hibernate.connection was not found!"/>
+                </perform>
+            </rule>
+            <rule id="hibernate-xml-04000">
+                <when>
+                    <not>
+                        <classification-exists classification="Hibernate: Deprecated dtd configuration namespace"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Hibernate deprecated DTD configuration namespace not catched!"/>
+                </perform>
+            </rule>
+            <rule id="hibernate-xml-05000">
+                <when>
+                    <not>
+                        <classification-exists classification="Hibernate: Deprecated dtd mapping namespace"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Hibernate deprecated DTD mapping namespace not catched!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
