@@ -11,14 +11,10 @@ jobs:
   windup-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout WindUp upstream repo
-        uses: actions/checkout@v3
-        with:
-          repository: https://devdiv.visualstudio.com/DefaultCollection/DevDiv/_git/JEG-windup         
-          token: ${{ secrets.GH }}
-          github-server-url: https://devdiv.visualstudio.com/
-          ref: refs/heads/main
-          persist-credentials: false
+      - name: Checkout JEG windup Azdo repo       
+        run: 'git clone https://kthatipally:${{secrets.GH}}@devdiv.visualstudio.com/DefaultCollection/DevDiv/_git/JEG-windup'
+        shell: bash
+
       - name: Set up MS Build of OpenJDK 11
         uses: actions/setup-java@v3
         with:
