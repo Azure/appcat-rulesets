@@ -14,7 +14,7 @@ jobs:
       - name: Checkout WindUp upstream repo
         uses: actions/checkout@v3
         with:
-          repository: JEG-windup         
+          repository: DevDiv/JEG-windup         
           token: ${{ secrets.GH }}
           github-server-url: https://devdiv.visualstudio.com/DevDiv/_git/
       - name: Set up MS Build of OpenJDK 11
