@@ -26,12 +26,11 @@ jobs:
             path: ~/.m2/repository
             key: ${{ runner.os }}-maven-azure-windup-build-${{ github.sha }}
             restore-keys:
-                ${{ runner.os }}-maven-azure-windup-build
-      - name: List all the files      
-        run: 'ls'
-        shell: bash
-      - name: Build WindUp
+                ${{ runner.os }}-maven-azure-windup-build      
+
+      - name: Build WindUp        
         run: ./mvnw -B clean install -DskipTests
+        working-directory: JEG-windup
 
   windup-rules-test:
     runs-on: ubuntu-latest
