@@ -16,7 +16,7 @@ jobs:
         with:
           repository: DevDiv/JEG-windup         
           token: ${{ secrets.GH }}
-          github-server-url: kthatipally@https://devdiv.visualstudio.com/DevDiv/_git/
+          github-server-url: kthatipally@https://devdiv.visualstudio.com/
           ref: refs/heads/main
           persist-credentials: false
       - name: Set up MS Build of OpenJDK 11
