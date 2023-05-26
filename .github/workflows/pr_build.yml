@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - master
-      - 'releases/**'
+      - main    
 
 jobs:
 
@@ -15,8 +14,8 @@ jobs:
       - name: Checkout WindUp upstream repo
         uses: actions/checkout@v3
         with:
-          repository: windup/windup
-          ref: ${{ github.base_ref }}
+          repository: DevDiv/JEG-windup
+          ref: refs/heads/main
       - name: Set up MS Build of OpenJDK 11
         uses: actions/setup-java@v3
         with:
