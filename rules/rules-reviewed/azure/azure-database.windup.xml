@@ -14,6 +14,7 @@
         <targetTechnology id="azure-appservice"/>
         <targetTechnology id="azure-aks"/>
         <targetTechnology id="azure-container-apps"/>
+        <executeAfter>database</executeAfter>
         <tag>database</tag>
     </metadata>
     <rules>
