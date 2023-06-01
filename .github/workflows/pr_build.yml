@@ -11,8 +11,8 @@ on:
     pull_request:
         branches:
             - main
-            
-jobs:    
+
+jobs:
     windup-build:
         runs-on: ubuntu-latest
         steps:
@@ -46,7 +46,8 @@ jobs:
                 tests-pattern: ['rules-reviewed/[a-d]', 'rules-reviewed/eap6', 'rules-reviewed/eap7', 'rules-reviewed/eap8', 'rules-reviewed/eapxp', 'rules-reviewed/\(\(e[^a]\)\|[f-s]\)', 'rules-reviewed/technology-usage/tests/[0-9,a-i]', 'rules-reviewed/technology-usage/tests/[j-z]', 'rules-reviewed/[u-z]', 'rules-generated/']
                 java-version: [ 11, 17 ]
         steps:
-            - uses: actions/checkout@v3
+            - name: Checkout windup-rulesets
+              uses: actions/checkout@v3
             - name: Set up MS Build of OpenJDK
               uses: actions/setup-java@v3
               with:
@@ -69,10 +70,11 @@ jobs:
         needs: [windup-build]
         strategy:
             fail-fast: false
-            matrix:                
+            matrix:
                 java-version: [ 11, 17 ]
         steps:
-            - uses: actions/checkout@v3
+            - name: Checkout windup-rulesets
+              uses: actions/checkout@v3
             - name: Set up MS Build of OpenJDK 11
               uses: actions/setup-java@v3
               with:
