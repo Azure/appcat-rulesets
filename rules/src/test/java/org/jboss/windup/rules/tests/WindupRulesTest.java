@@ -122,7 +122,8 @@ public class WindupRulesTest
         Arrays.asList(
                 new File("rules"),
                 new File("rules-reviewed"),
-                new File("rules-generated")
+                new File("rules-generated"),
+                new File("rules-overridden-azure")
         ).forEach(directory ->
                 {
                     Visitor<File> visitor = new RuleTestVisitor(successes, errors, directory);

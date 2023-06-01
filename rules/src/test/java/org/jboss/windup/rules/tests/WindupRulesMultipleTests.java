@@ -24,8 +24,6 @@ import org.jboss.windup.exec.configuration.options.SourceOption;
 import org.jboss.windup.exec.configuration.options.TargetOption;
 import org.jboss.windup.graph.GraphContext;
 import org.jboss.windup.graph.GraphContextFactory;
-import org.jboss.windup.graph.model.ProjectModel;
-import org.jboss.windup.graph.model.resource.FileModel;
 import org.jboss.windup.reporting.model.rule.ExecutionPhaseModel;
 import org.jboss.windup.reporting.model.rule.RuleExecutionModel;
 import org.jboss.windup.reporting.ruleexecution.RuleExecutionResultsListener;
@@ -109,7 +107,8 @@ public class WindupRulesMultipleTests {
         Arrays.asList(
                 new File("rules"),
                 new File("rules-reviewed"),
-                new File("rules-generated")
+                new File("rules-generated"),
+                new File("rules-overridden-azure")
         ).forEach(directory ->
                 {
                     FileVisit.visit(directory, predicateTrick).stream()
