@@ -1,23 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ruletest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0"?>
+<ruletest id="xml-dsl-changes-tests"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
-          id="database-test"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
-
-    <testDataPath>data/database</testDataPath>
-    <rulePath>../database.windup.xml</rulePath>
+    <testDataPath>data/xml-33-changes</testDataPath>
+    <rulePath>../xml-33-changes.windup.xml</rulePath>
     <ruleset>
         <rules>
-            <rule id="database-01700-test">
+            <rule id="java-camel33-00001">
                 <when>
                     <not>
                         <iterable-filter size="1">
-                            <hint-exists message="PostgreSQL database found"/>
+                            <hint-exists message="The dump model classes in package org.apache.camel.support.dump have been removed as they were not in use by Camel*"/>
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="PostgreSQL database found hint was not found!"/>
+                    <fail message="[java-camel33-00001] hint not found"/>
                 </perform>
             </rule>
         </rules>
