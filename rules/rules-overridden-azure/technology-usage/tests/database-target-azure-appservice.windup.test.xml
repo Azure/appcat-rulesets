@@ -3,9 +3,10 @@
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
           id="database-test"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
-
-    <testDataPath>data/database</testDataPath>
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/database</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/database.windup.groovy</rulePath>
     <rulePath>../database.windup.xml</rulePath>
+    <target>azure-appservice</target>
     <ruleset>
         <rules>
             <rule id="database-01700-test">
