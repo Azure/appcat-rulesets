@@ -9,6 +9,17 @@
     <target>discovery</target>
     <ruleset>
         <rules>
+            <rule id="database-target-discovery-01400-test">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded MySQL Driver"/>
+                        <technology-tag-exists technology-tag="MySQL Driver"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="MySQL database found hint was not found!"/>
+                </perform>
+            </rule>
             <rule id="database-target-discovery-01700-test">
                 <when>
                     <not>
@@ -18,6 +29,17 @@
                 </when>
                 <perform>
                     <fail message="PostgreSQL database found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="database-target-discovery-01900-test">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded Microsoft SQL Driver"/>
+                        <technology-tag-exists technology-tag="Microsoft SQL Driver"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule database-01900"/>
                 </perform>
             </rule>
         </rules>
