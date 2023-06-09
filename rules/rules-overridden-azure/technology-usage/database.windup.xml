@@ -19,6 +19,38 @@
         <overrideRules>true</overrideRules>
     </metadata>
     <rules>
+        <rule id="database-01400">
+            <when>
+                <file filename="{*}mysql-connector{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="MySQL database found" category-id="potential" effort="3">
+                    <message>
+                        To migrate a Java application that uses a MySQL database to Azure, you can follow these recommendations:
+
+                        * Use a managed **Azure Database for MySQL**: For that create a managed MySQL database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+                        * **Migrate** the existing MySQL database: For that you can use the Azure Database Migration Service (DMS) to perform an online migration with minimal downtime.
+
+                        * Update the application's **database connection** details: Modify the Java application's configuration to point to the newly provisioned Azure Database for MySQL. Update the connection string, hostname, port, username, and password information accordingly.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying MySQL database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+                        * Implement **security** measures: Apply security best practices to protect your Java application and the MySQL database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+                        * **Backup** your data: Azure Database for MySQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
+                    </message>
+                    <link title="Azure Database for MySQL" href="https://azure.microsoft.com/products/mysql"/>
+                    <link title="Azure Database for MySQL documentation" href="https://learn.microsoft.com/azure/mysql/"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                    <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                    <link title="Backup and restore in Azure Database for MySQL" href="https://learn.microsoft.com/azure/mysql/single-server/concepts-backup"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">MySQL Driver</technology-tag>
+            </perform>
+        </rule>
         <rule id="database-01700">
             <when>
                 <file filename="{*}postgresql{*}.jar"/>
@@ -26,14 +58,64 @@
             <perform>
                 <hint title="PostgreSQL database found" category-id="potential" effort="3">
                     <message>
-                        PostgreSQL database found.
-                        
-                        Consider using Azure PostgreSQL Flexible Server.
+                        To migrate a Java application that uses a PostgreSQL database to Azure, you can follow these recommendations:
+
+                        * Use a managed **Azure Database for PostgreSQL Flexible Server**: For that create a managed PostgreSQL Flexible Server database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+                        * **Migrate** the existing PostgreSQL database: For that you can use the Azure Database Migration Service (DMS) to perform an online migration with minimal downtime.
+
+                        * Update the application's **database connection** details: Modify the Java application's configuration to point to the newly provisioned Azure Database for PostgreSQL. Update the connection string, hostname, port, username, and password information accordingly.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying PostgreSQL database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+                        * Implement **security** measures: Apply security best practices to protect your Java application and the PostgreSQL database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+                        * **Backup** your data: Azure Database for PostgreSQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
                     </message>
                     <link title="Azure Database for PostgreSQL" href="https://azure.microsoft.com/products/postgresql"/>
-                    <link title="Flexible Server documentation" href="https://learn.microsoft.com/azure/postgresql/flexible-server"/>
+                    <link title="PostgreSQL Flexible Server documentation" href="https://learn.microsoft.com/azure/postgresql/flexible-server"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                    <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                    <link title="Backup and restore in Azure Database for PostgreSQL" href="https://learn.microsoft.com/azure/postgresql/single-server/concepts-backup"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">PostgreSQL Driver</technology-tag>
+            </perform>
+        </rule>
+        <rule id="database-01900">
+            <when>
+                <or>
+                    <file filename="sqljdbc{*}.jar"/>
+                    <file filename="mssql-jdbc{*}.jar"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="Microsoft SQL database found" category-id="potential" effort="3">
+                    <message>
+                        To migrate a Java application that uses a Microsoft SQL database to Azure, you can follow these recommendations:
+
+                        * Use a managed **Azure SQL**: For that create a managed Azure SQL database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+                        * **Migrate** the existing Microsoft SQL database: For that you can use the Azure Database Migration Service (DMS) to perform an online migration with minimal downtime.
+
+                        * Update the application's **database connection** details: Modify the Java application's configuration to point to the newly provisioned Azure SQL. Update the connection string, hostname, port, username, and password information accordingly.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying Azure SQL database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+                        * Implement **security** measures: Apply security best practices to protect your Java application and the Azure SQL database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+                        * **Backup** your data: Azure SQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
+                    </message>
+                    <link title="Azure SQL" href="https://azure.microsoft.com/products/azure-sql/"/>
+                    <link title="Azure SQL documentation" href="https://learn.microsoft.com/en-us/azure/azure-sql"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                    <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                    <link title="Change automated backup settings for Azure SQL Database" href="https://learn.microsoft.com/azure/azure-sql/database/automated-backups-change-settings"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Microsoft SQL Driver</technology-tag>
             </perform>
         </rule>
     </rules>

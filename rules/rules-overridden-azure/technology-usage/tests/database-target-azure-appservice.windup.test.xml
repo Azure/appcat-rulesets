@@ -9,16 +9,40 @@
     <target>azure-appservice</target>
     <ruleset>
         <rules>
+            <rule id="database-01400-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses a MySQL database to Azure, you can follow these recommendations"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="MySQL database found hint was not found!"/>
+                </perform>
+            </rule>
             <rule id="database-01700-test">
                 <when>
                     <not>
                         <iterable-filter size="1">
-                            <hint-exists message="PostgreSQL database found"/>
+                            <hint-exists message="To migrate a Java application that uses a PostgreSQL database to Azure, you can follow these recommendations"/>
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
                     <fail message="PostgreSQL database found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="database-01900-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="To migrate a Java application that uses a Microsoft SQL database to Azure, you can follow these recommendations"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Microsoft SQL database found hint was not found!"/>
                 </perform>
             </rule>
         </rules>
