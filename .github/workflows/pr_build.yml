@@ -16,26 +16,26 @@ jobs:
     windup-build:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout JEG windup Azdo repo
-              run: 'git clone https://${{secrets.USER}}:${{secrets.GH}}@devdiv.visualstudio.com/DefaultCollection/DevDiv/_git/JEG-windup'
-              shell: bash
-
-            - name: Set up MS Build of OpenJDK 11
+            - name: Checkout repo
+              uses: actions/checkout@v3
+              with:
+                  repository: windup/windup
+                  ref: ${{ github.base_ref }}
+            - name: Set up JDK 11
               uses: actions/setup-java@v3
               with:
                   java-version: '11'
                   distribution: ${{env.JAVA_DISTRIBUTION}}
+                  java-package: jdk
             - name: Cache local Maven repository
               uses: actions/cache@v3
               with:
                   path: ~/.m2/repository
-                  key: ${{ runner.os }}-maven-azure-windup-build-${{ github.sha }}
+                  key: ${{ runner.os }}-maven-windup-build-${{ github.sha }}
                   restore-keys:
-                      ${{ runner.os }}-maven-azure-windup-build
-
-            - name: Build WindUp
-              run: mvn -B clean install -DskipTests
-              working-directory: JEG-windup
+                      ${{ runner.os }}-maven-windup-build
+            - name: Build on JDK 11
+              run: ./mvnw -B clean install -DskipTests
     
     windup-rules-test:
         runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                tests-pattern: ['rules-reviewed/[a-d]', 'rules-reviewed/eap6', 'rules-reviewed/eap7', 'rules-reviewed/eap8', 'rules-reviewed/eapxp', 'rules-reviewed/\(\(e[^a]\)\|[f-s]\)', 'rules-reviewed/technology-usage/tests/[0-9,a-i]', 'rules-reviewed/technology-usage/tests/[j-z]', 'rules-reviewed/[u-z]', 'rules-generated/']
+                tests-pattern: ['rules-reviewed/[a-d]', 'rules-reviewed/eap6', 'rules-reviewed/eap7', 'rules-reviewed/eap8', 'rules-reviewed/eapxp', 'rules-reviewed/\(\(e[^a]\)\|[f-s]\)', 'rules-reviewed/technology-usage/tests/[0-9,a-i]', 'rules-reviewed/technology-usage/tests/[j-z]', 'rules-reviewed/[u-z]', 'rules-generated/', 'rules-overridden-azure/']
                 java-version: [ 11, 17 ]
         steps:
             - name: Checkout windup-rulesets
