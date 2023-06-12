@@ -31,9 +31,9 @@ jobs:
               uses: actions/cache@v3
               with:
                   path: ~/.m2/repository
-                  key: ${{ runner.os }}-maven-azure-windup-rulesets-build-${{ github.sha }}
+                  key: ${{ runner.os }}-maven-azure-windup-build-${{ github.sha }}
                   restore-keys:
-                      ${{ runner.os }}-maven-azure-windup-build-${{ github.sha }}
+                      ${{ runner.os }}-maven-azure-windup-build
             - name: Build on JDK 11
               run: ./mvnw -B clean install -DskipTests
     
