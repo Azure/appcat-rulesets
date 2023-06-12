@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<technology-reference-transfomers xmlns="http://windup.jboss.org/schema/jboss-ruleset">
+    <transform>
+        <sourceTechnology id="azure-aks"/>
+        <targetTechnology id="openjdk" versionRange="[11]"/>
+    </transform>
+    <transform>
+        <sourceTechnology id="azure-aks"/>
+        <targetTechnology id="cloud-readiness"/>
+    </transform>
+    <transform>
+        <sourceTechnology id="azure-aks"/>
+        <targetTechnology id="linux"/>
+    </transform>
+</technology-reference-transfomers>
