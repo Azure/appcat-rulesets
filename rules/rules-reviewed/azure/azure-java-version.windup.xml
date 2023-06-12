@@ -8,10 +8,8 @@
             Check non-LTS Java versions
         </description>
         <dependencies>
-            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
         </dependencies>
-        <sourceTechnology id="springboot"/>
-        <sourceTechnology id="eap" versionRange="[7,8)" />
         <targetTechnology id="azure-spring-apps"/>
         <targetTechnology id="azure-appservice"/>
         <targetTechnology id="azure-aks"/>
@@ -21,19 +19,31 @@
     <rules>
         <rule id="azure-java-version-01000">
             <when>
-               <xmlfile matches="//m:java.version[windup:matches(text(), '{v}')]" in="pom.xml" as="result">
-                        <namespace prefix="m" uri="http://maven.apache.org/POM/4.0.0"/>
-               </xmlfile>
+                <xmlfile matches="//m:java.version[windup:matches(text(), '{v}')]" in="pom.xml" as="result">
+                    <namespace prefix="m" uri="http://maven.apache.org/POM/4.0.0"/>
+                </xmlfile>
             </when>
             <perform>
                 <iteration over="result">
                     <hint title="Non-LTS version Java" category-id="potential" effort="3">
                         <message>
-                            <![CDATA[
-                            The application is using non-LTS version Java. 
-                            JDK on LTS version is recommended, i.e. JAVA_8, JAVA_11 or JAVA_17.
-                            ]]>
+                            The application is using non-LTS version Java. JDK on LTS version is recommended, i.e. **Java 8**, **Java 11** or **Java 17**.
+
+                            * Choose a **supported Java version**: Determine the most suitable supported Java version provided by Azure. As of now, Azure supports Java 8, Java 11, and Java 17.
+
+                            * **Update Java Development Kit** (JDK): Update the JDK in your development environment and build pipelines to the chosen supported version. This ensures that your application is built and packaged using the compatible Java version.
+
+                            * Address **code compatibility**: Review your application's codebase for any potential compatibility issues with the target Java version. Update deprecated APIs or features, address any language or library changes, and ensure that your code follows best practices and standards.
+
+                            * **Test thoroughly**: Execute a comprehensive testing process to verify the compatibility and functionality of your application with the new Java version. Perform unit tests, integration tests, and system tests to validate that all components and dependencies work as expected.
+
+                            * **Monitor performance**: Once migrated to the supported Java version, closely monitor the performance of your application in the Azure environment. Utilize Azure Monitoring tools and logging mechanisms to identify any performance bottlenecks or issues that may arise due to the Java version change.
                         </message>
+                        <link title="Supported Java versions and update schedule" href="https://learn.microsoft.com/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule"/>
+                        <link title="Microsoft Build of OpenJDK" href="https://learn.microsoft.com/java/openjdk/"/>
+                        <link title="Java on Azure developer tools documentation" href="https://learn.microsoft.com/azure/developer/java/fundamentals/"/>
+                        <link title="Azure Monitor" href="https://azure.microsoft.com/products/monitor/"/>
+                        <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
                     </hint>
                 </iteration>
             </perform>
@@ -44,18 +54,26 @@
         <rule id="azure-java-version-02000">
             <when>
                 <xmlfile matches="//m:java.version[windup:matches(text(), '{v}')]" in="pom.xml" as="result">
-                        <namespace prefix="m" uri="http://maven.apache.org/POM/4.0.0"/>
-               </xmlfile>
+                    <namespace prefix="m" uri="http://maven.apache.org/POM/4.0.0"/>
+                </xmlfile>
             </when>
             <perform>
                 <iteration over="result">
                     <hint title="Java version found to be lower than JAVA_8" category-id="potential" effort="3">
                         <message>
-                        <![CDATA[
-                        The application is using Java version lower than JAVA_8.
-                        JDK on LTS version is recommended, i.e. JAVA_8, JAVA_11 or JAVA_17.
-                        ]]>
+                            The application is using a Java version lower than Java 8. JDK on LTS version is recommended, i.e. **Java 8**, **Java 11** or **Java 17**.
+                            It is strongly recommended to plan and execute a migration strategy to upgrade your application to a newer supported Java version.
+
+                            * **Unsupported Java versions**: Azure supports Java 8, Java 11, and Java 17. Versions of Java older than Java 8 are not supported, which means you may encounter compatibility issues and security vulnerabilities.
+
+                            * **Security risks**: Older Java versions may have known security vulnerabilities that can expose your application and infrastructure to potential attacks. Migrating to a supported version ensures that you benefit from the latest security patches and updates.
+
+                            * **Long-term support**: Supported Java versions receive long-term support (LTS) from the Java community, including bug fixes and updates. Migrating to a supported version provides you with a stable and well-maintained platform for your application.
                         </message>
+                        <link title="Transition from Java 8 to Java 11" href="https://learn.microsoft.com/java/openjdk/transition-from-java-8-to-java-11"/>
+                        <link title="Supported Java versions and update schedule" href="https://learn.microsoft.com/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule"/>
+                        <link title="Microsoft Build of OpenJDK" href="https://learn.microsoft.com/java/openjdk/"/>
+                        <link title="Java on Azure developer tools documentation" href="https://learn.microsoft.com/azure/developer/java/fundamentals/"/>
                     </hint>
                 </iteration>
             </perform>
