@@ -25,7 +25,7 @@
             </when>
             <perform>
                 <iteration over="result">
-                    <hint title="Non-LTS version Java" category-id="potential" effort="3">
+                    <hint title="Non-LTS version Java" category-id="mandatory" effort="3">
                         <message>
                             The application is using non-LTS version Java. JDK on LTS version is recommended, i.e. **Java 8**, **Java 11** or **Java 17**.
 
@@ -59,7 +59,7 @@
             </when>
             <perform>
                 <iteration over="result">
-                    <hint title="Java version found to be lower than JAVA_8" category-id="potential" effort="3">
+                    <hint title="Java version found to be lower than JAVA_8" category-id="mandatory" effort="3">
                         <message>
                             The application is using a Java version lower than Java 8. JDK on LTS version is recommended, i.e. **Java 8**, **Java 11** or **Java 17**.
                             It is strongly recommended to plan and execute a migration strategy to upgrade your application to a newer supported Java version.
