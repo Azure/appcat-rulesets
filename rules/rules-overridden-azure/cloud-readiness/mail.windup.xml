@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <ruleset id="mail"
-    xmlns="http://windup.jboss.org/schema/jboss-ruleset"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <metadata>
         <description>
             This ruleset detects the Java Mail API, which may be problematic when migrating an application to a cloud environment.
             It overrids rules/rules-reviewed/cloud-readiness/mail.windup.xml
         </description>
         <dependencies>
-          <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
-          <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
         </dependencies>
         <targetTechnology id="azure-spring-apps"/>
         <targetTechnology id="azure-appservice"/>
@@ -22,29 +22,32 @@
     <rules>
         <rule id="mail-00000">
             <when>
-              <or>
-                <javaclass references="javax.mail.{*}" />
-                <javaclass references="com.sun.mail.{*}" />
-                <javaclass references="org.simplejavamail.{*}" />
-                <javaclass references="org.apache.commons.mail.{*}" />
-              </or>
+                <or>
+                    <javaclass references="javax.mail.{*}"/>
+                    <javaclass references="com.sun.mail.{*}"/>
+                    <javaclass references="org.simplejavamail.{*}"/>
+                    <javaclass references="org.apache.commons.mail.{*}"/>
+                </or>
             </when>
             <perform>
-              <hint title="Java Mail API" effort="3" category-id="cloud-optional">
-                  <message>
-                    The configuration parameters of SMTP services for outbound mail may contain environment-specific values such as static IP addresses, host names, properties, credentials, or certificates.
+                <hint title="Java Mail API" effort="3" category-id="potential">
+                    <message>
+                        The application uses email APIs to send or receive emails.
+                        Cconsider using Azure Communication Services Email to migrate the email functionality of your application to Azure.
 
-                    Recommendations
+                        * Set up **Azure Communication Services**: Create an Azure Communication Services resource in your Azure subscription. This will provide you with the necessary capabilities to send emails.
 
-                    * In a cloud environment, mail systems should be considered backing services and treated like attached resources.
-                    * Ensure that the configuration of the underlying outbound mail connection is not environment-specific.
-                    * In OpenShift Container Platform, store configuration parameters as environment variables or in a ConfigMap.
-                </message>
-                <link href="https://12factor.net/backing-services" title="Twelve-factor app - Backing services"/>
-                <link href="https://12factor.net/config" title="Twelve-factor app - Config"/>
-                <link href="https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs" title="OpenShift Container Platform: Input secrets and ConfigMaps"/>
-                <tag>mail</tag>
-              </hint>
+                        * **Configure email sending**: Update your application's email sending code to use the Azure Communication Services Email SDK or REST API. This involves integrating the Azure Communication Services Email client libraries into your application and configuring the required settings, such as the sender's email address, recipient addresses, subject, and email content.
+
+                        * **Manage email templates**: Azure Communication Services Email allows you to create and manage email templates. Consider leveraging this feature to create reusable templates for consistent email formatting and content.
+                        
+                        **WARNING** Check if port 25 is open in the App Service SKU.
+                    </message>
+                    <link title="Azure Communication Services" href="https://azure.microsoft.com/products/communication-services/"/>
+                    <link title="Azure Communication Services documentation" href="https://learn.microsoft.com/azure/communication-services/"/>
+                    <link title="Quickstart: How to send an email using Azure Communication Service" href="https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email"/>
+                    <tag>mail</tag>
+                </hint>
             </perform>
         </rule>
     </rules>
