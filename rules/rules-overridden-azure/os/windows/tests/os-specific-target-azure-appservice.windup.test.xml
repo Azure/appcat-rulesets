@@ -1,15 +1,17 @@
 <?xml version="1.0"?>
-<ruletest id="azure-os-specific-test" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ruletest id="os-specific-test" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
-    <testDataPath>data/azure-os-specific</testDataPath>
-    <rulePath>../azure-os-specific.windup.xml</rulePath>
+    <testDataPath>../../../../rules-reviewed/os/windows/tests/data</testDataPath>
+    <rulePath>../../../../rules-reviewed/os/windows/tests/os-specific.windup.test.xml</rulePath>
+    <rulePath>../os-specific.windup.xml</rulePath>
+    <target>linux</target>
     <ruleset>
         <rules>
-            <rule id="azure-os-specific-test-00001">
+            <rule id="os-specific-test-00001">
                 <when>
                     <not>
                         <iterable-filter size="4">
-                            <hint-exists message="This file system path is Microsoft Windows platform dependent" />
+                            <hint-exists message="The application currently relies on a file system path that is Microsoft Windows platform dependent.*" />
                         </iterable-filter>
                     </not>
                 </when>
@@ -17,11 +19,11 @@
                     <fail message="Windows platform dependent hint was not found!" />
                 </perform>
             </rule>
-            <rule id="azure-os-specific-test-00002">
+            <rule id="os-specific-test-00002">
                 <when>
                     <not>
                         <iterable-filter size="1">
-                            <hint-exists message="This Dynamic-Link Library is Microsoft Windows platform dependent" />
+                            <hint-exists message="The application currently relies on a Dynamic-Link Library (DLL) that is specific to Microsoft Windows.*" />
                         </iterable-filter>
                     </not>
                 </when>
