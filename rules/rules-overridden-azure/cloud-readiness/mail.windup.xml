@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<ruleset id="mail"
+    xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset detects the Java Mail API, which may be problematic when migrating an application to a cloud environment.
+            It overrids rules/rules-reviewed/cloud-readiness/mail.windup.xml
+        </description>
+        <dependencies>
+          <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+          <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <tag>mail</tag>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="mail-00000">
+            <when>
+              <or>
+                <javaclass references="javax.mail.{*}" />
+                <javaclass references="com.sun.mail.{*}" />
+                <javaclass references="org.simplejavamail.{*}" />
+                <javaclass references="org.apache.commons.mail.{*}" />
+              </or>
+            </when>
+            <perform>
+              <hint title="Java Mail API" effort="3" category-id="cloud-optional">
+                  <message>
+                    The configuration parameters of SMTP services for outbound mail may contain environment-specific values such as static IP addresses, host names, properties, credentials, or certificates.
+
+                    Recommendations
+
+                    * In a cloud environment, mail systems should be considered backing services and treated like attached resources.
+                    * Ensure that the configuration of the underlying outbound mail connection is not environment-specific.
+                    * In OpenShift Container Platform, store configuration parameters as environment variables or in a ConfigMap.
+                </message>
+                <link href="https://12factor.net/backing-services" title="Twelve-factor app - Backing services"/>
+                <link href="https://12factor.net/config" title="Twelve-factor app - Config"/>
+                <link href="https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs" title="OpenShift Container Platform: Input secrets and ConfigMaps"/>
+                <tag>mail</tag>
+              </hint>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>
