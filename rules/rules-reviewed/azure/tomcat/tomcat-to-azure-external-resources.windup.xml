@@ -8,7 +8,7 @@
             Identify external resources in a Tomcat configuration file.
         </description>
         <dependencies>
-            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
         </dependencies>
         <targetTechnology id="azure-spring-apps"/>
         <targetTechnology id="azure-appservice"/>
@@ -24,13 +24,14 @@
             <perform>
                 <hint title="External resources found in configuration file" category-id="cloud-mandatory" effort="5">
                     <message>
-                        <![CDATA[
                         External resources, such as data sources, JMS message brokers, and others are injected via Java Naming and Directory Interface (JNDI).
-                        
-                        Some such resources may require migration or reconfiguration.
-                        ]]>
+
+                        Some resources may require migration or reconfiguration.
+                        If there are no equivalent Azure services for the external resources, consider reconfiguring the application to utilize Azure-native services that meet your requirements.
+                        Review the Azure service offerings and choose the appropriate services for your specific needs.
                     </message>
                     <link title="Inventory external resources" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps"/>
+                    <link title="Azure services" href="https://azure.microsoft.com/products/"/>
                     <tag>tomcat</tag>
                 </hint>
             </perform>
