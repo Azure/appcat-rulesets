@@ -15,7 +15,8 @@ Overriding an existing rule
 Rules written in XML or Groovy can be overridden either in XML or Groovy.
 It doesn't matter if the original rule is written in XML or Groovy, you can override it in either language.
 
-To override an existing rule, the ruleset file can be named the same as the original rule (or differently), but it MUST have the same ruleset id and the same id attribute as the original rule.
+[To override an existing rule](https://windup.github.io/windup-documentation/website/docs/rules-development-guide/master.html#overriding-rules_rules-development-guide), the ruleset must have the same ruleset id and the same id attribute as the original rule.
+It may have the same filename, but that is not a requirement.
 
 For example, let's say you want to override the `rules-reviewed/technology-usage/database.windup.groovy` rule:
 
