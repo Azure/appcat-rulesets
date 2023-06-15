@@ -4,10 +4,10 @@
     <testDataPath>../../../../rules-reviewed/os/windows/tests/data</testDataPath>
     <rulePath>../../../../rules-reviewed/os/windows/tests/os-specific.windup.test.xml</rulePath>
     <rulePath>../os-specific.windup.xml</rulePath>
-    <target>discovery</target>
+    <target>linux</target>
     <ruleset>
         <rules>
-            <rule id="os-specific-target-discovery-test-00001">
+            <rule id="os-specific-target-linux-test-00001">
                 <when>
                     <not>
                         <iterable-filter size="4">
@@ -19,7 +19,7 @@
                     <fail message="Windows platform dependent hint was not found!" />
                 </perform>
             </rule>
-            <rule id="os-specific-target-discovery-test-00002">
+            <rule id="os-specific-target-linux-test-00002">
                 <when>
                     <not>
                         <iterable-filter size="1">
