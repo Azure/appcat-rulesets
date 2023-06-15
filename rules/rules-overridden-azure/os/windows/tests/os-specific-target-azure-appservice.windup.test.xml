@@ -4,7 +4,7 @@
     <testDataPath>../../../../rules-reviewed/os/windows/tests/data</testDataPath>
     <rulePath>../../../../rules-reviewed/os/windows/tests/os-specific.windup.test.xml</rulePath>
     <rulePath>../os-specific.windup.xml</rulePath>
-    <target>linux</target>
+    <target>azure-appservice</target>
     <ruleset>
         <rules>
             <rule id="os-specific-test-00001">
