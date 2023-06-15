@@ -12,7 +12,10 @@
             <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
             <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
         </dependencies>
-        <targetTechnology id="cloud-readiness"/>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
         <tag>logging</tag>
         <overrideRules>true</overrideRules>
     </metadata>
