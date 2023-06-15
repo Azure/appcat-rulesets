@@ -44,6 +44,7 @@
                     <link title="Azure Database for MySQL documentation" href="https://learn.microsoft.com/azure/mysql/"/>
                     <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
                     <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                    <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
                     <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
                     <link title="Backup and restore in Azure Database for MySQL" href="https://learn.microsoft.com/azure/mysql/single-server/concepts-backup"/>
                 </hint>
@@ -75,6 +76,7 @@
                     <link title="PostgreSQL Flexible Server documentation" href="https://learn.microsoft.com/azure/postgresql/flexible-server"/>
                     <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
                     <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                    <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
                     <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
                     <link title="Backup and restore in Azure Database for PostgreSQL" href="https://learn.microsoft.com/azure/postgresql/single-server/concepts-backup"/>
                 </hint>
@@ -109,6 +111,7 @@
                     <link title="Azure SQL documentation" href="https://learn.microsoft.com/en-us/azure/azure-sql"/>
                     <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
                     <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                    <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
                     <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
                     <link title="Change automated backup settings for Azure SQL Database" href="https://learn.microsoft.com/azure/azure-sql/database/automated-backups-change-settings"/>
                 </hint>
