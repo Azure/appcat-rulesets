@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<ruleset id="session"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset detects data storage in HTTP session objects, which may be problematic when migrating an application to a cloud environment.
+            It overrids the rules in the default ruleset rules/rules-reviewed/cloud-readiness/session.windup.xml to detect the same issue in Azure cloud environments.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <tag>clustering</tag>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="session-00001">
+            <when>
+                <or>
+                    <javaclass references="javax.servlet.http.HttpSession.setAttribute({*})"/>
+                    <javaclass references="javax.servlet.http.HttpSession.putValue({*})"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="HTTP Session data storage" effort="5" category-id="potential">
+                    <message>
+                        When migrating an application that stores data in an HTTP Session to Azure, it's important to consider that the HTTP Session is not a suitable mechanism for maintaining state in a cloud environment due to scaling in and out as load changes.
+                        Instead, you can leverage Azure Cache for Redis to achieve session management in a cloud-native way..
+
+                        * Provide **Azure Cache for Redis**: Azure Cache for Redis is a fully managed, highly scalable, and distributed caching service. It allows you to store and manage session data in-memory, providing fast and efficient access.
+
+                        * **Configure** Azure Cache for Redis: Configure the cache settings, such as cache size, eviction policies, and access control.
+
+                        * **Update session management**: Modify your application's session management code to use Azure Cache for Redis. Replace the usage of HTTP Session objects with the appropriate Redis-based session management implementation.
+
+                        * **Store and retrieve session data**: Use the Azure Cache for Redis client libraries or connectors within your application to store and retrieve session data. This ensures that session state is securely managed and accessible across multiple instances of your application.
+
+                        * **Test and validate**: Test your application to ensure that session state is maintained correctly using Azure Cache for Redis. Verify that session data is stored and retrieved accurately across multiple instances of your application.
+                    </message>
+                    <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
+                    <link title="Azure Cache for Redis Documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis/"/>
+                    <link title="Quickstart: Use Azure Cache for Redis in Java" href="https://learn.microsoft.com/azure/azure-cache-for-redis/cache-java-get-started"/>
+                    <tag>clustering</tag>
+                </hint>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>
