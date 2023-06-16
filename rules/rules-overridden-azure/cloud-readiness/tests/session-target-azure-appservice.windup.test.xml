@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ruletest id="session-test" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/cloud-readiness/tests/data</testDataPath>
+    <rulePath>../../../rules-reviewed/cloud-readiness/session.windup.xml</rulePath>
+    <rulePath>../session.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="session-00001-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="When migrating an application that stores data in an HTTP Session to Azure*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="HttpSession for storing user data hint was not found"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
