@@ -89,6 +89,7 @@
             <perform>
                 <hint title="Java Native Processes" effort="7" category-id="cloud-mandatory">
                     <message>
+                        <![CDATA[
                         Java Native Processes might not run in a cloud or container environment.
 
                         Recommendations
@@ -96,6 +97,7 @@
                         * Review the purpose of the native process in your application.
                         * Check whether the native process is compatible with a cloud environment.
                         * Replace, remove, or rewrite the native process or application using a cloud-compatible equivalent.
+                        ]]>
                     </message>
                     <tag>jni</tag>
                 </hint>
