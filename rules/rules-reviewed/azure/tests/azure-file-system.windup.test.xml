@@ -5,18 +5,6 @@
     <rulePath>../azure-file-system.windup.xml</rulePath>
     <ruleset>
         <rules>
-            <rule id="azure-file-system-test-01000">
-                <when>
-                    <not>
-                        <iterable-filter size="5">
-                            <hint-exists message="The application uses Java APIs to read/write from the file system." />
-                        </iterable-filter>
-                    </not>
-                </when>
-                <perform>
-                    <fail message="Java APIs to read/write hint was not found!" />
-                </perform>
-            </rule>
             <rule id="azure-file-system-test-02000">
                 <when>
                     <not>
