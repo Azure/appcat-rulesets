@@ -8,10 +8,8 @@
             Check AWS related configurations.
         </description>
         <dependencies>
-            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
         </dependencies>
-        <sourceTechnology id="springboot"/>
-        <sourceTechnology id="eap" versionRange="[7,8)" />
         <targetTechnology id="azure-spring-apps"/>
         <targetTechnology id="azure-appservice"/>
         <targetTechnology id="azure-aks"/>
@@ -28,12 +26,21 @@
                 </or>
             </when>
             <perform>
-                <hint title="AWS credential configuration" category-id="potential" effort="1">
+                <hint title="AWS credential configuration" category-id="mandatory" effort="3">
                     <message>
-                        <![CDATA[
-                            The application contains AWS credential configuration.
-                        ]]>
+                        The application contains AWS credential configuration.
+
+                        * Migrate credentials to **Azure Key Vault**: Create an Azure Key Vault to securely store your application's credentials and sensitive information. Migrate the AWS credentials to Azure Key Vault, which provides a centralized and highly secure storage solution.
+
+                        * **Modify application code**: Update the Java application's code to retrieve the required credentials from Azure Key Vault instead of AWS. Use the appropriate Azure SDK or libraries to integrate with Azure Key Vault and fetch the credentials securely during runtime.
+
+                        * Implement **Azure Active Directory (Azure AD) authentication**: If the AWS credentials are used for authentication purposes, consider migrating to Azure AD for user authentication and authorization. Implement Azure AD authentication in your Java application to ensure secure access to Azure resources.
                     </message>
+                    <link title="Azure Key Vault" href="https://azure.microsoft.com/products/key-vault/"/>
+                    <link title="Azure Key Vault documentation" href="https://learn.microsoft.com/azure/key-vault/"/>
+                    <link title="Quickstart: Azure Key Vault Secret client library for Java" href="https://learn.microsoft.com/azure/key-vault/secrets/quick-create-java"/>
+                    <link title="Azure Active Directory" href="https://azure.microsoft.com/products/active-directory"/>
+                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/azure/active-directory/"/>
                 </hint>
             </perform>
         </rule>
@@ -46,12 +53,15 @@
                 </or>
             </when>
             <perform>
-                <hint title="AWS region configuration" category-id="potential" effort="1">
+                <hint title="AWS region configuration" category-id="mandatory" effort="3">
                     <message>
-                        <![CDATA[
-                            The application contains AWS region configuration.
-                        ]]>
+                        The application contains AWS region configuration.
+
+                        * Identify **Azure regions**: Determine the Azure regions that align with your application's requirements for availability, latency, compliance, and data residency. Azure provides a wide range of regions globally.
+
+                        * Update **configuration settings**: Modify the Java application's configuration to replace the AWS region configuration with the corresponding Azure region configuration. Update the code or configuration files to reflect the Azure region names or identifiers.
                     </message>
+                    <link title="Azure geographies" href="https://azure.microsoft.com/explore/global-infrastructure/geographies"/>
                 </hint>
             </perform>
         </rule>
@@ -62,13 +72,26 @@
                 </or>
             </when>
             <perform>
-                <hint title="AWS S3 configuration" category-id="potential" effort="1">
+                <hint title="AWS S3 configuration" category-id="mandatory" effort="3">
                     <message>
-                        <![CDATA[
-                            The application contains AWS S3 configuration.
-                            Consider using Azure Blob Storage instead.
-                        ]]>
+                        The application contains AWS S3 configuration. Consider using Azure Blob Storage instead.
+
+                        * Provision **Azure Blob Storage**: Create an Azure Blob Storage account in the Azure portal. Choose the appropriate storage tier (Hot, Cool, or Archive) based on your application's data access patterns and cost considerations.
+
+                        * **Update application code**: Modify the Java application's code to replace AWS SDK calls with the equivalent Azure Storage SDK calls for Azure Blob Storage. Update the code to authenticate and interact with Azure Blob Storage using the Azure SDK for Java.
+
+                        * **Map S3 functionality** to Azure Blob Storage: Understand the differences between AWS S3 and Azure Blob Storage, and adjust your application logic accordingly. Map S3 concepts (buckets, objects, permissions, etc.) to their Azure Blob Storage equivalents (containers, blobs, shared access signatures, etc.).
+
+                        * **Migrate data** from S3 to Azure Blob Storage: Plan and execute the migration of your data from AWS S3 to Azure Blob Storage. You can use Azure Storage Data Transfer Tool, AzCopy, or other migration tools to copy the data from S3 buckets to Azure Blob Storage containers.
+
+                        * Update **access permissions**: Adjust the access permissions and policies in Azure Blob Storage to match your application's requirements. Azure provides various options for controlling access, including shared access signatures (SAS), Azure AD authentication, and role-based access control (RBAC).
+
+                        * Validate functionality and **performance**: Thoroughly test the updated application to ensure that it can read from and write to Azure Blob Storage correctly. Validate the performance of data transfer and any other operations to ensure they meet your application's requirements.
                     </message>
+                    <link title="Azure Blob Storage" href="https://azure.microsoft.com/products/storage/blobs"/>
+                    <link title="Azure Blob Storage documentation" href="https://learn.microsoft.com/azure/storage/blobs/"/>
+                    <link title="Quickstart: Azure Blob Storage client library for Java" href="https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java"/>
+                    <link title="Move your data from AWS S3 to Azure Storage using AzCopy" href="https://azure.microsoft.com/blog/move-your-data-from-aws-s3-to-azure-storage-using-azcopy/"/>
                 </hint>
             </perform>
         </rule>
@@ -79,31 +102,48 @@
                 </or>
             </when>
             <perform>
-                <hint title="Amazon Simple Queue Service configuration" category-id="potential" effort="1">
+                <hint title="Amazon Simple Queue Service configuration" category-id="mandatory" effort="3">
                     <message>
-                        <![CDATA[
-                            The application contains Amazon Simple Queue Service configuration.
-                            Consider using Azure Service Bus instead.
-                        ]]>
+                        The application contains Amazon Simple Queue Service configuration. Consider using Azure Service Bus instead.
+
+                        * **Provision Azure Service Bus**: Create an Azure Service Bus namespace in Azure. Azure Service Bus provides reliable message queuing and publish/subscribe capabilities, serving as an equivalent messaging service to Amazon SQS.
+
+                        * **Update application code**: Modify the Java application's code to replace the AWS SDK calls with the equivalent Azure Service Bus client libraries and APIs. Update the code to authenticate and interact with Azure Service Bus using the Azure SDK for Java.
+
+                        * **Map SQS functionality** to Azure Service Bus: Understand the differences between Amazon SQS and Azure Service Bus and adjust your application logic accordingly. Map SQS concepts (queues, messages, visibility timeouts, etc.) to their Azure Service Bus equivalents (queues, messages, lock duration, etc.).
+
+                        * **Migrate queues and messages**: Plan and execute the migration of your queues and messages from Amazon SQS to Azure Service Bus.
                     </message>
+                    <link title="Azure Service Bus" href="https://azure.microsoft.com/products/service-bus"/>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging/"/>
+                    <link title="Azure Service Bus libraries for Java" href="https://learn.microsoft.com/java/api/overview/azure/service-bus"/>
                 </hint>
             </perform>
         </rule>
         <rule id="azure-aws-config-secret-manager-05000">
             <when>
                 <or>
-                <filecontent pattern="aws.secretsmanager"/>
-                <filecontent pattern="aws-secretsmanager"/>
+                    <filecontent pattern="aws.secretsmanager"/>
+                    <filecontent pattern="aws-secretsmanager"/>
                 </or>
             </when>
             <perform>
-                <hint title="AWS Secrets Manager configuration" category-id="potential" effort="1">
+                <hint title="AWS Secrets Manager configuration" category-id="mandatory" effort="3">
                     <message>
-                        <![CDATA[
-                            The application contains AWS Secrets Manager configuration.
-                            Consider using Azure Key Vault instead.
-                        ]]>
+                        The application contains AWS Secrets Manager configuration. Consider using Azure Key Vault instead.
+
+                        * **Provision Azure Key Vault**: Create an Azure Key Vault in Azure. Azure Key Vault provides a secure and centralized location for storing secrets, certificates, and keys.
+
+                        * **Migrate secrets** to Azure Key Vault: Identify the secrets stored in AWS Secrets Manager and migrate them to Azure Key Vault. Use the Azure Key Vault SDK or CLI to programmatically create the equivalent secrets in Azure Key Vault or manually import them as needed.
+
+                        * **Update application code**: Modify the Java application's code to replace the AWS SDK calls with the equivalent Azure Key Vault SDK or libraries. Update the code to authenticate and retrieve secrets from Azure Key Vault using the Azure SDK for Java.
+
+                        * **Secure access** to Azure Key Vault: Implement access control and security measures for Azure Key Vault. Configure Azure AD authentication, RBAC, and access policies to ensure that only authorized applications and users can access the secrets stored in Azure Key Vault.
                     </message>
+                    <link title="Azure Key Vault" href="https://azure.microsoft.com/products/key-vault/"/>
+                    <link title="Azure Key Vault documentation" href="https://learn.microsoft.com/azure/key-vault/"/>
+                    <link title="Quickstart: Azure Key Vault Secret client library for Java" href="https://learn.microsoft.com/azure/key-vault/secrets/quick-create-java"/>
+                    <link title="Azure Key Vault CLI" href="https://learn.microsoft.com/cli/azure/keyvault"/>
                 </hint>
             </perform>
         </rule>

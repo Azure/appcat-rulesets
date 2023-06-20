@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          id="connect-test"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/connect</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/connect.windup.groovy</rulePath>
+    <rulePath>../connect.windup.xml</rulePath>
+    <target>discovery</target>
+    <ruleset>
+        <rules>
+            <rule id="connect-target-discovery-01500-test">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded library - ActiveMQ"/>
+                        <technology-tag-exists technology-tag="ActiveMQ"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule connect-01500"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
