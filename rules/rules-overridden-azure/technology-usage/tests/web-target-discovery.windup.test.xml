@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<ruletest id="web-target-discovery-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/web</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/web.windup.xml</rulePath>
+    <rulePath>../../../rules-reviewed/technology-usage/web-technology-usage.windup.xml</rulePath>
+    <rulePath>../web.windup.xml</rulePath>
+    <target>discovery</target>
+    <ruleset>
+        <rules>
+            <rule id="web-target-discovery-test-02300-test">
+                <when>
+                    <not>
+                        <technology-statistics-exists name="JavaFX" number-found="1">
+                            <tag name="View"/>
+                            <tag name="Rich"/>
+                            <tag name="Embedded"/>
+                        </technology-statistics-exists>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule technology-usage-web-02300"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

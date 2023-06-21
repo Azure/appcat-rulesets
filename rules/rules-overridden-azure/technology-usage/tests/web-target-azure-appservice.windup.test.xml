@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<ruletest id="web-target-azure-appservice-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/web</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/web.windup.xml</rulePath>
+    <rulePath>../../../rules-reviewed/technology-usage/web-technology-usage.windup.xml</rulePath>
+    <rulePath>../web.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="web-target-azure-appservice-02300-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="The application uses JavaFX for the graphical user interface.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JavaFX hint for Azure was not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
