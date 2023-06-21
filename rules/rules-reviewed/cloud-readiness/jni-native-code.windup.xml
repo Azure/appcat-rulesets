@@ -67,21 +67,18 @@
                         <location>CONSTRUCTOR_CALL</location>
                         <location>IMPORT</location>
                         <location>INHERITANCE</location>
-                        <location>METHOD_CALL</location>
                         <location>VARIABLE_DECLARATION</location>
                     </javaclass>
                     <javaclass references="java.lang.ProcessBuilder">
                         <location>CONSTRUCTOR_CALL</location>
                         <location>IMPORT</location>
                         <location>INHERITANCE</location>
-                        <location>METHOD_CALL</location>
                         <location>VARIABLE_DECLARATION</location>
                     </javaclass>
                     <javaclass references="java.lang.ProcessHandle">
                         <location>CONSTRUCTOR_CALL</location>
                         <location>IMPORT</location>
                         <location>INHERITANCE</location>
-                        <location>METHOD_CALL</location>
                         <location>VARIABLE_DECLARATION</location>
                     </javaclass>
                 </or>
@@ -89,7 +86,7 @@
             <perform>
                 <hint title="Java Native Processes" effort="7" category-id="cloud-mandatory">
                     <message>
-                        Java Native Processes might not run in a cloud or container environment.
+                        Native Processes might not run in a cloud or container environment.
 
                         Recommendations
 
