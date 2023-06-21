@@ -31,7 +31,7 @@
                 <hint title="HTTP Session data storage" effort="5" category-id="potential">
                     <message>
                         When migrating an application that stores data in an HTTP Session to Azure, it's important to consider that the HTTP Session is not a suitable mechanism for maintaining state in a cloud environment due to scaling in and out as load changes.
-                        Instead, you can leverage Azure Cache for Redis to achieve session management in a cloud-native way..
+                        Instead, you can leverage Azure Cache for Redis to achieve session management in a cloud-native way.
 
                         * Provide **Azure Cache for Redis**: Azure Cache for Redis is a fully managed, highly scalable, and distributed caching service. It allows you to store and manage session data in-memory, providing fast and efficient access.
 
