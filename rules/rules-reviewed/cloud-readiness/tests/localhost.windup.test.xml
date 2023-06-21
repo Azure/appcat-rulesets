@@ -5,11 +5,11 @@
     <rulePath>../localhost.windup.xml</rulePath>
     <ruleset>
         <rules>
-            <rule id="localhost-test-00001">
+            <rule id="localhost-http-test-00001">
                 <when>
                     <not>
                         <iterable-filter size="2">
-                          <hint-exists message="The app is trying to access local resource by HTTP(s)" />
+                          <hint-exists message="The app is trying to access local resource by HTTP" />
                         </iterable-filter>
                     </not>
                 </when>
@@ -17,7 +17,7 @@
                     <fail message="localhost http usage was not found" />
                 </perform>
             </rule>
-            <rule id="localhost-test-00002">
+            <rule id="localhost-jdbc-test-00002">
                 <when>
                     <not>
                         <iterable-filter size="2">

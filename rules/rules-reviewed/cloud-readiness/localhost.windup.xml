@@ -20,7 +20,7 @@
             </when>
             <perform>
                 <hint title="Local HTTP Calls" effort="7" category-id="mandatory">
-                    <message>The app is trying to access local resource by HTTP(s), please try to migrate the resource in cloud</message>
+                    <message>The app is trying to access local resource by HTTP, please try to migrate the resource in cloud</message>
                     <tag>localhost</tag>
                 </hint>
             </perform>
