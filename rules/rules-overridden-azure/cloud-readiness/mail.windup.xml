@@ -33,15 +33,12 @@
                 <hint title="Java Mail API" effort="3" category-id="potential">
                     <message>
                         The application uses email APIs to send or receive emails.
-                        Cconsider using Azure Communication Services Email to migrate the email functionality of your application to Azure.
+                        In a cloud environment, mail systems should be considered backing services and treated like attached resources.
+                        You can either use SMTP directly, or use Azure Communication Services Email and migrate the email functionality of your application to Azure.
 
-                        * Set up **Azure Communication Services**: Create an Azure Communication Services resource in your Azure subscription. This will provide you with the necessary capabilities to send emails.
+                        * Using **Azure Communication Services**: Create an Azure Communication Services resource in your Azure subscription. This will provide you with the necessary capabilities to send emails. pdate your application's email sending code to use the Azure Communication Services Email SDK or REST API. This involves integrating the Azure Communication Services Email client libraries into your application and configuring the required settings, such as the sender's email address, recipient addresses, subject, and email content.
 
-                        * **Configure email sending**: Update your application's email sending code to use the Azure Communication Services Email SDK or REST API. This involves integrating the Azure Communication Services Email client libraries into your application and configuring the required settings, such as the sender's email address, recipient addresses, subject, and email content.
-
-                        * **Manage email templates**: Azure Communication Services Email allows you to create and manage email templates. Consider leveraging this feature to create reusable templates for consistent email formatting and content.
-                        
-                        **WARNING** Check if port 25 is open in the App Service SKU.
+                        * Using **SMTP directly**: You can also use your own SMTP provider. In this case, check if port 25 is open in the App Service SKU.
                     </message>
                     <link title="Azure Communication Services" href="https://azure.microsoft.com/products/communication-services/"/>
                     <link title="Azure Communication Services documentation" href="https://learn.microsoft.com/azure/communication-services/"/>
