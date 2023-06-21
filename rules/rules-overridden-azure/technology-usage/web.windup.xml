@@ -35,6 +35,12 @@
 
                         * **Consider performance**: JavaFX applications require the GUI to be rendered, which may bring performance and scalability limitations. Also check the etworking requirements when selecting the appropriate Azure service for your JavaFX application.
                     </message>
+                    <link title="Azure Container Registry" href="https://azure.microsoft.com/products/container-registry"/>
+                    <link title="Azure Container Registry documentation" href="https://learn.microsoft.com/azure/container-registry/"/>
+                    <link title="Azure Container Instances" href="https://azure.microsoft.com/products/container-instances"/>
+                    <link title="Azure Container Instances documentation" href="https://learn.microsoft.com/azure/container-instances/"/>
+                    <link title="Azure Container Apps" href="https://azure.microsoft.com/products/container-apps"/>
+                    <link title="Azure Container Apps documentation" href="https://learn.microsoft.com/azure/container-apps/overview"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">JavaFX</technology-tag>
             </perform>
