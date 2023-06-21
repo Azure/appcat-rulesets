@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<ruleset id="web"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset provides analysis of Java web libraries.
+            This ruleset overrides the rules/rules-reviewed/technology-usage/web.windup.xml ruleset.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="technology-usage-web-02300">
+            <when>
+                <file filename="{*}javafx{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="JavaFX usage" effort="5" category-id="mandatory">
+                    <message>
+                        The application uses JavaFX for the graphical user interface.
+                        JavaFX is not cloud compatible and requires the JRE on the remote device.
+
+                        * **Containerize** the JavaFX application: Build the Docker image so that it packages the application and the JRE, and push it to Azure Container Registry (ACR). Then you can deploy the container to Azure using Azure Container Instances (ACI), Azure Container Apps (ACA) or Azure Kubernetes Service (AKS).
+
+                        * **Leverage Azure Virtual Machines (VMs)**: Create a Windows or Linux-based Azure VM with the appropriate configuration for hosting your JavaFX application. For this, install the required Java Development Kit (JDK) and JavaFX runtime on the Azure VM.
+
+                        * **Consider performance**: JavaFX applications require the GUI to be rendered, which may bring performance and scalability limitations. Also check the etworking requirements when selecting the appropriate Azure service for your JavaFX application.
+                    </message>
+                </hint>
+                <technology-tag level="INFORMATIONAL">JavaFX</technology-tag>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>
