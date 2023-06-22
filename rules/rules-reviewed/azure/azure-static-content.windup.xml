@@ -24,7 +24,7 @@
             <perform>
                 <hint title="Static content found in the application" category-id="optional" effort="5">
                     <message>
-                        Your application currently serves static content, you'll need an alternate location for it. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally.
+                        Your application currently serves static content directly. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally, and to also enable quicker changes to static content without the need of redeploying the entire application.
 
                         * **Azure Storage to store your static content**: Create an Azure Storage account to store your static content such as HTML, CSS, JavaScript, images, and other assets.
 
