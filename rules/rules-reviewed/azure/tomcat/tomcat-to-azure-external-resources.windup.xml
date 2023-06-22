@@ -30,9 +30,9 @@
                         * **Data Sources**: If your application relies on a database, consider using an Azure managed database (e.g. Azure PostgreSQL, Azure MySQL, Azure CosmosDB, etc.). Provision a database instance in Azure and configure the necessary connection string.
 
                         * **JMS Destinations**: If your application utilizes JMS resources, such as message queues or topics, consider using Azure Service Bus as a messaging service. Create the necessary queues or topics in Azure Service Bus and use the appropriate connection details provided by Azure Service Bus.
-                        
-                        * **Mail Sessions**: If your application sends emails, consider using Azure Communication Services. It provides a variety of communication capabilities, including sending emails from your application. 
-                        
+
+                        * **Mail Sessions**: If your application sends emails, consider using Azure Communication Services. It provides a variety of communication capabilities, including sending emails from your application.
+
                         * **Environment Variables**: If your application is configured through environment variables, consider user Azure App Configuration. It enables you to centrally manage and store application settings and configuration data. When dealing with secrets or passwords in your Tomcat application, it is recommended to use Azure Key Vault to securely store and manage sensitive information.
 
                         Review the Azure service offerings and choose the appropriate services for your specific needs.

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ruleset id="azure-static-content"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            Read-only static content.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <tag>static-content</tag>
+    </metadata>
+    <rules>
+        <rule id="azure-static-content-01000">
+            <when>
+                <file filename="{*}.{extensions}"/>
+            </when>
+            <perform>
+                <hint title="Static content found in the application" category-id="optional" effort="5">
+                    <message>
+                        Your application currently serves static content, you'll need an alternate location for it. You may wish to consider moving static content to Azure Blob Storage and adding Azure CDN for lightning-fast downloads globally.
+
+                        * **Azure Storage to store your static content**: Create an Azure Storage account to store your static content such as HTML, CSS, JavaScript, images, and other assets.
+
+                        * **Provision an Azure CDN**: Configure the Azure Content Delivery Network endpoint to use your Blob Storage container as the origin. Enable the CDN caching and content delivery optimizations to improve performance and reduce latency.
+
+                        * **Security**: Ensure that the appropriate access controls are applied to the Blob Storage container to secure your static content.
+
+                        * **Global Distribution**: Azure CDN has a network of edge servers located globally. This ensures that your static content is cached and delivered from the nearest edge server to the end users, reducing latency and improving download speeds.
+
+                        * **Performace**: Azure CDN handles dynamic content compression and optimization, further enhancing the delivery performance.
+
+                        * **HTTPS Support**: Enable HTTPS support for your Azure CDN endpoint to ensure secure content delivery. Obtain an TLS certificate for your custom domain if needed, or use the Azure CDN default domain.
+                    </message>
+                    <link title="Azure Storage" href="https://azure.microsoft.com/products/category/storage"/>
+                    <link title="Azure Content Delivery Network" href="https://azure.microsoft.com/products/cdn"/>
+                    <link title="Azure Front Door and CDN documentation" href="https://learn.microsoft.com/azure/frontdoor/"/>
+                    <link title="Configuring TLS for an application in Azure" href="https://learn.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate-portal"/>
+                    <link title="Static content found in the application" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#read-only-static-content"/>
+                    <link title="Static website hosting in Azure Storage" href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website"/>
+                    <link title="Quickstart: Integrate an Azure Storage account with Azure CDN" href="https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn"/>
+                </hint>
+            </perform>
+            <where param="extensions">
+                <matches pattern="(htm|html|css|scss|js)"/>
+            </where>
+        </rule>
+    </rules>
+</ruleset>
