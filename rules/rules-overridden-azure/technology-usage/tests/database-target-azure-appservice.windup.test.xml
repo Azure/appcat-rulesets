@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruletest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ruletest id="database-target-azure-appservice-test"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
-          id="database-test"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <testDataPath>../../../rules-reviewed/technology-usage/tests/data/database</testDataPath>
     <rulePath>../../../rules-reviewed/technology-usage/database.windup.groovy</rulePath>
@@ -9,7 +9,7 @@
     <target>azure-appservice</target>
     <ruleset>
         <rules>
-            <rule id="database-01400-test">
+            <rule id="database-target-azure-appservice-01400-test">
                 <when>
                     <not>
                         <iterable-filter size="1">
@@ -21,7 +21,7 @@
                     <fail message="MySQL database found hint was not found!"/>
                 </perform>
             </rule>
-            <rule id="database-01700-test">
+            <rule id="database-target-azure-appservice-01700-test">
                 <when>
                     <not>
                         <iterable-filter size="1">
@@ -33,7 +33,7 @@
                     <fail message="PostgreSQL database found hint was not found!"/>
                 </perform>
             </rule>
-            <rule id="database-01900-test">
+            <rule id="database-target-azure-appservice-01900-test">
                 <when>
                     <not>
                         <iterable-filter size="2">
@@ -43,6 +43,18 @@
                 </when>
                 <perform>
                     <fail message="Microsoft SQL database found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="database-target-azure-appservice-02500-test">
+                <when>
+                    <not>
+                        <iterable-filter size="6">
+                            <hint-exists message="To migrate a Java application that uses a MongoDB database to Azure, you can follow these recommendations"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="MongoDB database found hint was not found!"/>
                 </perform>
             </rule>
         </rules>
