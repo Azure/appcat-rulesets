@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruletest id="database-target-discovery-test"
+<ruletest id="database-discovery-test"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
@@ -9,7 +9,7 @@
     <target>discovery</target>
     <ruleset>
         <rules>
-            <rule id="database-target-discovery-01400-test">
+            <rule id="database-discovery-test-01400">
                 <when>
                     <not>
                         <classification-exists classification="Embedded MySQL Driver"/>
@@ -20,7 +20,7 @@
                     <fail message="MySQL database found hint was not found!"/>
                 </perform>
             </rule>
-            <rule id="database-target-discovery-01700-test">
+            <rule id="database-discovery-test-01700">
                 <when>
                     <not>
                         <classification-exists classification="Embedded PostgreSQL Driver"/>
@@ -31,7 +31,7 @@
                     <fail message="PostgreSQL database found hint was not found!"/>
                 </perform>
             </rule>
-            <rule id="database-target-discovery-01900-test">
+            <rule id="database-discovery-test-01900">
                 <when>
                     <not>
                         <classification-exists classification="Embedded Microsoft SQL Driver"/>
@@ -42,7 +42,7 @@
                     <fail message="Expected data not found for rule database-01900"/>
                 </perform>
             </rule>
-            <rule id="database-target-discovery-02500-test">
+            <rule id="database-discovery-test-02500">
                 <when>
                     <not>
                         <classification-exists classification="Embedded MongoDB Client"/>
