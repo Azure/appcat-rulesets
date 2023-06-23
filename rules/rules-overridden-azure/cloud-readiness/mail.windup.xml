@@ -43,7 +43,7 @@
                     <link title="Azure Communication Services" href="https://azure.microsoft.com/products/communication-services/"/>
                     <link title="Azure Communication Services documentation" href="https://learn.microsoft.com/azure/communication-services/"/>
                     <link title="Quickstart: How to send an email using Azure Communication Service" href="https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email"/>
-                    <link title="Troubleshoot outbound SMTP connectivity problems in Azure" href="https://learn.microsoft.com/en-us/azure/virtual-network/troubleshoot-outbound-smtp-connectivity" />
+                    <link title="Troubleshoot outbound SMTP connectivity problems in Azure" href="https://learn.microsoft.com/azure/virtual-network/troubleshoot-outbound-smtp-connectivity" />
                     <tag>mail</tag>
                 </hint>
             </perform>
