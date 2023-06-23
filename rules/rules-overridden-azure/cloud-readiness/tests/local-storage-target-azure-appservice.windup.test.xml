@@ -1,5 +1,5 @@
-<?xml version="1.0"?>
-<ruletest id="local-storage-test"
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="local-storage-azure-appservice-test"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
@@ -9,7 +9,7 @@
     <target>azure-appservice</target>
     <ruleset>
         <rules>
-            <rule id="local-storage-test-00001">
+            <rule id="local-storage-azure-appservice-test-00001">
                 <when>
                     <not>
                         <iterable-filter size="48">

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruletest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ruletest id="connect-discovery-test"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
-          id="connect-test"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <testDataPath>../../../rules-reviewed/technology-usage/tests/data/connect</testDataPath>
     <rulePath>../../../rules-reviewed/technology-usage/connect.windup.groovy</rulePath>
@@ -9,7 +9,7 @@
     <target>discovery</target>
     <ruleset>
         <rules>
-            <rule id="connect-target-discovery-01500-test">
+            <rule id="connect-discovery-test-01500">
                 <when>
                     <not>
                         <classification-exists classification="Embedded library - ActiveMQ"/>
