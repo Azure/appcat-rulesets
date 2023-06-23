@@ -8,4 +8,8 @@
         <sourceTechnology id="azure-aks"/>
         <targetTechnology id="linux"/>
     </transform>
+    <transform>
+        <sourceTechnology id="azure-aks"/>
+        <targetTechnology id="azure-aks"/>
+    </transform>
 </technology-reference-transfomers>
