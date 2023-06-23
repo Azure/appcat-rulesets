@@ -45,6 +45,18 @@
                     <fail message="Microsoft SQL database found hint was not found!"/>
                 </perform>
             </rule>
+            <rule id="database-azure-appservice-test-02200">
+                <when>
+                    <not>
+                        <iterable-filter size="8">
+                            <hint-exists message="To migrate a Java application that uses a Cassandra database to Azure, you can follow these recommendations"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Cassandra database found hint was not found!"/>
+                </perform>
+            </rule>
             <rule id="database-azure-appservice-test-02500">
                 <when>
                     <not>

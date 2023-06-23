@@ -42,6 +42,17 @@
                     <fail message="Expected data not found for rule database-01900"/>
                 </perform>
             </rule>
+            <rule id="database-discovery-02200-test">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded Cassandra Client"/>
+                        <technology-tag-exists technology-tag="Cassandra Client"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule database-02200"/>
+                </perform>
+            </rule>
             <rule id="database-discovery-test-02500">
                 <when>
                     <not>
