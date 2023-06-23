@@ -8,4 +8,8 @@
         <sourceTechnology id="azure-container-apps"/>
         <targetTechnology id="linux"/>
     </transform>
+    <transform>
+        <sourceTechnology id="azure-container-apps"/>
+        <targetTechnology id="azure-container-apps"/>
+    </transform>
 </technology-reference-transfomers>
