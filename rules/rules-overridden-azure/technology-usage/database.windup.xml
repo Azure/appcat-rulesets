@@ -115,6 +115,45 @@
                 <technology-tag level="INFORMATIONAL">Microsoft SQL Driver</technology-tag>
             </perform>
         </rule>
+        <rule id="database-02200">
+            <when>
+                <or>
+                    <file filename="{*}cassandra{*}.jar"/>
+                    <file filename="{*}hector{*}.jar"/>
+                    <file filename="{*}astyanax{*}.jar"/>
+                    <file filename="{*}phantom-dsl{*}.jar"/>
+                    <file filename="{*}cql{*}.jar"/>
+                    <file filename="{*}hecuba-client{*}.jar"/>
+                    <file filename="{*}c-star-path{*}.jar"/>
+                    <file filename="{*}scale7-pelops{*}.jar"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="Cassandra database found" category-id="potential" effort="3">
+                    <message>
+                        To migrate a Java application that uses a Cassandra database to Azure, you can follow these recommendations:
+
+                        * Use an **Azure Managed Instance for Apache Cassandra**: Create an Azure Managed Instance for Apache Cassandra database and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+                        * **Migrate your Cassandra data**: Take a backup of your Cassandra data and restore the backup to Azure Managed Instance for Apache Cassandra. You can use Azure Database Migration Service to facilitate the backup and restore process.
+
+                        * Update the application's **database connection** details: Modify your Java application's configuration to point to the new Azure Managed Instance for Apache Cassandra. Update the connection string and authentication details in your application code to ensure connectivity to the Azure Managed Instance for Apache Cassandra.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying Azure Managed Instance for Apache Cassandra database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+                        * Implement **security** measures: Apply security best practices to protect your Java application and the Azure Managed Instance for Apache Cassandra database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+                        * **Backup** your data: Azure Managed Instance for Apache Cassandra provides built-in backup functionality that allows you to create automated backups of your data. Enable backup for your account and configure the backup retention policy to specify how long the backups should be retained.
+                    </message>
+                    <link title="Azure Managed Instance for Apache Cassandra" href="https://azure.microsoft.com/products/managed-instance-apache-cassandra/"/>
+                    <link title="Azure Managed Instance for Apache Cassandra documentation" href="https://learn.microsoft.com/azure/managed-instance-apache-cassandra/"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Cassandra Client</technology-tag>
+            </perform>
+        </rule>
         <rule id="database-02500">
             <when>
                 <or>
