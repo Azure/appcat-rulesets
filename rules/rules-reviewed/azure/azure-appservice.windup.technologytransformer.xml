@@ -8,4 +8,8 @@
         <sourceTechnology id="azure-appservice"/>
         <targetTechnology id="linux"/>
     </transform>
+    <transform>
+        <sourceTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-appservice"/>
+    </transform>
 </technology-reference-transfomers>
