@@ -24,10 +24,10 @@
                 <file filename="{*}javafx{*}.jar"/>
             </when>
             <perform>
-                <hint title="JavaFX usage" effort="5" category-id="mandatory">
+                <hint title="JavaFX usage" effort="3" category-id="potential">
                     <message>
                         The application uses JavaFX for the graphical user interface.
-                        JavaFX is not cloud compatible and requires the JRE on the remote device.
+                        JavaFX requires the JRE on the remote device.
 
                         * **Containerize** the JavaFX application: Build the Docker image so that it packages the application and the JRE, and push it to Azure Container Registry (ACR). Then you can deploy the container to Azure using Azure Container Instances (ACI), Azure Container Apps (ACA) or Azure Kubernetes Service (AKS).
 
