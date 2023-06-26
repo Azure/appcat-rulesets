@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<ruleset
+    xmlns="http://windup.jboss.org/schema/jboss-ruleset" id="embedded-framework"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset provides analysis of embedded frameworks.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final" />
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="embedded-framework-01000">
+            <when>
+                <file filename="axis{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="Apache Axis found" category-id="information" effort="0">
+                    <message>
+                        To migrate a Java application that uses Apache Axis to Azure, you can follow this recommendation:
+
+                        * **Ensure dependent service connectivity**: If your application makes HTTP requests and has dependencies on other internal services, ensure that the dependent services are accessible from Azure. Consider migrating the dependent services to Azure to ensure seamless connectivity.
+                    </message>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Apache Axis</technology-tag>
+            </perform>
+        </rule>
+        <rule id="embedded-framework-01010">
+            <when>
+                <file filename="axis2{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="Apache Axis2 found" category-id="information" effort="0">
+                    <message>
+                        To migrate a Java application that uses Apache Axis2 to Azure, you can follow this recommendation:
+
+                        * **Ensure dependent service connectivity**: If your application makes HTTP requests and has dependencies on other internal services, ensure that the dependent services are accessible from Azure. Consider migrating the dependent services to Azure to ensure seamless connectivity.
+                    </message>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Apache Axis2</technology-tag>
+            </perform>
+        </rule>
+        <rule id="embedded-framework-01100">
+            <when>
+                <file filename="{*}cxf{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="Apache CXF found" category-id="information" effort="0">
+                    <message>
+                        To migrate a Java application that uses Apache CXF to Azure, you can follow this recommendation:
+
+                        * **Ensure dependent service connectivity**: If your application makes HTTP requests and has dependencies on other internal services, ensure that the dependent services are accessible from Azure. Consider migrating the dependent services to Azure to ensure seamless connectivity.
+                    </message>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Apache CXF</technology-tag>
+            </perform>
+        </rule>
+        <rule id="embedded-framework-01200">
+            <when>
+                <file filename="{*}xfire{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="XFire found" category-id="information" effort="0">
+                    <message>
+                        To migrate a Java application that uses XFire to Azure, you can follow this recommendation:
+
+                        * **Ensure dependent service connectivity**: If your application makes HTTP requests and has dependencies on other internal services, ensure that the dependent services are accessible from Azure. Consider migrating the dependent services to Azure to ensure seamless connectivity.
+                    </message>
+                </hint>
+                <technology-tag level="INFORMATIONAL">XFire</technology-tag>
+            </perform>
+        </rule>
+        <rule id="embedded-framework-01300">
+            <when>
+                <file filename="{*}jersey{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="Jersey found" category-id="information" effort="0">
+                    <message>
+                        To migrate a Java application that uses Jersey to Azure, you can follow this recommendation:
+
+                        * **Ensure dependent service connectivity**: If your application makes HTTP requests and has dependencies on other internal services, ensure that the dependent services are accessible from Azure. Consider migrating the dependent services to Azure to ensure seamless connectivity.
+                    </message>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Jersey</technology-tag>
+            </perform>
+        </rule>
+        <rule id="embedded-framework-01400">
+            <when>
+                <file filename="{*}unirest{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="Unirest found" category-id="information" effort="0">
+                    <message>
+                        To migrate a Java application that uses Unirest to Azure, you can follow this recommendation:
+
+                        * **Ensure dependent service connectivity**: If your application makes HTTP requests and has dependencies on other internal services, ensure that the dependent services are accessible from Azure. Consider migrating the dependent services to Azure to ensure seamless connectivity.
+                    </message>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Unirest</technology-tag>
+            </perform>
+        </rule>
+
+        <rule id="embedded-framework-05100">
+            <when>
+                <file filename="{*}http-client{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="HTTP Client found" category-id="information" effort="0">
+                    <message>
+                        To migrate a Java application that uses HTTP Client to Azure, you can follow this recommendation:
+
+                        * **Ensure dependent service connectivity**: If your application makes HTTP requests and has dependencies on other internal services, ensure that the dependent services are accessible from Azure. Consider migrating the dependent services to Azure to ensure seamless connectivity.
+                    </message>
+                </hint>
+                <technology-tag level="INFORMATIONAL">HTTP Client</technology-tag>
+            </perform>
+        </rule>
+
+        <rule id="embedded-framework-09000">
+            <when>
+                <file filename="feign-{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="Feign found" category-id="information" effort="0">
+                    <message>
+                        To migrate a Java application that uses Feign to Azure, you can follow this recommendation:
+
+                        * **Ensure dependent service connectivity**: If your application makes HTTP requests and has dependencies on other internal services, ensure that the dependent services are accessible from Azure. Consider migrating the dependent services to Azure to ensure seamless connectivity.
+                    </message>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Feign</technology-tag>
+            </perform>
+    </rules>
+</ruleset>
