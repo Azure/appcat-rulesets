@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="embedded-framework-azure-appservice-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/embedded-framework</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/embedded-framework.windup.xml</rulePath>
+    <rulePath>../embedded-framework.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="embedded-framework-azure-appservice-test-01000">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses Apache Axis to Azure"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Apache Axis embedded-framework found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-azure-appservice-test-01010">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses Apache Axis2 to Azure"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Apache Axis2 embedded-framework found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-azure-appservice-test-01100">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses Apache CXF to Azure"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Apache CXF embedded-framework found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-azure-appservice-test-01200">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses XFire to Azure"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="XFire embedded-framework found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-azure-appservice-test-01300">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses Jersey to Azure"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Jersey embedded-framework found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-azure-appservice-test-01400">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses Unirest to Azure"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Unirest embedded-framework found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-azure-appservice-test-05100">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses HTTP Client to Azure"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="HTTP Client embedded-framework found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-azure-appservice-test-09000">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses Feign to Azure"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Feign embedded-framework found hint was not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

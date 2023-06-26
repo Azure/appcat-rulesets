@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="embedded-framework-discovery-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/embedded-framework</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/embedded-framework.windup.xml</rulePath>
+    <rulePath>../embedded-framework.windup.xml</rulePath>
+    <target>discovery</target>
+    <ruleset>
+        <rules>
+            <rule id="embedded-framework-discovery-test-01000">
+                <when>
+                    <not>
+                        <technology-tag-exists technology-tag="Apache Axis"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule embedded-framework-01000"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-discovery-test-01010">
+                <when>
+                    <not>
+                        <technology-tag-exists technology-tag="Apache Axis2"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule embedded-framework-01010"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-discovery-test-01100">
+                <when>
+                    <not>
+                        <technology-tag-exists technology-tag="Apache CXF"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule embedded-framework-01100"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-discovery-test-01200">
+                <when>
+                    <not>
+                        <technology-tag-exists technology-tag="XFire"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule embedded-framework-01200"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-discovery-test-01300">
+                <when>
+                    <not>
+                        <technology-tag-exists technology-tag="Jersey"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule embedded-framework-01300"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-discovery-test-01400">
+                <when>
+                    <not>
+                        <technology-tag-exists technology-tag="Unirest"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule embedded-framework-01400"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-discovery-test-05100">
+                <when>
+                    <not>
+                        <technology-tag-exists technology-tag="HTTP Client"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule embedded-framework-05100"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-discovery-test-09000">
+                <when>
+                    <not>
+                        <technology-tag-exists technology-tag="Feign"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule embedded-framework-09000"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
