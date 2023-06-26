@@ -138,5 +138,6 @@
                 </hint>
                 <technology-tag level="INFORMATIONAL">Feign</technology-tag>
             </perform>
+        </rule>
     </rules>
 </ruleset>
