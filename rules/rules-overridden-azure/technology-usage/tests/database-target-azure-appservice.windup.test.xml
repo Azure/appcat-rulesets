@@ -57,6 +57,18 @@
                     <fail message="MongoDB database found hint was not found!"/>
                 </perform>
             </rule>
+            <rule id="database-azure-appservice-test-03200">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses a MariaDB database to Azure, you can follow these recommendations"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="MariaDB database found hint was not found!"/>
+                </perform>
+            </rule>
         </rules>
     </ruleset>
 </ruletest>
