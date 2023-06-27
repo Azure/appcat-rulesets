@@ -45,8 +45,8 @@
 
                         For more information, see Datasource Management in the JBoss EAP documentation.
                     </message>
-                    <link title="Migrate JBoss EAP applications to JBoss EAP on Azure App Service - Datasources" href="https://docs.microsoft.com/en-us/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service#datasources"/>
-                    <link title="Migrate JBoss EAP applications to JBoss EAP on Azure App Service - Set up data sources" href="https://docs.microsoft.com/en-us/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service#set-up-data-sources"/>
+                    <link title="Migrate JBoss EAP applications to JBoss EAP on Azure App Service - Datasources" href="https://docs.microsoft.com/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service#datasources"/>
+                    <link title="Migrate JBoss EAP applications to JBoss EAP on Azure App Service - Set up data sources" href="https://docs.microsoft.com/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service#set-up-data-sources"/>
                     <link title="Datasource Management" href="https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html/configuration_guide/datasource_management"/>
                 </hint>
             </perform>
