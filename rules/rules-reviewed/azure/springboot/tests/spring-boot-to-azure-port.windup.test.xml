@@ -1,6 +1,8 @@
-<?xml version="1.0"?>
-<ruletest id="spring-boot-to-azure-port-test" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="spring-boot-to-azure-port-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <testDataPath>data/spring-boot-to-azure-port</testDataPath>
     <rulePath>../spring-boot-to-azure-port.windup.xml</rulePath>
     <ruleset>
@@ -9,12 +11,12 @@
                 <when>
                     <not>
                         <iterable-filter size="1">
-                            <hint-exists message="The application is setting the server port." />
+                            <hint-exists message="The application is setting the server port."/>
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="spring boot server port hint was not found!" />
+                    <fail message="spring boot server port hint was not found!"/>
                 </perform>
             </rule>
         </rules>
