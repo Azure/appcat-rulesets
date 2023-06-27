@@ -106,7 +106,7 @@
                         * **Backup** your data: Azure SQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
                     </message>
                     <link title="Azure SQL" href="https://azure.microsoft.com/products/azure-sql/"/>
-                    <link title="Azure SQL documentation" href="https://learn.microsoft.com/en-us/azure/azure-sql"/>
+                    <link title="Azure SQL documentation" href="https://learn.microsoft.com/azure/azure-sql"/>
                     <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
                     <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
                     <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
@@ -189,6 +189,37 @@
                     <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">MongoDB Client</technology-tag>
+            </perform>
+        </rule>
+        <rule id="database-03200">
+            <when>
+                <file filename="{*}mariadb{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="MariaDB database found" category-id="potential" effort="3">
+                    <message>
+                        To migrate a Java application that uses a MariaDB database to Azure, you can follow these recommendations:
+
+                        * Use a managed **Azure Database for MariaDB**: For that create a managed MariaDB database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+                        * **Migrate** the existing MariaDB database: For that you can use the Azure Database Migration Service (DMS) to perform an online migration with minimal downtime.
+
+                        * Update the application's **database connection** details: Modify the Java application's configuration to point to the newly provisioned Azure Database for MariaDB. Update the connection string, hostname, port, username, and password information accordingly.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying MariaDB database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+                        * Implement **security** measures: Apply security best practices to protect your Java application and the MariaDB database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+                        * **Backup** your data: Azure Database for MariaDB provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
+                    </message>
+                    <link title="Azure Database for MariaDB" href="https://azure.microsoft.com/products/mariadb"/>
+                    <link title="Azure Database for MariaDB documentation" href="https://learn.microsoft.com/azure/mariadb/"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                    <link title="Backup and restore in Azure Database for MariaDB" href="https://learn.microsoft.com/azure/mariadb/howto-restore-server-portal"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">MariaDB Driver</technology-tag>
             </perform>
         </rule>
     </rules>
