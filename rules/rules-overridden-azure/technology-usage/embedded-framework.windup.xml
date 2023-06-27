@@ -22,14 +22,23 @@
                 <file filename="axis{*}.jar"/>
             </when>
             <perform>
-                <hint title="Apache Axis found" category-id="information" effort="0">
-                    <message>
-                        To migrate a Java application that uses Apache Axis to Azure, you can follow this recommendation:
+                <iteration>
+                    <when>
+                        <not>
+                            <file filename="axis2{*}.jar"/>
+                        </not>
+                    </when>
+                    <perform>
+                        <hint title="Apache Axis found" category-id="information" effort="0">
+                            <message>
+                                To migrate a Java application that uses Apache Axis to Azure, you can follow this recommendation:
 
-                        * **Ensure dependent service connectivity**: If your application makes HTTP requests and has dependencies on other internal services, ensure that the dependent services are accessible from Azure. Consider migrating the dependent services to Azure to ensure seamless connectivity.
-                    </message>
-                </hint>
-                <technology-tag level="INFORMATIONAL">Apache Axis</technology-tag>
+                                * **Ensure dependent service connectivity**: If your application makes HTTP requests and has dependencies on other internal services, ensure that the dependent services are accessible from Azure. Consider migrating the dependent services to Azure to ensure seamless connectivity.
+                            </message>
+                        </hint>
+                        <technology-tag level="INFORMATIONAL">Apache Axis</technology-tag>
+                    </perform>
+                </iteration>
             </perform>
         </rule>
         <rule id="embedded-framework-01010">
