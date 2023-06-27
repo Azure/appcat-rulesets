@@ -28,8 +28,8 @@
             <perform>
                 <hint title="Azure - The application loads certificates into a KeyStore" category-id="optional" effort="5">
                     <message>Azure - The application loads certificates into a KeyStore</message>
-                    <link title="Configure a Java app for Azure App Service - Initialize the Java Key Store" href="https://docs.microsoft.com/en-us/azure/app-service/configure-language-java?pivots=platform-linux#initialize-the-java-key-store"/>
-                    <link title="Migrate JBoss EAP applications to JBoss EAP on Azure App Service - Inventory all certificates" href="https://docs.microsoft.com/en-us/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service#inventory-all-certificates"/>
+                    <link title="Configure a Java app for Azure App Service - Initialize the Java Key Store" href="https://docs.microsoft.com/azure/app-service/configure-language-java?pivots=platform-linux#initialize-the-java-key-store"/>
+                    <link title="Migrate JBoss EAP applications to JBoss EAP on Azure App Service - Inventory all certificates" href="https://docs.microsoft.com/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service#inventory-all-certificates"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Azure</technology-tag>
             </perform>
