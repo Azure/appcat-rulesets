@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="spring-cloud-to-azure-version"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -20,17 +20,15 @@
     <rules>
         <rule id="spring-cloud-to-azure-version-01000">
             <when>
-                    <project>
-                        <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-dependencies" fromVersion="Angel" toVersion="Edgware.9"/>
-                    </project>
+                <project>
+                    <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-dependencies" fromVersion="Angel" toVersion="Edgware.9"/>
+                </project>
             </when>
             <perform>
                 <hint title="spring cloud version too low" category-id="mandatory" effort="5">
                     <message>
-                        <![CDATA[
                         Spring Cloud version too low.
                         Update to open source support version of Spring Cloud.
-                        ]]>
                     </message>
                     <link title="Spring Cloud Supported Versions" href="https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions"/>
                 </hint>
@@ -38,17 +36,15 @@
         </rule>
         <rule id="spring-cloud-to-azure-version-02000">
             <when>
-                    <project>
-                        <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-dependencies" fromVersion="Finchley" toVersion="Hoxton.9"/>
-                    </project>
+                <project>
+                    <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-dependencies" fromVersion="Finchley" toVersion="Hoxton.9"/>
+                </project>
             </when>
             <perform>
                 <hint title="spring cloud version out of support" category-id="potential" effort="2">
                     <message>
-                        <![CDATA[
                         Spring Cloud version is out of any Spring Cloud support scope.
                         Update to open source support version of Spring Cloud.
-                        ]]>
                     </message>
                     <link title="Spring Cloud Supported Versions" href="https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions"/>
                 </hint>
@@ -68,10 +64,8 @@
             <perform>
                 <hint title="spring cloud version out of OSS support" category-id="information" effort="1">
                     <message>
-                        <![CDATA[
                         Spring Cloud version is out of open source software support.
                         Update to open source support version of Spring Cloud, if you don't have commercial support.
-                        ]]>
                     </message>
                     <link title="Spring Cloud Supported Versions" href="https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions"/>
                 </hint>

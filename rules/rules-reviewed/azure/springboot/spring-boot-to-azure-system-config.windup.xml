@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="spring-boot-to-azure-system-config"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -38,15 +38,12 @@
             <perform>
                 <hint title="The application uses environment variables/system properties" category-id="optional" effort="1">
                     <message>
-                        <![CDATA[
                         Review the usage of environment variables and system properties and externalize them.
 
                         You can inject any per-service configuration settings into each service as environment variables.
 
                         Any system properties that the code depends on will need to be defined in JVM options.
-                        ]]>
                     </message>
-
                     <link title="Configure per-service secrets and externalized settings" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#configure-per-service-secrets-and-externalized-settings"/>
                 </hint>
             </perform>

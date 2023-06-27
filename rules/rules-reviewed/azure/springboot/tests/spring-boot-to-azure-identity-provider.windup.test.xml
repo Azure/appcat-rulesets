@@ -1,5 +1,7 @@
-<?xml version="1.0"?>
-<ruletest id="spring-boot-to-azure-identity-provider-test" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="spring-boot-to-azure-identity-provider-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <testDataPath>data/spring-boot-to-azure-identity-provider</testDataPath>
     <rulePath>../spring-boot-to-azure-identity-provider.windup.xml</rulePath>
@@ -9,12 +11,12 @@
                 <when>
                     <not>
                         <iterable-filter size="2">
-                            <hint-exists message="The application uses Spring security." />
+                            <hint-exists message="The application uses Spring security."/>
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="Spring security hint was not found!" />
+                    <fail message="Spring security hint was not found!"/>
                 </perform>
             </rule>
         </rules>

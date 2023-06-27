@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="spring-boot-to-azure-swing"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -8,7 +8,7 @@
             Identify Swing usage in Spring Boot applications.
         </description>
         <dependencies>
-            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
         </dependencies>
         <sourceTechnology id="springboot"/>
         <targetTechnology id="azure-spring-apps"/>
@@ -27,10 +27,8 @@
             <perform>
                 <hint title="Java Swing usage" effort="5" category-id="mandatory">
                     <message>
-                        <![CDATA[
                         The application uses Java Swing.
                         Upgrade to modern cloud native UI framework.
-                        ]]>
                     </message>
                     <tag>Swing</tag>
                 </hint>

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="spring-boot-to-azure-zipkin"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -32,9 +32,7 @@
             <perform>
                 <hint title="Zipkin" category-id="information" effort="0">
                     <message>
-                        <![CDATA[
                         The application uses Zipkin.
-                        ]]>
                     </message>
                     <link title="Spring Boot to Azure - identify Zipkin dependencies" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#identify-zipkin-dependencies"/>
                     <link title="Distributed Tracing" href="https://learn.microsoft.com/azure/azure-monitor/app/distributed-tracing-telemetry-correlation"/>

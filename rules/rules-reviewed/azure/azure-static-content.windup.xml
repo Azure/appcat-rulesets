@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="azure-static-content"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="spring-boot-to-azure-feign"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -32,11 +32,9 @@
             <perform>
                 <hint title="Feign" category-id="mandatory" effort="3">
                     <message>
-                        <![CDATA[
                         The application uses Feign. Spring Cloud Service Registry uses OpenFeign instead. When migrating to Spring Cloud Service Registry, the Feign invocations will no longer be possible.
-                        
+
                         Update the clients to use Spring Cloud OpenFeign instead.
-                        ]]>
                     </message>
                     <link title="Migrate clients bypassing the service registry" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#identify-clients-that-bypass-the-service-registry"/>
                     <link title="Spring Cloud OpenFeign" href="https://spring.io/projects/spring-cloud-openfeign/"/>

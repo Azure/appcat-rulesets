@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="spring-boot-to-azure-port"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -20,7 +20,7 @@
     <rules>
         <rule id="spring-boot-to-azure-port-01000">
             <when>
-                <filecontent filename="application{*}.{extensions}" pattern="{pattern}" />
+                <filecontent filename="application{*}.{extensions}" pattern="{pattern}"/>
             </when>
             <perform>
                 <hint title="Server port configuration found" effort="0" category-id="information">
@@ -29,10 +29,10 @@
                 </hint>
             </perform>
             <where param="extensions">
-                <matches pattern="(properties|yaml|yml)" />
+                <matches pattern="(properties|yaml|yml)"/>
             </where>
             <where param="pattern">
-                <matches pattern="(^|\s)server\.port" />
+                <matches pattern="(^|\s)server\.port"/>
             </where>
         </rule>
     </rules>
