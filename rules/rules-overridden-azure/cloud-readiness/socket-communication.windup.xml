@@ -16,8 +16,8 @@
         <targetTechnology id="azure-appservice"/>
         <targetTechnology id="azure-aks"/>
         <targetTechnology id="azure-container-apps"/>
-        <overrideRules>true</overrideRules>
         <tag>socket</tag>
+        <overrideRules>true</overrideRules>
     </metadata>
     <rules>
         <rule id="socket-communication-00000">
