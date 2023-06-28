@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<ruletest id="jni-native-code-test" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/cloud-readiness/tests/data</testDataPath>
+    <rulePath>../../../rules-reviewed/cloud-readiness/jni-native-code.windup.xml</rulePath>
+    <rulePath>../jni-native-code.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="jni-native-code-azure-appservice-test-00001">
+                <when>
+                    <not>
+                        <iterable-filter size="12">
+                          <hint-exists message="When migrating an application that uses Java native libraries" />
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Java JNI/JNA usage was not found" />
+                </perform>
+            </rule>
+            <rule id="jni-native-code-azure-appservice-test-00002">
+                <when>
+                    <not>
+                        <iterable-filter size="3">
+                            <hint-exists message="When migrating an application that uses Java native libraries" />
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Native Process usage was not found" />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

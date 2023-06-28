@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<ruleset id="jni-native-code"
+    xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset detects Java Native Interface (JNI) and Java Native Access (JNA) code, which may be problematic when migrating an application to a cloud environment.
+            This ruleset overrides the rules/rules-reviewed/cloud-readiness/jni-native-code.windup.xml ruleset.
+        </description>
+        <dependencies>
+          <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+          <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <overrideRules>true</overrideRules>
+        <tag>jni</tag>
+    </metadata>
+    <rules>
+        <rule id="jni-native-code-00000">
+            <when>
+                <or>
+                  <javaclass references="java.lang.System.load({*})">
+                      <location>METHOD_CALL</location>
+                  </javaclass>
+                  <javaclass references="java.lang.System.loadLibrary({*})">
+                      <location>METHOD_CALL</location>
+                  </javaclass>
+                  <javaclass references="java.lang.System.mapLibraryName({*})">
+                      <location>METHOD_CALL</location>
+                  </javaclass>
+                  <javaclass references="java.lang.Runtime.load({*})">
+                      <location>METHOD_CALL</location>
+                  </javaclass>
+                  <javaclass references="java.lang.Runtime.loadLibrary({*})">
+                      <location>METHOD_CALL</location>
+                  </javaclass>
+                  <javaclass references="com.sun.jna.{*}">
+                      <location>CONSTRUCTOR_CALL</location>
+                      <location>IMPORT</location>
+                      <location>INHERITANCE</location>
+                      <location>METHOD_CALL</location>
+                      <location>VARIABLE_DECLARATION</location>
+                  </javaclass>
+                </or>
+            </when>
+            <perform>
+              <hint title="Java native libraries (JNI, JNA)" effort="7" category-id="cloud-mandatory">
+                  <message>
+                    When migrating an application that uses Java native libraries (JNI, JNA) to Azure, it's important to consider that Java native libraries might not run in a cloud or container environment.
+                    Instead, you can refactor your application to use cloud-compatible alternatives or managed services.
+
+                    * **Identify native library dependencies**: Review all native libraries used in your application and review the purpose of each library.
+
+                    * **Evaluate and use cloud-compatible alternatives**: For each native library, look for alternative libraries or services that provide similar functionality and are compatible with cloud environments. Replace instances of JNI or JNA usage with the chosen cloud-compatible alternatives.
+
+                    * **Leverage Azure managed services**: Evaluate the use of Azure-managed services to replace certain native library functionalities. For example, if your application uses JNI or JNA for file operations, consider using Azure Storage for cloud-native storage solutions. If your application uses JNI or JNA to connect and interact with a local SQL database, consider replacing it with Azure Database for MySQL. This could eliminate the need for native code in your application.
+
+                    * **Test and validate**: Thoroughly test the updated application to ensure it works correctly with the new libraries or services. Perform functional, performance, and stress tests to validate that the application meets its requirements and can handle the expected workload.
+                </message>
+                <tag>jni</tag>
+              </hint>
+            </perform>
+        </rule>
+        <rule id="jni-native-code-00001">
+            <when>
+                <or>
+                    <javaclass references="java.lang.Process">
+                        <location>CONSTRUCTOR_CALL</location>
+                        <location>IMPORT</location>
+                        <location>INHERITANCE</location>
+                        <location>VARIABLE_DECLARATION</location>
+                    </javaclass>
+                    <javaclass references="java.lang.ProcessBuilder">
+                        <location>CONSTRUCTOR_CALL</location>
+                        <location>IMPORT</location>
+                        <location>INHERITANCE</location>
+                        <location>VARIABLE_DECLARATION</location>
+                    </javaclass>
+                    <javaclass references="java.lang.ProcessHandle">
+                        <location>CONSTRUCTOR_CALL</location>
+                        <location>IMPORT</location>
+                        <location>INHERITANCE</location>
+                        <location>VARIABLE_DECLARATION</location>
+                    </javaclass>
+                </or>
+            </when>
+            <perform>
+                <hint title="Java Native Processes" effort="7" category-id="cloud-mandatory">
+                    <message>
+                        When migrating an application that uses native processes to Azure, it's important to consider that native processes might not run in a cloud or container environment. Instead, you can refactor your application to use cloud-compatible alternatives or managed services.
+
+                        * **Identify native process dependencies**: Review all native processes used in your application and understand the purpose of each process.
+
+                        * **Evaluate and use cloud-compatible alternatives**: For each native process, look for alternative libraries, services, or APIs that provide similar functionality and are compatible with cloud environments. Replace instances of native process usage with the chosen cloud-compatible alternatives.
+
+                        * **Leverage Azure managed services**: Evaluate the use of Azure-managed services to replace certain native process functionalities.
+
+                        * **Test and validate**: Thoroughly test the updated application to ensure it works correctly with the new libraries or services. Perform functional, performance, and stress tests to validate that the application meets its requirements and can handle the expected workload.
+                    <tag>jni</tag>
+                </hint>
+            </perform>
+        </rule>
+  </rules>
+</ruleset>
