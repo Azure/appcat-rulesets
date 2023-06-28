@@ -1,6 +1,8 @@
-<?xml version="1.0"?>
-<ruletest id="socket-communication-test" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="socket-communication-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <testDataPath>../../../rules-reviewed/cloud-readiness/tests/data</testDataPath>
     <rulePath>../../../rules-reviewed/cloud-readiness/socket-communication.windup.xml</rulePath>
     <rulePath>../socket-communication.windup.xml</rulePath>
