@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<ruletest id="java-rmi-test" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/cloud-readiness/tests/data</testDataPath>
+    <rulePath>../../../rules-reviewed/cloud-readiness/java-rmi.windup.xml</rulePath>
+    <rulePath>../java-rmi.windup.xml</rulePath>
+    <target>cloud-readiness</target>
+    <ruleset>
+        <rules>
+            <rule id="java-rmi-cloud-readiness-test-00000">
+                <when>
+                    <not>
+                        <hint-exists message="Java RMI is a tightly coupled service. Tight coupling is" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Java RMI API hint was not found!" />
+                </perform>
+            </rule>
+            <rule id="java-rmi-cloud-readiness-test-00001">
+                <when>
+                    <not>
+                        <classification-exists classification="Java Remote Method Invocation \(RMI\) API"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Java RMI classification was not found!" />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
