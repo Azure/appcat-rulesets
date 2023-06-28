@@ -16,8 +16,8 @@
         <targetTechnology id="azure-appservice"/>
         <targetTechnology id="azure-aks"/>
         <targetTechnology id="azure-container-apps"/>
-        <overrideRules>true</overrideRules>
         <tag>jni</tag>
+        <overrideRules>true</overrideRules>
     </metadata>
     <rules>
         <rule id="jni-native-code-00000">
@@ -100,6 +100,7 @@
                         * **Leverage Azure managed services**: Evaluate the use of Azure-managed services to replace certain native process functionalities.
 
                         * **Test and validate**: Thoroughly test the updated application to ensure it works correctly with the new libraries or services. Perform functional, performance, and stress tests to validate that the application meets its requirements and can handle the expected workload.
+                    </message>
                     <tag>jni</tag>
                 </hint>
             </perform>
