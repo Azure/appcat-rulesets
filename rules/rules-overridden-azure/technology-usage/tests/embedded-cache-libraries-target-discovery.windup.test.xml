@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="embedded-cache-libraries-discover-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/embedded-framework/embedded-cache-libraries</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/embedded-cache-libraries.windup.xml</rulePath>
+    <rulePath>../embedded-cache-libraries.windup.xml</rulePath>
+    <target>discovery</target>
+    <ruleset>
+        <rules>
+            <rule id="embedded-cache-libraries-discover-test-16000">
+                <when>
+                    <not>
+                        <classification-exists classification="Redis Cache library"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Technology usage -  Redis Cache classification not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

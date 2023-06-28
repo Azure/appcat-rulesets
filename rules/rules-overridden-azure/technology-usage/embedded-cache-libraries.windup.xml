@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset id="embedded-cache-libraries"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset detects embedded cache libraries, which may be problematic when migrating an application to a cloud environment.
+            This ruleset overrides the rules/rules-reviewed/technology-usage/embedded-cache-libraries.windup.xml ruleset.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <tag>cache</tag>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="embedded-cache-libraries-16000">
+            <when>
+                <file filename="{*}redis{*}.jar"/>
+            </when>
+            <perform>
+                <classification title="Redis Cache library" category-id="information" effort="0">
+                    <description>
+                        Blah blah blah.
+                    </description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Redis</technology-tag>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>
