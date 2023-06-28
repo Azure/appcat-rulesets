@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<ruleset id="java-rmi" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset detects the Java Remote Method Invocation (RMI), which may be problematic when migrating an application to a cloud environment.
+            This ruleset overrides the rules/rules-reviewed/cloud-readiness/java-rmi.windup.xml ruleset.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,2.7.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-java,2.7.0.Final" />
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <tag>rmi</tag>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="java-rmi-00000">
+            <when>
+                <javaclass references="java.rmi.Remote">
+                    <location>INHERITANCE</location>
+                </javaclass>
+            </when>
+            <perform>
+                <classification issue-display-mode="detail-only" title="Java Remote Method Invocation (RMI) service" effort="0" category-id="cloud-mandatory">
+                </classification>
+                <hint title="Java Remote Method Invocation (RMI) service" effort="1" category-id="cloud-mandatory">
+                    <message>
+                    When migrating an application that uses Java Remote Method Invocation (RMI) service to Azure, it's crucial to consider that RMI is a tightly coupled service and tight coupling is not suitable in a cloud environment because of scalability problems.
+
+                    Here are some recommendations for migrating such an application to Azure:
+
+                    * **Use HTTP-based communication**: Replace RMI with a more loosely coupled communication approach, such as HTTP or HTTPS, in combination with an architectural pattern like RESTful APIs.
+
+                    * **Leverage Azure managed services**: You can also consider using Azure managed services to replace RMI. For real-time, bidirectional communication between components that require low-latency, consider integrating Azure SignalR Service. It simplifies real-time web functionality and supports WebSocket communication. For asynchronous, message-based communication between components in a distributed system, consider using Azure messaging services like Azure Service Bus or Azure Event Hubs. 
+
+                    </message>
+                    <link href="https://12factor.net/backing-services" title="Twelve-factor app - Backing services"/>
+                    <tag>rmi</tag>
+                    <tag>cloud-readiness</tag>
+                </hint>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>
