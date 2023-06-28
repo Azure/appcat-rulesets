@@ -10,6 +10,20 @@
     <target>discovery</target>
     <ruleset>
         <rules>
+            <rule id="web-discovery-test-01700">
+                <when>
+                    <not>
+                        <technology-statistics-exists name="Swing" number-found="1">
+                            <tag name="View"/>
+                            <tag name="Rich"/>
+                            <tag name="Embedded"/>
+                        </technology-statistics-exists>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule technology-usage-web-01700"/>
+                </perform>
+            </rule>
             <rule id="web-discovery-test-02300">
                 <when>
                     <not>

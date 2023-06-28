@@ -19,6 +19,37 @@
         <overrideRules>true</overrideRules>
     </metadata>
     <rules>
+        <rule id="technology-usage-web-01700">
+            <when>
+                <or>
+                    <file filename="{*}swing{*}.jar"/>
+                    <javaclass references="javax.swing.{*}">
+                        <location>IMPORT</location>
+                    </javaclass>
+                </or>
+            </when>
+            <perform>
+                <hint title="Java Swing usage" effort="3" category-id="potential">
+                    <message>
+                        The application uses Java Swing for the graphical user interface.
+                        Java Swing requires the JRE on the remote device.
+
+                        * **Containerize** the Java Swing application: Build the Docker image so that it packages the application and the JRE, and push it to Azure Container Registry (ACR). Then you can deploy the container to Azure using Azure Container Instances (ACI), Azure Container Apps (ACA) or Azure Kubernetes Service (AKS).
+
+                        * **Leverage Azure Virtual Machines (VMs)**: Create a Windows or Linux-based Azure VM with the appropriate configuration for hosting your Java Swing application. For this, install the required Java Development Kit (JDK) and Java Swing runtime on the Azure VM.
+
+                        * **Consider performance**: Java Swing applications require the GUI to be rendered, which may bring performance and scalability limitations. Also check the etworking requirements when selecting the appropriate Azure service for your Java Swing application.
+                    </message>
+                    <link title="Azure Container Registry" href="https://azure.microsoft.com/products/container-registry"/>
+                    <link title="Azure Container Registry documentation" href="https://learn.microsoft.com/azure/container-registry/"/>
+                    <link title="Azure Container Instances" href="https://azure.microsoft.com/products/container-instances"/>
+                    <link title="Azure Container Instances documentation" href="https://learn.microsoft.com/azure/container-instances/"/>
+                    <link title="Azure Container Apps" href="https://azure.microsoft.com/products/container-apps"/>
+                    <link title="Azure Container Apps documentation" href="https://learn.microsoft.com/azure/container-apps/overview"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Swing</technology-tag>
+            </perform>
+        </rule>
         <rule id="technology-usage-web-02300">
             <when>
                 <file filename="{*}javafx{*}.jar"/>
