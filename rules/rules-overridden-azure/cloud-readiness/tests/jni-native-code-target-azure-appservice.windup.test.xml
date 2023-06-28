@@ -23,7 +23,7 @@
                 <when>
                     <not>
                         <iterable-filter size="3">
-                            <hint-exists message="When migrating an application that uses Java native libraries" />
+                            <hint-exists message="When migrating an application that uses native processes to Azure" />
                         </iterable-filter>
                     </not>
                 </when>
