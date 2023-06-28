@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<ruleset id="socket-communication"
+    xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset detects the use of socket communication by the client or server, which may be problematic when migrating an application to a cloud environment.
+            It overrids rules/rules-reviewed/cloud-readiness/socket-communication.windup.xml
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <overrideRules>true</overrideRules>
+        <tag>socket</tag>
+    </metadata>
+    <rules>
+        <rule id="socket-communication-00000">
+            <when>
+                <or>
+                  <javaclass references="java.net.{socketclass}{*}" />
+                  <javaclass references="java.net.ServerSocket{*}"/>
+                  <javaclass references="java.nio.channels.AsynchronousServerSocketChannel{*}"/>
+                  <javaclass references="java.nio.channels.ServerSocketChannel{*}"/>
+                </or>
+            </when>
+            <perform>
+              <iteration>
+                <hint title="Socket communication" effort="5" category-id="cloud-optional">
+                    <message>
+                    When migrating an application that uses Java socket communication to Azure, it's crucial to consider that socket communication is not suitable for a cloud environment due to its requirement for fixed communication with a target host.
+                    
+                    Here are some recommendations for migrating such an application to Azure:
+
+                    * **Use HTTP-based communication**: Replace socket communication with a more loosely coupled communication approach, such as HTTP or HTTPS, in combination with an architectural pattern like RESTful APIs.
+
+                    * **Leverage Azure managed services**: You can also consider using Azure managed services to replace socket communication. For real-time, bidirectional communication between components that require low-latency, consider integrating Azure SignalR Service. It simplifies real-time web functionality and supports WebSocket communication. For asynchronous, message-based communication between components in a distributed system, consider using Azure messaging services like Azure Service Bus or Azure Event Hubs. 
+                    </message>
+                    <link href="https://12factor.net/backing-services" title="Twelve-factor app - Backing services"/>
+                    <link href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-app-service#identify-handling-of-non-http-requests-or-multiple-ports" title="Identify handling of non-HTTP requests or multiple ports"/>
+                    <link href="https://learn.microsoft.com/azure/azure-signalr/signalr-overview" title="Azure SignalR Service"/>
+                    <link href="https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview" title="Azure Service Bus"/>
+                    <link href="https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about" title="Azure Event Hubs"/>
+                    <tag>socket</tag>
+                </hint>
+              </iteration>
+            </perform>
+            <where param="socketclass">
+                <matches pattern="(Socket|MulticastSocket|DatagramSocket|InetSocketAddress)"/>
+            </where>
+        </rule>
+        <rule id="socket-communication-00001">
+            <when>
+                <javaclass references="java.nio.channels.{niochannelclass}{*}" />
+            </when>
+            <perform>
+              <iteration>
+                <hint title="Java NIO channel" effort="5" category-id="cloud-optional">
+                    <message>
+                    When migrating an application that uses Java NIO channels to Azure, it's crucial to consider that channels are not suitable for a cloud environment because they are not a reliable or scalable way to interact with other systems.
+                    
+                    Here are some recommendations for migrating such an application to Azure:
+
+                    * **Use HTTP-based communication**: Refactor your app to use HTTP-based communication instead of low-level NIO channels, in combination with an architectural pattern like RESTful APIs.
+
+                    * **Leverage Azure managed services**: You can also consider using Azure managed services to replace NIO channels. For real-time, bidirectional communication between components that require low-latency, consider integrating Azure SignalR Service. It simplifies real-time web functionality and supports WebSocket communication. For asynchronous, message-based communication between components in a distributed system, consider using Azure messaging services like Azure Service Bus or Azure Event Hubs.
+                    </message>
+                    <link href="https://12factor.net/backing-services" title="Twelve-factor app - Backing services"/>
+                    <link href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-app-service#identify-handling-of-non-http-requests-or-multiple-ports" title="Identify handling of non-HTTP requests or multiple ports"/>
+                    <link href="https://learn.microsoft.com/azure/azure-signalr/signalr-overview" title="Azure SignalR Service"/>
+                    <link href="https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview" title="Azure Service Bus"/>
+                    <link href="https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about" title="Azure Event Hubs"/>
+                  <tag>socket</tag>
+                </hint>
+              </iteration>
+            </perform>
+            <where param="niochannelclass">
+              <matches pattern="(NetworkChannel|MulticastChannel|DatagramChannel|AsynchronousSocketChannel|SocketChannel)"/>
+            </where>
+        </rule>
+    </rules>
+</ruleset>
