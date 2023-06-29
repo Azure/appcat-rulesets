@@ -25,11 +25,11 @@
                 <file filename="{*}redis{*}.jar"/>
             </when>
             <perform>
-                <classification title="Redis Cache library" category-id="information" effort="0">
-                    <description>
+                <hint title="Redis Cache library" category-id="information" effort="0">
+                    <message>
                         Blah blah blah.
-                    </description>
-                </classification>
+                    </message>
+                </hint>
                 <technology-tag level="INFORMATIONAL">Redis</technology-tag>
             </perform>
         </rule>
