@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset id="embedded-cache-libraries" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ruleset id="embedded-cache" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <metadata>
         <description>
@@ -10,10 +10,9 @@
             <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final" />
         </dependencies>
         <targetTechnology id="cloud-readiness"/>
-        <overrideRules>true</overrideRules>
     </metadata>
     <rules>
-        <rule id="embedded-cache-libraries-01000">
+        <rule id="embedded-cache-01000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*ehcache.*\.jar$</property>
@@ -32,7 +31,7 @@
                 <technology-tag level="INFORMATIONAL">Ehcache</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-02000">
+        <rule id="embedded-cache-02000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*coherence.*\.jar$</property>
@@ -51,7 +50,7 @@
                 <technology-tag level="INFORMATIONAL">Coherence</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-03000">
+        <rule id="embedded-cache-03000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*commons-jcs.*\.jar$</property>
@@ -70,7 +69,7 @@
                 <technology-tag level="INFORMATIONAL">Apache Commons JCS</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-04000">
+        <rule id="embedded-cache-04000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*dynacache.*\.jar$</property>
@@ -89,7 +88,7 @@
                 <technology-tag level="INFORMATIONAL">Dynacache</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-05000">
+        <rule id="embedded-cache-05000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*cache-api.*\.jar$</property>
@@ -108,7 +107,7 @@
                 <technology-tag level="INFORMATIONAL">Cache API</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-06000">
+        <rule id="embedded-cache-06000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*hazelcast.*\.jar$</property>
@@ -127,7 +126,7 @@
                 <technology-tag level="INFORMATIONAL">Hazelcast</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-07000">
+        <rule id="embedded-cache-07000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*ignite.*\.jar$</property>
@@ -146,7 +145,7 @@
                 <technology-tag level="INFORMATIONAL">Apache Ignite</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-08000">
+        <rule id="embedded-cache-08000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*infinispan.*\.jar$</property>
@@ -165,7 +164,7 @@
                 <technology-tag level="INFORMATIONAL">Infinispan</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-09000">
+        <rule id="embedded-cache-09000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*jbosscache.*\.jar$</property>
@@ -184,7 +183,7 @@
                 <technology-tag level="INFORMATIONAL">JBoss Cache</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-10000">
+        <rule id="embedded-cache-10000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*jcache.*\.jar$</property>
@@ -203,7 +202,7 @@
                 <technology-tag level="INFORMATIONAL">JCache</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-11000">
+        <rule id="embedded-cache-11000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*memcached.*\.jar$</property>
@@ -222,7 +221,7 @@
                 <technology-tag level="INFORMATIONAL">Memcached client</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-12000">
+        <rule id="embedded-cache-12000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*oscache.*\.jar$</property>
@@ -241,7 +240,7 @@
                 <technology-tag level="INFORMATIONAL">Oscache</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-13000">
+        <rule id="embedded-cache-13000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*shiftone.*\.jar$</property>
@@ -260,7 +259,7 @@
                 <technology-tag level="INFORMATIONAL">ShiftOne</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-14000">
+        <rule id="embedded-cache-14000">
             <when>
                 <graph-query discriminator="JarArchiveModel">
                     <property name="fileName" searchType="regex">.*swarmcache.*\.jar$</property>
@@ -279,7 +278,7 @@
                 <technology-tag level="INFORMATIONAL">SwarmCache</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-15000">
+        <rule id="embedded-cache-15000">
             <when>
                 <or>
                     <dependency groupId="org.springframework.boot" artifactId="spring-boot-starter-cache"/>
@@ -301,7 +300,7 @@
                 <technology-tag level="INFORMATIONAL">Spring Boot Cache</technology-tag>
             </perform>
         </rule>
-        <rule id="embedded-cache-libraries-16000">
+        <rule id="embedded-cache-16000">
             <when>
                 <file filename="{*}redis{*}.jar"/>
             </when>
