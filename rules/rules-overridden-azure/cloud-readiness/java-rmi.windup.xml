@@ -1,6 +1,8 @@
-<?xml version="1.0"?>
-<ruleset id="java-rmi" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset id="java-rmi"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <metadata>
         <description>
             This ruleset detects the Java Remote Method Invocation (RMI), which may be problematic when migrating an application to a cloud environment.
@@ -44,6 +46,38 @@
                     <tag>rmi</tag>
                     <tag>cloud-readiness</tag>
                 </hint>
+            </perform>
+        </rule>
+        <rule id="java-rmi-00001">
+            <when>
+                <javaclass references="java.rmi.{*}" />
+            </when>
+            <perform>
+                <iteration>
+                    <when>
+                        <not>
+                            <has-classification title="Java Remote Method Invocation (RMI) service" />
+                        </not>
+                    </when>
+                    <perform>
+                        <classification issue-display-mode="all" title="Java Remote Method Invocation (RMI) API" effort="3" category-id="cloud-mandatory">
+                            <description>
+                            When migrating an application that uses Java Remote Method Invocation (RMI) API to Azure, it's crucial to consider that RMI is a tightly coupled service and tight coupling is not suitable in a cloud environment because of scalability problems.
+
+                            Here are some recommendations for migrating such an application to Azure:
+
+                            * **Use HTTP-based communication**: Replace RMI with a more loosely coupled communication approach, such as HTTP or HTTPS, in combination with an architectural pattern like RESTful APIs.
+
+                            * **Leverage Azure managed services**: You can also consider using Azure managed services to replace RMI. For real-time, bidirectional communication that require low-latency, consider integrating Azure SignalR Service. It simplifies real-time web functionality and supports WebSocket communication. For asynchronous, message-based communication, consider using Azure messaging services like Azure Service Bus or Azure Event Hubs. 
+                            </description>
+                            <link href="https://12factor.net/backing-services" title="Twelve-factor app - Backing services"/>
+                            <link href="https://learn.microsoft.com/azure/azure-signalr/signalr-overview" title="Azure SignalR Service"/>
+                            <link href="https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview" title="Azure Service Bus"/>
+                            <link href="https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about" title="Azure Event Hubs"/>
+                            <tag>rmi</tag>
+                        </classification>
+                    </perform>
+                </iteration>
             </perform>
         </rule>
     </rules>
