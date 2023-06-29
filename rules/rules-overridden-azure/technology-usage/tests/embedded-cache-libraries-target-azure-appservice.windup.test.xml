@@ -13,7 +13,7 @@
                 <when>
                     <not>
                         <iterable-filter size="1">
-                            <hint-exists message="Blah blah blah."/>
+                            <hint-exists message="The application uses a Redis cache. You can take advantage of a managed Redis service that offers scalability, high availability,*"/>
                         </iterable-filter>
                     </not>
                 </when>
