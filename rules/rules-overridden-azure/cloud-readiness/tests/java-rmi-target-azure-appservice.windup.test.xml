@@ -22,7 +22,7 @@
             <rule id="java-rmi-azure-appservice-test-00001">
                 <when>
                     <not>
-                        <classification-exists description="When migrating an application that uses Java Remote Method Invocation (RMI) API to Azure" />
+                        <classification-exists classification="Java Remote Method Invocation \(RMI\) API" />
                     </not>
                 </when>
                 <perform>
