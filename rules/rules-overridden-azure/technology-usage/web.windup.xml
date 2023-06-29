@@ -38,7 +38,7 @@
 
                         * **Leverage Azure Virtual Machines (VMs)**: Create a Windows or Linux-based Azure VM with the appropriate configuration for hosting your Java Swing application. For this, install the required Java Development Kit (JDK) and Java Swing runtime on the Azure VM.
 
-                        * **Consider performance**: Java Swing applications require the GUI to be rendered, which may bring performance and scalability limitations. Also check the etworking requirements when selecting the appropriate Azure service for your Java Swing application.
+                        * **Consider performance**: Java Swing applications require the GUI to be rendered, which may bring performance and scalability limitations. Also check the networking requirements when selecting the appropriate Azure service for your Java Swing application.
                     </message>
                     <link title="Azure Container Registry" href="https://azure.microsoft.com/products/container-registry"/>
                     <link title="Azure Container Registry documentation" href="https://learn.microsoft.com/azure/container-registry/"/>
@@ -64,7 +64,7 @@
 
                         * **Leverage Azure Virtual Machines (VMs)**: Create a Windows or Linux-based Azure VM with the appropriate configuration for hosting your JavaFX application. For this, install the required Java Development Kit (JDK) and JavaFX runtime on the Azure VM.
 
-                        * **Consider performance**: JavaFX applications require the GUI to be rendered, which may bring performance and scalability limitations. Also check the etworking requirements when selecting the appropriate Azure service for your JavaFX application.
+                        * **Consider performance**: JavaFX applications require the GUI to be rendered, which may bring performance and scalability limitations. Also check the networking requirements when selecting the appropriate Azure service for your JavaFX application.
                     </message>
                     <link title="Azure Container Registry" href="https://azure.microsoft.com/products/container-registry"/>
                     <link title="Azure Container Registry documentation" href="https://learn.microsoft.com/azure/container-registry/"/>
