@@ -27,9 +27,7 @@
                 </javaclass>
             </when>
             <perform>
-                <classification issue-display-mode="detail-only" title="Java Remote Method Invocation (RMI) service" effort="0" category-id="cloud-mandatory">
-                </classification>
-                <hint title="Java Remote Method Invocation (RMI) service" effort="1" category-id="cloud-mandatory">
+                <hint title="Java Remote Method Invocation (RMI) service" effort="7" category-id="cloud-mandatory">
                     <message>
                     When migrating an application that uses Java Remote Method Invocation (RMI) service to Azure, it's crucial to consider that RMI is a tightly coupled service and tight coupling is not suitable in a cloud environment because of scalability problems.
 
@@ -39,10 +37,10 @@
 
                     * **Leverage Azure managed services**: You can also consider using Azure managed services to replace RMI. For real-time, bidirectional communication that require low-latency, consider integrating Azure SignalR Service. It simplifies real-time web functionality and supports WebSocket communication. For asynchronous, message-based communication, consider using Azure messaging services like Azure Service Bus or Azure Event Hubs. 
                     </message>
-                    <link href="https://12factor.net/backing-services" title="Twelve-factor app - Backing services"/>
-                    <link href="https://learn.microsoft.com/azure/azure-signalr/signalr-overview" title="Azure SignalR Service"/>
-                    <link href="https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview" title="Azure Service Bus"/>
-                    <link href="https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about" title="Azure Event Hubs"/>
+                    <link title="Twelve-factor app - Backing services" href="https://12factor.net/backing-services"/>
+                    <link title="Azure SignalR Service" href="https://learn.microsoft.com/azure/azure-signalr/signalr-overview"/>
+                    <link title="Azure Service Bus" href="https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview"/>
+                    <link title="Azure Event Hubs" href="https://docs.microsoft.com/azure/event-hubs/event-hubs-about"/>
                     <tag>rmi</tag>
                     <tag>cloud-readiness</tag>
                 </hint>
@@ -60,7 +58,7 @@
                         </not>
                     </when>
                     <perform>
-                        <classification issue-display-mode="all" title="Java Remote Method Invocation (RMI) API" effort="3" category-id="cloud-mandatory">
+                        <classification issue-display-mode="all" title="Java Remote Method Invocation (RMI) API" effort="7" category-id="cloud-mandatory">
                             <description>
                             When migrating an application that uses Java Remote Method Invocation (RMI) API to Azure, it's crucial to consider that RMI is a tightly coupled service and tight coupling is not suitable in a cloud environment because of scalability problems.
 
@@ -70,10 +68,10 @@
 
                             * **Leverage Azure managed services**: You can also consider using Azure managed services to replace RMI. For real-time, bidirectional communication that require low-latency, consider integrating Azure SignalR Service. It simplifies real-time web functionality and supports WebSocket communication. For asynchronous, message-based communication, consider using Azure messaging services like Azure Service Bus or Azure Event Hubs. 
                             </description>
-                            <link href="https://12factor.net/backing-services" title="Twelve-factor app - Backing services"/>
-                            <link href="https://learn.microsoft.com/azure/azure-signalr/signalr-overview" title="Azure SignalR Service"/>
-                            <link href="https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview" title="Azure Service Bus"/>
-                            <link href="https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about" title="Azure Event Hubs"/>
+                            <link title="Twelve-factor app - Backing services" href="https://12factor.net/backing-services"/>
+                            <link title="Azure SignalR Service" href="https://learn.microsoft.com/azure/azure-signalr/signalr-overview"/>
+                            <link title="Azure Service Bus" href="https://learn.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview"/>
+                            <link title="Azure Event Hubs" href="https://docs.microsoft.com/azure/event-hubs/event-hubs-about"/>
                             <tag>rmi</tag>
                         </classification>
                     </perform>
