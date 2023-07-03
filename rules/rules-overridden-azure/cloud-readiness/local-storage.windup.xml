@@ -235,5 +235,46 @@
                 </iteration>
             </perform>
         </rule>
+        <rule id="local-storage-00006">
+            <when>
+                <or>
+                    <javaclass references="org.apache.commons.io.input.{*}">
+                        <location>IMPORT</location>
+                    </javaclass>
+                    <javaclass references="org.apache.commons.io.output.{*}">
+                        <location>IMPORT</location>
+                    </javaclass>
+                </or>
+            </when>
+            <perform>
+                <iteration>
+                    <hint title="Apache Commons I/O" effort="3" category-id="cloud-mandatory">
+                        <message>
+                            When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
+                            An application running inside a container could lose access to a file in local storage.
+
+                            The following recommendations depend on the function of the file in local storage:
+
+                            * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+
+                            * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
+
+                            * **Caching**: Use Azure Cache for Redis as a cache backing service.
+
+                            * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
+                        </message>
+                        <link title="Azure Storage" href="https://azure.microsoft.com/products/category/storage"/>
+                        <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage/"/>
+                        <link title="Azure Monitor" href="https://azure.microsoft.com/products/monitor/"/>
+                        <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                        <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
+                        <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis/"/>
+                        <link title="Azure App Configuration" href="https://azure.microsoft.com/products/app-configuration"/>
+                        <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration/"/>
+                        <tag>storage</tag>
+                    </hint>
+                </iteration>
+            </perform>
+        </rule>
     </rules>
 </ruleset>
