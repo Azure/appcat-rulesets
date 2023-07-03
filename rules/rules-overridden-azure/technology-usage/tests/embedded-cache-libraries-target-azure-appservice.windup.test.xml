@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="embedded-cache-libraries-azure-appservice-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/embedded-framework/embedded-cache-libraries</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/embedded-cache-libraries.windup.xml</rulePath>
+    <rulePath>../embedded-cache-libraries.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="embedded-cache-libraries-azure-appservice-test-16000">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="The application uses a Redis cache. You can take advantage of a managed Redis service that offers scalability, high availability,*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Redis cache found hint was not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

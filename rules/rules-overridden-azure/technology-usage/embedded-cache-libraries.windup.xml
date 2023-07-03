@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset id="embedded-cache-libraries"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset detects embedded cache libraries, which may be problematic when migrating an application to a cloud environment.
+            This ruleset overrides the rules/rules-reviewed/technology-usage/embedded-cache-libraries.windup.xml ruleset.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <tag>cache</tag>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="embedded-cache-libraries-16000">
+            <when>
+                <file filename="{*}redis{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="Redis Cache library" category-id="potential" effort="3">
+                    <message>
+                        The application uses a Redis cache. You can take advantage of a managed Redis service that offers scalability, high availability, and monitoring capabilities. **Azure Cache for Redis** provides features like data persistence, automatic failover, and built-in support for Redis commands, allowing you to leverage the benefits of Redis caching in your application running on Azure.
+
+                        * **Provision an Azure Cache for Redis**: Configure the cache size and other relevant settings based on your application's requirements.
+                        
+                        * **Update your Java code**: Replace the embedded Redis cache code in your Java application with the Azure Cache for Redis client libraries or SDKs. Update the code that establishes a connection to the Redis cache and performs cache-related operations.
+                        
+                        * **Connect to Azure Cache for Redis**: Update the connection details in your Java application to point to the Azure Cache for Redis instance. Use the connection information provided by Azure (hostname, port, access keys, etc.) to establish a connection from your application.
+                    </message>
+                    <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Caching guidance" href="https://learn.microsoft.com/azure/architecture/best-practices/caching"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Redis</technology-tag>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>
