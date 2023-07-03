@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="java-rmi-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/cloud-readiness/tests/data</testDataPath>
+    <rulePath>../../../rules-reviewed/cloud-readiness/java-rmi.windup.xml</rulePath>
+    <rulePath>../java-rmi.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="java-rmi-azure-appservice-test-00000">
+                <when>
+                    <not>
+                        <hint-exists message="When migrating an application that uses Java Remote Method Invocation \(RMI\) service to Azure" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Java RMI service hint was not found!" />
+                </perform>
+            </rule>
+            <rule id="java-rmi-azure-appservice-test-00001">
+                <when>
+                    <not>
+                        <classification-exists classification="Java Remote Method Invocation \(RMI\) API" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Java RMI API classification was not found!" />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
