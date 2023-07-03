@@ -12,7 +12,7 @@
             <rule id="local-storage-azure-appservice-test-00001">
                 <when>
                     <not>
-                        <iterable-filter size="48">
+                        <iterable-filter size="51">
                             <hint-exists message="When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.*"/>
                         </iterable-filter>
                     </not>
