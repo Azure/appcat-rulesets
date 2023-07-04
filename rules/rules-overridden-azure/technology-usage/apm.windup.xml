@@ -59,7 +59,7 @@
 
                         * **Configure New Relic**: Connect New Relic with Java applications deployed on Azure by Azure portal or Azure CLI. For a detailed guide, please refer to the following documentation links.
                     </message>
-                    <link title="Configure New Relic for Azure App Service" href="https://learn.microsoft.com/azure/app-service/configure-language-java#configure-new-relics"/>
+                    <link title="Configure New Relic for Azure App Service" href="https://learn.microsoft.com/azure/app-service/configure-language-java#configure-new-relic"/>
                     <link title="Configure New Relic for Azure Spring Apps" href="https://learn.microsoft.com/azure/spring-apps/how-to-new-relic-monitor"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">New Relic</technology-tag>
