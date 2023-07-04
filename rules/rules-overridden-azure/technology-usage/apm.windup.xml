@@ -84,7 +84,7 @@
                         * **Integrate Elastic APM**: To connect Elastic APM with your Java applications deployed on Azure, you can configure the integration based on the specific Azure service you want to use.
                     </message>
                     <link title="Deploy and manage Elastic on Azure" href="https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement"/>
-                    <link title="Configure New Relic for Azure Spring Apps" href="https://learn.microsoft.com/azure/spring-apps/how-to-elastic-apm-java-agent-monitor"/>
+                    <link title="Configure Elastic APM for Azure Spring Apps" href="https://learn.microsoft.com/azure/spring-apps/how-to-elastic-apm-java-agent-monitor"/>
                     <link title="Microsoft Azure monitoring with Elastic Observability" href="https://www.elastic.co/observability/azure-monitoring"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Elastic APM</technology-tag>
