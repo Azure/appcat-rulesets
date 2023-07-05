@@ -43,8 +43,7 @@
 
                         * **Test and validate**: Test your application to ensure that session state is maintained correctly using Azure Cache for Redis. Verify that session data is stored and retrieved accurately across multiple instances of your application.
                     </message>
-                    <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
-                    <link title="Azure Cache for Redis Documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis/"/>
+                    <link title="Azure Cache for Redis Documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                     <link title="Quickstart: Use Azure Cache for Redis in Java" href="https://learn.microsoft.com/azure/azure-cache-for-redis/cache-java-get-started"/>
                     <tag>clustering</tag>
                 </hint>

@@ -36,11 +36,9 @@
 
                         * Implement **Azure Active Directory (Azure AD) authentication**: If the AWS credentials are used for authentication purposes, consider migrating to Azure AD for user authentication and authorization. Implement Azure AD authentication in your Java application to ensure secure access to Azure resources.
                     </message>
-                    <link title="Azure Key Vault" href="https://azure.microsoft.com/products/key-vault/"/>
-                    <link title="Azure Key Vault documentation" href="https://learn.microsoft.com/azure/key-vault/"/>
+                    <link title="Azure Key Vault documentation" href="https://learn.microsoft.com/azure/key-vault"/>
                     <link title="Quickstart: Azure Key Vault Secret client library for Java" href="https://learn.microsoft.com/azure/key-vault/secrets/quick-create-java"/>
-                    <link title="Azure Active Directory" href="https://azure.microsoft.com/products/active-directory"/>
-                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/azure/active-directory/"/>
+                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/azure/active-directory"/>
                 </hint>
             </perform>
         </rule>
@@ -88,10 +86,9 @@
 
                         * Validate functionality and **performance**: Thoroughly test the updated application to ensure that it can read from and write to Azure Blob Storage correctly. Validate the performance of data transfer and any other operations to ensure they meet your application's requirements.
                     </message>
-                    <link title="Azure Blob Storage" href="https://azure.microsoft.com/products/storage/blobs"/>
-                    <link title="Azure Blob Storage documentation" href="https://learn.microsoft.com/azure/storage/blobs/"/>
+                    <link title="Azure Blob Storage documentation" href="https://learn.microsoft.com/azure/storage/blobs"/>
                     <link title="Quickstart: Azure Blob Storage client library for Java" href="https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java"/>
-                    <link title="Move your data from AWS S3 to Azure Storage using AzCopy" href="https://azure.microsoft.com/blog/move-your-data-from-aws-s3-to-azure-storage-using-azcopy/"/>
+                    <link title="Move your data from AWS S3 to Azure Storage using AzCopy" href="https://azure.microsoft.com/blog/move-your-data-from-aws-s3-to-azure-storage-using-azcopy"/>
                 </hint>
             </perform>
         </rule>
@@ -114,8 +111,7 @@
 
                         * **Migrate queues and messages**: Plan and execute the migration of your queues and messages from Amazon SQS to Azure Service Bus.
                     </message>
-                    <link title="Azure Service Bus" href="https://azure.microsoft.com/products/service-bus"/>
-                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging/"/>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
                     <link title="Azure Service Bus libraries for Java" href="https://learn.microsoft.com/java/api/overview/azure/service-bus"/>
                 </hint>
             </perform>
@@ -140,8 +136,7 @@
 
                         * **Secure access** to Azure Key Vault: Implement access control and security measures for Azure Key Vault. Configure Azure AD authentication, RBAC, and access policies to ensure that only authorized applications and users can access the secrets stored in Azure Key Vault.
                     </message>
-                    <link title="Azure Key Vault" href="https://azure.microsoft.com/products/key-vault/"/>
-                    <link title="Azure Key Vault documentation" href="https://learn.microsoft.com/azure/key-vault/"/>
+                    <link title="Azure Key Vault documentation" href="https://learn.microsoft.com/azure/key-vault"/>
                     <link title="Quickstart: Azure Key Vault Secret client library for Java" href="https://learn.microsoft.com/azure/key-vault/secrets/quick-create-java"/>
                     <link title="Azure Key Vault CLI" href="https://learn.microsoft.com/cli/azure/keyvault"/>
                 </hint>

@@ -45,10 +45,8 @@
 
                         You can also replace the usage of environment variables with **Azure App Configuration**. By migrating to Azure App Configuration, you can centralize and manage your application's configuration settings, making it easier to maintain and update them. Azure App Configuration provides features like versioning, dynamic updates, and integration with Azure Key Vault for secure storage of sensitive configuration values.
                     </message>
-                    <link title="Azure App Configuration" href="https://azure.microsoft.com/products/app-configuration"/>
-                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration/"/>
-                    <link title="Azure Key Vault" href="https://azure.microsoft.com/products/key-vault/"/>
-                    <link title="Azure Key Vault documentation" href="https://learn.microsoft.com/azure/key-vault/"/>
+                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
+                    <link title="Azure Key Vault documentation" href="https://learn.microsoft.com/azure/key-vault"/>
                     <link title="Configure per-service secrets and externalized settings" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#configure-per-service-secrets-and-externalized-settings"/>
                 </hint>
             </perform>

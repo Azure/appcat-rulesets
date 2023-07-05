@@ -59,7 +59,6 @@
 
                                 * Utilize **KQL** for log analysis: Familiarize yourself with the Kusto Query Language (KQL) to write powerful queries for log analysis in Azure Monitor. KQL provides a flexible and efficient way to extract insights, perform aggregations, and create visualizations from your log data.
                             </message>
-                            <link title="Azure Monitor" href="https://azure.microsoft.com/products/monitor/"/>
                             <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
                             <link title="Log queries in Azure Monitor" href="https://learn.microsoft.com/azure/azure-monitor/logs/log-query-overview"/>
                             <link title="Enable diagnostics logging for apps in Azure App Service" href="https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs"/>

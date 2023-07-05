@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="apm-azure-appservice-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/apm</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/apm.windup.xml</rulePath>
+    <rulePath>../apm.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="apm-azure-appservice-test-00000">
+                <when>
+                    <not>
+                        <hint-exists message="To migrate a Java application that uses Application Insights" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="APM - Application Insights hint was not found!" />
+                </perform>
+            </rule>
+            <rule id="apm-azure-appservice-test-00001">
+                <when>
+                    <not>
+                        <hint-exists message="To migrate a Java application that uses New Relic" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="APM - New Relic hint was not found!" />
+                </perform>
+            </rule>
+            <rule id="apm-azure-appservice-test-00002">
+                <when>
+                    <not>
+                        <hint-exists message="To migrate a Java application that uses Elastic APM" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="APM - Elastic APM hint was not found!" />
+                </perform>
+            </rule>
+            <rule id="apm-azure-appservice-test-00003">
+                <when>
+                    <not>
+                        <hint-exists message="To migrate a Java application that uses Dynatrace" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="APM - Dynatrace hint was not found!" />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

@@ -40,10 +40,9 @@
                             * **Monitor performance**: Once migrated to the supported Java version, closely monitor the performance of your application in the Azure environment. Utilize Azure Monitoring tools and logging mechanisms to identify any performance bottlenecks or issues that may arise due to the Java version change.
                         </message>
                         <link title="Supported Java versions and update schedule" href="https://learn.microsoft.com/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule"/>
-                        <link title="Microsoft Build of OpenJDK" href="https://learn.microsoft.com/java/openjdk/"/>
-                        <link title="Java on Azure developer tools documentation" href="https://learn.microsoft.com/azure/developer/java/fundamentals/"/>
-                        <link title="Azure Monitor" href="https://azure.microsoft.com/products/monitor/"/>
-                        <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                        <link title="Microsoft Build of OpenJDK" href="https://learn.microsoft.com/java/openjdk"/>
+                        <link title="Java on Azure developer tools documentation" href="https://learn.microsoft.com/azure/developer/java/fundamentals"/>
+                        <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
                     </hint>
                 </iteration>
             </perform>
@@ -72,8 +71,8 @@
                         </message>
                         <link title="Transition from Java 8 to Java 11" href="https://learn.microsoft.com/java/openjdk/transition-from-java-8-to-java-11"/>
                         <link title="Supported Java versions and update schedule" href="https://learn.microsoft.com/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule"/>
-                        <link title="Microsoft Build of OpenJDK" href="https://learn.microsoft.com/java/openjdk/"/>
-                        <link title="Java on Azure developer tools documentation" href="https://learn.microsoft.com/azure/developer/java/fundamentals/"/>
+                        <link title="Microsoft Build of OpenJDK" href="https://learn.microsoft.com/java/openjdk"/>
+                        <link title="Java on Azure developer tools documentation" href="https://learn.microsoft.com/azure/developer/java/fundamentals"/>
                     </hint>
                 </iteration>
             </perform>

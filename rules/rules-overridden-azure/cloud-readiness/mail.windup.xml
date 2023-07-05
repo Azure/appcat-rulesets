@@ -40,8 +40,7 @@
 
                         * Using **SMTP directly**: You can also use your own SMTP provider. In this case, check if port 25 is open in the App Service SKU.
                     </message>
-                    <link title="Azure Communication Services" href="https://azure.microsoft.com/products/communication-services/"/>
-                    <link title="Azure Communication Services documentation" href="https://learn.microsoft.com/azure/communication-services/"/>
+                    <link title="Azure Communication Services documentation" href="https://learn.microsoft.com/azure/communication-services"/>
                     <link title="Quickstart: How to send an email using Azure Communication Service" href="https://learn.microsoft.com/azure/communication-services/quickstarts/email/send-email"/>
                     <link title="Troubleshoot outbound SMTP connectivity problems in Azure" href="https://learn.microsoft.com/azure/virtual-network/troubleshoot-outbound-smtp-connectivity"/>
                     <tag>mail</tag>

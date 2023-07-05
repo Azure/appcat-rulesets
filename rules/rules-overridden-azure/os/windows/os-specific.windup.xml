@@ -39,7 +39,7 @@
                         * **Test and validate**: Thoroughly test the modified application in a Linux-based environment to ensure that the changes to the file system paths do not introduce any issues. Verify that the application can access and manipulate files correctly using the Linux-style paths.
                     </message>
                     <link title="Working across Windows and Linux file systems" href="https://learn.microsoft.com/windows/wsl/filesystems"/>
-                    <link title="Access Linux filesystems in Windows and WSL 2" href="https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2/"/>
+                    <link title="Access Linux filesystems in Windows and WSL 2" href="https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2"/>
                     <tag>ms-windows</tag>
                 </hint>
             </perform>
