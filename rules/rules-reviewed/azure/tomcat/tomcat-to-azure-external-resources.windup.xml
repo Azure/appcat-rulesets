@@ -38,7 +38,7 @@
                         Review the Azure service offerings and choose the appropriate services for your specific needs.
                     </message>
                     <link title="Inventory external resources" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps"/>
-                    <link title="Azure services" href="https://azure.microsoft.com/products/"/>
+                    <link title="Azure services" href="https://azure.microsoft.com/products"/>
                     <tag>tomcat</tag>
                 </hint>
             </perform>

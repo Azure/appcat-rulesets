@@ -57,14 +57,10 @@
 
                         * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
-                    <link title="Azure Storage" href="https://azure.microsoft.com/products/category/storage"/>
-                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage/"/>
-                    <link title="Azure Monitor" href="https://azure.microsoft.com/products/monitor/"/>
+                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
                     <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
-                    <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
-                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis/"/>
-                    <link title="Azure App Configuration" href="https://azure.microsoft.com/products/app-configuration"/>
-                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration/"/>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                     <tag>storage</tag>
                 </hint>
             </perform>
@@ -94,14 +90,10 @@
 
                         * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
-                    <link title="Azure Storage" href="https://azure.microsoft.com/products/category/storage"/>
-                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage/"/>
-                    <link title="Azure Monitor" href="https://azure.microsoft.com/products/monitor/"/>
+                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
                     <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
-                    <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
-                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis/"/>
-                    <link title="Azure App Configuration" href="https://azure.microsoft.com/products/app-configuration"/>
-                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration/"/>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                     <tag>storage</tag>
                 </hint>
             </perform>
@@ -129,14 +121,10 @@
 
                         * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
-                    <link title="Azure Storage" href="https://azure.microsoft.com/products/category/storage"/>
-                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage/"/>
-                    <link title="Azure Monitor" href="https://azure.microsoft.com/products/monitor/"/>
+                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
                     <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
-                    <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
-                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis/"/>
-                    <link title="Azure App Configuration" href="https://azure.microsoft.com/products/app-configuration"/>
-                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration/"/>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                     <tag>storage</tag>
                 </hint>
             </perform>
@@ -169,14 +157,10 @@
 
                         * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
-                    <link title="Azure Storage" href="https://azure.microsoft.com/products/category/storage"/>
-                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage/"/>
-                    <link title="Azure Monitor" href="https://azure.microsoft.com/products/monitor/"/>
+                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
                     <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
-                    <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
-                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis/"/>
-                    <link title="Azure App Configuration" href="https://azure.microsoft.com/products/app-configuration"/>
-                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration/"/>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                     <tag>storage</tag>
                 </hint>
             </perform>
@@ -222,14 +206,10 @@
 
                             * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                         </message>
-                        <link title="Azure Storage" href="https://azure.microsoft.com/products/category/storage"/>
-                        <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage/"/>
-                        <link title="Azure Monitor" href="https://azure.microsoft.com/products/monitor/"/>
+                        <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
                         <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
-                        <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
-                        <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis/"/>
-                        <link title="Azure App Configuration" href="https://azure.microsoft.com/products/app-configuration"/>
-                        <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration/"/>
+                        <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                        <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                         <tag>storage</tag>
                     </hint>
                 </iteration>
@@ -263,14 +243,10 @@
 
                             * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                         </message>
-                        <link title="Azure Storage" href="https://azure.microsoft.com/products/category/storage"/>
-                        <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage/"/>
-                        <link title="Azure Monitor" href="https://azure.microsoft.com/products/monitor/"/>
+                        <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
                         <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
-                        <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
-                        <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis/"/>
-                        <link title="Azure App Configuration" href="https://azure.microsoft.com/products/app-configuration"/>
-                        <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration/"/>
+                        <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                        <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                         <tag>storage</tag>
                     </hint>
                 </iteration>

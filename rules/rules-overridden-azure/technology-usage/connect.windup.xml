@@ -40,12 +40,11 @@
 
                         * Apply **security** measures: Implement Azure Active Directory (Azure AD) authentication and authorization for accessing Azure Service Bus resources. Enable TLS encryption for communication between your Java application and Azure Service Bus. Enable passwordless connections for Azure services to improve security and reduce the risk of credential theft.
                     </message>
-                    <link title="Azure Service Bug" href="https://azure.microsoft.com/products/service-bus/"/>
-                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging/"/>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
                     <link title="Migrate existing Java Message Service applications from Apache ActiveMQ to Azure Service Bus" href="https://learn.microsoft.com/azure/service-bus-messaging/migrate-jms-activemq-to-servicebus"/>
-                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
                     <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
-                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">ActiveMQ</technology-tag>
             </perform>
