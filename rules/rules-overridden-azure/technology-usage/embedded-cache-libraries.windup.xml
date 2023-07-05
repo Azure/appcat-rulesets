@@ -35,7 +35,6 @@
                         
                         * **Connect to Azure Cache for Redis**: Update the connection details in your Java application to point to the Azure Cache for Redis instance. Use the connection information provided by Azure (hostname, port, access keys, etc.) to establish a connection from your application.
                     </message>
-                    <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
                     <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                     <link title="Caching guidance" href="https://learn.microsoft.com/azure/architecture/best-practices/caching"/>
                 </hint>

@@ -31,8 +31,7 @@
 
                         * **Manage sessions in a clustered environment**: Consider using an external session store such as Azure Cache for Redis. Configure your Java application to connect to the Azure Cache for Redis and to replicate sessions across the instances.
                     </message>
-                    <link title="Azure Cache for Redis" href="https://azure.microsoft.com/products/cache"/>
-                    <link title="Azure Cache for Redis Documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis/"/>
+                    <link title="Azure Cache for Redis Documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                     <link title="Custom configuration settings for App Service Environments" href="https://learn.microsoft.com/azure/app-service/environment/app-service-app-service-environment-custom-settings"/>
                     <link title="Identify session persistence mechanism" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-container-apps#identify-session-persistence-mechanism"/>
                 </hint>

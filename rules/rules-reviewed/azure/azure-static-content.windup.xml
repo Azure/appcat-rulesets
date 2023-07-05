@@ -38,9 +38,7 @@
 
                         * **HTTPS Support**: Enable HTTPS support for your Azure CDN endpoint to ensure secure content delivery. Obtain an TLS certificate for your custom domain if needed, or use the Azure CDN default domain.
                     </message>
-                    <link title="Azure Storage" href="https://azure.microsoft.com/products/category/storage"/>
-                    <link title="Azure Content Delivery Network" href="https://azure.microsoft.com/products/cdn"/>
-                    <link title="Azure Front Door and CDN documentation" href="https://learn.microsoft.com/azure/frontdoor/"/>
+                    <link title="Azure Front Door and CDN documentation" href="https://learn.microsoft.com/azure/frontdoor"/>
                     <link title="Configuring TLS for an application in Azure" href="https://learn.microsoft.com/azure/cloud-services/cloud-services-configure-ssl-certificate-portal"/>
                     <link title="Static content found in the application" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#read-only-static-content"/>
                     <link title="Static website hosting in Azure Storage" href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website"/>

@@ -40,11 +40,10 @@
 
                         * **Backup** your data: Azure Database for MySQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
                     </message>
-                    <link title="Azure Database for MySQL" href="https://azure.microsoft.com/products/mysql"/>
-                    <link title="Azure Database for MySQL documentation" href="https://learn.microsoft.com/azure/mysql/"/>
-                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
-                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
-                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                    <link title="Azure Database for MySQL documentation" href="https://learn.microsoft.com/azure/mysql"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
                     <link title="Backup and restore in Azure Database for MySQL" href="https://learn.microsoft.com/azure/mysql/single-server/concepts-backup"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">MySQL Driver</technology-tag>
@@ -71,11 +70,10 @@
 
                         * **Backup** your data: Azure Database for PostgreSQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
                     </message>
-                    <link title="Azure Database for PostgreSQL" href="https://azure.microsoft.com/products/postgresql"/>
-                    <link title="PostgreSQL Flexible Server documentation" href="https://learn.microsoft.com/azure/postgresql/flexible-server"/>
-                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
-                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
-                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                    <link title="Azure PostgreSQL Flexible Server documentation" href="https://learn.microsoft.com/azure/postgresql/flexible-server"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
                     <link title="Backup and restore in Azure Database for PostgreSQL" href="https://learn.microsoft.com/azure/postgresql/single-server/concepts-backup"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">PostgreSQL Driver</technology-tag>
@@ -105,11 +103,10 @@
 
                         * **Backup** your data: Azure SQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
                     </message>
-                    <link title="Azure SQL" href="https://azure.microsoft.com/products/azure-sql/"/>
                     <link title="Azure SQL documentation" href="https://learn.microsoft.com/azure/azure-sql"/>
-                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
-                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
-                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
                     <link title="Change automated backup settings for Azure SQL Database" href="https://learn.microsoft.com/azure/azure-sql/database/automated-backups-change-settings"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Microsoft SQL Driver</technology-tag>
@@ -145,11 +142,10 @@
 
                         * **Backup** your data: Azure Managed Instance for Apache Cassandra provides built-in backup functionality that allows you to create automated backups of your data. Enable backup for your account and configure the backup retention policy to specify how long the backups should be retained.
                     </message>
-                    <link title="Azure Managed Instance for Apache Cassandra" href="https://azure.microsoft.com/products/managed-instance-apache-cassandra/"/>
-                    <link title="Azure Managed Instance for Apache Cassandra documentation" href="https://learn.microsoft.com/azure/managed-instance-apache-cassandra/"/>
-                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
-                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
-                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                    <link title="Azure Managed Instance for Apache Cassandra documentation" href="https://learn.microsoft.com/azure/managed-instance-apache-cassandra"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Cassandra Client</technology-tag>
             </perform>
@@ -182,11 +178,10 @@
 
                         * **Backup** your data: Azure Cosmos DB provides built-in backup functionality that allows you to create automated backups of your data. Enable backup for your Azure Cosmos DB account and configure the backup retention policy to specify how long the backups should be retained.
                     </message>
-                    <link title="Azure Cosmos DB" href="https://azure.microsoft.com/products/cosmos-db"/>
-                    <link title="Azure Cosmos DB for MongoDB documentation" href="https://learn.microsoft.com/azure/cosmos-db/mongodb/"/>
-                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
-                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
-                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                    <link title="Azure Cosmos DB for MongoDB documentation" href="https://learn.microsoft.com/azure/cosmos-db/mongodb"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">MongoDB Client</technology-tag>
             </perform>
@@ -212,11 +207,10 @@
 
                         * **Backup** your data: Azure Database for MariaDB provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
                     </message>
-                    <link title="Azure Database for MariaDB" href="https://azure.microsoft.com/products/mariadb"/>
-                    <link title="Azure Database for MariaDB documentation" href="https://learn.microsoft.com/azure/mariadb/"/>
-                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms/"/>
-                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor/"/>
-                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud/"/>
+                    <link title="Azure Database for MariaDB documentation" href="https://learn.microsoft.com/azure/mariadb"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
                     <link title="Backup and restore in Azure Database for MariaDB" href="https://learn.microsoft.com/azure/mariadb/howto-restore-server-portal"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">MariaDB Driver</technology-tag>
