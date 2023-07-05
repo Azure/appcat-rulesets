@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="security-discovery-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/security</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/security.windup.xml</rulePath>
+    <rulePath>../../../rules-reviewed/technology-usage/security-technology-usage.windup.xml</rulePath>
+    <rulePath>../security.windup.xml</rulePath>
+    <target>discovery</target>
+    <ruleset>
+        <rules>
+            <rule id="security-discovery-01900-test">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded library - SAML"/>
+                        <technology-tag-exists technology-tag="SAML"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule security-01900"/>
+                </perform>
+            </rule>
+            <rule id="security-discovery-02800-test">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded library - OpenSAML"/>
+                        <technology-tag-exists technology-tag="OpenSAML"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule security-02800"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
