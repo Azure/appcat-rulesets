@@ -83,8 +83,9 @@
 
                         * **Integrate Elastic APM**: To connect Elastic APM with your Java applications deployed on Azure, you can configure the integration based on the specific Azure service you want to use.
                     </message>
-                    <link title="Deploy and manage Elastic on Azure" href="https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement"/>
                     <link title="Configure Elastic APM for Azure Spring Apps" href="https://learn.microsoft.com/azure/spring-apps/how-to-elastic-apm-java-agent-monitor"/>
+                    <link title="Deploy and manage Elastic on Azure" href="https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement"/>
+                    <link title="Integrate Elastic APM on Azure" href="https://docs.elastic.co/integrations/azure"/>
                     <link title="Microsoft Azure monitoring with Elastic Observability" href="https://www.elastic.co/observability/azure-monitoring"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Elastic APM</technology-tag>
@@ -105,8 +106,9 @@
 
                         * **Integrate Dynatrace**: To connect Dynatrace with your Java applications deployed on Azure, you can configure the integration based on the specific Azure service you want to use.
                     </message>
-                    <link title="Monitor App Services using Dynatrace OneAgent (Azure Native Dynatrace Service)" href="https://learn.microsoft.com/azure/partner-solutions/dynatrace/dynatrace-how-to-manage#monitor-app-services-using-dynatrace-oneagent"/>
+                    <link title="Monitor Azure App Service using Dynatrace OneAgent" href="https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-appservice"/>
                     <link title="Monitor Azure Spring Apps using Dynatrace OneAgent" href="https://learn.microsoft.com/azure/spring-apps/how-to-dynatrace-one-agent-monitor"/>
+                    <link title="Integrate Dynatrace on Azure" href="https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Dynatrace</technology-tag>
             </perform>
