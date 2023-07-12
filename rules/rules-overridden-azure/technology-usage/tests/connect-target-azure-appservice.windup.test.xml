@@ -21,6 +21,18 @@
                     <fail message="ActiveMQ connect found hint was not found!"/>
                 </perform>
             </rule>
+            <rule id="connect-azure-appservice-test-02900">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="To migrate a Java application that uses Kafka to Azure, you can follow these recommendations"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Kafka connect found hint was not found!"/>
+                </perform>
+            </rule>
         </rules>
     </ruleset>
 </ruletest>

@@ -49,5 +49,29 @@
                 <technology-tag level="INFORMATIONAL">ActiveMQ</technology-tag>
             </perform>
         </rule>
+        <rule id="connect-02900">
+            <when>
+                <or>
+                    <file filename="{*}kafka-clients{*}"/>
+                    <file filename="{*}spring-kafka{*}"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="Kafka Client found" category-id="potential" effort="3">
+                    <message>
+                        To migrate a Java application that uses Kafka to Azure, you can follow these recommendations:
+
+                        * Provision **Azure Event Hubs**: Azure Event Hubs is a fully managed service in the cloud. Event Hubs offers you the freedom of not having to manage servers or networks or worry about configuring brokers.
+
+                        * Update the application's **Kafka connection** details: Configure your existing Kafka applications to talk to Azure Event Hubs, an alternative to running your own Kafka clusters.
+
+                        * **Configure Azure Event Hubs**: You can configure the most demanding features of Event Hubs like Capture, Auto-Inflate, and Geo Disaster-Recovery.
+                    </message>
+                    <link title="What is Azure Event Hubs for Apache Kafka" href="https://learn.microsoft.com/azure/event-hubs/azure-event-hubs-kafka-overview"/>
+                    <link title="Azure HDInsight documentation" href="https://learn.microsoft.com/azure/hdinsight/"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Kafka Client</technology-tag>
+            </perform>
+        </rule>
     </rules>
 </ruleset>
