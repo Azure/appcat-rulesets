@@ -94,9 +94,9 @@
             </modules>
         </profile>
         <profile>
-            <id>cat</id>
+            <id>appcat</id>
             <modules>
-                <module>rules-cat</module>
+                <module>rules-appcat</module>
             </modules>
         </profile>
     </profiles>
