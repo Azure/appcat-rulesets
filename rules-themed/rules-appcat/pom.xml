@@ -8,6 +8,6 @@
         <version>6.3.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>windup-rulesets-cat</artifactId>
-    <name>Windup Rulesets Azure Themed</name>
+    <artifactId>windup-rulesets-appcat</artifactId>
+    <name>Windup Rulesets Azure Application and Code Assessment Toolkit Themed</name>
 </project>
