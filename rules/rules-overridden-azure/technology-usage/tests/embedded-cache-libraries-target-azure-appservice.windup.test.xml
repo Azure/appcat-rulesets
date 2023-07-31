@@ -9,6 +9,18 @@
     <target>azure-appservice</target>
     <ruleset>
         <rules>
+            <rule id="embedded-cache-libraries-azure-appservice-test-01000">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="The application uses EHCache. Azure does not have a managed service for EHCache.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="EHCache cache found hint was not found!"/>
+                </perform>
+            </rule>
             <rule id="embedded-cache-libraries-azure-appservice-test-16000">
                 <when>
                     <not>

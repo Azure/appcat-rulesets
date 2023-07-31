@@ -9,6 +9,16 @@
     <target>discovery</target>
     <ruleset>
         <rules>
+            <rule id="embedded-cache-libraries-discover-test-01000">
+                <when>
+                    <not>
+                        <classification-exists classification="Ehcache embedded library"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Technology usage -  Ehcache classification not found!" />
+                </perform>
+            </rule>
             <rule id="embedded-cache-libraries-discover-test-16000">
                 <when>
                     <not>
