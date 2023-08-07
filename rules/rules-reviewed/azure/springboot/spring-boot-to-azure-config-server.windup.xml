@@ -43,5 +43,27 @@
                 <matches pattern="spring\.config\.import|spring\.cloud\.config\.uri"/>
             </where>
         </rule>
+        <rule id="spring-boot-to-azure-config-server-02000">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-config-server"/>
+                    </project>
+                    <javaclass references="org.springframework.cloud.config.server.EnableConfigServer.EnableConfigServer">
+                        <location>IMPORT</location>
+                    </javaclass>
+                </or>
+            </when>
+            <perform>
+                <hint title="Config Server found" category-id="information" effort="0">
+                    <message>
+                        The application uses Spring Cloud Config Server.
+                    </message>
+                    <link title="Prepare the Spring Cloud Config server" href="https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#prepare-the-spring-cloud-config-server"/>
+                    <tag>Spring Cloud Config</tag>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Spring Cloud Config</technology-tag>
+            </perform>
+        </rule>
     </rules>
 </ruleset>
