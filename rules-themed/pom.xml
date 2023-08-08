@@ -93,6 +93,12 @@
                 <module>rules-mta</module>
             </modules>
         </profile>
+        <profile>
+            <id>appcat</id>
+            <modules>
+                <module>rules-appcat</module>
+            </modules>
+        </profile>
     </profiles>
 
 </project>

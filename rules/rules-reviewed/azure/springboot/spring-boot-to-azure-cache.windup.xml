@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="spring-boot-to-azure-cache"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -8,7 +8,7 @@
             Identify any external caches in use.
         </description>
         <dependencies>
-            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
         </dependencies>
         <sourceTechnology id="springboot"/>
         <targetTechnology id="azure-spring-apps"/>
@@ -39,11 +39,9 @@
             <perform>
                 <hint title="Redis Cache found in the application" category-id="information" effort="0">
                     <message>
-                        <![CDATA[
                         The application uses a Redis Cache.
 
                         Checkout Azure Cache for Redis for a fully managed cache on Azure.
-                        ]]>
                     </message>
                     <link title="Redis Cache found in the application" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#identify-external-caches"/>
                     <link title="Azure Cache for Redis" href="https://azure.microsoft.com/services/cache"/>
@@ -62,11 +60,9 @@
             <perform>
                 <hint title="Redis Cache connection string found" category-id="information" effort="0">
                     <message>
-                        <![CDATA[
                         Redis Cache connection string, username, or password used in this application.
 
                         Checkout Azure Cache for Redis for a fully managed cache on Azure.
-                        ]]>
                     </message>
                     <link title="Redis Cache found in the application" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#identify-external-caches"/>
                     <link title="Azure Cache for Redis" href="https://azure.microsoft.com/services/cache"/>

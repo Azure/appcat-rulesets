@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="spring-boot-to-azure-version"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -20,9 +20,9 @@
     <rules>
         <rule id="spring-boot-to-azure-version-01000">
             <when>
-                    <project>
-                        <artifact groupId="org.springframework.boot" artifactId="{*}" fromVersion="1" toVersion="1.9"/>
-                    </project>
+                <project>
+                    <artifact groupId="org.springframework.boot" artifactId="{*}" fromVersion="1" toVersion="1.9"/>
+                </project>
             </when>
             <perform>
                 <hint title="Spring Boot version too low" category-id="mandatory" effort="5">
@@ -36,9 +36,9 @@
         </rule>
         <rule id="spring-boot-to-azure-version-02000">
             <when>
-                    <project>
-                        <artifact groupId="org.springframework.boot" artifactId="{*}" fromVersion="2" toVersion="2.4.99"/>
-                    </project>
+                <project>
+                    <artifact groupId="org.springframework.boot" artifactId="{*}" fromVersion="2" toVersion="2.4.99"/>
+                </project>
             </when>
             <perform>
                 <hint title="Spring Boot version out of support" category-id="potential" effort="2">
@@ -52,9 +52,9 @@
         </rule>
         <rule id="spring-boot-to-azure-version-03000">
             <when>
-                    <project>
-                        <artifact groupId="org.springframework.boot" artifactId="{*}" fromVersion="2.5" toVersion="2.6.99"/>
-                    </project>
+                <project>
+                    <artifact groupId="org.springframework.boot" artifactId="{*}" fromVersion="2.5" toVersion="2.6.99"/>
+                </project>
             </when>
             <perform>
                 <hint title="Spring Boot version out of OSS support" category-id="information" effort="1">

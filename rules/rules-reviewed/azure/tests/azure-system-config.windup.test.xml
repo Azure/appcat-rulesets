@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="azure-system-config-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>data/azure-system-config</testDataPath>
+    <!-- By default sourceMode is True, so it will only consider .java files, not .jar binaries -->
+    <sourceMode>true</sourceMode>
+    <rulePath>../azure-system-config.windup.xml</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="azure-system-config-001-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="Review the usage of environment variables and system properties and externalize them*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="[azure-system-config-001-test] hint was not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

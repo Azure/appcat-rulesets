@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset id="clustering"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This is a simple ruleset for detecting usage of clustering technologies.
+            This ruleset overrides the rules/rules-reviewed/technology-usage/clustering.windup.xml ruleset.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-appservice"/>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="clustering-00000">
+            <when>
+                <xmlfile matches="/w:web-app/w:distributable">
+                    <namespace prefix="w" uri="http://java.sun.com/xml/ns/javaee"/>
+                </xmlfile>
+            </when>
+            <perform>
+                <hint title="Distributed Environments found" category-id="mandatory" effort="5">
+                    <message>
+                        To migrate a distributed application that is clustered around several servers to Azure, you can follow these recommendations:
+
+                        * **Configure multiple instances **: Deploy your Java application to Azure App Service and configure multiple instances within the same App Service Plan to create a cluster-like setup. Azure App Service automatically load-balances incoming requests across the available instances, ensuring scalability and high availability.
+
+                        * **Manage sessions in a clustered environment**: Consider using an external session store such as Azure Cache for Redis. Configure your Java application to connect to the Azure Cache for Redis and to replicate sessions across the instances.
+                    </message>
+                    <link title="Azure Cache for Redis Documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Custom configuration settings for App Service Environments" href="https://learn.microsoft.com/azure/app-service/environment/app-service-app-service-environment-custom-settings"/>
+                    <link title="Identify session persistence mechanism" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-container-apps#identify-session-persistence-mechanism"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Clustering Web Session</technology-tag>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>

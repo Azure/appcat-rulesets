@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="azure-database-config-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>data/azure-database-config</testDataPath>
+    <rulePath>../azure-database-config.windup.xml</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="azure-database-config-jdbc-01000-test">
+                <when>
+                    <not>
+                        <iterable-filter size="3">
+                            <hint-exists message="The application uses a JDBC connection string"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JDBC hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="azure-database-config-mongodb-02000-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="The application uses a MongoDB connection string"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Mongo hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="azure-database-config-r2dbc-03000-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="The application uses a R2DBC connection string"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="r2dbc hint was not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>         

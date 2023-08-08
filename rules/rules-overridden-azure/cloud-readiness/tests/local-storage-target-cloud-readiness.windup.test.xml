@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="local-storage-cloud-readiness-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/cloud-readiness/tests/data</testDataPath>
+    <rulePath>../../../rules-reviewed/cloud-readiness/local-storage.windup.xml</rulePath>
+    <rulePath>../local-storage.windup.xml</rulePath>
+    <target>cloud-readiness</target>
+    <ruleset>
+        <rules>
+            <rule id="local-storage-cloud-readiness-test-00001">
+                <when>
+                    <not>
+                        <iterable-filter size="51">
+                            <hint-exists message="An application running inside a container could lose access to a file in local storage"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Hints about 'Accessing a file on a local storage in a cloud environment' for local storage was not found"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

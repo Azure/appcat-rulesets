@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset id="apm"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            Identify Application Performance Management dependencies.
+            This ruleset overrides the rules/rules-reviewed/technology-usage/apm.windup.xml ruleset.
+        </description>
+        <dependencies>
+          <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+          <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <tag>apm</tag>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="apm-00000">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="com.microsoft.azure" artifactId="{*}applicationinsights{*}"/>
+                    </project>
+                    <file filename="applicationinsights{*}.jar"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="Application Performance Management (APM) tool - Application Insights" category-id="mandatory" effort="1">
+                    <message>
+                        To migrate a Java application that uses Application Insights to Azure, you can follow this recommendation:
+
+                        * **Configure Application Insights**: To connect Application Insights with Java applications deployed on Azure, you can turn on Application Insights in the portal page of your app or configure it through Azure CLI. For a detailed guide, please refer to the following documentation links.
+                    </message>
+                    <link title="Configure Application Insights to connect with Azure App Service" href="https://learn.microsoft.com/azure/app-service/configure-language-java#configure-application-insights"/>
+                    <link title="Configure Application Insights to connect with Azure Spring Apps" href="https://learn.microsoft.com/azure/spring-apps/how-to-application-insights#manage-application-insights-using-the-azure-portal"/>
+                    <link title="Application Insights" href="https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Application Insights</technology-tag>
+            </perform>
+        </rule>
+        <rule id="apm-00001">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="{*}newrelic{*}" artifactId="{*}"/>
+                    </project>
+                    <file filename="newrelic{*}.jar"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="Application Performance Management (APM) tool - New Relic" category-id="mandatory" effort="1">
+                    <message>
+                        To migrate a Java application that uses New Relic to Azure, you can follow this recommendation:
+
+                        * **Configure New Relic**: Connect New Relic with Java applications deployed on Azure by Azure portal or Azure CLI. For a detailed guide, please refer to the following documentation links.
+                    </message>
+                    <link title="Configure New Relic for Azure App Service" href="https://learn.microsoft.com/azure/app-service/configure-language-java#configure-new-relic"/>
+                    <link title="Configure New Relic for Azure Spring Apps" href="https://learn.microsoft.com/azure/spring-apps/how-to-new-relic-monitor"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">New Relic</technology-tag>
+            </perform>
+        </rule>
+        <rule id="apm-00002">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="{*}elastic.apm{*}" artifactId="{*}"/>
+                    </project>
+                    <file filename="elastic-apm{*}.jar"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="Application Performance Management (APM) tool - Elastic APM" category-id="mandatory" effort="3">
+                    <message>
+                        To migrate a Java application that uses Elastic APM to Azure, you can follow this recommendation:
+
+                        * **Deploy Elastic on Azure**: It is recommended to deploy and manage Elastic on Azure. You can get started with Elastic Cloud on Azure Marketplace.
+
+                        * **Integrate Elastic APM**: To connect Elastic APM with your Java applications deployed on Azure, you can configure the integration based on the specific Azure service you want to use.
+                    </message>
+                    <link title="Configure Elastic APM for Azure Spring Apps" href="https://learn.microsoft.com/azure/spring-apps/how-to-elastic-apm-java-agent-monitor"/>
+                    <link title="Deploy and manage Elastic on Azure" href="https://www.elastic.co/blog/getting-started-with-the-azure-integration-enhancement"/>
+                    <link title="Integrate Elastic APM on Azure" href="https://docs.elastic.co/integrations/azure"/>
+                    <link title="Microsoft Azure monitoring with Elastic Observability" href="https://www.elastic.co/observability/azure-monitoring"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Elastic APM</technology-tag>
+            </perform>
+        </rule>
+        <rule id="apm-00003">
+            <when>
+                <or>
+                    <file filename="dynatrace{*}.jar"/>
+                    <file filename="liboneagent.so"/>
+                    <file filename="dtjavaagent.jar"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="Application Performance Management (APM) tool - Dynatrace" category-id="mandatory" effort="3">
+                    <message>
+                        To migrate a Java application that uses Dynatrace to Azure, you can follow this recommendation:
+
+                        * **Integrate Dynatrace**: To connect Dynatrace with your Java applications deployed on Azure, you can configure the integration based on the specific Azure service you want to use.
+                    </message>
+                    <link title="Monitor Azure App Service using Dynatrace OneAgent" href="https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-appservice"/>
+                    <link title="Monitor Azure Spring Apps using Dynatrace OneAgent" href="https://learn.microsoft.com/azure/spring-apps/how-to-dynatrace-one-agent-monitor"/>
+                    <link title="Integrate Dynatrace on Azure" href="https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Dynatrace</technology-tag>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>

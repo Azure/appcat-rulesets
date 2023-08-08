@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset id="os-specific"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This is a ruleset for Windows operating system specific rules while migrating to Linux operating system.
+            It overrides the rules/rules-reviewed/os/windows/os-specific.windup.xml ruleset
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <tag>ms-windows</tag>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="os-specific-00001">
+            <when>
+                <filecontent filename="{*}.{extensions}" pattern="{pattern}"/>
+            </when>
+            <perform>
+                <hint title="Windows file system path" effort="3" category-id="mandatory">
+                    <message>
+                        The application currently relies on a file system path that is Microsoft Windows platform dependent.
+                        To ensure compatibility and portability in the Azure environment, it is recommended to replace the file system path with a Linux-style path.
+
+                        * **Review file system** dependencies: Identify the areas within your application that rely on file system paths. This could include file uploads, file access, file system operations, or any other components that interact with the file system.
+
+                        * **Replace Windows-style paths**: Modify the application code to replace Windows-style file system paths with Linux-style paths. Linux-style paths use forward slashes as directory separators instead of backslashes.
+
+                        * Use **platform-independent file** handling: When performing file system operations, utilize platform-independent file handling methods and libraries. Java provides classes like `Path` and `File` from the `java.nio.file` package, which handle file operations in a platform-independent manner.
+
+                        * **Test and validate**: Thoroughly test the modified application in a Linux-based environment to ensure that the changes to the file system paths do not introduce any issues. Verify that the application can access and manipulate files correctly using the Linux-style paths.
+                    </message>
+                    <link title="Working across Windows and Linux file systems" href="https://learn.microsoft.com/windows/wsl/filesystems"/>
+                    <link title="Access Linux filesystems in Windows and WSL 2" href="https://devblogs.microsoft.com/commandline/access-linux-filesystems-in-windows-and-wsl-2"/>
+                    <tag>ms-windows</tag>
+                </hint>
+            </perform>
+            <where param="extensions">
+                <matches pattern="(java|properties|jsp|jspf|tag|xml|txt)"/>
+            </where>
+            <where param="pattern">
+                <matches pattern="(\W|\s|^)(?:[a-zA-Z]\:|\\\\[\w\s\.]+)([\\\/][^\n\t]+)+"/>
+            </where>
+        </rule>
+        <rule id="os-specific-00002">
+            <when>
+                <file filename="{*}.dll"/>
+            </when>
+            <perform>
+                <hint title="Dynamic-Link Library (DLL)" effort="5" category-id="mandatory">
+                    <message>
+                        The application currently relies on a Dynamic-Link Library (DLL) that is specific to Microsoft Windows.
+                        To ensure compatibility and portability in the Azure environment, you have two options:
+
+                        * **Replace with a Linux-style shared library**: Develop or find an equivalent Linux-style shared library and adapt the application code.
+
+                        * Utilize **Azure service that supports Dynamic-Link Libraries**: Research Azure offerings that support Windows operating systems (such as Azure Virtual Machines) and refactor your application to utilize the DLL running on this service.
+                    </message>
+                    <tag>ms-windows</tag>
+                </hint>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>

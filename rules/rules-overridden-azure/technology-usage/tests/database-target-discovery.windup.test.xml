@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruletest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ruletest id="database-discovery-test"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
-          id="database-test"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <testDataPath>../../../rules-reviewed/technology-usage/tests/data/database</testDataPath>
     <rulePath>../../../rules-reviewed/technology-usage/database.windup.groovy</rulePath>
@@ -9,7 +9,18 @@
     <target>discovery</target>
     <ruleset>
         <rules>
-            <rule id="database-target-discovery-01700-test">
+            <rule id="database-discovery-test-01400">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded MySQL Driver"/>
+                        <technology-tag-exists technology-tag="MySQL Driver"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="MySQL database found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="database-discovery-test-01700">
                 <when>
                     <not>
                         <classification-exists classification="Embedded PostgreSQL Driver"/>
@@ -18,6 +29,50 @@
                 </when>
                 <perform>
                     <fail message="PostgreSQL database found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="database-discovery-test-01900">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded Microsoft SQL Driver"/>
+                        <technology-tag-exists technology-tag="Microsoft SQL Driver"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule database-01900"/>
+                </perform>
+            </rule>
+            <rule id="database-discovery-02200-test">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded Cassandra Client"/>
+                        <technology-tag-exists technology-tag="Cassandra Client"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule database-02200"/>
+                </perform>
+            </rule>
+            <rule id="database-discovery-test-02500">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded MongoDB Client"/>
+                        <technology-tag-exists technology-tag="MongoDB Client"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule database-02500"/>
+                </perform>
+            </rule>
+            <rule id="database-03200-test">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded MariaDB Driver"/>
+                        <technology-tag-exists technology-tag="MariaDB Driver"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule database-03200"/>
                 </perform>
             </rule>
         </rules>

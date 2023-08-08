@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruletest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<ruletest id="database-azure-appservice-test"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
-          id="database-test"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <testDataPath>../../../rules-reviewed/technology-usage/tests/data/database</testDataPath>
     <rulePath>../../../rules-reviewed/technology-usage/database.windup.groovy</rulePath>
@@ -9,16 +9,76 @@
     <target>azure-appservice</target>
     <ruleset>
         <rules>
-            <rule id="database-01700-test">
+            <rule id="database-azure-appservice-test-01400">
                 <when>
                     <not>
                         <iterable-filter size="1">
-                            <hint-exists message="PostgreSQL database found"/>
+                            <hint-exists message="To migrate a Java application that uses a MySQL database to Azure, you can follow these recommendations"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="MySQL database found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="database-azure-appservice-test-01700">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses a PostgreSQL database to Azure, you can follow these recommendations"/>
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
                     <fail message="PostgreSQL database found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="database-azure-appservice-test-01900">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="To migrate a Java application that uses a Microsoft SQL database to Azure, you can follow these recommendations"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Microsoft SQL database found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="database-azure-appservice-test-02200">
+                <when>
+                    <not>
+                        <iterable-filter size="8">
+                            <hint-exists message="To migrate a Java application that uses a Cassandra database to Azure, you can follow these recommendations"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Cassandra database found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="database-azure-appservice-test-02500">
+                <when>
+                    <not>
+                        <iterable-filter size="6">
+                            <hint-exists message="To migrate a Java application that uses a MongoDB database to Azure, you can follow these recommendations"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="MongoDB database found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="database-azure-appservice-test-03200">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses a MariaDB database to Azure, you can follow these recommendations"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="MariaDB database found hint was not found!"/>
                 </perform>
             </rule>
         </rules>

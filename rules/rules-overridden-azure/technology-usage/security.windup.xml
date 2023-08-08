@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<ruleset id="security"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset provides analysis of Java security libraries.
+            This ruleset overrides the rules/rules-reviewed/technology-usage/security.windup.xml ruleset.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="security-01900">
+            <when>
+                <file filename="{*}saml{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="Embedded library - SAML" category-id="information" effort="0">
+                    <message>
+                        The application embeds a SAML library. The Microsoft identity platform uses SAML and other protocols to enable applications to provide a Single Sign-On experience.
+
+                        By migrating your SSO implementation to Azure AD with SAML, you leverage the capabilities of Azure AD for managing identities and enabling secure SSO across your applications. Azure AD offers features like multi-factor authentication, conditional access policies, and seamless integration with various SaaS applications, providing a robust and scalable solution for identity and access management in the cloud.
+                    </message>
+                    <link title="SAML authentication with Azure Active Directory" href="https://learn.microsoft.com/azure/active-directory/fundamentals/auth-saml"/>
+                    <link title="How the Microsoft identity platform uses the SAML protocol" href="https://learn.microsoft.com/azure/active-directory/develop/saml-protocol-reference"/>
+                    <link title="Microsoft identity platform documentation" href="https://learn.microsoft.com/azure/active-directory/develop"/>
+                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/en-us/azure/active-directory"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">SAML</technology-tag>
+            </perform>
+        </rule>
+        <rule id="security-02800">
+            <when>
+                <file filename="{*}opensaml{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="Embedded library - OpenSAML" category-id="information" effort="0">
+                    <message>
+                        The application embeds an OpenSAML library. The Microsoft identity platform uses SAML and other protocols to enable applications to provide a Single Sign-On experience.
+
+                        By migrating your SSO implementation to Azure AD with SAML, you leverage the capabilities of Azure AD for managing identities and enabling secure SSO across your applications. Azure AD offers features like multi-factor authentication, conditional access policies, and seamless integration with various SaaS applications, providing a robust and scalable solution for identity and access management in the cloud.
+                    </message>
+                    <link title="SAML authentication with Azure Active Directory" href="https://learn.microsoft.com/azure/active-directory/fundamentals/auth-saml"/>
+                    <link title="How the Microsoft identity platform uses the SAML protocol" href="https://learn.microsoft.com/azure/active-directory/develop/saml-protocol-reference"/>
+                    <link title="Microsoft identity platform documentation" href="https://learn.microsoft.com/azure/active-directory/develop"/>
+                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/en-us/azure/active-directory"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">OpenSAML</technology-tag>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>

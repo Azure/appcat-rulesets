@@ -1,6 +1,7 @@
-<?xml version="1.0"?>
-<ruletest xmlns="http://windup.jboss.org/schema/jboss-ruleset"
-          id="eap-to-azure-appservice-datasource-driver-test" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="eap-to-azure-appservice-datasource-driver-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <testDataPath>data/eap-to-azure-appservice-datasource-driver</testDataPath>
     <!-- By default sourceMode is True, so it will only consider .java files, not .jar binaries -->
@@ -11,13 +12,13 @@
             <rule id="eap-to-azure-appservice-datasource-driver-001-test">
                 <when>
                     <not>
-                        <iterable-filter size="17"> 
+                        <iterable-filter size="17">
                             <hint-exists message="A datasource driver was found in a configuration file*"/>
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                        <fail message="[eap-to-azure-appservice-datasource-driver-001-test] The assertion for the rule &quot;Datasource driver found in configuration file&quot; failed!" />
+                    <fail message="[eap-to-azure-appservice-datasource-driver-001-test] The assertion for the rule &quot;Datasource driver found in configuration file&quot; failed!"/>
                 </perform>
             </rule>
         </rules>

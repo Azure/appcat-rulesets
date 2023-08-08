@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="os-specific-azure-appservice-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../../rules-reviewed/os/windows/tests/data</testDataPath>
+    <rulePath>../../../../rules-reviewed/os/windows/os-specific.windup.xml</rulePath>
+    <rulePath>../os-specific.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="os-specific-azure-appservice-test-00001">
+                <when>
+                    <not>
+                        <iterable-filter size="4">
+                            <hint-exists message="The application currently relies on a file system path that is Microsoft Windows platform dependent.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Windows platform dependent hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="os-specific-azure-appservice-test-00002">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="The application currently relies on a Dynamic-Link Library \(DLL\) that is specific to Microsoft Windows.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Dynamic-Link Library hint was not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

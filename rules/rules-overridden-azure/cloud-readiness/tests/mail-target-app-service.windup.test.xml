@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="mail-azure-appservice-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/cloud-readiness/tests/data</testDataPath>
+    <rulePath>../../../rules-reviewed/cloud-readiness/tests/mail.windup.test.xml</rulePath>
+    <rulePath>../../../rules-reviewed/cloud-readiness/mail.windup.xml</rulePath>
+    <rulePath>../mail.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="mail-azure-appservice-test-00000">
+                <when>
+                    <not>
+                        <iterable-filter size="17">
+                            <hint-exists message="The application uses email APIs to send or receive emails.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="JavaMail hint was not found"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

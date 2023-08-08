@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<technology-reference-transfomers xmlns="http://windup.jboss.org/schema/jboss-ruleset">
+    <transform>
+        <sourceTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-spring-apps"/>
+    </transform>
+    <transform>
+        <sourceTechnology id="azure-spring-apps"/>
+        <targetTechnology id="cloud-readiness"/>
+    </transform>
+    <transform>
+        <sourceTechnology id="azure-spring-apps"/>
+        <targetTechnology id="linux"/>
+    </transform>
+</technology-reference-transfomers>

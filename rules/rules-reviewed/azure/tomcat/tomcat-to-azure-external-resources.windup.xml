@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="tomcat-to-azure-external-resources"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -8,7 +8,7 @@
             Identify external resources in a Tomcat configuration file.
         </description>
         <dependencies>
-            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final" />
+            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
         </dependencies>
         <targetTechnology id="azure-spring-apps"/>
         <targetTechnology id="azure-appservice"/>
@@ -22,15 +22,23 @@
                 <xmlfile matches="/Context/Resource" in="context.xml"/>
             </when>
             <perform>
-                <hint title="External resources found in configuration file" category-id="cloud-mandatory" effort="5">
+                <hint title="External resources found in configuration file" category-id="optional" effort="5">
                     <message>
-                        <![CDATA[
-                        External resources, such as data sources, JMS message brokers, and others are injected via Java Naming and Directory Interface (JNDI).
-                        
-                        Some such resources may require migration or reconfiguration.
-                        ]]>
+                        External resources are injected via Java Naming and Directory Interface (JNDI).
+                        These resources can be:
+
+                        * **Data Sources**: If your application relies on a database, consider using an Azure managed database (e.g. Azure PostgreSQL, Azure MySQL, Azure CosmosDB, etc.). Provision a database instance in Azure and configure the necessary connection string.
+
+                        * **JMS Destinations**: If your application utilizes JMS resources, such as message queues or topics, consider using Azure Service Bus as a messaging service. Create the necessary queues or topics in Azure Service Bus and use the appropriate connection details provided by Azure Service Bus.
+
+                        * **Mail Sessions**: If your application sends emails, consider using Azure Communication Services. It provides a variety of communication capabilities, including sending emails from your application.
+
+                        * **Environment Variables**: If your application is configured through environment variables, consider user Azure App Configuration. It enables you to centrally manage and store application settings and configuration data. When dealing with secrets or passwords in your Tomcat application, it is recommended to use Azure Key Vault to securely store and manage sensitive information.
+
+                        Review the Azure service offerings and choose the appropriate services for your specific needs.
                     </message>
                     <link title="Inventory external resources" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-apps"/>
+                    <link title="Azure services" href="https://azure.microsoft.com/products"/>
                     <tag>tomcat</tag>
                 </hint>
             </perform>

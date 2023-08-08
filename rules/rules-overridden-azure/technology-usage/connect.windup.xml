@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset id="connect"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset overrides the rules/rules-reviewed/technology-usage/connect.windup.groovy ruleset.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <tag>connect</tag>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="connect-01500">
+            <when>
+                <file filename="{*}activemq{*}"/>
+            </when>
+            <perform>
+                <hint title="ActiveMQ found" category-id="potential" effort="3">
+                    <message>
+                        To migrate a Java application that uses ActiveMQ to Azure, you can follow these recommendations:
+
+                        * Provision **Azure Service Bus**: Replace ActiveMQ with Azure Service Bus, a fully managed messaging service that offers reliable message queuing and publish/subscribe capabilities.
+
+                        * Update the application's **messaging connection** details: Modify the Java application's configuration updating the connection information and message queues/topics.
+
+                        * Configure Azure Service Bus **queues/topics**: Create appropriate queues or topics in Azure Service Bus to align with your application's messaging requirements. Configure access control and security settings as needed.
+
+                        * Handle **message persistence**: ActiveMQ often relies on disk storage for message persistence. Azure Service Bus offers built-in message persistence, ensuring reliable message delivery. Ensure your application's messaging code handles message persistence appropriately.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor and Microsoft Defender for Cloud to monitor and detect any potential security threats or anomalies in your Azure Service Bus environment. Enable diagnostics logging and set up alerts for suspicious activities.
+
+                        * Apply **security** measures: Implement Azure Active Directory (Azure AD) authentication and authorization for accessing Azure Service Bus resources. Enable TLS encryption for communication between your Java application and Azure Service Bus. Enable passwordless connections for Azure services to improve security and reduce the risk of credential theft.
+                    </message>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
+                    <link title="Migrate existing Java Message Service applications from Apache ActiveMQ to Azure Service Bus" href="https://learn.microsoft.com/azure/service-bus-messaging/migrate-jms-activemq-to-servicebus"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">ActiveMQ</technology-tag>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>

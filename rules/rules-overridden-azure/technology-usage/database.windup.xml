@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="database"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -19,6 +19,36 @@
         <overrideRules>true</overrideRules>
     </metadata>
     <rules>
+        <rule id="database-01400">
+            <when>
+                <file filename="{*}mysql-connector{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="MySQL database found" category-id="potential" effort="3">
+                    <message>
+                        To migrate a Java application that uses a MySQL database to Azure, you can follow these recommendations:
+
+                        * Use a managed **Azure Database for MySQL**: For that create a managed MySQL database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+                        * **Migrate** the existing MySQL database: For that you can use the Azure Database Migration Service (DMS) to perform an online migration with minimal downtime.
+
+                        * Update the application's **database connection** details: Modify the Java application's configuration to point to the newly provisioned Azure Database for MySQL. Update the connection string, hostname, port, username, and password information accordingly.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying MySQL database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+                        * Implement **security** measures: Apply security best practices to protect your Java application and the MySQL database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+                        * **Backup** your data: Azure Database for MySQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
+                    </message>
+                    <link title="Azure Database for MySQL documentation" href="https://learn.microsoft.com/azure/mysql"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
+                    <link title="Backup and restore in Azure Database for MySQL" href="https://learn.microsoft.com/azure/mysql/single-server/concepts-backup"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">MySQL Driver</technology-tag>
+            </perform>
+        </rule>
         <rule id="database-01700">
             <when>
                 <file filename="{*}postgresql{*}.jar"/>
@@ -26,14 +56,164 @@
             <perform>
                 <hint title="PostgreSQL database found" category-id="potential" effort="3">
                     <message>
-                        PostgreSQL database found.
-                        
-                        Consider using Azure PostgreSQL Flexible Server.
+                        To migrate a Java application that uses a PostgreSQL database to Azure, you can follow these recommendations:
+
+                        * Use a managed **Azure Database for PostgreSQL Flexible Server**: For that create a managed PostgreSQL Flexible Server database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+                        * **Migrate** the existing PostgreSQL database: For that you can use the Azure Database Migration Service (DMS) to perform an online migration with minimal downtime.
+
+                        * Update the application's **database connection** details: Modify the Java application's configuration to point to the newly provisioned Azure Database for PostgreSQL. Update the connection string, hostname, port, username, and password information accordingly.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying PostgreSQL database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+                        * Implement **security** measures: Apply security best practices to protect your Java application and the PostgreSQL database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+                        * **Backup** your data: Azure Database for PostgreSQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
                     </message>
-                    <link title="Azure Database for PostgreSQL" href="https://azure.microsoft.com/products/postgresql"/>
-                    <link title="Flexible Server documentation" href="https://learn.microsoft.com/azure/postgresql/flexible-server"/>
+                    <link title="Azure PostgreSQL Flexible Server documentation" href="https://learn.microsoft.com/azure/postgresql/flexible-server"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
+                    <link title="Backup and restore in Azure Database for PostgreSQL" href="https://learn.microsoft.com/azure/postgresql/single-server/concepts-backup"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">PostgreSQL Driver</technology-tag>
+            </perform>
+        </rule>
+        <rule id="database-01900">
+            <when>
+                <or>
+                    <file filename="sqljdbc{*}.jar"/>
+                    <file filename="mssql-jdbc{*}.jar"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="Microsoft SQL database found" category-id="potential" effort="3">
+                    <message>
+                        To migrate a Java application that uses a Microsoft SQL database to Azure, you can follow these recommendations:
+
+                        * Use a managed **Azure SQL**: For that create a managed Azure SQL database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+                        * **Migrate** the existing Microsoft SQL database: For that you can use the Azure Database Migration Service (DMS) to perform an online migration with minimal downtime.
+
+                        * Update the application's **database connection** details: Modify the Java application's configuration to point to the newly provisioned Azure SQL. Update the connection string, hostname, port, username, and password information accordingly.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying Azure SQL database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+                        * Implement **security** measures: Apply security best practices to protect your Java application and the Azure SQL database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+                        * **Backup** your data: Azure SQL provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
+                    </message>
+                    <link title="Azure SQL documentation" href="https://learn.microsoft.com/azure/azure-sql"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
+                    <link title="Change automated backup settings for Azure SQL Database" href="https://learn.microsoft.com/azure/azure-sql/database/automated-backups-change-settings"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Microsoft SQL Driver</technology-tag>
+            </perform>
+        </rule>
+        <rule id="database-02200">
+            <when>
+                <or>
+                    <file filename="{*}cassandra{*}.jar"/>
+                    <file filename="{*}hector{*}.jar"/>
+                    <file filename="{*}astyanax{*}.jar"/>
+                    <file filename="{*}phantom-dsl{*}.jar"/>
+                    <file filename="{*}cql{*}.jar"/>
+                    <file filename="{*}hecuba-client{*}.jar"/>
+                    <file filename="{*}c-star-path{*}.jar"/>
+                    <file filename="{*}scale7-pelops{*}.jar"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="Cassandra database found" category-id="potential" effort="3">
+                    <message>
+                        To migrate a Java application that uses a Cassandra database to Azure, you can follow these recommendations:
+
+                        * Use an **Azure Managed Instance for Apache Cassandra**: Create an Azure Managed Instance for Apache Cassandra database and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+                        * **Migrate your Cassandra data**: Take a backup of your Cassandra data and restore the backup to Azure Managed Instance for Apache Cassandra. You can use Azure Database Migration Service to facilitate the backup and restore process.
+
+                        * Update the application's **database connection** details: Modify your Java application's configuration to point to the new Azure Managed Instance for Apache Cassandra. Update the connection string and authentication details in your application code to ensure connectivity to the Azure Managed Instance for Apache Cassandra.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying Azure Managed Instance for Apache Cassandra database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+                        * Implement **security** measures: Apply security best practices to protect your Java application and the Azure Managed Instance for Apache Cassandra database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+                        * **Backup** your data: Azure Managed Instance for Apache Cassandra provides built-in backup functionality that allows you to create automated backups of your data. Enable backup for your account and configure the backup retention policy to specify how long the backups should be retained.
+                    </message>
+                    <link title="Azure Managed Instance for Apache Cassandra documentation" href="https://learn.microsoft.com/azure/managed-instance-apache-cassandra"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Cassandra Client</technology-tag>
+            </perform>
+        </rule>
+        <rule id="database-02500">
+            <when>
+                <or>
+                    <file filename="{*}mongodb{*}.jar"/>
+                    <file filename="{*}casbah{*}.jar"/>
+                    <file filename="{*}reactivemongo{*}.jar"/>
+                    <file filename="{*}jongo{*}.jar"/>
+                    <file filename="{*}gmongo{*}.jar"/>
+                    <file filename="{*}rogue{*}.jar"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="MongoDB database found" category-id="potential" effort="3">
+                    <message>
+                        To migrate a Java application that uses a MongoDB database to Azure, you can follow these recommendations:
+
+                        * Use a managed **Azure Cosmos DB for MongoDB**: Create a managed Cosmos DB for MongoDB database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+                        * **Migrate your MongoDB data**: Take a backup of your MongoDB data and restore the backup to Azure Cosmos DB for MongoDB. You can use Azure Database Migration Service to facilitate the backup and restore process.
+
+                        * Update the application's **database connection** details: Modify your Java application's configuration to point to the new Azure Cosmos DB for MongoDB instance. Update the connection string and authentication details in your application code to ensure connectivity to Azure Cosmos DB.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying Azure Cosmos DB for MongoDB database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+                        * Implement **security** measures: Apply security best practices to protect your Java application and the Azure Cosmos DB for MongoDB database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+                        * **Backup** your data: Azure Cosmos DB provides built-in backup functionality that allows you to create automated backups of your data. Enable backup for your Azure Cosmos DB account and configure the backup retention policy to specify how long the backups should be retained.
+                    </message>
+                    <link title="Azure Cosmos DB for MongoDB documentation" href="https://learn.microsoft.com/azure/cosmos-db/mongodb"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">MongoDB Client</technology-tag>
+            </perform>
+        </rule>
+        <rule id="database-03200">
+            <when>
+                <file filename="{*}mariadb{*}.jar"/>
+            </when>
+            <perform>
+                <hint title="MariaDB database found" category-id="potential" effort="3">
+                    <message>
+                        To migrate a Java application that uses a MariaDB database to Azure, you can follow these recommendations:
+
+                        * Use a managed **Azure Database for MariaDB**: For that create a managed MariaDB database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
+
+                        * **Migrate** the existing MariaDB database: For that you can use the Azure Database Migration Service (DMS) to perform an online migration with minimal downtime.
+
+                        * Update the application's **database connection** details: Modify the Java application's configuration to point to the newly provisioned Azure Database for MariaDB. Update the connection string, hostname, port, username, and password information accordingly.
+
+                        * Enable **monitoring and diagnostics**: Utilize Azure Monitor to gain insights into the performance and health of your Java application and the underlying MariaDB database. Set up metrics, alerts, and log analytics to proactively identify and resolve issues.
+
+                        * Implement **security** measures: Apply security best practices to protect your Java application and the MariaDB database. This includes implementing authentication and authorization mechanisms with passwordless connections and leveraging Microsoft Defender for Cloud for threat detection and vulnerability assessments.
+
+                        * **Backup** your data: Azure Database for MariaDB provides automated backups by default. You can configure the retention period for backups based on your requirements. You can also enable geo-redundant backups, if needed, to enhance data durability and availability.
+                    </message>
+                    <link title="Azure Database for MariaDB documentation" href="https://learn.microsoft.com/azure/mariadb"/>
+                    <link title="Azure Database Migration Service documentation" href="https://learn.microsoft.com/azure/dms"/>
+                    <link title="Azure Monitor documentation" href="https://learn.microsoft.com/azure/azure-monitor"/>
+                    <link title="Microsoft Defender for Cloud" href="https://learn.microsoft.com/azure/defender-for-cloud"/>
+                    <link title="Backup and restore in Azure Database for MariaDB" href="https://learn.microsoft.com/azure/mariadb/howto-restore-server-portal"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">MariaDB Driver</technology-tag>
             </perform>
         </rule>
     </rules>

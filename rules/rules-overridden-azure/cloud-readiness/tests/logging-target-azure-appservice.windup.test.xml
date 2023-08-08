@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="logging-azure-appservice-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/cloud-readiness/tests/data</testDataPath>
+    <rulePath>../../../rules-reviewed/cloud-readiness/logging.windup.xml</rulePath>
+    <rulePath>../logging.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="logging-azure-appservice-test-00000">
+                <when>
+                    <not>
+                        <iterable-filter size="12">
+                            <hint-exists message="Logging to the file system is not recommended when running applications in the cloud.*"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Log to file usage was not found"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

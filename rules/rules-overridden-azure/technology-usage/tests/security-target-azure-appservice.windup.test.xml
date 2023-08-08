@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="security-azure-appservice-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/security</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/security.windup.xml</rulePath>
+    <rulePath>../../../rules-reviewed/technology-usage/security-technology-usage.windup.xml</rulePath>
+    <rulePath>../security.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="security-azure-appservice-01900-test">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="The application embeds a SAML library. The Microsoft identity platform uses SAML and other protocols to enable applications to provide a Single Sign-On experience."/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="SAML hint for Azure was not found!"/>
+                </perform>
+            </rule>
+            <rule id="security-azure-appservice-02800-test">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="The application embeds an OpenSAML library. The Microsoft identity platform uses SAML and other protocols to enable applications to provide a Single Sign-On experience."/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="OpenSAML hint for Azure was not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

@@ -1,6 +1,8 @@
-<?xml version="1.0"?>
-<ruletest id="spring-boot-to-azure-eureka-test" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="spring-boot-to-azure-eureka-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <testDataPath>data/spring-boot-to-azure-eureka</testDataPath>
     <rulePath>../spring-boot-to-azure-eureka.windup.xml</rulePath>
     <ruleset>
@@ -9,24 +11,24 @@
                 <when>
                     <not>
                         <iterable-filter size="3">
-                            <hint-exists message="The application uses Eureka." />
+                            <hint-exists message="The application uses Eureka."/>
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="Eureka hint was not found!" />
+                    <fail message="Eureka hint was not found!"/>
                 </perform>
             </rule>
             <rule id="spring-boot-to-azure-eureka-test-02000">
                 <when>
                     <not>
                         <iterable-filter size="2">
-                            <hint-exists message="The application uses an eureka connection string." />
+                            <hint-exists message="The application uses a Eureka connection string."/>
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="Eureka connection string hint was not found!" />
+                    <fail message="Eureka connection string hint was not found!"/>
                 </perform>
             </rule>
         </rules>
