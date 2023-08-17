@@ -23,7 +23,7 @@
               <file filename="ra.xml"></file>
             </when>
             <perform>
-              <hint title="Resource adapter descriptor (ra.xml)" effort="1" category-id="cloud-optional">
+              <hint title="Resource adapter descriptor (ra.xml)" effort="1" category-id="optional">
                 <message>
                 The application contains an embedded resource adapter descriptor ('ra.xml'), which implements the Java Connector Architecture (JCA) for certain Enterprise Information Systems (EIS).
 

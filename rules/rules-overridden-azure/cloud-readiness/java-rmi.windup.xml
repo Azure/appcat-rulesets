@@ -27,7 +27,7 @@
                 </javaclass>
             </when>
             <perform>
-                <hint title="Java Remote Method Invocation (RMI) service" effort="7" category-id="cloud-mandatory">
+                <hint title="Java Remote Method Invocation (RMI) service" effort="7" category-id="mandatory">
                     <message>
                     When migrating an application that uses Java Remote Method Invocation (RMI) service to Azure, it's crucial to consider that RMI is a tightly coupled service and tight coupling is not suitable in a cloud environment because of scalability problems.
 
@@ -58,7 +58,7 @@
                         </not>
                     </when>
                     <perform>
-                        <classification issue-display-mode="all" title="Java Remote Method Invocation (RMI) API" effort="7" category-id="cloud-mandatory">
+                        <classification issue-display-mode="all" title="Java Remote Method Invocation (RMI) API" effort="7" category-id="mandatory">
                             <description>
                             When migrating an application that uses Java Remote Method Invocation (RMI) API to Azure, it's crucial to consider that RMI is a tightly coupled service and tight coupling is not suitable in a cloud environment because of scalability problems.
 

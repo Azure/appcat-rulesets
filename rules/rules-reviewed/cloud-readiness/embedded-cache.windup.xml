@@ -19,7 +19,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - Ehcache embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - Ehcache embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds an Ehcache library.
 
@@ -38,7 +38,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - Coherence embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - Coherence embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds a Coherence library.
 
@@ -57,7 +57,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - Apache Commons JCS embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - Apache Commons JCS embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds an Apache Commons JCS library.
 
@@ -76,7 +76,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - Dynacache embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - Dynacache embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds a Dynacache library.
 
@@ -95,7 +95,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - Embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - Embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds a library that provides caching.
 
@@ -114,7 +114,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - Hazelcast embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - Hazelcast embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds a Hazelcast library.
 
@@ -133,7 +133,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - Apache Ignite embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - Apache Ignite embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds an Apache Ignite library.
 
@@ -152,7 +152,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - Infinispan embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - Infinispan embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds an Infinispan library.
 
@@ -171,7 +171,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - JBoss Cache embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - JBoss Cache embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embedds a JBoss Cache library.
 
@@ -190,7 +190,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - JCache embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - JCache embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds a JCache library.
 
@@ -209,7 +209,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - Memcached client embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - Memcached client embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds a Memcached client library.
 
@@ -228,7 +228,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - Oscache embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - Oscache embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds an Oscache library.
 
@@ -247,7 +247,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - ShiftOne (Java Object Cache) embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - ShiftOne (Java Object Cache) embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds a ShiftOne library (Java Object Cache or JOCache).
 
@@ -266,7 +266,7 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Caching - SwarmCache embedded library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - SwarmCache embedded library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds a SwarmCache library.
 
@@ -288,7 +288,7 @@
                 </or>
             </when>
             <perform>
-                <classification title="Caching - Spring Boot Cache library" category-id="cloud-mandatory" effort="5">
+                <classification title="Caching - Spring Boot Cache library" category-id="mandatory" effort="5">
                     <description>
                         The application embeds the Spring Boot Cache library.
 

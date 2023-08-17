@@ -24,7 +24,7 @@
               </xmlfile>
             </when>
             <perform>
-                <hint title="HTTP session replication (distributable web.xml)" effort="3" category-id="cloud-mandatory">
+                <hint title="HTTP session replication (distributable web.xml)" effort="3" category-id="mandatory">
                     <message>
                     Session replication ensures that client sessions are not disrupted by node failure. Each node in the cluster shares information about ongoing sessions and can take over sessions if another node disappears. In a cloud environment, however, data in the memory of a running container can be wiped out by a restart.
 
@@ -59,7 +59,7 @@
                 </or>
             </when>
             <perform>
-                <hint title="HTTP Session data storage" effort="3" category-id="cloud-optional">
+                <hint title="HTTP Session data storage" effort="3" category-id="optional">
                     <message>
                     In a cloud environment, a restart can wipe out HTTP session data in the memory of a running container.
 

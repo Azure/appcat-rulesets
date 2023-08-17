@@ -42,7 +42,7 @@
                 </or>
             </when>
             <perform>
-                <hint title="File system - Java IO" effort="3" category-id="cloud-mandatory">
+                <hint title="File system - Java IO" effort="3" category-id="mandatory">
                     <message>
                         When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
                         An application running inside a container could lose access to a file in local storage.
@@ -75,7 +75,7 @@
                 </javaclass>
             </when>
             <perform>
-                <hint title="File system - java.net.URL/URI" effort="3" category-id="cloud-mandatory">
+                <hint title="File system - java.net.URL/URI" effort="3" category-id="mandatory">
                     <message>
                         When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
                         An application running inside a container could lose access to a file in local storage.
@@ -106,7 +106,7 @@
                 <filecontent pattern="{path1}" filename="{*}{extensions}"/>
             </when>
             <perform>
-                <hint title="File system - File path URL" effort="3" category-id="cloud-mandatory">
+                <hint title="File system - File path URL" effort="3" category-id="mandatory">
                     <message>
                         When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
                         An application running inside a container could lose access to a file in local storage.
@@ -142,7 +142,7 @@
                 <filecontent pattern="{path2}" filename="{*}.{extensions}"/>
             </when>
             <perform>
-                <hint title="File system - 'file://' scheme" effort="3" category-id="cloud-mandatory">
+                <hint title="File system - 'file://' scheme" effort="3" category-id="mandatory">
                     <message>
                         When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
                         An application running inside a container could lose access to a file in local storage.
@@ -191,7 +191,7 @@
             </when>
             <perform>
                 <iteration>
-                    <hint title="File system - Java NIO" effort="3" category-id="cloud-mandatory">
+                    <hint title="File system - Java NIO" effort="3" category-id="mandatory">
                         <message>
                             When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
                             An application running inside a container could lose access to a file in local storage.
@@ -228,7 +228,7 @@
             </when>
             <perform>
                 <iteration>
-                    <hint title="Apache Commons I/O" effort="3" category-id="cloud-mandatory">
+                    <hint title="Apache Commons I/O" effort="3" category-id="mandatory">
                         <message>
                             When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
                             An application running inside a container could lose access to a file in local storage.

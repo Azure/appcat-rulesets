@@ -25,7 +25,7 @@
                 </or>
             </when>
             <perform>
-                <hint title="CORBA" effort="5" category-id="cloud-optional">
+                <hint title="CORBA" effort="5" category-id="optional">
                     <message>
                         Common Object Request Broker Architecture (CORBA) found in the application. CORBA is not recommended in cloud environments. Try to replace it with a more modern technology.
                     </message>

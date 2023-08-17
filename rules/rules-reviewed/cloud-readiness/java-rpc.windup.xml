@@ -24,7 +24,7 @@
                 </or>
             </when>
             <perform>
-               <hint title="Java API for XML-based RPC (JAX-RPC)" effort="5" category-id="cloud-optional">
+               <hint title="Java API for XML-based RPC (JAX-RPC)" effort="5" category-id="optional">
                    <message>
                     The Java API for XML-based RPC (JAX-RPC) was deprecated in Java EE 6 and is optional in Java EE 7. It is no longer available or supported in JBoss EAP 7.
 

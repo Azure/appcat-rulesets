@@ -27,7 +27,7 @@
               </or>
             </when>
             <perform>
-              <hint title="Java Mail API" effort="3" category-id="cloud-optional">
+              <hint title="Java Mail API" effort="3" category-id="optional">
                   <message>
                     The configuration parameters of SMTP services for outbound mail may contain environment-specific values such as static IP addresses, host names, properties, credentials, or certificates.
 

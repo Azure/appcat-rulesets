@@ -43,7 +43,7 @@
                 </or>
             </when>
             <perform>
-              <hint title="Java native libraries (JNI, JNA)" effort="7" category-id="cloud-mandatory">
+              <hint title="Java native libraries (JNI, JNA)" effort="7" category-id="mandatory">
                   <message>
                     Java native libraries might not run in a cloud or container environment.
 
@@ -84,7 +84,7 @@
                 </or>
             </when>
             <perform>
-                <hint title="Java Native Processes" effort="7" category-id="cloud-mandatory">
+                <hint title="Java Native Processes" effort="7" category-id="mandatory">
                     <message>
                         Native Processes might not run in a cloud or container environment.
 
