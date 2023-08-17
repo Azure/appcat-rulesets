@@ -31,7 +31,7 @@
                         Find any explicit configurations of config server connection info and remove them.
                         Configure the config server after creating an Azure Spring Apps instance.
                     </message>
-                    <link title="Remove restricted configurations" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=%2Fazure%2Fspring-apps%2Ftoc.json&amp%3Bbc=%2Fazure%2Fspring-apps%2Fbreadcrumb%2Ftoc.json&amp%3Bpivots=sc-standard-tier&pivots=sc-standard-tier#remove-restricted-configurations"/>
+                    <link title="Remove restricted configurations" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#remove-restricted-configurations"/>
                     <link title="Prepare the Spring Cloud Config server" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#prepare-the-spring-cloud-config-server"/>
                     <tag>Spring Cloud Config</tag>
                 </hint>
