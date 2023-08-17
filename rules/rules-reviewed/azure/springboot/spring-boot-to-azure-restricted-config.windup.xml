@@ -31,7 +31,7 @@
                          
                         If configured in **Config Server files**, **command line parameters**, **Java system attribute**, **environment variable**: they need to be removed or you might experience conflicts and unexpected behavior.
                     </message>
-                    <link title="Remove restricted configurations" href="https://learn.microsoft.com/en-us/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=%2Fazure%2Fspring-apps%2Ftoc.json&amp%3Bbc=%2Fazure%2Fspring-apps%2Fbreadcrumb%2Ftoc.json&amp%3Bpivots=sc-standard-tier&pivots=sc-standard-tier#remove-restricted-configurations"/>
+                    <link title="Remove restricted configurations" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=%2Fazure%2Fspring-apps%2Ftoc.json&amp;bc=%2Fazure%2Fspring-apps%2Fbreadcrumb%2Ftoc.json&amp;pivots=sc-standard-tier#remove-restricted-configurations"/>
                     <link title="Set up a Config server" href="https://learn.microsoft.com/azure/spring-apps/how-to-config-server"/>
                     <link title="Enable Service Registration" href="https://learn.microsoft.com/azure/spring-apps/how-to-service-registration?pivots=programming-language-java"/>
                 </hint>
