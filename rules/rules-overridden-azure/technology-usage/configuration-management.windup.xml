@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset id="configuration-management"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            Identify configuration-management related technologies, give suggestions on Spring Cloud Config for migration to Azure Spring Apps.
+            This ruleset overrides the rules/rules-reviewed/technology-usage/configuration-management.windup.xml ruleset.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="configuration-management-0100">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-config-client" />
+                    </project>
+                    <dependency groupId="org.springframework.cloud" artifactId="spring-cloud-config-client" />
+                    <dependency groupId="org.springframework.cloud" artifactId="spring-cloud-starter-config" />
+                </or>
+            </when>
+            <perform>
+                <hint title="Embedded library - Spring Cloud Config" category-id="information" effort="0">
+                    <message>
+                        The application embeds Spring Cloud Config.
+                        
+                        If you are migrating to Azure Spring Apps, the connection info of Config Server will be injected automatically upon app start.
+                        Find any explicit configurations of config server connection info:
+
+                        If configured in **configuration files**: they will be ignored and overrided by Azure Spring Apps.
+
+                        If configured in **command line parameters**, **Java system attribute**, **environment variable**: they need to be removed or you might experience conflicts and unexpected behavior.
+
+                        Configure the config server after creating an Azure Spring Apps instance.
+                    </message>
+                    <link title="Prepare the Spring Cloud Config server" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#prepare-the-spring-cloud-config-server"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Spring Cloud Config</technology-tag>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>
