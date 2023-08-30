@@ -35,7 +35,7 @@
             <rule id="security-discovery-03600-test">
                 <when>
                     <not>
-                        <classification-exists classification="Embedded library - Spring Security"/>
+                        <classification-exists classification="Embedded framework - Spring Security"/>
                         <technology-tag-exists technology-tag="Spring Security"/>
                     </not>
                 </when>
