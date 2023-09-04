@@ -22,16 +22,22 @@
         <rule id="embedded-framework-09300">
             <when>
                 <or>
-                    <file filename="{*}eureka-server{*}.jar"/>
+                    <file filename="{*}eureka-client{*}.jar"/>
                     <project>
-                        <artifact groupId="{*}" artifactId="{*}eureka-server{*}"/>
+                        <artifact groupId="{*}" artifactId="{*}eureka-client{*}"/>
                     </project>
                 </or>
             </when>
             <perform>
                 <hint title="Embedded framework - Eureka Client" category-id="information" effort="0">
                     <message>
-                        The application embeds the Eureka client.
+                        The application embeds the Eureka client. If you are migrating to Azure Spring Apps, the connection info of Eureka will be injected upon app start.
+                        
+                        Find any explicit configurations of config server connection info:
+
+                        If configured in **configuration files**: they will be ignored and overrided by Azure Spring Apps.
+
+                        If configured in **command line parameters**, **Java system attribute**, **environment variable**: they need to be removed or you might experience conflicts and unexpected behavior.
                     </message>
                     <link title="Azure Spring Apps - Enable Service Registration" href="https://learn.microsoft.com/azure/spring-apps/how-to-service-registration?pivots=programming-language-java"/>
                     <link title="Azure Spring Apps - Access Config Server and Service Registry" href="https://learn.microsoft.com/azure/spring-apps/how-to-access-data-plane-azure-ad-rbac"/>
@@ -42,7 +48,12 @@
         </rule>
         <rule id="embedded-framework-09400">
             <when>
-                <file filename="{*}eureka-client{*}.jar"/>
+                <or>
+                    <file filename="{*}eureka-server{*}.jar"/>
+                    <project>
+                        <artifact groupId="{*}" artifactId="{*}eureka-server{*}"/>
+                    </project>
+                </or>
             </when>
             <perform>
                 <hint title="Embedded framework - Eureka Server" category-id="information" effort="0">

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="embedded-framework-discover-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/embedded-framework</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/embedded-framework.windup.xml</rulePath>
+    <rulePath>../embedded-framework.windup.xml</rulePath>
+    <target>discovery</target>
+    <ruleset>
+        <rules>
+            <rule id="embedded-framework-09300-test">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded framework - Eureka Client"/>
+                        <technology-tag-exists technology-tag="Eureka"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule embedded-framework-09300"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-09400-test">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded framework - Eureka Server"/>
+                        <technology-tag-exists technology-tag="Eureka"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Expected data not found for rule embedded-framework-09400"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

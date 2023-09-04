@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="embedded-framework-azure-appservice-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/embedded-framework</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/embedded-framework.windup.xml</rulePath>
+    <rulePath>../embedded-framework.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="embedded-framework-azure-appservice-test-09300">
+                <when>
+                    <not>
+                        <hint-exists message="The application embeds the Eureka client. If you are migrating to Azure Spring Apps"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Eureka Client found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="embedded-framework-azure-appservice-test-09400">
+                <when>
+                    <not>
+                        <hint-exists message="The application embeds the Eureka server.*If you are migrating to Azure Spring Apps"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Eureka server found hint was not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
