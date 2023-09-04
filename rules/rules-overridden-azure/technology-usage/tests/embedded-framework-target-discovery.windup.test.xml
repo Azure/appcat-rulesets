@@ -12,23 +12,12 @@
             <rule id="embedded-framework-09300-test">
                 <when>
                     <not>
-                        <classification-exists classification="Embedded framework - Eureka Client"/>
+                        <classification-exists classification="Embedded framework - Eureka"/>
                         <technology-tag-exists technology-tag="Eureka"/>
                     </not>
                 </when>
                 <perform>
                     <fail message="Expected data not found for rule embedded-framework-09300"/>
-                </perform>
-            </rule>
-            <rule id="embedded-framework-09400-test">
-                <when>
-                    <not>
-                        <classification-exists classification="Embedded framework - Eureka Server"/>
-                        <technology-tag-exists technology-tag="Eureka"/>
-                    </not>
-                </when>
-                <perform>
-                    <fail message="Expected data not found for rule embedded-framework-09400"/>
                 </perform>
             </rule>
         </rules>

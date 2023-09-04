@@ -58,9 +58,7 @@
             <perform>
                 <hint title="Embedded framework - Eureka Server" category-id="information" effort="0">
                     <message>
-                        The application embeds the Eureka server.
-
-                        If you are migrating to Azure Spring Apps, Eureka (Standard Tier) or Service Registry (Enterprise Tier) will be hosted for you.
+                        The application embeds the Eureka server. If you are migrating to Azure Spring Apps, Eureka (Standard Tier) or Service Registry (Enterprise Tier) will be hosted for you.
                     </message>
                     <link title="Azure Spring Apps - Don't include the Spring Cloud registry" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=%2Fazure%2Fspring-apps%2Ftoc.json&amp;bc=%2Fazure%2Fspring-apps%2Fbreadcrumb%2Ftoc.json&amp;pivots=sc-standard-tier#create-an-azure-spring-apps-instance-and-apps"/>
                     <link title="Azure Spring Apps - Enable Service Registration" href="https://learn.microsoft.com/azure/spring-apps/how-to-service-registration?pivots=programming-language-java"/>

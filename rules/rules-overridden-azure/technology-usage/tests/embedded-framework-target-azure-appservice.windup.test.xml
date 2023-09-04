@@ -22,7 +22,7 @@
             <rule id="embedded-framework-azure-appservice-test-09400">
                 <when>
                     <not>
-                        <hint-exists message="The application embeds the Eureka server.*If you are migrating to Azure Spring Apps"/>
+                        <hint-exists message="The application embeds the Eureka server. If you are migrating to Azure Spring Apps"/>
                     </not>
                 </when>
                 <perform>
