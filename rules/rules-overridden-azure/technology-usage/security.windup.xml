@@ -33,7 +33,7 @@
                     <link title="SAML authentication with Azure Active Directory" href="https://learn.microsoft.com/azure/active-directory/fundamentals/auth-saml"/>
                     <link title="How the Microsoft identity platform uses the SAML protocol" href="https://learn.microsoft.com/azure/active-directory/develop/saml-protocol-reference"/>
                     <link title="Microsoft identity platform documentation" href="https://learn.microsoft.com/azure/active-directory/develop"/>
-                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/en-us/azure/active-directory"/>
+                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/azure/active-directory"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">SAML</technology-tag>
             </perform>
@@ -52,7 +52,7 @@
                     <link title="SAML authentication with Azure Active Directory" href="https://learn.microsoft.com/azure/active-directory/fundamentals/auth-saml"/>
                     <link title="How the Microsoft identity platform uses the SAML protocol" href="https://learn.microsoft.com/azure/active-directory/develop/saml-protocol-reference"/>
                     <link title="Microsoft identity platform documentation" href="https://learn.microsoft.com/azure/active-directory/develop"/>
-                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/en-us/azure/active-directory"/>
+                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/azure/active-directory"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">OpenSAML</technology-tag>
             </perform>
@@ -106,7 +106,7 @@
                     <link title="Application types and OAuth2" href="https://learn.microsoft.com/azure/active-directory/develop/v2-app-types"/>
                     <link title="Spring Cloud Security quickstart" href="https://spring.io/projects/spring-cloud-security"/>
                     <link title="Microsoft identity platform documentation" href="https://learn.microsoft.com/azure/active-directory/develop"/>
-                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/en-us/azure/active-directory"/>
+                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/azure/active-directory"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">OAuth 2.0</technology-tag>
             </perform>
@@ -130,7 +130,7 @@
                     <link title="OAuth 2.0 and OpenID Connect protocols on the Microsoft Identity Platform" href="https://learn.microsoft.com/azure/active-directory/develop/v2-protocols"/>
                     <link title="OpenID Connect on the Microsoft identity platform" href="https://learn.microsoft.com/azure/active-directory/develop/v2-protocols-oidc"/>
                     <link title="Microsoft identity platform documentation" href="https://learn.microsoft.com/azure/active-directory/develop"/>
-                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/en-us/azure/active-directory"/>
+                    <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/azure/active-directory"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">OpenID</technology-tag>
             </perform>
