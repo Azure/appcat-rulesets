@@ -20,15 +20,19 @@
     <rules>
         <rule id="spring-boot-to-azure-eureka-02000">
             <when>
-                <filecontent filename="application{*}.{extensions}" pattern="{pattern}"/>
+                <filecontent filename="{*}.{extensions}" pattern="{pattern}"/>
             </when>
             <perform>
                 <hint title="Explicit eureka connection info found in configuration file" category-id="information" effort="0">
                     <message>
                         The application uses a Eureka connection string.
+                        If you are migrating to Azure Spring Apps, the connection info of Config Server will be injected upon app start.
 
-                        Azure Spring Apps will host eureka server for you.
-                        Eureka connection configurations will be injected automatically by ASA, if you put these configurations in your Config Server, please remove them.
+                        Find any explicit configurations of Eureka connection info and remove them:
+
+                        If configured in **configuration files**: they will be ignored and overrided by Azure Spring Apps.
+
+                        If configured in **command line parameters**, **Java system attribute**, **environment variable**: they need to be removed or you might experience conflicts and unexpected behavior.
                     </message>
                     <link title="Azure Spring Apps - Enable Service Registration" href="https://learn.microsoft.com/azure/spring-apps/how-to-service-registration?pivots=programming-language-java"/>
                     <link title="Azure Spring Apps - Access Config Server and Service Registry" href="https://learn.microsoft.com/azure/spring-apps/how-to-access-data-plane-azure-ad-rbac"/>
