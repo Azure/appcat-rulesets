@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="3rd-party-discover-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/3rd-party</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/3rd-party.windup.xml</rulePath>
+    <rulePath>../3rd-party.windup.xml</rulePath>
+    <target>discovery</target>
+    <ruleset>
+        <rules>
+            <rule id="3rd-party-discover-test-05000">
+                <when>
+                    <not>
+                        <classification-exists classification="Embedded framework - Logstash"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Technology usage -  Logstash classification not found!" />
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
