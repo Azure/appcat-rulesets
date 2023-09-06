@@ -61,7 +61,7 @@
                         <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-vault-config" />
                     </project>
                     <dependency groupId="org.springframework.cloud" artifactId="spring-cloud-vault-config" />
-                    <filecontent filename="{*}.{extensions}" pattern="spring\.cloud\.vault"/>
+                    <filecontent filename="{*}.{extensions}" pattern="spring.cloud.vault"/>
                 </or>
             </when>
             <perform>
