@@ -5,7 +5,7 @@
          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <metadata>
         <description>
-            Identify configuration-management related technologies, give suggestions on Spring Cloud Config for migration to Azure Spring Apps.
+            Identify configuration-management related technologies.
             This ruleset overrides the rules/rules-reviewed/technology-usage/configuration-management.windup.xml ruleset.
         </description>
         <dependencies>
@@ -14,6 +14,9 @@
             <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
         </dependencies>
         <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
         <overrideRules>true</overrideRules>
     </metadata>
     <rules>
@@ -23,8 +26,10 @@
                     <project>
                         <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-config-client" />
                     </project>
+                    <project>
+                        <artifact groupId="org.springframework.cloud"  artifactId="spring-cloud-starter-config" />
+                    </project>
                     <dependency groupId="org.springframework.cloud" artifactId="spring-cloud-config-client" />
-                    <dependency groupId="org.springframework.cloud" artifactId="spring-cloud-starter-config" />
                 </or>
             </when>
             <perform>
@@ -42,6 +47,36 @@
                         Configure the config server after creating an Azure Spring Apps instance.
                     </message>
                     <link title="Prepare the Spring Cloud Config server" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#prepare-the-spring-cloud-config-server"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Spring Cloud Config</technology-tag>
+            </perform>
+        </rule>
+        <rule id="configuration-management-0600">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-starter-vault-config" />
+                    </project>
+                    <project>
+                        <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-vault-config" />
+                    </project>
+                    <dependency groupId="org.springframework.cloud" artifactId="spring-cloud-vault-config" />
+                    <filecontent filename="{*}.{extensions}" pattern="spring\.cloud\.vault"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="Embedded library - Spring Cloud Vault" category-id="information" effort="0">
+                    <message>
+                        The application embeds Spring Cloud Vault.
+                        To migrate a Java application that uses Spring Cloud Vault to store and access secrets to Azure, you can follow this recommendation:
+                        
+                        * Identify the backing secret store (for example, HashiCorp Vault or CredHub). 
+                        * Identify all the secrets used by the application code.
+                        * Migrate Spring Cloud Vault secrets to Azure KeyVault. You can inject secrets directly into applications through Spring by using the Azure KeyVault Spring Boot Starter.
+                        * Note that Migration may require you to rename some secrets. Update your application code accordingly.
+                    </message>
+                    <link title="Load a secret from Azure Key Vault in a Spring Boot application" href="https://learn.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault"/>
+                    <link title="Azure Key Vault" href="https://learn.microsoft.com/azure/key-vault/general/overview"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Spring Cloud Config</technology-tag>
             </perform>
