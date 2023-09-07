@@ -17,6 +17,7 @@
         <targetTechnology id="azure-aks"/>
         <targetTechnology id="azure-container-apps"/>
         <overrideRules>true</overrideRules>
+        <phase>PostMigrationRulesPhase</phase>
     </metadata>
     <rules>
         <rule id="technology-usage-3rd-party-21000">
