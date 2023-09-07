@@ -70,7 +70,7 @@
                     <link title="Azure Blob Storage" href="https://learn.microsoft.com/en-us/azure/storage/blobs/"/>
                     <link title="Splunk Add-on for Microsoft Cloud Services" href="https://splunkbase.splunk.com/app/3757/"/>
                 </hint>
-                <technology-tag level="INFORMATIONAL">Logstash</technology-tag>
+                <technology-tag level="INFORMATIONAL">Splunk</technology-tag>
             </perform>
         </rule>
     </rules>

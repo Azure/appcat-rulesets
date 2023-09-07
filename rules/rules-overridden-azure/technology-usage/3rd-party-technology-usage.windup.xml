@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset id="technology-usage-3rd-party"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset provides statistical summaries of embedded 3rd party frameworks.
+            This ruleset overrides the rules/rules-reviewed/technology-usage/3rd-party.windup.xml ruleset.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="technology-usage-3rd-party-21000">
+            <when>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">Splunk</property>
+                </graph-query>
+            </when>
+            <perform>
+                <technology-identified name="Splunk">
+                    <tag name="Execute"/>
+                    <tag name="Embedded"/>
+                    <tag name="3rd party"/>
+                </technology-identified>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>
