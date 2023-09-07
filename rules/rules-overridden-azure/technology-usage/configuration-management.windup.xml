@@ -23,7 +23,6 @@
         <rule id="configuration-management-0100">
             <when>
                 <or>
-                    <file filename="{*}spring-cloud-config{*}.jar"/>
                     <project>
                         <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-config-client" />
                     </project>
@@ -73,14 +72,17 @@
                         To migrate a Java application that uses Spring Cloud Vault to store and access secrets to Azure, you can follow this recommendation:
                         
                         * Identify the backing secret store (for example, HashiCorp Vault or CredHub). 
+
                         * Identify all the secrets used by the application code.
+
                         * Migrate Spring Cloud Vault secrets to Azure KeyVault. You can inject secrets directly into applications through Spring by using the Azure KeyVault Spring Boot Starter.
+                        
                         * Note that Migration may require you to rename some secrets. Update your application code accordingly.
                     </message>
                     <link title="Load a secret from Azure Key Vault in a Spring Boot application" href="https://learn.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault"/>
                     <link title="Azure Key Vault" href="https://learn.microsoft.com/azure/key-vault/general/overview"/>
                 </hint>
-                <technology-tag level="INFORMATIONAL">Spring Cloud Config</technology-tag>
+                <technology-tag level="INFORMATIONAL">Spring Cloud Vault</technology-tag>
             </perform>
         </rule>
     </rules>
