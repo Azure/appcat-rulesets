@@ -54,5 +54,19 @@
                 </technology-identified>
             </perform>
         </rule>
+        <rule id="configuration-management-technology-usage-0400">
+            <when>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">Spring Cloud Vault</property>
+                </graph-query>
+            </when>
+            <perform>
+                <technology-identified name="Spring Cloud Vault">
+                    <tag name="Sustain"/>
+                    <tag name="Configuration Management"/>
+                    <tag name="Embedded"/>
+                </technology-identified>
+            </perform>
+        </rule>
     </rules>
 </ruleset>

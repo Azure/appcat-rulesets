@@ -20,6 +20,17 @@
                <fail message="Expected data not found for rule configuration-management-0100"/>
             </perform>
          </rule>
+         <rule id="configuration-management-discovery-test-0200">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded library - Spring Cloud Vault"/>
+                  <technology-tag-exists technology-tag="Spring Cloud Vault"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule configuration-management-0200"/>
+            </perform>
+         </rule>
       </rules>
    </ruleset>
 </ruletest>
