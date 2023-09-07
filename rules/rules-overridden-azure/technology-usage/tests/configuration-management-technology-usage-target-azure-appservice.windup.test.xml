@@ -6,6 +6,8 @@
           xmlns:windup="http://windup.jboss.org/schema/jboss-ruleset"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
    <testDataPath>data/configuration-management</testDataPath>
+   <rulePath>../../../rules-reviewed/technology-usage/configuration-management.windup.xml</rulePath>
+   <rulePath>../configuration-management.windup.xml</rulePath>
    <rulePath>../../../rules-reviewed/technology-usage/configuration-management-technology-usage.windup.xml</rulePath>
    <rulePath>../configuration-management-technology-usage.windup.xml</rulePath>
    <target>azure-appservice</target>
