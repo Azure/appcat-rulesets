@@ -23,6 +23,7 @@
         <rule id="configuration-management-0100">
             <when>
                 <or>
+                    <file filename="{*}spring-cloud-config{*}.jar"/>
                     <project>
                         <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-config-client" />
                     </project>
@@ -54,6 +55,7 @@
         <rule id="configuration-management-0600">
             <when>
                 <or>
+                    <file filename="{*}spring-cloud-vault{*}.jar"/>
                     <project>
                         <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-starter-vault-config" />
                     </project>
