@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruletest id="configuration-management-azure-spring-apps-test"
+<ruletest id="configuration-management-azure-appservice-test"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <testDataPath>../../../rules-reviewed/technology-usage/tests/data/configuration-management</testDataPath>
     <rulePath>../../../rules-reviewed/technology-usage/configuration-management.windup.xml</rulePath>
     <rulePath>../configuration-management.windup.xml</rulePath>
-    <target>azure-spring-apps</target>
+    <target>azure-appservice</target>
     <ruleset>
         <rules>
-            <rule id="configuration-management-azure-spring-apps-test-0100">
+            <rule id="configuration-management-azure-appservice-test-0100">
                 <when>
                     <not>
                         <hint-exists message="If you are migrating to Azure Spring Apps, the connection info of Config Server will be injected"/>
@@ -17,6 +17,16 @@
                 </when>
                 <perform>
                     <fail message="Spring Cloud Config found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="configuration-management-azure-appservice-test-0600">
+                <when>
+                    <not>
+                        <hint-exists message="To migrate a Java application that uses Spring Cloud Vault to store and access secrets"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Spring Cloud Vault found hint was not found!"/>
                 </perform>
             </rule>
         </rules>
