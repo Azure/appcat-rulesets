@@ -67,7 +67,7 @@
                         * Use the Splunk Add-on for Microsoft Cloud Services to ingest logged events into Splunk.
                     </message>
                     <link title="Ensure console logging and configure diagnostic settings" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#ensure-console-logging-and-configure-diagnostic-settings"/>
-                    <link title="Azure Blob Storage" href="https://learn.microsoft.com/en-us/azure/storage/blobs/"/>
+                    <link title="Azure Blob Storage" href="https://learn.microsoft.com/azure/storage/blobs/"/>
                     <link title="Splunk Add-on for Microsoft Cloud Services" href="https://splunkbase.splunk.com/app/3757/"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Splunk</technology-tag>
