@@ -279,5 +279,19 @@
                 </technology-identified>
             </perform>
         </rule>
+        <rule id="technology-usage-3rd-party-21000">
+            <when>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">Splunk</property>
+                </graph-query>
+            </when>
+            <perform>
+                <technology-identified name="Splunk">
+                    <tag name="Execute"/>
+                    <tag name="Embedded"/>
+                    <tag name="3rd party"/>
+                </technology-identified>
+            </perform>
+        </rule>
     </rules>
 </ruleset>

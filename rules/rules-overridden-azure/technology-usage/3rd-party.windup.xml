@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset id="3rd-party"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset detects embedded 3rd-party framework, which may be problematic when migrating an application to a cloud environment.
+            This ruleset overrides the rules/rules-reviewed/technology-usage/3rd-party.windup.xml ruleset.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+        <overrideRules>true</overrideRules>
+    </metadata>
+    <rules>
+        <rule id="3rd-party-05000">
+            <when>
+                <or>
+                    <file filename="{*}logstash{*}.jar"/>
+                    <project>
+                        <artifact groupId="{*}" artifactId="{*}logstash{*}"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <hint title="Embedded library - Logstash" category-id="potential" effort="3">
+                    <message>
+                        The application embeds the Logstash framework. To migrate a Java application that uses LogStash/ELK Stack for log aggregation to Azure, you can follow this recommendation:
+
+                        * Ensure your logging output is routed to the console and not to files.
+
+                        * Configure the diagnostic setting to stream the console output to an Azure Event Hub.
+
+                        * Use the LogStash EventHub plugin to ingest logged events into LogStash.
+                    </message>
+                    <link title="Ensure console logging and configure diagnostic settings" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#ensure-console-logging-and-configure-diagnostic-settings"/>
+                    <link title="Azure Event Hub" href="https://learn.microsoft.com/azure/event-hubs/event-hubs-about"/>
+                    <link title="Logstash EventHub plugin" href="https://github.com/logstash-plugins/logstash-input-azure_event_hubs"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Logstash</technology-tag>
+            </perform>
+        </rule>
+        <rule id="3rd-party-20000">
+            <when>
+                <or>
+                    <file filename="{*}splunk{*}.jar"/>
+                    <project>
+                        <artifact groupId="{*}" artifactId="{*}splunk{*}"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <hint title="Embedded library - Splunk" category-id="potential" effort="3">
+                    <message>
+                        The application embeds the Splunk framework. To migrate a Java application that uses Splunk for log aggregation to Azure, you can follow this recommendation:
+
+                        * Ensure your logging output is routed to the console and not to files.
+
+                        * Configure the diagnostic setting to stream the console output to Azure Blob Storage.
+
+                        * Use the Splunk Add-on for Microsoft Cloud Services to ingest logged events into Splunk.
+                    </message>
+                    <link title="Ensure console logging and configure diagnostic settings" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#ensure-console-logging-and-configure-diagnostic-settings"/>
+                    <link title="Azure Blob Storage" href="https://learn.microsoft.com/azure/storage/blobs/"/>
+                    <link title="Splunk Add-on for Microsoft Cloud Services" href="https://splunkbase.splunk.com/app/3757"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Splunk</technology-tag>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>
