@@ -104,7 +104,7 @@
                     <link title="OAuth 2.0 authentication with Azure Active Directory" href="https://learn.microsoft.com/azure/active-directory/architecture/auth-oauth2"/>
                     <link title="OAuth 2.0 and OpenID Connect protocols on the Microsoft Identity Platform" href="https://learn.microsoft.com/azure/active-directory/develop/v2-protocols"/>
                     <link title="Application types and OAuth2" href="https://learn.microsoft.com/azure/active-directory/develop/v2-app-types"/>
-                    <link title="Spring Cloud Security quickstart" href="https://spring.io/projects/spring-cloud-security"/>
+                    <link title="Spring Cloud Security quickstart" href="https://spring.io/projects/spring-cloud-security/"/>
                     <link title="Microsoft identity platform documentation" href="https://learn.microsoft.com/azure/active-directory/develop"/>
                     <link title="Azure Active Directory documentation" href="https://learn.microsoft.com/azure/active-directory"/>
                 </hint>
