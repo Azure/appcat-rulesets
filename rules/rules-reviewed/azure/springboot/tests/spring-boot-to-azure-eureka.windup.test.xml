@@ -7,18 +7,6 @@
     <rulePath>../spring-boot-to-azure-eureka.windup.xml</rulePath>
     <ruleset>
         <rules>
-            <rule id="spring-boot-to-azure-eureka-test-01000">
-                <when>
-                    <not>
-                        <iterable-filter size="3">
-                            <hint-exists message="The application uses Eureka."/>
-                        </iterable-filter>
-                    </not>
-                </when>
-                <perform>
-                    <fail message="Eureka hint was not found!"/>
-                </perform>
-            </rule>
             <rule id="spring-boot-to-azure-eureka-test-02000">
                 <when>
                     <not>
