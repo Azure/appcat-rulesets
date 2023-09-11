@@ -20,9 +20,7 @@
     <rules>
         <rule id="azure-tas-binding-01000">
             <when>
-                <or>
-                    <filecontent filename="{*}" pattern="{pattern}"/>
-                </or>
+                <filecontent filename="{*}" pattern="{pattern}"/>
             </when>
             <perform>
                 <hint title="Tanzu Application Service service bindings" category-id="potential" effort="3">

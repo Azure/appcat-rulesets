@@ -10,7 +10,7 @@
             <rule id="azure-tas-binding-test-01000">
                 <when>
                     <not>
-                        <hint-exists message="The application has configuration for VMware Tanzu Application Service (TAS) service bindings"/>
+                        <hint-exists message="The application has configuration for VMware Tanzu Application Service \(TAS\) service bindings"/>
                     </not>
                 </when>
                 <perform>
