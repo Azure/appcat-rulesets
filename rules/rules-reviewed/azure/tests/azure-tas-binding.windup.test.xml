@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="azure-tas-binding-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>data/azure-tas-binding</testDataPath>
+    <rulePath>../azure-tas-binding.windup.xml</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="azure-tas-binding-test-01000">
+                <when>
+                    <not>
+                        <hint-exists message="The application has configuration for VMware Tanzu Application Service (TAS) service bindings"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="azure-tas-binding hint was not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
