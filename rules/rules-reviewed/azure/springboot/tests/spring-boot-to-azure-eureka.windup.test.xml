@@ -7,7 +7,7 @@
     <rulePath>../spring-boot-to-azure-eureka.windup.xml</rulePath>
     <ruleset>
         <rules>
-            <rule id="spring-boot-to-azure-eureka-test-02000">
+            <rule id="spring-boot-to-azure-eureka-test-01000">
                 <when>
                     <not>
                         <iterable-filter size="2">
