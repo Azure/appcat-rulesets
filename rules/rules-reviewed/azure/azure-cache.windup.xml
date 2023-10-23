@@ -33,7 +33,7 @@
                         
                         * **Update your Java code**: Replace the embedded Redis cache code in your Java application with the Azure Cache for Redis client libraries or SDKs. Update the code that establishes a connection to the Redis cache and performs cache-related operations.
                         
-                        * **Connect to Azure Cache for Redis**: Connect your app to Azure Cache for Redis on azure by **Service Connector**. Instead of manually configuring connection string in your Spring Boot applications, you can automatically connect selected Azure services to your applications. 
+                        * **Connect to Azure Cache for Redis**: Connect your app to Azure Cache for Redis on azure by **Service Connector**. Instead of manually configuring connection string in your applications, you can automatically connect Azure Cache for Redis to your applications. 
                     </message>
                     <link title="Connect Azure Cache for Redis to your application in Azure Spring Apps" href="https://learn.microsoft.com/azure/spring-apps/how-to-bind-redis?tabs=Java%2CService-Connector"/>
                     <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
