@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruletest id="spring-boot-to-azure-version-test"
+<ruletest id="spring-boot-to-azure-spring-boot-version-test"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
-    <testDataPath>data/spring-boot-to-azure-version</testDataPath>
-    <rulePath>../spring-boot-to-azure-version.windup.xml</rulePath>
+    <testDataPath>data/spring-boot-to-azure-spring-boot-version</testDataPath>
+    <rulePath>../spring-boot-to-azure-spring-boot-version.windup.xml</rulePath>
     <ruleset>
         <rules>
-            <rule id="spring-boot-to-azure-version-test-01000">
+            <rule id="spring-boot-to-azure-spring-boot-version-test-01000">
                 <when>
                     <not>
                         <iterable-filter size="1">
-                            <hint-exists message="The application uses Spring Boot 1.x, which is too low."/>
+                            <hint-exists message="The application is using Spring Boot 1.x, which is too low"/>
                         </iterable-filter>
                     </not>
                 </when>
@@ -19,11 +19,11 @@
                     <fail message="Spring Boot version hint was not found!"/>
                 </perform>
             </rule>
-            <rule id="spring-boot-to-azure-version-test-02000">
+            <rule id="spring-boot-to-azure-spring-boot-version-test-02000">
                 <when>
                     <not>
                         <iterable-filter size="2">
-                            <hint-exists message="Spring boot version is out of any spring boot support scope."/>
+                            <hint-exists message="The application is using Spring Boot version lower than 2.6"/>
                         </iterable-filter>
                     </not>
                 </when>
@@ -31,11 +31,11 @@
                     <fail message="Spring Boot version out of support hint was not found!"/>
                 </perform>
             </rule>
-            <rule id="spring-boot-to-azure-version-test-03000">
+            <rule id="spring-boot-to-azure-spring-boot-version-test-03000">
                 <when>
                     <not>
                         <iterable-filter size="3">
-                            <hint-exists message="Spring Boot version is out of open source software support."/>
+                            <hint-exists message="The application is using Spring Boot version out of Open Source Software support"/>
                         </iterable-filter>
                     </not>
                 </when>

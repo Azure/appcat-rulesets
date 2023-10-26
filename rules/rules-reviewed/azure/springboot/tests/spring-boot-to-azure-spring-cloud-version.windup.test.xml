@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruletest id="spring-cloud-to-azure-version-test"
+<ruletest id="spring-boot-to-azure-spring-cloud-version-test"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
-    <testDataPath>data/spring-cloud-to-azure-version</testDataPath>
-    <rulePath>../spring-cloud-to-azure-version.windup.xml</rulePath>
+    <testDataPath>data/spring-boot-to-azure-spring-cloud-version</testDataPath>
+    <rulePath>../spring-boot-to-azure-spring-cloud-version.windup.xml</rulePath>
     <ruleset>
         <rules>
-            <rule id="spring-cloud-to-azure-version-test-01000">
+            <rule id="spring-boot-to-azure-spring-cloud-version-test-01000">
                 <when>
                     <not>
                         <iterable-filter size="1">
-                            <hint-exists message="Spring Cloud version too low."/>
+                            <hint-exists message="The application is using a Spring Cloud version that is too low"/>
                         </iterable-filter>
                     </not>
                 </when>
@@ -19,28 +19,16 @@
                     <fail message="Spring Cloud version too low hint was not found!"/>
                 </perform>
             </rule>
-            <rule id="spring-cloud-to-azure-version-test-02000">
+            <rule id="spring-boot-to-azure-spring-cloud-version-test-02000">
                 <when>
                     <not>
                         <iterable-filter size="2">
-                            <hint-exists message="Spring Cloud version is out of any Spring Cloud support scope."/>
+                            <hint-exists message="The application is using a Spring Cloud version that is no longer supported"/>
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
                     <fail message="Spring Cloud version out of support hint was not found!"/>
-                </perform>
-            </rule>
-            <rule id="spring-cloud-to-azure-version-test-03000">
-                <when>
-                    <not>
-                        <iterable-filter size="1">
-                            <hint-exists message="Spring Cloud version is out of open source software support."/>
-                        </iterable-filter>
-                    </not>
-                </when>
-                <perform>
-                    <fail message="Spring Cloud version out of OSS support hint was not found!"/>
                 </perform>
             </rule>
         </rules>
