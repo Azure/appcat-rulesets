@@ -19,6 +19,31 @@
         <overrideRules>true</overrideRules>
     </metadata>
     <rules>
+        <rule id="embedded-framework-09000">
+            <when>
+                <or>
+                    <file filename="feign-{*}.jar"/>
+                    <project>
+                        <artifact groupId="com.netflix.feign" artifactId="{*}"/>
+                    </project>
+                    <project>
+                        <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-starter-feign"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <hint  title="Embedded framework - Feign" category-id="information" effort="0">
+                    <message>
+                        The application embeds the Feign framework. If you are migrating to Azure Spring Apps, it is recommended to use Spring Cloud OpenFeign instead (Spring Cloud Feign has been deprecated).
+                        
+                        When migrating to Azure Spring Apps, Eureka (Standard Tier) or Service Registry (Enterprise Tier) will be hosted for you. Spring Cloud OpenFeign will easily discover the service registry and invoke the services.
+                    </message>
+                    <link title="Migrate clients bypassing the service registry" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#identify-clients-that-bypass-the-service-registry"/>
+                    <link title="Spring Cloud OpenFeign" href="https://spring.io/projects/spring-cloud-openfeign/"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Feign</technology-tag>
+            </perform>
+        </rule>
         <rule id="embedded-framework-09300">
             <when>
                 <or>
