@@ -20,16 +20,21 @@
     <rules>
         <rule id="spring-boot-to-azure-config-server-01000">
             <when>
-                <filecontent filename="application{*}.{extensions}" pattern="{pattern}"/>
+                <filecontent filename="{*}.{extensions}" pattern="{pattern}"/>
             </when>
             <perform>
                 <hint title="Explicit Config Server connection info found in configuration file" category-id="information" effort="0">
                     <message>
                         The application uses a Spring Cloud Config Server connection string.
 
-                        If you are migrating to Azure Spring Apps, the connection info of Config Server will be injected upon app start.
-                        Find any explicit configurations of config server connection info and remove them.
-                        Configure the config server after creating an Azure Spring Apps instance.
+                        If you are migrating to Azure Spring Apps, the connection info of Config Server will be injected automatically upon app start.
+                        Find any explicit configurations of config server connection info:
+
+                            If configured in **configuration files**: they will be ignored and overrided by Azure Spring Apps.
+
+                            If configured in **command line parameters**, **Java system attribute**, **environment variable**: they need to be removed or you might experience conflicts and unexpected behavior.
+
+                            Configure the config server after creating an Azure Spring Apps instance.
                     </message>
                     <link title="Remove restricted configurations" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#remove-restricted-configurations"/>
                     <link title="Prepare the Spring Cloud Config server" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#prepare-the-spring-cloud-config-server"/>
@@ -56,7 +61,7 @@
                 </or>
             </when>
             <perform>
-                <hint title="Config Server found" category-id="information" effort="0">
+                <hint title="Spring Cloud Config Server found" category-id="information" effort="0">
                     <message>
                         The application uses Spring Cloud Config Server.
 
