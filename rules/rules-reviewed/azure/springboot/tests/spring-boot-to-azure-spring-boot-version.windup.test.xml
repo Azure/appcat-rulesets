@@ -22,7 +22,7 @@
             <rule id="spring-boot-to-azure-spring-boot-version-test-02000">
                 <when>
                     <not>
-                        <iterable-filter size="2">
+                        <iterable-filter size="4">
                             <hint-exists message="The application is using Spring Boot version lower than 2.6"/>
                         </iterable-filter>
                     </not>
@@ -34,7 +34,7 @@
             <rule id="spring-boot-to-azure-spring-boot-version-test-03000">
                 <when>
                     <not>
-                        <iterable-filter size="3">
+                        <iterable-filter size="1">
                             <hint-exists message="The application is using Spring Boot version out of Open Source Software support"/>
                         </iterable-filter>
                     </not>

@@ -16,19 +16,19 @@
                     </not>
                 </when>
                 <perform>
-                    <fail message="Spring Cloud version too low hint was not found!"/>
+                    <fail message="Spring Cloud version too low hint number was not matched!"/>
                 </perform>
             </rule>
             <rule id="spring-boot-to-azure-spring-cloud-version-test-02000">
                 <when>
                     <not>
-                        <iterable-filter size="2">
+                        <iterable-filter size="3">
                             <hint-exists message="The application is using a Spring Cloud version that is no longer supported"/>
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="Spring Cloud version out of support hint was not found!"/>
+                    <fail message="Spring Cloud version out of support hint number was not matched!"/>
                 </perform>
             </rule>
         </rules>
