@@ -11,7 +11,7 @@
                 <when>
                     <not>
                         <iterable-filter size="3">
-                            <hint-exists message="Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service."/>
+                            <hint-exists message="The application uses Quartz scheduled jobs"/>
                         </iterable-filter>
                     </not>
                 </when>
