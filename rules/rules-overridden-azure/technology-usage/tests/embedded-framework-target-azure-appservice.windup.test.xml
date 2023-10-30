@@ -19,6 +19,16 @@
                     <fail message="Feign found hint was not found!"/>
                 </perform>
             </rule>
+            <rule id="embedded-framework-azure-appservice-test-09100">
+                <when>
+                    <not>
+                        <hint-exists message="The application embeds the Zipkin framework. To migrate a Java application that uses Zipkin to Azure"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Zipkin found hint was not found!"/>
+                </perform>
+            </rule>
             <rule id="embedded-framework-azure-appservice-test-09300">
                 <when>
                     <not>

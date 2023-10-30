@@ -32,7 +32,7 @@
                 </or>
             </when>
             <perform>
-                <hint  title="Embedded framework - Feign" category-id="information" effort="0">
+                <hint title="Embedded framework - Feign" category-id="information" effort="0">
                     <message>
                         The application embeds the Feign framework. If you are migrating to Azure Spring Apps, it is recommended to use Spring Cloud OpenFeign instead (Spring Cloud Feign has been deprecated).
                         
@@ -42,6 +42,35 @@
                     <link title="Spring Cloud OpenFeign" href="https://spring.io/projects/spring-cloud-openfeign/"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Feign</technology-tag>
+            </perform>
+        </rule>
+        <rule id="embedded-framework-09100">
+            <when>
+                <or>
+                    <file filename="{*}zipkin{*}.jar"/>
+                    <project>
+                        <artifact groupId="org.springframework.boot" artifactId="spring-cloud-starter-zipkin"/>
+                    </project>
+                    <project>
+                        <artifact groupId="io.zipkin{*}" artifactId="{*}"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <hint title="Embedded framework - Zipkin" category-id="information" effort="0">
+                    <message>
+                        The application embeds the Zipkin framework. To migrate a Java application that uses Zipkin to Azure, it is recommended to use Azure Monitor instead.
+                        
+                        * **Identify Zipkin dependencies**: Identify the Zipkin dependencies in your application.
+
+                        * **Replace with Azure Monitor**: Azure Monitor provides distributed tracing capabilities. Azure services such as Azure Spring Apps, Azure Kubernetes Service, Azure App Service support auto-instrumentation for Azure Monitor.
+                    </message>
+                    <link title="Azure Monitor" href="https://learn.microsoft.com/azure/azure-monitor/"/>
+                    <link title="Spring Boot to Azure - identify Zipkin dependencies" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#identify-zipkin-dependencies"/>
+                    <link title="Use Application Insights Java In-Process Agent in Azure Spring Apps" href="https://learn.microsoft.com/azure/spring-apps/how-to-application-insights"/>
+                    <link title="Distributed Tracing" href="https://learn.microsoft.com/azure/azure-monitor/app/distributed-trace-data"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Zipkin</technology-tag>
             </perform>
         </rule>
         <rule id="embedded-framework-09300">

@@ -20,6 +20,17 @@
                     <fail message="Expected data not found for rule embedded-framework-09000"/>
                 </perform>
             </rule>
+            <rule id="embedded-framework-09100-test">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded framework - Zipkin"/>
+                  <technology-tag-exists technology-tag="Zipkin"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule embedded-framework-09100"/>
+            </perform>
+         </rule>
             <rule id="embedded-framework-09300-test">
                 <when>
                     <not>
