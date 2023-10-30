@@ -27,11 +27,26 @@
             <perform>
                 <hint title="Relative path found" category-id="optional" effort="5">
                     <message>
-                        Relative path found.
+                        Relative path found in the application. An application running inside a container could lose access to a file in local storage.
+                        To migrate a Java application that uses file system to Azure:
 
-                        Any usage of the file system on the application will require reconfiguration or, in rare cases, architectural changes.
+                        * **Identify the usage of the file system**: Find any instances where your services write to and/or read from the local file system. Identify where short-term/temporary files are written and read and where long-lived files are written and read.
+
+                        The following recommendations depend on the function of the file in local storage:
+
+                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+
+                        * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
+
+                        * **Caching**: Use Azure Cache for Redis as a cache backing service.
+
+                        * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
                     <link title="Relative path found in the application" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#determine-whether-and-how-the-file-system-is-used"/>
+                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                 </hint>
             </perform>
             <where param="extensions">
@@ -48,11 +63,26 @@
             <perform>
                 <hint title="Home path found" category-id="optional" effort="5">
                     <message>
-                        Home path found.
+                        Home path found in the application. An application running inside a container could lose access to a file in local storage.
+                        To migrate a Java application that uses file system to Azure:
 
-                        Any usage of the file system on the application will require reconfiguration or, in rare cases, architectural changes.
+                        * **Identify the usage of the file system**: Find any instances where your services write to and/or read from the local file system. Identify where short-term/temporary files are written and read and where long-lived files are written and read.
+
+                        The following recommendations depend on the function of the file in local storage:
+
+                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+
+                        * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
+
+                        * **Caching**: Use Azure Cache for Redis as a cache backing service.
+
+                        * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
                     <link title="Home path found in the application" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#determine-whether-and-how-the-file-system-is-used"/>
+                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                 </hint>
             </perform>
             <where param="extensions">

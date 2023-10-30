@@ -35,15 +35,18 @@
                 </or>
             </when>
             <perform>
-                <hint title="The application uses environment variables/system properties" category-id="optional" effort="1">
+                <hint title="Environment variables/system properties" category-id="optional" effort="1">
                     <message>
-                        Review the usage of environment variables and system properties and externalize them.
+                        The application uses environment variables/system properties.
+                        To migrate a Java application that uses environment variables/system properties to Azure, you can follow these recommendations:
+                        
+                        * **Identify environment variables and system properties**: Review the usage of environment variables and system properties and externalize them.
 
-                        You can inject any per-service configuration settings into each service as environment variables.
+                        * **Add environment variables in Azure**: You can inject any per-service configuration settings into each service as environment variables.
 
-                        Any system properties that the code depends on will need to be defined in JVM options.
+                        * **Define system properties in JVM options**: Any system properties that the code depends on will need to be defined in JVM options.
 
-                        You can also replace the usage of environment variables with **Azure App Configuration**. By migrating to Azure App Configuration, you can centralize and manage your application's configuration settings, making it easier to maintain and update them. Azure App Configuration provides features like versioning, dynamic updates, and integration with Azure Key Vault for secure storage of sensitive configuration values.
+                        * Consider using**Azure App Configuration**: You can also replace the usage of environment variables with **Azure App Configuration**. By migrating to Azure App Configuration, you can centralize and manage your application's configuration settings, making it easier to maintain and update them. Azure App Configuration provides features like versioning, dynamic updates, and integration with Azure Key Vault for secure storage of sensitive configuration values.
                     </message>
                     <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                     <link title="Azure Key Vault documentation" href="https://learn.microsoft.com/azure/key-vault"/>
