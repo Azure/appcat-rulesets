@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset id="azure-tas-binding"
+         xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            Check configurations for VMware Tanzu Application Service (TAS) service bindings
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
+        </dependencies>
+        <sourceTechnology id="springboot"/>
+        <sourceTechnology id="eap" versionRange="[7,8)"/>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
+    </metadata>
+    <rules>
+        <rule id="azure-tas-binding-01000">
+            <when>
+                <filecontent filename="{*}" pattern="{pattern}"/>
+            </when>
+            <perform>
+                <hint title="Tanzu Application Service service bindings" category-id="potential" effort="3">
+                    <message>
+                        The application has configuration for VMware Tanzu Application Service (TAS) service bindings.
+                        To migrate a Java application that uses TAS service bindings to Azure, you can follow these recommendations:
+                        
+                        * Examine the VCAP_SERVICES variable for configuration settings of external services bound to the application
+
+                        * Consider using Service Connector to connect Azure compute services to other backing services. 
+                        This service configures the network settings and connection information (for example, generating environment variables) between compute services and target backing services in management plane.                   
+                    </message>
+                    <link title="Java to Azure migration: resources configured through TAS" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-enterprise-tier#resources-configured-through-vmware-tanzu-application-service-tas-formerly-pivotal-cloud-foundry"/>
+                    <link title="TAS (Cloud Foundry) environment variable: VCAP_SERVICES" href="https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#VCAP-SERVICES"/>
+                    <link title="What is Service Connector" href="https://learn.microsoft.com/azure/service-connector/overview" />
+                    <link title="Create a service connection in Azure Spring Apps from the Azure portal" href="https://learn.microsoft.com/azure/service-connector/quickstart-portal-spring-cloud-connection?toc=%2Fazure%2Fspring-apps%2Ftoc.json&amp;bc=%2Fazure%2Fspring-apps%2Fbreadcrumb%2Ftoc.json"/>
+                </hint>
+            </perform>
+            <where param="pattern">
+                <matches pattern="\W(VCAP_SERVICES)\W"/>
+            </where>
+        </rule>
+    </rules>
+</ruleset>

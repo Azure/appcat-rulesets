@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="spring-boot-to-azure-spring-cloud-version-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>data/spring-boot-to-azure-spring-cloud-version</testDataPath>
+    <rulePath>../spring-boot-to-azure-spring-cloud-version.windup.xml</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="spring-boot-to-azure-spring-cloud-version-test-01000">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="The application is using a Spring Cloud version that is too low"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Spring Cloud version too low hint number was not matched!"/>
+                </perform>
+            </rule>
+            <rule id="spring-boot-to-azure-spring-cloud-version-test-02000">
+                <when>
+                    <not>
+                        <iterable-filter size="3">
+                            <hint-exists message="The application is using a Spring Cloud version that is no longer supported"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Spring Cloud version out of support hint number was not matched!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="configuration-management-discovery-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+   <testDataPath>../../../rules-reviewed/technology-usage/tests/data/configuration-management</testDataPath>
+   <rulePath>../../../rules-reviewed/technology-usage/configuration-management.windup.xml</rulePath>
+   <rulePath>../configuration-management.windup.xml</rulePath>
+   <target>discovery</target>
+   <ruleset>
+      <rules>
+         <rule id="configuration-management-discovery-test-0100">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded library - Spring Cloud Config"/>
+                  <technology-tag-exists technology-tag="Spring Cloud Config"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule configuration-management-0100"/>
+            </perform>
+         </rule>
+         <rule id="configuration-management-discovery-test-0200">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded library - Spring Cloud Vault"/>
+                  <technology-tag-exists technology-tag="Spring Cloud Vault"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule configuration-management-0200"/>
+            </perform>
+         </rule>
+      </rules>
+   </ruleset>
+</ruletest>

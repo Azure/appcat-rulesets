@@ -230,5 +230,21 @@
                 <technology-tag level="INFORMATIONAL">Apache Mahout</technology-tag>
             </perform>
         </rule>
+        <rule id="3rd-party-20000">
+            <when>
+                <or>
+                    <file filename="{*}splunk{*}.jar"/>
+                    <project>
+                        <artifact groupId="{*}" artifactId="{*}splunk{*}"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Splunk" category-id="information" effort="0">
+                    <description>The application embeds the Splunk framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Splunk</technology-tag>
+            </perform>
+        </rule>
     </rules>
 </ruleset>

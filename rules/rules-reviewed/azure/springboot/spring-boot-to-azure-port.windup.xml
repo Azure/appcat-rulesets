@@ -20,11 +20,16 @@
     <rules>
         <rule id="spring-boot-to-azure-port-01000">
             <when>
-                <filecontent filename="application{*}.{extensions}" pattern="{pattern}"/>
+                <filecontent filename="{*}.{extensions}" pattern="{pattern}"/>
             </when>
             <perform>
-                <hint title="Server port configuration found" effort="0" category-id="information">
-                    <message>The application is setting the server port. Please be aware of potential port reliance issues during the migration process</message>
+                <hint title="Server port configuration found" category-id="information" effort="0" >
+                    <message>
+                        The application is setting the server port. To migrate a Java application that sets the server port to Azure Spring Apps:
+
+                        * **Be aware of potential port reliance issues**: Azure Spring Apps overwrites the server.port setting in the deployed application. If any clients of the clients rely on the application being available on a port other than 443, you will need to modify them.
+                    </message>
+                    <link title="Identify any clients relying on a non-standard port" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#identify-any-clients-relying-on-a-non-standard-port"/>
                     <tag>server port</tag>
                 </hint>
             </perform>
