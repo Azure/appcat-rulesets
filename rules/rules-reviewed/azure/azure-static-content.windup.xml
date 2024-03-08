@@ -18,6 +18,12 @@
     </metadata>
     <rules>
         <rule id="azure-static-content-01000">
+            <!-- TODO
+            We could improve this rule to make it less noisy:
+            - we could skip the files that are called `index.html and index.html
+            - we could look for HTML pages only located under src/main/resources 
+            - we could look for HTML pages only located under src/main/webapp 
+            -->
             <when>
                 <file filename="{*}.{extensions}"/>
             </when>
@@ -46,7 +52,7 @@
                 </hint>
             </perform>
             <where param="extensions">
-                <matches pattern="(htm|html|css|scss|js)"/>
+                <matches pattern="(htm|html)"/>
             </where>
         </rule>
     </rules>

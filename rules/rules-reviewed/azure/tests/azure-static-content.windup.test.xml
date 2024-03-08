@@ -10,7 +10,7 @@
             <rule id="azure-static-content-test-01000">
                 <when>
                     <not>
-                        <iterable-filter size="6">
+                        <iterable-filter size="7">
                             <hint-exists message="Your application currently serves static content"/>
                         </iterable-filter>
                     </not>
