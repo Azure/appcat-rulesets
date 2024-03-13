@@ -37,7 +37,7 @@
 
                         * **Address code compatibility**: Review your application's codebase for any potential compatibility issues with the target Spring Boot version. Update deprecated APIs or features, address any language or library changes, and ensure that your code follows best practices and standards.
 
-                        * ** Test thoroughly**: Execute a comprehensive testing process to verify the compatibility and functionality of your application with the new Spring Boot version. Perform unit tests, integration tests, and system tests to validate that all components and dependencies work as expected.
+                        * **Test thoroughly**: Execute a comprehensive testing process to verify the compatibility and functionality of your application with the new Spring Boot version. Perform unit tests, integration tests, and system tests to validate that all components and dependencies work as expected.
                     </message>
                     <link title="Azure Spring Apps Spring Boot Version Support" href="https://learn.microsoft.com/azure/spring-apps/concept-app-customer-responsibilities#spring-boot-and-spring-cloud-versions"/>
                     <link title="Spring Boot Supported Versions" href="https://spring.io/projects/spring-boot#support"/>
@@ -65,7 +65,7 @@
 
                         * **Address code compatibility**: Review your application's codebase for any potential compatibility issues with the target Spring Boot version. Update deprecated APIs or features, address any language or library changes, and ensure that your code follows best practices and standards.
 
-                        * ** Test thoroughly**: Execute a comprehensive testing process to verify the compatibility and functionality of your application with the new Spring Boot version. Perform unit tests, integration tests, and system tests to validate that all components and dependencies work as expected.
+                        * **Test thoroughly**: Execute a comprehensive testing process to verify the compatibility and functionality of your application with the new Spring Boot version. Perform unit tests, integration tests, and system tests to validate that all components and dependencies work as expected.
                     </message>
                     <link title="Azure Spring Apps Spring Boot Version Support" href="https://learn.microsoft.com/azure/spring-apps/concept-app-customer-responsibilities#spring-boot-and-spring-cloud-versions"/>
                     <link title="Spring Boot Supported Versions" href="https://spring.io/projects/spring-boot#support"/>
@@ -97,7 +97,7 @@
 
                         * **Address code compatibility**: Review your application's codebase for any potential compatibility issues with the target Spring Boot version. Update deprecated APIs or features, address any language or library changes, and ensure that your code follows best practices and standards.
 
-                        * ** Test thoroughly**: Execute a comprehensive testing process to verify the compatibility and functionality of your application with the new Spring Boot version. Perform unit tests, integration tests, and system tests to validate that all components and dependencies work as expected.
+                        * **Test thoroughly**: Execute a comprehensive testing process to verify the compatibility and functionality of your application with the new Spring Boot version. Perform unit tests, integration tests, and system tests to validate that all components and dependencies work as expected.
                     </message>
                     <link title="Azure Spring Apps Spring Boot Version Support" href="https://learn.microsoft.com/azure/spring-apps/concept-app-customer-responsibilities#spring-boot-and-spring-cloud-versions"/>
                     <link title="Azure Spring App Enterprise plan: Unlock Spring’s full potential with Long-Term Support (LTS)" href="https://learn.microsoft.com/azure/spring-apps/overview#unlock-springs-full-potential-with-long-term-support-lts"/>
