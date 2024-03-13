@@ -20,18 +20,24 @@
     <rules>
         <rule id="spring-boot-to-azure-config-server-01000">
             <when>
-                <filecontent filename="application{*}.{extensions}" pattern="{pattern}"/>
+                <filecontent filename="{*}.{extensions}" pattern="{pattern}"/>
             </when>
             <perform>
                 <hint title="Explicit Config Server connection info found in configuration file" category-id="information" effort="0">
                     <message>
                         The application uses a Spring Cloud Config Server connection string.
 
-                        If you are migrating to Azure Spring Apps, the connection info of Config Server will be injected upon app start.
-                        Please remove the connection info from your configuration file. Configure the Config Server after creating an Azure Spring Apps instance.
+                        If you are migrating to Azure Spring Apps, the connection info of Config Server will be injected automatically upon app start.
+                        Find any explicit configurations of config server connection info:
+
+                            If configured in **configuration files**: they will be ignored and overrided by Azure Spring Apps.
+
+                            If configured in **command line parameters**, **Java system attribute**, **environment variable**: they need to be removed or you might experience conflicts and unexpected behavior.
+
+                            Configure the config server after creating an Azure Spring Apps instance.
                     </message>
-                    <link title="Remove restricted configurations" href="http://aka.ms/spring-cloud-to-asa?toc=%2Fazure%2Fspring-apps%2Ftoc.json&amp;bc=%2Fazure%2Fspring-apps%2Fbreadcrumb%2Ftoc.json&amp;pivots=sc-standard-tier#remove-restricted-configurations"/>
-                    <link title="Prepare the Spring Cloud Config server" href="http://aka.ms/spring-cloud-to-asa?toc=%2Fazure%2Fspring-apps%2Ftoc.json&amp;bc=%2Fazure%2Fspring-apps%2Fbreadcrumb%2Ftoc.json&amp;pivots=sc-standard-tier#prepare-the-spring-cloud-config-server"/>
+                    <link title="Remove restricted configurations" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#remove-restricted-configurations"/>
+                    <link title="Prepare the Spring Cloud Config server" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#prepare-the-spring-cloud-config-server"/>
                     <tag>Spring Cloud Config</tag>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Spring Cloud Config</technology-tag>
@@ -42,6 +48,31 @@
             <where param="pattern">
                 <matches pattern="spring\.config\.import|spring\.cloud\.config\.uri"/>
             </where>
+        </rule>
+        <rule id="spring-boot-to-azure-config-server-02000">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="org.springframework.cloud" artifactId="spring-cloud-config-server"/>
+                    </project>
+                    <javaclass references="org.springframework.cloud.config.server.EnableConfigServer.EnableConfigServer">
+                        <location>IMPORT</location>
+                    </javaclass>
+                </or>
+            </when>
+            <perform>
+                <hint title="Spring Cloud Config Server found" category-id="information" effort="0">
+                    <message>
+                        The application uses Spring Cloud Config Server.
+
+                        If you are migrating to Azure Spring Apps, Config Server (Standard Tier) or Application Configuration Service (Enterprise Tier) will be hosted for you.
+                        You can just configure the config server after creating an Azure Spring Apps instance
+                    </message>
+                    <link title="Prepare the Spring Cloud Config server" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#prepare-the-spring-cloud-config-server"/>
+                    <tag>Spring Cloud Config</tag>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Spring Cloud Config</technology-tag>
+            </perform>
         </rule>
     </rules>
 </ruleset>

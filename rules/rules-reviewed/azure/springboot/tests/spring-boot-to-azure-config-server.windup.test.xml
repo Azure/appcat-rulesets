@@ -19,6 +19,18 @@
                     <fail message="Spring Cloud config server connection info hint was not found!"/>
                 </perform>
             </rule>
+            <rule id="spring-boot-to-azure-config-server-test-02000">
+                <when>
+                    <not>
+                        <iterable-filter size="2">
+                            <hint-exists message="The application uses Spring Cloud Config Server"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Spring Cloud config server hint was not found!"/>
+                </perform>
+            </rule>
         </rules>
     </ruleset>
 </ruletest>         

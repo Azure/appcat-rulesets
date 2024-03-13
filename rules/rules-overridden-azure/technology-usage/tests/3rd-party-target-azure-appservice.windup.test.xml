@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="3rd-party-azure-appservice-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>../../../rules-reviewed/technology-usage/tests/data/3rd-party</testDataPath>
+    <rulePath>../../../rules-reviewed/technology-usage/3rd-party.windup.xml</rulePath>
+    <rulePath>../3rd-party.windup.xml</rulePath>
+    <target>azure-appservice</target>
+    <ruleset>
+        <rules>
+            <rule id="3rd-party-azure-appservice-test-05000">
+                <when>
+                    <not>
+                        <hint-exists message="The application embeds the Logstash framework. To migrate a Java application that uses LogStash/ELK"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Logstash found hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="3rd-party-azure-appservice-test-20000">
+                <when>
+                    <not>
+                        <hint-exists message="The application embeds the Splunk framework. To migrate a Java application that uses Splunk"/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Splunk found hint was not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>

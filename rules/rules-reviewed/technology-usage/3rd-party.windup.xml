@@ -230,5 +230,66 @@
                 <technology-tag level="INFORMATIONAL">Apache Mahout</technology-tag>
             </perform>
         </rule>
+        <rule id="3rd-party-20000">
+            <when>
+                <or>
+                    <file filename="{*}splunk{*}.jar"/>
+                    <project>
+                        <artifact groupId="{*}" artifactId="{*}splunk{*}"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Splunk" category-id="information" effort="0">
+                    <description>The application embeds the Splunk framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Splunk</technology-tag>
+            </perform>
+        </rule>
+        <rule id="3rd-party-30000">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="com.alibaba.nacos" artifactId="nacos-client"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-starter-alibaba-nacos-{*}"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.boot" artifactId="nacos-{*}-spring-boot-starter"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Nacos" category-id="information" effort="0">
+                    <description>The application embeds the Nacos framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Nacos</technology-tag>
+            </perform>
+        </rule>
+        <rule id="3rd-party-30100">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="com.alibaba.csp" artifactId="sentinel-{*}"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-alibaba-sentinel-{*}"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-starter-alibaba-sentinel"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-circuitbreaker-sentinel"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Sentinel" category-id="information" effort="0">
+                    <description>The application embeds the Sentinel framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Sentinel</technology-tag>
+            </perform>
+        </rule>
     </rules>
 </ruleset>

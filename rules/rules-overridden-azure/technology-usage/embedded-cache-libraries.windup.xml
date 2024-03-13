@@ -43,7 +43,21 @@
         </rule>
         <rule id="embedded-cache-libraries-16000">
             <when>
-                <file filename="{*}redis{*}.jar"/>
+                <or>
+                    <file filename="{*}redis{*}.jar"/>
+                    <project>
+                        <artifact groupId="org.springframework.boot" artifactId="spring-boot-starter-data-redis"/>
+                    </project>
+                    <project>
+                        <artifact groupId="org.springframework.data" artifactId="spring-data-redis"/>
+                    </project>
+                    <project>
+                        <artifact groupId="org.springframework.session" artifactId="spring-session-data-redis"/>
+                    </project>
+                    <project>
+                        <artifact groupId="org.springframework.integration" artifactId="spring-integration-redis"/>
+                    </project>
+                </or>
             </when>
             <perform>
                 <hint title="Redis Cache library" category-id="potential" effort="3">
@@ -54,10 +68,14 @@
                         
                         * **Update your Java code**: Replace the embedded Redis cache code in your Java application with the Azure Cache for Redis client libraries or SDKs. Update the code that establishes a connection to the Redis cache and performs cache-related operations.
                         
-                        * **Connect to Azure Cache for Redis**: Update the connection details in your Java application to point to the Azure Cache for Redis instance. Use the connection information provided by Azure (hostname, port, access keys, etc.) to establish a connection from your application.
+                        * **Connect to Azure Cache for Redis**: Connect your app to Azure Cache for Redis on azure by **Service Connector**. Use the connection information provided by Azure (hostname, port, access keys, etc.) to create a connection from your application.
                     </message>
                     <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                     <link title="Caching guidance" href="https://learn.microsoft.com/azure/architecture/best-practices/caching"/>
+                    <link title="Connect Azure Cache for Redis to your application in Azure Spring Apps" href="https://learn.microsoft.com/azure/spring-apps/how-to-bind-redis?tabs=Java%2CService-Connector"/>
+                    <link title="Redis Cache found in the application" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#identify-external-caches"/>
+                    <link title="Spring Data Redis" href="https://spring.io/projects/spring-data-redis/"/>
+                    <link title="Azure Spring Cloud Starter Cache" href="https://search.maven.org/artifact/com.azure.spring/azure-spring-cloud-starter-cache"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Redis</technology-tag>
             </perform>
