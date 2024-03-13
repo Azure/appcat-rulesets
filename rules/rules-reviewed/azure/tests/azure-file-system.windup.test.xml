@@ -11,7 +11,7 @@
                 <when>
                     <not>
                         <iterable-filter size="2">
-                            <hint-exists message="Relative path found"/>
+                            <hint-exists message="Relative path found."/>
                         </iterable-filter>
                     </not>
                 </when>
@@ -23,7 +23,7 @@
                 <when>
                     <not>
                         <iterable-filter size="1">
-                            <hint-exists message="Home path found"/>
+                            <hint-exists message="Home path found."/>
                         </iterable-filter>
                     </not>
                 </when>

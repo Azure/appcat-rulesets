@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruletest id="spring-boot-to-azure-config-server-test"
+<ruletest id="spring-boot-to-azure-jms-broker-test"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
-    <testDataPath>data/spring-boot-to-azure-config-server</testDataPath>
-    <rulePath>../spring-boot-to-azure-config-server.windup.xml</rulePath>
+    <testDataPath>data/spring-boot-to-azure-jms-broker</testDataPath>
+    <rulePath>../spring-boot-to-azure-jms-broker.windup.xml</rulePath>
     <ruleset>
         <rules>
-            <rule id="spring-boot-to-azure-config-server-test-01000">
+            <rule id="spring-boot-to-azure-jms-broker-test-01000">
                 <when>
                     <not>
-                        <iterable-filter size="3">
-                            <hint-exists message="The application uses a Spring Cloud Config Server connection string"/>
+                        <iterable-filter size="2">
+                            <hint-exists message="The application uses an ActiveMQ message broker."/>
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="Spring Cloud config server connection info hint was not found!"/>
+                    <fail message="ActiveMQ hint was not found!"/>
                 </perform>
             </rule>
         </rules>
     </ruleset>
-</ruletest>         
+</ruletest> 

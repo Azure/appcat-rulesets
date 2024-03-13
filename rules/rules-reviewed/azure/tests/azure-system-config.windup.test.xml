@@ -13,7 +13,7 @@
                 <when>
                     <not>
                         <iterable-filter size="2">
-                            <hint-exists message="The application uses environment variables/system properties"/>
+                            <hint-exists message="Review the usage of environment variables and system properties and externalize them*"/>
                         </iterable-filter>
                     </not>
                 </when>

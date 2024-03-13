@@ -33,22 +33,18 @@
                 </or>
             </when>
             <perform>
-                <hint title="JDBC connection found in configuration file" category-id="information" effort="0">
+                <hint title="JDBC connection found in configuration file" category-id="cloud-optional" effort="0">
                     <message>
-                        The application uses a JDBC connection string, username or password in the configuration file. To migrate a Java application that uses a JDBC connection string to Azure, you can follow these recommendations:
-                        
-                        * **Use a database that is fully managed on Azure**: Use databases such as Azure SQL, Azure Database for MySQL, or Azure Database for PostgreSQL.
-
-                        * **Connect to databases using Service Connector**: Create service connection using **Service Connector** to connect your application to Azure SQL, Azure Database for MySQL, or Azure Database for PostgreSQL. Service Connector provides a secure and easy way to connect your application to Azure services without having to manage secrets or credentials in your application code.
-
-                        * **Passwordless connections for Azure services**: Consider using passwordless connections for Azure services. You can provide an additional layer of security and convenience for accessing resources in Azure by eliminating the need for passwords. This way you can reduce the risk of password-related vulnerabilities, such as weak passwords or password theft.
+                        The application uses a JDBC connection string, username or password in the configuration file.
+                        Checkout the different types of databases that are fully managed on Azure.
                     </message>
+                    <link title="Twelve-Factor App: Backing services" href="https://12factor.net/backing-services"/>
+                    <link title="Twelve-Factor App: Config" href="https://12factor.net/config"/>
+                    <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
                     <link title="JDBC connection string found in configuration file" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#databases"/>
                     <link title="Use Spring Data JDBC with Azure Database for MySQL" href="https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql"/>
                     <link title="Use Spring Data JDBC with Azure Database for PostgreSQL" href="https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-postgresql"/>
                     <link title="Use Spring Data JDBC with Azure SQL Database" href="https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server"/>
-                    <link title="Bind an Azure Database for PostgreSQL with service connector" href="https://learn.microsoft.com/azure/service-connector/tutorial-java-spring-mysql"/>
-                    <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
                     <tag>jdbc</tag>
                 </hint>
             </perform>
@@ -66,19 +62,15 @@
                 </or>
             </when>
             <perform>
-                <hint title="MongoDB connection found in configuration file" category-id="information" effort="0">
+                <hint title="MongoDB connection found in configuration file" category-id="cloud-optional" effort="0">
                     <message>
-                        The application uses a MongoDB connection string. To migrate a Java application that uses a MongoDB connection string to Azure, you can follow these recommendations:
-
-                        * Use a managed **Azure Cosmos DB for MongoDB**: Create a managed Cosmos DB for MongoDB database in Azure and choose the appropriate pricing tier based on your application's requirements for performance, storage, and availability.
-                        
-                        * **Connect to Azure Cosmos DB for MongoDB using Service Connector**: Create service connection using **Service Connector** to connect your application to Azure Cosmos DB for MongoDB. Service Connector provides a secure and easy way to connect your application to Azure services without having to manage secrets or credentials in your application code.
-
-                        * **Passwordless connections for Azure services**: Consider using passwordless connections for Azure services. You can provide an additional layer of security and convenience for accessing resources in Azure by eliminating the need for passwords. This way you can reduce the risk of password-related vulnerabilities, such as weak passwords or password theft.
+                        The application uses a MongoDB connection string.
+                        Checkout the different types of databases that are fully managed on Azure.
                     </message>
-                    <link title="MongoDB connection string found in configuration file" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#databases"/>
-                    <link title="Integrate Azure Cosmos DB for MongoDB with Service Connector" href="https://learn.microsoft.com/azure/service-connector/how-to-integrate-cosmos-db"/>
+                    <link title="Twelve-Factor App: Backing services" href="https://12factor.net/backing-services"/>
+                    <link title="Twelve-Factor App: Config" href="https://12factor.net/config"/>
                     <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
+                    <link title="MongoDB connection string found in configuration file" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#databases"/>
                     <link title="How to use Spring Data MongoDB API with Azure Cosmos DB" href="https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db"/>
                     <link title="Spring Cloud Azure Starter Data Cosmos DB" href="https://search.maven.org/artifact/com.azure.spring/spring-cloud-azure-starter-data-cosmos"/>
                     <tag>mongodb</tag>
@@ -98,19 +90,15 @@
                 </or>
             </when>
             <perform>
-                <hint title="R2DBC connection found in configuration file" category-id="information" effort="0">
+                <hint title="R2DBC connection found in configuration file" category-id="cloud-optional" effort="0">
                     <message>
-                        The application uses a R2DBC connection string, username or password in the configuration file. To migrate a Java application that uses a R2DBC connection string to Azure, you can follow these recommendations:
-                        
-                        * **Use a database that is fully managed on Azure**: Use databases such as Azure SQL, Azure Database for MySQL, or Azure Database for PostgreSQL.
-
-                        * **Connect to databases using Service Connector**: Create service connection using **Service Connector** to connect your application to Azure SQL, Azure Database for MySQL, or Azure Database for PostgreSQL. Service Connector provides a secure and easy way to connect your application to Azure services without having to manage secrets or credentials in your application code.
-
-                        * **Passwordless connections for Azure services**: Consider using passwordless connections for Azure services. You can provide an additional layer of security and convenience for accessing resources in Azure by eliminating the need for passwords. This way you can reduce the risk of password-related vulnerabilities, such as weak passwords or password theft.
+                        The application uses a R2DBC connection string, username or password in the configuration file.
+                        Checkout the different types of databases that are fully managed on Azure.
                     </message>
-                    <link title="R2DBC connection string found in configuration file" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#databases"/>
-                    <link title="Service Connector" href="https://learn.microsoft.com/azure/service-connector/overview"/>
+                    <link title="Twelve-Factor App: Backing services" href="https://12factor.net/backing-services"/>
+                    <link title="Twelve-Factor App: Config" href="https://12factor.net/config"/>
                     <link title="Passwordless connections for Azure services" href="https://learn.microsoft.com/azure/developer/intro/passwordless-overview"/>
+                    <link title="R2DBC connection string found in configuration file" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#databases"/>
                     <link title="Use Spring Data R2DBC with Azure Database for MySQL" href="https://learn.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql"/>
                     <link title="Use Spring Data R2DBC with Azure Database for PostgreSQL" href="https://learn.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresql"/>
                     <link title="Use Spring Data R2DBC with Azure SQL Database" href="https://learn.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server"/>

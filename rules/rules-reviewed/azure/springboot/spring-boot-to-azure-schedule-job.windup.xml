@@ -33,20 +33,14 @@
             <perform>
                 <hint title="The application uses Quartz to scheduled jobs" category-id="mandatory" effort="7">
                     <message>
-                        The application uses Quartz scheduled jobs. Scheduled jobs, such as Quartz Scheduler tasks or Unix cron jobs can't be used with cloud service like Azure App Service, Azure Spring Apps, Azure Kubernetes Service.
-                        These Azure services won't prevent you from deploying an application containing scheduled tasks internally.
+                        Scheduled jobs, such as Quartz Scheduler tasks or cron jobs, can't be used with App Service.
+                        App Service won't prevent you from deploying an application containing scheduled tasks internally.
                         However, if your application is scaled out, the same scheduled job may run more than once per scheduled period.
                         This situation can lead to unintended consequences.
-                        
-                        To migrate a Java application that uses scheduled jobs to Azure, you can follow these recommendations:
 
-                        * **Identify scheduled jobs**: Inventory any scheduled tasks running on the production server(s), inside or outside your application code. Search the application code for references to Quartz, @Scheduled annotation, or cron expressions.
-                        
-                        * **Remove scheduled jobs**: Remove the scheduled jobs. If you need to run scheduled jobs, you can use Azure Container Apps jobs. Azure Container Apps jobs allow you to run containerized tasks that execute for a finite duration and exit. You can trigger a job manually, schedule their execution, or trigger their execution based on events.
+                        Inventory any scheduled jobs, inside or outside the application process.
                     </message>
                     <link title="The application uses Quartz to scheduled jobs" href="https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-app-service#determine-whether-application-relies-on-scheduled-jobs"/>
-                    <link title="Jobs in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/jobs"/>
-                    <link title="Create a job with Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/jobs-get-started-cli"/>
                     <tag>quartz</tag>
                 </hint>
             </perform>

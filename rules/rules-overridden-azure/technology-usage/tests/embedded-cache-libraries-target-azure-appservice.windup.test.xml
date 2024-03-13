@@ -24,7 +24,7 @@
             <rule id="embedded-cache-libraries-azure-appservice-test-16000">
                 <when>
                     <not>
-                        <iterable-filter size="2">
+                        <iterable-filter size="1">
                             <hint-exists message="The application uses a Redis cache. You can take advantage of a managed Redis service that offers scalability, high availability,*"/>
                         </iterable-filter>
                     </not>

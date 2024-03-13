@@ -34,36 +34,6 @@
                     <fail message="OpenSAML hint for Azure was not found!"/>
                 </perform>
             </rule>
-            <rule id="security-azure-appservice-03600-test">
-                <when>
-                    <not>
-                        <hint-exists message="The application embeds a Spring Security library. Ensure that the application is configured to access the identity provider"/>
-                    </not>
-                </when>
-                <perform>
-                    <fail message="Spring Security hint for Azure was not found!"/>
-                </perform>
-            </rule>
-            <rule id="security-azure-appservice-03700-test">
-                <when>
-                    <not>
-                        <hint-exists message="The application embeds an OAuth 2.0 library. For Spring Boot applications, please ensure that the application is configured to use Spring Security OAuth2"/>
-                    </not>
-                </when>
-                <perform>
-                    <fail message="OAuth 2.0 hint for Azure was not found!"/>
-                </perform>
-            </rule>
-            <rule id="security-azure-appservice-03800-test">
-                <when>
-                    <not>
-                        <hint-exists message="The application embeds an OpenID library. The Microsoft identity platform uses OpenID and other protocols to enable applications"/>
-                    </not>
-                </when>
-                <perform>
-                    <fail message="OpenID hint for Azure was not found!"/>
-                </perform>
-            </rule>
         </rules>
     </ruleset>
 </ruletest>
