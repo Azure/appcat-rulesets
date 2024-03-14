@@ -16,6 +16,7 @@
         <targetTechnology id="azure-appservice"/>
         <targetTechnology id="azure-aks"/>
         <targetTechnology id="azure-container-apps"/>
+        <targetTechnology id="discovery"/>
         <tag>apm</tag>
         <overrideRules>true</overrideRules>
     </metadata>

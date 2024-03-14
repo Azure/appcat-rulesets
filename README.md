@@ -59,7 +59,7 @@ By default, when executing the tests, the `href` attributes of the `<link>` tags
 If you want to avoid this, you can use the `-Dtest=WindupRulesTest` flag in conjunction with the `-f` flag:
 
 ```
-mvn clean test -f rules -Dtest=WindupRulesTest -DrunTestsMatching=hsearch
+mvn clean test -f rules -Dtest=WindupRulesTest -DrunTestsMatching=local-storage
 ```
 
 Building from source

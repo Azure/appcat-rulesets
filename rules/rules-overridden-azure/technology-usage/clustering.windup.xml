@@ -13,6 +13,7 @@
             <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
         </dependencies>
         <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="discovery"/>
         <overrideRules>true</overrideRules>
     </metadata>
     <rules>

@@ -16,6 +16,7 @@
         <targetTechnology id="azure-appservice"/>
         <targetTechnology id="azure-aks"/>
         <targetTechnology id="azure-container-apps"/>
+        <targetTechnology id="cloud-readiness" />
         <tag>rmi</tag>
         <overrideRules>true</overrideRules>
     </metadata>

@@ -15,6 +15,7 @@
         <targetTechnology id="azure-appservice"/>
         <targetTechnology id="azure-aks"/>
         <targetTechnology id="azure-container-apps"/>
+        <targetTechnology id="discovery"/>
         <tag>connect</tag>
         <overrideRules>true</overrideRules>
     </metadata>
