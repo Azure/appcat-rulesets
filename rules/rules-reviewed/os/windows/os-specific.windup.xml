@@ -28,7 +28,7 @@
                 <matches pattern="(java|properties|jsp|jspf|tag|xml|txt)" />
             </where>
             <where param="pattern">
-                <matches pattern="[A-z]:([\\][^\n\t]+)+|(\\\\([^\\\,\n\t]+)\\\S+)+" />
+                <matches pattern="(\W|\s|^)([a-zA-Z]\:|\\\\(\w+\.?)+)([\\\/][^\n\t]+)+"/>
             </where>
         </rule>
         <rule id="os-specific-00002">
