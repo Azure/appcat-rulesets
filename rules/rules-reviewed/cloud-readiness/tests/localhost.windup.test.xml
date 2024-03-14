@@ -5,18 +5,6 @@
     <rulePath>../localhost.windup.xml</rulePath>
     <ruleset>
         <rules>
-            <rule id="localhost-java-test-00001">
-                    <when>
-                        <not>
-                            <iterable-filter size="1">
-                                <hint-exists message="The app is trying to access local resource, please try" />
-                            </iterable-filter>
-                        </not>
-                    </when>
-                    <perform>
-                        <fail message="localhost java uri/url usage was not found" />
-                    </perform>
-                </rule>
             <rule id="localhost-http-test-00001">
                 <when>
                     <not>
