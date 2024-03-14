@@ -35,26 +35,25 @@
                 </or>
             </when>
             <perform>
-                <hint title="File system - Java IO" effort="1" category-id="cloud-mandatory">
+                <hint title="File system - Java IO" effort="3" category-id="cloud-mandatory">
                     <message>
-                    An application running inside a container could lose access to a file in local storage.
+                        When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
+                        An application running inside a container could lose access to a file in local storage.
 
-                    Recommendations
+                        The following recommendations depend on the function of the file in local storage:
 
-                    The following recommendations depend on the function of the file in local storage:
+                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
 
-                    * Logging: Log to standard output and use a centralized log collector to analyze the logs.
-                    * Caching: Use a cache backing service.
-                    * Configuration: Store configuration settings in environment variables so that they can be updated without code changes.
-                    * Data storage: Use a database backing service for relational data or use a persistent data storage system.
-                    * Temporary data storage: Use the file system of a running container as a brief, single-transaction cache.
+                        * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
+
+                        * **Caching**: Use Azure Cache for Redis as a cache backing service.
+
+                        * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
-                    <link href="https://12factor.net/logs" title="Twelve-Factor App: Logs"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html" title="OpenShift Container Platform: Understanding cluster logging"/>
-                    <link href="https://12factor.net/backing-services" title="Twelve-Factor App: Backing services"/>
-                    <link href="https://12factor.net/config" title="Twelve-Factor App: Config"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs" title="OpenShift Container Platform: Input secrets and ConfigMaps"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html" title="OpenShift Container Platform: Understanding persistent storage"/>
+                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                     <tag>storage</tag>
                 </hint>
             </perform>
@@ -69,31 +68,30 @@
                 </javaclass>
             </when>
             <perform>
-                <hint title="File system - java.net.URL/URI" effort="1" category-id="cloud-mandatory">
+                <hint title="File system - java.net.URL/URI" effort="3" category-id="cloud-mandatory">
                     <message>
-                    An application running inside a container could lose access to a file in local storage.
+                        When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
+                        An application running inside a container could lose access to a file in local storage.
 
-                    Recommendations
+                        The following recommendations depend on the function of the file in local storage:
 
-                    The following recommendations depend on the function of the file in local storage:
+                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
 
-                    * Logging: Log to standard output and use a centralized log collector to analyze the logs.
-                    * Caching: Use a cache backing service.
-                    * Configuration: Store configuration settings in environment variables so that they can be updated without code changes.
-                    * Data storage: Use a database backing service for relational data or use a persistent data storage system.
-                    * Temporary data storage: Use the file system of a running container as a brief, single-transaction cache.
+                        * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
+
+                        * **Caching**: Use Azure Cache for Redis as a cache backing service.
+
+                        * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
-                    <link href="https://12factor.net/logs" title="Twelve-Factor App: Logs"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html" title="OpenShift Container Platform: Understanding cluster logging"/>
-                    <link href="https://12factor.net/backing-services" title="Twelve-Factor App: Backing services"/>
-                    <link href="https://12factor.net/config" title="Twelve-Factor App: Config"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs" title="OpenShift Container Platform: Input secrets and ConfigMaps"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html" title="OpenShift Container Platform: Understanding persistent storage"/>
+                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                     <tag>storage</tag>
                 </hint>
             </perform>
             <where param="class">
-                <matches pattern="(URL|URI)" />
+                <matches pattern="(URL|URI)"/>
             </where>
         </rule>
         <rule id="local-storage-00003">
@@ -101,26 +99,25 @@
                 <filecontent pattern="{path1}" filename="{*}{extensions}"/>
             </when>
             <perform>
-                <hint title="File system - File path URL" effort="1" category-id="cloud-mandatory">
+                <hint title="File system - File path URL" effort="3" category-id="cloud-mandatory">
                     <message>
-                    An application running inside a container could lose access to a file in local storage.
+                        When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
+                        An application running inside a container could lose access to a file in local storage.
 
-                    Recommendations
+                        The following recommendations depend on the function of the file in local storage:
 
-                    The following recommendations depend on the function of the file in local storage:
+                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
 
-                    * Logging: Log to standard output and use a centralized log collector to analyze the logs.
-                    * Caching: Use a cache backing service.
-                    * Configuration: Store configuration settings in environment variables so that they can be updated without code changes.
-                    * Data storage: Use a database backing service for relational data or use a persistent data storage system.
-                    * Temporary data storage: Use the file system of a running container as a brief, single-transaction cache.
+                        * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
+
+                        * **Caching**: Use Azure Cache for Redis as a cache backing service.
+
+                        * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
-                    <link href="https://12factor.net/logs" title="Twelve-Factor App: Logs"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html" title="OpenShift Container Platform: Understanding cluster logging"/>
-                    <link href="https://12factor.net/backing-services" title="Twelve-Factor App: Backing services"/>
-                    <link href="https://12factor.net/config" title="Twelve-Factor App: Config"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs" title="OpenShift Container Platform: Input secrets and ConfigMaps"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html" title="OpenShift Container Platform: Understanding persistent storage"/>
+                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                     <tag>storage</tag>
                 </hint>
             </perform>
@@ -130,43 +127,42 @@
                 <matches pattern="(([:=(,\{])([ ])*([&quot;'])?([a-zA-Z]):)(?&lt;![\&lt;\\\/\d\w])([\\\/]\w+)+(\.\w+)?"/>
             </where>
             <where param="extensions">
-                <matches pattern="(\.java|\.properties|\.jsp|\.jspf|\.tag|[^pom]\.xml|\.txt)" />
+                <matches pattern="(\.java|\.properties|\.jsp|\.jspf|\.tag|[^pom]\.xml|\.txt)"/>
             </where>
         </rule>
         <rule id="local-storage-00004">
             <when>
-                <filecontent pattern="{path2}" filename="{*}.{extensions}" />
+                <filecontent pattern="{path2}" filename="{*}.{extensions}"/>
             </when>
             <perform>
-                <hint title="File system - 'file://' scheme" effort="1" category-id="cloud-mandatory">
+                <hint title="File system - 'file://' scheme" effort="3" category-id="cloud-mandatory">
                     <message>
-                    An application running inside a container could lose access to a file in local storage.
+                        When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
+                        An application running inside a container could lose access to a file in local storage.
 
-                    Recommendations
+                        The following recommendations depend on the function of the file in local storage:
 
-                    The following recommendations depend on the function of the file in local storage:
+                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
 
-                    * Logging: Log to standard output and use a centralized log collector to analyze the logs.
-                    * Caching: Use a cache backing service.
-                    * Configuration: Store configuration settings in environment variables so that they can be updated without code changes.
-                    * Data storage: Use a database backing service for relational data or use a persistent data storage system.
-                    * Temporary data storage: Use the file system of a running container as a brief, single-transaction cache.
+                        * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
+
+                        * **Caching**: Use Azure Cache for Redis as a cache backing service.
+
+                        * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
-                    <link href="https://12factor.net/logs" title="Twelve-Factor App: Logs"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html" title="OpenShift Container Platform: Understanding cluster logging"/>
-                    <link href="https://12factor.net/backing-services" title="Twelve-Factor App: Backing services"/>
-                    <link href="https://12factor.net/config" title="Twelve-Factor App: Config"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs" title="OpenShift Container Platform: Input secrets and ConfigMaps"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html" title="OpenShift Container Platform: Understanding persistent storage"/>
+                    <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                     <tag>storage</tag>
                 </hint>
             </perform>
             <where param="path2">
                 <!-- URL with local path -->
-                <matches pattern="file://" />
+                <matches pattern="file://"/>
             </where>
             <where param="extensions">
-                <matches pattern="(\\.java|\\.properties|\\.jsp|\\.jspf|\\.tag|[^pom]\\.xml|\\.txt)" />
+                <matches pattern="(\\.java|\\.properties|\\.jsp|\\.jspf|\\.tag|[^pom]\\.xml|\\.txt)"/>
             </where>
         </rule>
         <rule id="local-storage-00005">
@@ -187,30 +183,29 @@
                 </or>
             </when>
             <perform>
-              <iteration>
-                <hint title="File system - Java NIO" effort="1" category-id="cloud-mandatory">
-                    <message>
-                    An application running inside a container could lose access to a file in local storage.
+                <iteration>
+                    <hint title="File system - Java NIO" effort="3" category-id="cloud-mandatory">
+                        <message>
+                            When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
+                            An application running inside a container could lose access to a file in local storage.
 
-                    Recommendations
+                            The following recommendations depend on the function of the file in local storage:
 
-                    The following recommendations depend on the function of the file in local storage:
+                            * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
 
-                    * Logging: Log to standard output and use a centralized log collector to analyze the logs.
-                    * Caching: Use a cache backing service.
-                    * Configuration: Store configuration settings in environment variables so that they can be updated without code changes.
-                    * Data storage: Use a database backing service for relational data or use a persistent data storage system.
-                    * Temporary data storage: Use the file system of a running container as a brief, single-transaction cache.
-                    </message>
-                    <link href="https://12factor.net/logs" title="Twelve-Factor App: Logs"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html" title="OpenShift Container Platform: Understanding cluster logging"/>
-                    <link href="https://12factor.net/backing-services" title="Twelve-Factor App: Backing services"/>
-                    <link href="https://12factor.net/config" title="Twelve-Factor App: Config"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs" title="OpenShift Container Platform: Input secrets and ConfigMaps"/>
-                    <link href="https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html" title="OpenShift Container Platform: Understanding persistent storage"/>
-                    <tag>storage</tag>
-                </hint>
-              </iteration>
+                            * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
+
+                            * **Caching**: Use Azure Cache for Redis as a cache backing service.
+
+                            * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
+                        </message>
+                        <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                        <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
+                        <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                        <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
+                        <tag>storage</tag>
+                    </hint>
+                </iteration>
             </perform>
         </rule>
         <rule id="local-storage-00006">
@@ -226,26 +221,25 @@
             </when>
             <perform>
                 <iteration>
-                    <hint title="Apache Commons I/O" effort="1" category-id="cloud-mandatory">
+                    <hint title="Apache Commons I/O" effort="3" category-id="cloud-mandatory">
                         <message>
+                            When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
                             An application running inside a container could lose access to a file in local storage.
-
-                            Recommendations
 
                             The following recommendations depend on the function of the file in local storage:
 
-                            * Logging: Log to standard output and use a centralized log collector to analyze the logs.
-                            * Caching: Use a cache backing service.
-                            * Configuration: Store configuration settings in environment variables so that they can be updated without code changes.
-                            * Data storage: Use a database backing service for relational data or use a persistent data storage system.
-                            * Temporary data storage: Use the file system of a running container as a brief, single-transaction cache.
+                            * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+
+                            * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
+
+                            * **Caching**: Use Azure Cache for Redis as a cache backing service.
+
+                            * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                         </message>
-                        <link href="https://12factor.net/logs" title="Twelve-Factor App: Logs"/>
-                        <link href="https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html" title="OpenShift Container Platform: Understanding cluster logging"/>
-                        <link href="https://12factor.net/backing-services" title="Twelve-Factor App: Backing services"/>
-                        <link href="https://12factor.net/config" title="Twelve-Factor App: Config"/>
-                        <link href="https://docs.openshift.com/container-platform/4.5/builds/creating-build-inputs.html#builds-input-secrets-configmaps_creating-build-inputs" title="OpenShift Container Platform: Input secrets and ConfigMaps"/>
-                        <link href="https://docs.openshift.com/container-platform/4.5/storage/understanding-persistent-storage.html" title="OpenShift Container Platform: Understanding persistent storage"/>
+                        <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                        <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
+                        <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                        <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
                         <tag>storage</tag>
                     </hint>
                 </iteration>
