@@ -30,9 +30,9 @@
                         The application uses EHCache. Azure does not have a managed service for EHCache. You either have to set up the EHCache distribution on Azure yourself, or you can take advantage of a managed Redis service if you are ready to migrate from EHCache to Redis. Azure Cache for Redis offers scalability, high availability, and monitoring capabilities. **Azure Cache for Redis** provides features like data persistence, automatic failover, and built-in support for Redis commands, allowing you to leverage the benefits of Redis caching in your application running on Azure.
 
                         * **Provision an Azure Cache for Redis**: Configure the cache size and other relevant settings based on your application's requirements.
-                        
+
                         * **Update your Java code**: Replace the EHCache code in your Java application with the Azure Cache for Redis client libraries or SDKs. Update the code that establishes a connection to the Redis cache and performs cache-related operations.
-                        
+
                         * **Connect to Azure Cache for Redis**: Update the connection details in your Java application to point to the Azure Cache for Redis instance. Use the connection information provided by Azure (hostname, port, access keys, etc.) to establish a connection from your application.
                     </message>
                     <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
@@ -65,9 +65,9 @@
                         The application uses a Redis cache. You can take advantage of a managed Redis service that offers scalability, high availability, and monitoring capabilities. **Azure Cache for Redis** provides features like data persistence, automatic failover, and built-in support for Redis commands, allowing you to leverage the benefits of Redis caching in your application running on Azure.
 
                         * **Provision an Azure Cache for Redis**: Configure the cache size and other relevant settings based on your application's requirements.
-                        
+
                         * **Update your Java code**: Replace the embedded Redis cache code in your Java application with the Azure Cache for Redis client libraries or SDKs. Update the code that establishes a connection to the Redis cache and performs cache-related operations.
-                        
+
                         * **Connect to Azure Cache for Redis**: Connect your app to Azure Cache for Redis on azure by **Service Connector**. Use the connection information provided by Azure (hostname, port, access keys, etc.) to create a connection from your application.
                     </message>
                     <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>

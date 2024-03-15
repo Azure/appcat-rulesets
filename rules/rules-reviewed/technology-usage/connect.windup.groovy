@@ -54,14 +54,6 @@ ruleSet("connect")
     })
     .withId("connect-01400")
     .addRule()
-    .when(File.inFileNamed("{*}activemq{*}"))
-    .perform(new AbstractIterationOperation<FileLocationModel>() {
-        void perform(GraphRewrite event, EvaluationContext context, FileLocationModel payload) {
-            perform(event, context, payload.getFile(), "ActiveMQ", true)
-        }
-    })
-    .withId("connect-01500")
-    .addRule()
     .when(File.inFileNamed("{*}openws{*}"))
     .perform(new AbstractIterationOperation<FileLocationModel>() {
         void perform(GraphRewrite event, EvaluationContext context, FileLocationModel payload) {

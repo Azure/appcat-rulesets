@@ -18,9 +18,9 @@
     <rules>
         <rule id="clustering-00000">
             <when>
-                <xmlfile matches="/w:web-app/w:distributable">
-                    <namespace prefix="w" uri="http://java.sun.com/xml/ns/javaee"/>
-                </xmlfile>
+              <xmlfile matches="/w:web-app/w:distributable">
+                  <namespace prefix="w" uri="http://java.sun.com/xml/ns/javaee"/>
+              </xmlfile>
             </when>
             <perform>
                 <hint title="Distributed Environments found" category-id="mandatory" effort="5">
