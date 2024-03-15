@@ -79,10 +79,10 @@
 
                         Consider using Azure Active Directory as an identity provider.
                     </message>
-                <link title="Spring Security-related dependencies found in the project" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-app-service#identity-providers" />
-                <link title="Azure Active Directory (Azure AD) identity provider for External Identities" href="https://docs.microsoft.com/azure/active-directory/external-identities/azure-ad-account"/>
-                <link title="Spring Security" href="https://docs.spring.io/spring-security/reference/index.html"/>
-                <link title="Spring Boot API: Authorization" href="https://auth0.com/docs/quickstart/backend/java-spring-security5/01-authorization"/>
+                    <link title="Spring Security-related dependencies found in the project" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-app-service#identity-providers" />
+                    <link title="Azure Active Directory (Azure AD) identity provider for External Identities" href="https://docs.microsoft.com/azure/active-directory/external-identities/azure-ad-account"/>
+                    <link title="Spring Security" href="https://docs.spring.io/spring-security/reference/index.html"/>
+                    <link title="Spring Boot API: Authorization" href="https://auth0.com/docs/quickstart/backend/java-spring-security5/01-authorization"/>
                 </hint>
                 <technology-tag level="INFORMATIONAL">Spring Security</technology-tag>
             </perform>
@@ -95,7 +95,7 @@
                 <hint title="Embedded library - OAuth 2.0" category-id="information" effort="0">
                     <message>
                         The application embeds an OAuth 2.0 library. For Spring Boot applications, please ensure that the application is configured to use Spring Security OAuth2.
-                        
+
                         The Microsoft identity platform uses OAuth 2.0 and other protocols to enable applications to provide a Single Sign-On experience.
 
                         By migrating your SSO implementation to Azure AD with OAuth 2.0, you leverage the capabilities of Azure AD for managing identities and enabling secure SSO across your applications.

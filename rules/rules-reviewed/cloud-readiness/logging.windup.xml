@@ -19,53 +19,58 @@
     <rules>
         <rule id="logging-0000">
             <when>
-              <or>
-                <filecontent filename="log4j.{extension}" pattern="{appenderpattern}"/>
-                <javaclass references="org.apache.{*}log4j.{*}FileAppender{*}">
-                    <location>IMPORT</location>
-                </javaclass>
-                <javaclass references="java.util.logging.FileHandler{*}">
-                    <location>IMPORT</location>
-                </javaclass>
-                <javaclass references="ch.qos.logback.core.FileAppender">
-                    <location>IMPORT</location>
-                </javaclass>
-                <javaclass references="org.pmw.tinylog.writers.FileWriter">
-                    <location>IMPORT</location>
-                </javaclass>
-              </or>
+                <or>
+                    <filecontent filename="log{back,4j}{*}.{extension}" pattern="{filePattern}"/>
+                    <javaclass references="org.apache.{*}log4j.{*}FileAppender{*}">
+                        <location>IMPORT</location>
+                    </javaclass>
+                    <javaclass references="java.util.logging.FileHandler{*}">
+                        <location>IMPORT</location>
+                    </javaclass>
+                    <javaclass references="ch.qos.logback.core.FileAppender">
+                        <location>IMPORT</location>
+                    </javaclass>
+                    <javaclass references="org.pmw.tinylog.writers.FileWriter">
+                        <location>IMPORT</location>
+                    </javaclass>
+                </or>
             </when>
             <perform>
                 <iteration>
                     <when>
                         <not>
-                            <has-hint />
+                            <has-hint/>
                         </not>
                     </when>
                     <perform>
-                        <hint title="Logging to file system" effort="1" category-id="cloud-mandatory">
+                        <hint title="Don't log to file system" effort="1" category-id="cloud-mandatory">
                             <message>
-                            If the application writes logs to a file system, local log files may be lost if an instance terminates or restarts.
+                                Logging to the file system is not recommended when running applications in the cloud.
+                                Instead, use Azure Monitor for efficient and scalable logging.
 
-                            Recommendations
+                                * Integrate with **Azure Monitor**: Configure your application to send logs to Azure Monitor. Azure Monitor provides a centralized platform for collecting, analyzing, and visualizing log data from various sources.
 
-                            * Use a centralized log management system.
-                            * Log to standard output and allow the cloud platform to manage the logging.
-                            * Use shared storage for log files.
+                                * Use **Azure Monitor Logging**: Utilize the Azure Monitor Logs feature, which enables you to query and analyze log data using the Kusto Query Language (KQL). KQL provides powerful querying capabilities to extract insights and perform advanced log analysis.
+
+                                * Leverage **Log Analytics** workspaces: Create a Log Analytics workspace within Azure Monitor to store and analyze your log data effectively. Configure your application to send logs to the designated workspace, enabling centralized log storage and analysis.
+
+                                * Utilize **KQL** for log analysis: Familiarize yourself with the Kusto Query Language (KQL) to write powerful queries for log analysis in Azure Monitor. KQL provides a flexible and efficient way to extract insights, perform aggregations, and create visualizations from your log data.
                             </message>
-                            <link href="https://12factor.net/logs" title="Twelve-factor app - Logs"/>
-                            <link href="https://docs.openshift.com/container-platform/4.5/logging/cluster-logging.html" title="OpenShift Container Platform: Understanding cluster logging"/>
+                            <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
+                            <link title="Log queries in Azure Monitor" href="https://learn.microsoft.com/azure/azure-monitor/logs/log-query-overview"/>
+                            <link title="Enable diagnostics logging for apps in Azure App Service" href="https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs"/>
+                            <link title="Log Analytics tutorial" href="https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial"/>
                             <tag>logging</tag>
                         </hint>
                         <technology-tag level="INFORMATIONAL">Logging to file system</technology-tag>
                     </perform>
                 </iteration>
             </perform>
-            <where param="appenderpattern">
-              <matches pattern="((Daily)?Rolling)?FileAppender"/>
+            <where param="filePattern">
+                <matches pattern="(?i)((Daily)?Rolling)?FileAppender|type\s*=\s*((Daily)?Rolling)?File|&lt;\/((Daily)?Rolling)?File&gt;"/>
             </where>
             <where param="extension">
-              <matches pattern="(xml|properties)"/>
+                <matches pattern="(xml|properties)"/>
             </where>
         </rule>
         <rule id="logging-0001">

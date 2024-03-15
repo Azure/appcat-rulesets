@@ -45,17 +45,17 @@
             <perform>
               <hint title="Java native libraries (JNI, JNA)" effort="7" category-id="cloud-mandatory">
                   <message>
-                    Java native libraries might not run in a cloud or container environment.
+                      When migrating an application that uses Java native libraries (JNI, JNA) to Azure, it's important to consider that Java native libraries might not run in a cloud or container environment.
+                      Instead, you can refactor your application to use cloud-compatible alternatives or managed services.
 
-                    Recommendations
+                      * **Identify native library dependencies**: Review all native libraries used in your application and review the purpose of each library.
 
-                    * Review the purpose of the native library in your application.
-                    * Check whether the native library is compatible with a cloud environment.
-                    * Reuse or embed the native library or application in a cloud environment, for example, in a JBoss module.
-                    * Replace, remove, or rewrite the native library or application using a cloud-compatible equivalent.
-                </message>
-                <link href="https://access.redhat.com/solutions/229443" title="How to load native libraries and access them via JNI in EAP (with or without a module)"/>
-                <link href="https://access.redhat.com/solutions/1444643" title="Is it supported to compile the JNI code as 32-bit shared libraries and use it in 64-bit compiled Java code ?"/>
+                      * **Evaluate and use cloud-compatible alternatives**: For each native library, look for alternative libraries or services that provide similar functionality and are compatible with cloud environments. Replace instances of JNI or JNA usage with the chosen cloud-compatible alternatives.
+
+                      * **Leverage Azure managed services**: Evaluate the use of Azure-managed services to replace certain native library functionalities. For example, if your application uses JNI or JNA for file operations, consider using Azure Storage for cloud-native storage solutions. If your application uses JNI or JNA to connect and interact with a local SQL database, consider replacing it with Azure Database for MySQL. This could eliminate the need for native code in your application.
+
+                      * **Test and validate**: Thoroughly test the updated application to ensure it works correctly with the new libraries or services. Perform functional, performance, and stress tests to validate that the application meets its requirements and can handle the expected workload.
+                  </message>
                 <tag>jni</tag>
               </hint>
             </perform>
@@ -86,13 +86,15 @@
             <perform>
                 <hint title="Java Native Processes" effort="7" category-id="cloud-mandatory">
                     <message>
-                        Native Processes might not run in a cloud or container environment.
+                        When migrating an application that uses native processes to Azure, it's important to consider that native processes might not run in a cloud or container environment. Instead, you can refactor your application to use cloud-compatible alternatives or managed services.
 
-                        Recommendations
+                        * **Identify native process dependencies**: Review all native processes used in your application and understand the purpose of each process.
 
-                        * Review the purpose of the native process in your application.
-                        * Check whether the native process is compatible with a cloud environment.
-                        * Replace, remove, or rewrite the native process or application using a cloud-compatible equivalent.
+                        * **Evaluate and use cloud-compatible alternatives**: For each native process, look for alternative libraries, services, or APIs that provide similar functionality and are compatible with cloud environments. Replace instances of native process usage with the chosen cloud-compatible alternatives.
+
+                        * **Leverage Azure managed services**: Evaluate the use of Azure-managed services to replace certain native process functionalities.
+
+                        * **Test and validate**: Thoroughly test the updated application to ensure it works correctly with the new libraries or services. Perform functional, performance, and stress tests to validate that the application meets its requirements and can handle the expected workload.
                     </message>
                     <tag>jni</tag>
                 </hint>
