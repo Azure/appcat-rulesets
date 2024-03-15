@@ -22,9 +22,9 @@
     <rules>
         <rule id="session-00001">
             <when>
-                <or>
-                    <javaclass references="javax.servlet.http.HttpSession.setAttribute({*})"/>
-                    <javaclass references="javax.servlet.http.HttpSession.putValue({*})"/>
+               <or>
+                <javaclass references="javax.servlet.http.HttpSession.setAttribute({*})"/>
+                <javaclass references="javax.servlet.http.HttpSession.putValue({*})"/>
                 </or>
             </when>
             <perform>

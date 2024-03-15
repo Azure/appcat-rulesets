@@ -50,14 +50,6 @@ ruleSet("database")
     })
     .withId("database-01400")
     .addRule()
-    .when(File.inFileNamed("{*}mysql-connector{*}.jar"))
-    .perform(new AbstractIterationOperation<FileLocationModel>() {
-        void perform(GraphRewrite event, EvaluationContext context, FileLocationModel payload) {
-            perform(event, context, payload.getFile(), "MySQL Driver", true)
-        }
-    })
-    .withId("database-01500")
-    .addRule()
     .when(File.inFileNamed("{*}derby{*}.jar"))
     .perform(new AbstractIterationOperation<FileLocationModel>() {
         void perform(GraphRewrite event, EvaluationContext context, FileLocationModel payload) {
@@ -66,14 +58,6 @@ ruleSet("database")
     })
     .withId("database-01600")
     .addRule()
-    .when(File.inFileNamed("{*}postgresql{*}.jar"))
-    .perform(new AbstractIterationOperation<FileLocationModel>() {
-        void perform(GraphRewrite event, EvaluationContext context, FileLocationModel payload) {
-            perform(event, context, payload.getFile(), "PostgreSQL Driver", true)
-        }
-    })
-    .withId("database-01700")
-    .addRule()
     .when(File.inFileNamed("{*}h2{*}.jar"))
     .perform(new AbstractIterationOperation<FileLocationModel>() {
         void perform(GraphRewrite event, EvaluationContext context, FileLocationModel payload) {
@@ -81,18 +65,6 @@ ruleSet("database")
         }
     })
     .withId("database-01800")
-    .addRule()
-    .when(Or.any(
-            File.inFileNamed("sqljdbc{*}.jar"),
-            File.inFileNamed("mssql-jdbc{*}.jar")
-        )
-    )
-    .perform(new AbstractIterationOperation<FileLocationModel>() {
-        void perform(GraphRewrite event, EvaluationContext context, FileLocationModel payload) {
-            perform(event, context, payload.getFile(), "Microsoft SQL Driver", true)
-        }
-    })
-    .withId("database-01900")
     .addRule()
     .when(File.inFileNamed("{*}sqlite-jdbc{*}.jar"))
     .perform(new AbstractIterationOperation<FileLocationModel>() {
@@ -116,24 +88,6 @@ ruleSet("database")
     .withId("database-02100")
     // https://mvnrepository.com/open-source/cassandra-clients
     .addRule()
-    .when(Or.any(
-            File.inFileNamed("{*}cassandra{*}.jar"),
-            File.inFileNamed("{*}hector{*}.jar"),
-            File.inFileNamed("{*}astyanax{*}.jar"),
-            File.inFileNamed("{*}phantom-dsl{*}.jar"),
-            File.inFileNamed("{*}cql{*}.jar"),
-            File.inFileNamed("{*}hecuba-client{*}.jar"),
-            File.inFileNamed("{*}c-star-path{*}.jar"),
-            File.inFileNamed("{*}scale7-pelops{*}.jar")
-        )
-    )
-    .perform(new AbstractIterationOperation<FileLocationModel>() {
-        void perform(GraphRewrite event, EvaluationContext context, FileLocationModel payload) {
-            perform(event, context, payload.getFile(), "Cassandra Client", true)
-        }
-    })
-    .withId("database-02200")
-    .addRule()
     .when(File.inFileNamed("{*}axion{*}.jar"))
     .perform(new AbstractIterationOperation<FileLocationModel>() {
         void perform(GraphRewrite event, EvaluationContext context, FileLocationModel payload) {
@@ -151,21 +105,6 @@ ruleSet("database")
     .withId("database-02400")
     // https://mvnrepository.com/open-source/mongodb-clients
     .addRule()
-    .when(Or.any(
-            File.inFileNamed("{*}mongodb{*}.jar"),
-            File.inFileNamed("{*}casbah{*}.jar"),
-            File.inFileNamed("{*}reactivemongo{*}.jar"),
-            File.inFileNamed("{*}jongo{*}.jar"),
-            File.inFileNamed("{*}gmongo{*}.jar"),
-            File.inFileNamed("{*}rogue{*}.jar")
-        )
-    )
-    .perform(new AbstractIterationOperation<FileLocationModel>() {
-        void perform(GraphRewrite event, EvaluationContext context, FileLocationModel payload) {
-            perform(event, context, payload.getFile(), "MongoDB Client", true)
-        }
-    })
-    .withId("database-02500")
     .addRule()
     .when(File.inFileNamed("spring-data{*}.jar"))
     .perform(new AbstractIterationOperation<FileLocationModel>() {
@@ -247,11 +186,3 @@ ruleSet("database")
         }
     })
     .withId("database-03100")
-    .addRule()
-    .when(File.inFileNamed("{*}mariadb{*}.jar"))
-    .perform(new AbstractIterationOperation<FileLocationModel>() {
-        void perform(GraphRewrite event, EvaluationContext context, FileLocationModel payload) {
-            perform(event, context, payload.getFile(), "MariaDB Driver", true)
-        }
-    })
-    .withId("database-03200")

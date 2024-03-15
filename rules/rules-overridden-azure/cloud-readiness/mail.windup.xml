@@ -22,12 +22,12 @@
     <rules>
         <rule id="mail-00000">
             <when>
-                <or>
-                    <javaclass references="javax.mail.{*}"/>
-                    <javaclass references="com.sun.mail.{*}"/>
-                    <javaclass references="org.simplejavamail.{*}"/>
-                    <javaclass references="org.apache.commons.mail.{*}"/>
-                </or>
+              <or>
+                <javaclass references="javax.mail.{*}"/>
+                <javaclass references="com.sun.mail.{*}"/>
+                <javaclass references="org.simplejavamail.{*}"/>
+                <javaclass references="org.apache.commons.mail.{*}"/>
+              </or>
             </when>
             <perform>
                 <hint title="Java Mail API" effort="3" category-id="potential">
