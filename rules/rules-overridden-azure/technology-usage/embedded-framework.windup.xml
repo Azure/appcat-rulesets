@@ -35,7 +35,7 @@
                 <hint title="Embedded framework - Feign" category-id="information" effort="0">
                     <message>
                         The application embeds the Feign framework. If you are migrating to Azure Spring Apps, it is recommended to use Spring Cloud OpenFeign instead (Spring Cloud Feign has been deprecated).
-                        
+
                         When migrating to Azure Spring Apps, Eureka (Standard Tier) or Service Registry (Enterprise Tier) will be hosted for you. Spring Cloud OpenFeign will easily discover the service registry and invoke the services.
                     </message>
                     <link title="Migrate clients bypassing the service registry" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#identify-clients-that-bypass-the-service-registry"/>
@@ -60,7 +60,7 @@
                 <hint title="Embedded framework - Zipkin" category-id="information" effort="0">
                     <message>
                         The application embeds the Zipkin framework. To migrate a Java application that uses Zipkin to Azure, it is recommended to use Azure Monitor instead.
-                        
+
                         * **Identify Zipkin dependencies**: Identify the Zipkin dependencies in your application.
 
                         * **Replace with Azure Monitor**: Azure Monitor provides distributed tracing capabilities. Azure services such as Azure Spring Apps, Azure Kubernetes Service, Azure App Service support auto-instrumentation for Azure Monitor.
@@ -86,7 +86,7 @@
                 <hint title="Embedded framework - Eureka Client" category-id="information" effort="0">
                     <message>
                         The application embeds the Eureka client. If you are migrating to Azure Spring Apps, the connection info of Eureka will be injected upon app start.
-                        
+
                         Find any explicit configurations of config server connection info:
 
                         If configured in **configuration files**: they will be ignored and overrided by Azure Spring Apps.

@@ -35,7 +35,7 @@
 
                     * **Use HTTP-based communication**: Replace RMI with a more loosely coupled communication approach, such as HTTP or HTTPS, in combination with an architectural pattern like RESTful APIs.
 
-                    * **Leverage Azure managed services**: You can also consider using Azure managed services to replace RMI. For real-time, bidirectional communication that require low-latency, consider integrating Azure SignalR Service. It simplifies real-time web functionality and supports WebSocket communication. For asynchronous, message-based communication, consider using Azure messaging services like Azure Service Bus or Azure Event Hubs. 
+                    * **Leverage Azure managed services**: You can also consider using Azure managed services to replace RMI. For real-time, bidirectional communication that require low-latency, consider integrating Azure SignalR Service. It simplifies real-time web functionality and supports WebSocket communication. For asynchronous, message-based communication, consider using Azure messaging services like Azure Service Bus or Azure Event Hubs.
                     </message>
                     <link title="Twelve-factor app - Backing services" href="https://12factor.net/backing-services"/>
                     <link title="Azure SignalR Service" href="https://learn.microsoft.com/azure/azure-signalr/signalr-overview"/>
@@ -66,7 +66,7 @@
 
                             * **Use HTTP-based communication**: Replace RMI with a more loosely coupled communication approach, such as HTTP or HTTPS, in combination with an architectural pattern like RESTful APIs.
 
-                            * **Leverage Azure managed services**: You can also consider using Azure managed services to replace RMI. For real-time, bidirectional communication that require low-latency, consider integrating Azure SignalR Service. It simplifies real-time web functionality and supports WebSocket communication. For asynchronous, message-based communication, consider using Azure messaging services like Azure Service Bus or Azure Event Hubs. 
+                            * **Leverage Azure managed services**: You can also consider using Azure managed services to replace RMI. For real-time, bidirectional communication that require low-latency, consider integrating Azure SignalR Service. It simplifies real-time web functionality and supports WebSocket communication. For asynchronous, message-based communication, consider using Azure messaging services like Azure Service Bus or Azure Event Hubs.
                             </description>
                             <link title="Twelve-factor app - Backing services" href="https://12factor.net/backing-services"/>
                             <link title="Azure SignalR Service" href="https://learn.microsoft.com/azure/azure-signalr/signalr-overview"/>

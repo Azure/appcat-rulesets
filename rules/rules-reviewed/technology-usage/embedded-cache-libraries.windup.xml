@@ -18,12 +18,59 @@
                 </graph-query>
             </when>
             <perform>
-                <classification title="Ehcache embedded library" category-id="information" effort="0">
-                    <description>
-                        The application embeds an Ehcache library.
-                    </description>
-                </classification>
+                <hint title="EHCache library" category-id="potential" effort="5">
+                    <message>
+                        The application uses EHCache. Azure does not have a managed service for EHCache. You either have to set up the EHCache distribution on Azure yourself, or you can take advantage of a managed Redis service if you are ready to migrate from EHCache to Redis. Azure Cache for Redis offers scalability, high availability, and monitoring capabilities. **Azure Cache for Redis** provides features like data persistence, automatic failover, and built-in support for Redis commands, allowing you to leverage the benefits of Redis caching in your application running on Azure.
+
+                        * **Provision an Azure Cache for Redis**: Configure the cache size and other relevant settings based on your application's requirements.
+
+                        * **Update your Java code**: Replace the EHCache code in your Java application with the Azure Cache for Redis client libraries or SDKs. Update the code that establishes a connection to the Redis cache and performs cache-related operations.
+
+                        * **Connect to Azure Cache for Redis**: Update the connection details in your Java application to point to the Azure Cache for Redis instance. Use the connection information provided by Azure (hostname, port, access keys, etc.) to establish a connection from your application.
+                    </message>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Caching guidance" href="https://learn.microsoft.com/azure/architecture/best-practices/caching"/>
+                </hint>
                 <technology-tag level="INFORMATIONAL">Ehcache</technology-tag>
+            </perform>
+        </rule>
+        <rule id="embedded-cache-libraries-16000">
+            <when>
+                <or>
+                    <file filename="{*}redis{*}.jar"/>
+                    <project>
+                        <artifact groupId="org.springframework.boot" artifactId="spring-boot-starter-data-redis"/>
+                    </project>
+                    <project>
+                        <artifact groupId="org.springframework.data" artifactId="spring-data-redis"/>
+                    </project>
+                    <project>
+                        <artifact groupId="org.springframework.session" artifactId="spring-session-data-redis"/>
+                    </project>
+                    <project>
+                        <artifact groupId="org.springframework.integration" artifactId="spring-integration-redis"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <hint title="Redis Cache library" category-id="potential" effort="3">
+                    <message>
+                        The application uses a Redis cache. You can take advantage of a managed Redis service that offers scalability, high availability, and monitoring capabilities. **Azure Cache for Redis** provides features like data persistence, automatic failover, and built-in support for Redis commands, allowing you to leverage the benefits of Redis caching in your application running on Azure.
+
+                        * **Provision an Azure Cache for Redis**: Configure the cache size and other relevant settings based on your application's requirements.
+
+                        * **Update your Java code**: Replace the embedded Redis cache code in your Java application with the Azure Cache for Redis client libraries or SDKs. Update the code that establishes a connection to the Redis cache and performs cache-related operations.
+
+                        * **Connect to Azure Cache for Redis**: Connect your app to Azure Cache for Redis on azure by **Service Connector**. Use the connection information provided by Azure (hostname, port, access keys, etc.) to create a connection from your application.
+                    </message>
+                    <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
+                    <link title="Caching guidance" href="https://learn.microsoft.com/azure/architecture/best-practices/caching"/>
+                    <link title="Connect Azure Cache for Redis to your application in Azure Spring Apps" href="https://learn.microsoft.com/azure/spring-apps/how-to-bind-redis?tabs=Java%2CService-Connector"/>
+                    <link title="Redis Cache found in the application" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps#identify-external-caches"/>
+                    <link title="Spring Data Redis" href="https://spring.io/projects/spring-data-redis/"/>
+                    <link title="Azure Spring Cloud Starter Cache" href="https://search.maven.org/artifact/com.azure.spring/azure-spring-cloud-starter-cache"/>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Redis</technology-tag>
             </perform>
         </rule>
         <rule id="embedded-cache-libraries-02000">

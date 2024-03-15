@@ -36,7 +36,7 @@
                 <hint title="Embedded library - Spring Cloud Config" category-id="information" effort="0">
                     <message>
                         The application embeds Spring Cloud Config.
-                        
+
                         If you are migrating to Azure Spring Apps, the connection info of Config Server will be injected automatically upon app start.
                         Find any explicit configurations of config server connection info:
 
@@ -70,13 +70,13 @@
                     <message>
                         The application embeds Spring Cloud Vault.
                         To migrate a Java application that uses Spring Cloud Vault to store and access secrets to Azure, you can follow this recommendation:
-                        
-                        * Identify the backing secret store (for example, HashiCorp Vault or CredHub). 
+
+                        * Identify the backing secret store (for example, HashiCorp Vault or CredHub).
 
                         * Identify all the secrets used by the application code.
 
                         * Migrate Spring Cloud Vault secrets to Azure KeyVault. You can inject secrets directly into applications through Spring by using the Azure KeyVault Spring Boot Starter.
-                        
+
                         * Note that Migration may require you to rename some secrets. Update your application code accordingly.
                     </message>
                     <link title="Load a secret from Azure Key Vault in a Spring Boot application" href="https://learn.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault"/>
