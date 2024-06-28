@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <rule>
+        <id>spring-boot-to-azure-port-01000</id>
+        <title>Server port configuration found</title>
+        <category>information</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>spring-boot-to-azure-schedule-job-01000</id>
+        <title>The application uses Quartz to scheduled jobs</title>
+        <category>mandatory</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>spring-boot-to-azure-eureka-01000</id>
+        <title>Explicit eureka connection info found in configuration file</title>
+        <category>information</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>spring-boot-to-azure-config-server-01000</id>
+        <title>Explicit Config Server connection info found in configuration file</title>
+        <category>information</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>spring-boot-to-azure-spring-boot-version-01000</id>
+        <title>Spring Boot version too low</title>
+        <category>potential</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>spring-boot-to-azure-restricted-config-01000</id>
+        <title>Restricted configurations found</title>
+        <category>information</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>spring-boot-to-azure-spring-cloud-version-01000</id>
+        <title>Spring Cloud version too low</title>
+        <category>potential</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>eap-to-azure-appservice-pom-001</id>
+        <title>Get started with JBoss EAP on App Service</title>
+        <category>optional</category>
+        <targetTechnologies>
+            <targetTechnology>azure-appservice</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>eap-to-azure-appservice-datasource-driver-01000</id>
+        <title>Datasource driver found in configuration file</title>
+        <category>potential</category>
+        <targetTechnologies>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>tomcat-to-azure-external-resources-01000</id>
+        <title>External resources found in configuration file</title>
+        <category>optional</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>azure-static-content-01000</id>
+        <title>Static content found in the application</title>
+        <category>optional</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>azure-database-config-jdbc-01000</id>
+        <title>JDBC connection found in configuration file</title>
+        <category>information</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>jetty-to-azure-external-resources-01000</id>
+        <title>External resources found in configuration file</title>
+        <category>optional</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>azure-system-config-01000</id>
+        <title>Environment variables/system properties</title>
+        <category>optional</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>azure-aws-config-credential-01000</id>
+        <title>AWS credential configuration</title>
+        <category>mandatory</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>azure-password-01000</id>
+        <title>Password found in configuration file</title>
+        <category>potential</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>azure-file-system-02000</id>
+        <title>Relative path found</title>
+        <category>optional</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>azure-tas-binding-01000</id>
+        <title>Tanzu Application Service service bindings</title>
+        <category>potential</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>azure-cache-redis-01000</id>
+        <title>Redis Cache connection string found</title>
+        <category>information</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>azure-java-version-01000</id>
+        <title>Non-LTS version Java</title>
+        <category>mandatory</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>azure-mq-config-kafka-01000</id>
+        <title>Kafka connection string, username or password found in configuration file</title>
+        <category>information</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>azure-keystore-certificates-01000</id>
+        <title>Java KeyStore file found</title>
+        <category>potential</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>apm-00000</id>
+        <title>Application Performance Management (APM) tool - Application Insights</title>
+        <category>mandatory</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>security-01900</id>
+        <title>Embedded library - SAML</title>
+        <category>information</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>clustering-00000</id>
+        <title>Distributed Environments found</title>
+        <category>mandatory</category>
+        <targetTechnologies>
+            <targetTechnology>azure-appservice</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>database-01500</id>
+        <title>MySQL database found</title>
+        <category>potential</category>
+        <targetTechnologies/>
+    </rule>
+    <rule>
+        <id>connect-01500</id>
+        <title>ActiveMQ found</title>
+        <category>potential</category>
+        <targetTechnologies/>
+    </rule>
+    <rule>
+        <id>3rd-party-05000</id>
+        <title>Embedded library - Logstash</title>
+        <category>potential</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>configuration-management-0100</id>
+        <title>Embedded library - Spring Cloud Config</title>
+        <category>information</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>embedded-framework-09000</id>
+        <title>Embedded framework - Feign</title>
+        <category>information</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>technology-usage-web-01700</id>
+        <title>Java Swing usage</title>
+        <category>potential</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>embedded-cache-libraries-01000</id>
+        <title>EHCache library</title>
+        <category>potential</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>os-specific-00001</id>
+        <title>Windows file system path</title>
+        <category>mandatory</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>session-00001</id>
+        <title>HTTP Session data storage</title>
+        <category>potential</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>mail-00000</id>
+        <title>Java Mail API</title>
+        <category>potential</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>local-storage-00001</id>
+        <title>File system - Java IO</title>
+        <category>cloud-mandatory</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>jni-native-code-00000</id>
+        <title>Java native libraries (JNI, JNA)</title>
+        <category>cloud-mandatory</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>java-rmi-00000</id>
+        <title>Java Remote Method Invocation (RMI) service</title>
+        <category>cloud-mandatory</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+    <rule>
+        <id>logging-0000</id>
+        <title>Don't log to file system</title>
+        <category>cloud-mandatory</category>
+        <targetTechnologies>
+            <targetTechnology>azure-spring-apps</targetTechnology>
+            <targetTechnology>azure-appservice</targetTechnology>
+            <targetTechnology>azure-aks</targetTechnology>
+            <targetTechnology>azure-container-apps</targetTechnology>
+        </targetTechnologies>
+    </rule>
+</root>
