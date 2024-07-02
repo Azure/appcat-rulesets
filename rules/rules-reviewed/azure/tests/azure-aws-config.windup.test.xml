@@ -43,6 +43,18 @@
                     <fail message="aws-S3-config hint was not found!"/>
                 </perform>
             </rule>
+             <rule id="azure-aws-config-test-03001">
+                <when>
+                    <not>
+                        <iterable-filter size="4">
+                            <hint-exists message="The application contains AWS S3 configuration"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="aws-S3-config-with-special-operations hint was not found!"/>
+                </perform>
+            </rule>
             <rule id="azure-aws-config-test-04000">
                 <when>
                     <not>

@@ -13,5 +13,10 @@
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>s3</artifactId>          
         </dependency>
+    <!-- AWS SDK for Amazon SQS -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-sqs</artifactId>        
+        </dependency>
     </dependencies>
 </project>
