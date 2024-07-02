@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruletest id="azure-aws-config-test"
+          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <testDataPath>data/azure-aws-config</testDataPath>
+    <rulePath>../azure-aws-config.windup.xml</rulePath>
+    <ruleset>
+        <rules>
+            <rule id="azure-aws-s3-blob-01000">
+                <when>
+                    <not>
+                        <iterable-filter size="6">
+                            <hint-exists message="The application uses S3 storage"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="aws-s3-config hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="s3-to-azure-blob-01001">
+                <when>
+                    <not>
+                        <iterable-filter size="1">
+                            <hint-exists message="The application uses S3 storage with special operation"/>
+                        </iterable-filter>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="aws-special-operations-s3 hint was not found!"/>
+                </perform>
+            </rule>
+        </rules>
+    </ruleset>
+</ruletest>
