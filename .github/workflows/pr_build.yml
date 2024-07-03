@@ -11,6 +11,8 @@ on:
     pull_request:
         branches:
             - main
+            - 'release-*/**'
+            - dev 
 
 jobs:
     windup-build:
