@@ -145,10 +145,10 @@
         <rule id="azure-aws-config-sqs-04000">
             <when>
                 <or>                    
-                    <!-- <project>
+                    <project>
                         <artifact groupId="com.amazonaws" artifactId="aws-java-sdk-sqs"/>
                     </project>
-                    <javaclass references="com.amazonaws.services.sqs.{*}" /> -->
+                    <javaclass references="com.amazonaws.services.sqs.{*}" />
                     <filecontent pattern="aws.sqs"/>
                 </or>
             </when>
