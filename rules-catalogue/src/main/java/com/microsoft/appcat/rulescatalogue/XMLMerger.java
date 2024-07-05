@@ -1,3 +1,5 @@
+package com.microsoft.appcat.rulescatalogue;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -20,12 +22,13 @@ public class XMLMerger {
         <xsl:copy-of select="document('%s')/*"/>
         """;
 
+    private static List<String> directories = List.of(
+        //"../rules/rules-generated/",
+        "rules/rules-reviewed/azure",
+        "rules/rules-overridden-azure"
+    );
 
     public static void main(String[] args) throws Exception {
-        List<String> directories = List.of(
-            "rules/rules-reviewed/azure",
-            "rules/rules-overridden-azure"
-        );
 
         StringBuilder xsltCopies = new StringBuilder();
 
