@@ -4,6 +4,13 @@
 
 public class SystemGetEnvGetProperty {
 
+    static {
+        String port;
+        if ((port = System.getProperty("test.port")) != null) {
+            TEST_PORT = Integer.parseInt(port);
+        }
+    }
+
     public static void main(String[] args) {
         int PORT = -1;
 
@@ -24,6 +31,36 @@ public class SystemGetEnvGetProperty {
         }
 
         System.out.println(String.format("Found port: %d", PORT));
+    }
+
+    private static SpringApplicationBuilder configureApplication(SpringApplicationBuilder builder) {
+        List<String> profiles = new ArrayList<>();
+        if (Boolean.parseBoolean(System.getProperty("profile.eventScheduler", Boolean.toString(true)))) {
+            profiles.add("EventScheduler");
+        }
+        if (Boolean.parseBoolean(System.getProperty("profile.taskScheduler", Boolean.toString(true)))) {
+            profiles.add("TaskScheduler");
+        }
+        System.setProperty("org.jboss.logging.provider", "slf4j");
+        return builder.sources(SpringInitializer.class);
+    }
+
+    private String getSuffix() {
+        HttpClient httpClient = HttpClient.create()
+                .proxy(proxy -> proxy
+                        .type(ProxyProvider.Proxy.HTTP)
+                        .host(System.getProperty("https.proxyHost"))
+                        .port(Integer.valueOf(System.getProperty("https.proxyPort")))
+                        .nonProxyHosts(createNonProxyPattern(System.getProperty("http.nonProxyHosts"))));
+        String suffix = "";
+        String instance = System.getenv("INSTANCE_ID");
+        if (StringUtils.isNotEmpty(instance)) {
+            String[] split = StringUtils.split(instance, "-");
+            if (split.length > 0) {
+                suffix = "-" + split[0];
+            }
+        }
+        return suffix;
     }
 
 }
