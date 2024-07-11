@@ -21,7 +21,7 @@
                 <when>
                     <not>
                         <iterable-filter size="2">
-                          <hint-exists message=" When migrating an application that stores data in an HTTP Session to Azure, it's important to consider that the HTTP Session is not a suitable mechanism for maintaining state in a cloud environment due to scaling in and out as load changes"/>
+                          <hint-exists message="When migrating an application that stores data in an HTTP Session"/>
                         </iterable-filter>
                     </not>
                 </when>

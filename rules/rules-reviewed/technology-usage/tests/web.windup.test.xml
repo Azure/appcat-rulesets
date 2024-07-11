@@ -84,7 +84,9 @@
             <rule id="web-01700-test">
                 <when>
                     <not>
-                        <classification-exists classification="Embedded technology - Swing"/>
+                        <iterable-filter size="1">
+                            <hint-exists message="The application uses Java Swing for the graphical user interface" />
+                        </iterable-filter>
                         <technology-tag-exists technology-tag="Swing"/>
                     </not>
                 </when>
@@ -150,7 +152,9 @@
             <rule id="web-02300-test">
                 <when>
                     <not>
-                        <classification-exists classification="Embedded technology - JavaFX"/>
+                        <iterable-filter size="1">
+                            <hint-exists message="The application uses JavaFX for the graphical user interface" />
+                        </iterable-filter>
                         <technology-tag-exists technology-tag="JavaFX"/>
                     </not>
                 </when>
