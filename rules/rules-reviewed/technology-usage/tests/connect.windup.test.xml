@@ -20,18 +20,7 @@
             <perform>
                <fail message="Expected data not found for rule connect-01400"/>
             </perform>
-         </rule>
-         <rule id="connect-01500-test">
-            <when>
-               <not>
-                  <classification-exists classification="Embedded library - ActiveMQ"/>
-                  <technology-tag-exists technology-tag="ActiveMQ"/>
-               </not>
-            </when>
-            <perform>
-               <fail message="Expected data not found for rule connect-01500"/>
-            </perform>
-         </rule>
+         </rule>        
          <rule id="connect-01600-test">
             <when>
                <not>

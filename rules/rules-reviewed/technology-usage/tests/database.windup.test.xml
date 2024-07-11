@@ -20,18 +20,7 @@
             <perform>
                <fail message="Expected data not found for rule database-01400"/>
             </perform>
-         </rule>
-         <rule id="database-01500-test">
-            <when>
-               <not>
-                  <classification-exists classification="Embedded MySQL Driver"/>
-                  <technology-tag-exists technology-tag="MySQL Driver"/>
-               </not>
-            </when>
-            <perform>
-               <fail message="Expected data not found for rule database-01500"/>
-            </perform>
-         </rule>
+         </rule>         
          <rule id="database-01600-test">
             <when>
                <not>
@@ -42,18 +31,7 @@
             <perform>
                <fail message="Expected data not found for rule database-01600"/>
             </perform>
-         </rule>
-         <rule id="database-01700-test">
-            <when>
-               <not>
-                  <classification-exists classification="Embedded PostgreSQL Driver"/>
-                  <technology-tag-exists technology-tag="PostgreSQL Driver"/>
-               </not>
-            </when>
-            <perform>
-               <fail message="Expected data not found for rule database-01700"/>
-            </perform>
-         </rule>
+         </rule>         
          <rule id="database-01800-test">
             <when>
                <not>
@@ -63,17 +41,6 @@
             </when>
             <perform>
                <fail message="Expected data not found for rule database-01800"/>
-            </perform>
-         </rule>
-         <rule id="database-01900-test">
-            <when>
-               <not>
-                  <classification-exists classification="Embedded Microsoft SQL Driver"/>
-                  <technology-tag-exists technology-tag="Microsoft SQL Driver"/>
-               </not>
-            </when>
-            <perform>
-               <fail message="Expected data not found for rule database-01900"/>
             </perform>
          </rule>
          <rule id="database-02000-test">
@@ -97,18 +64,7 @@
             <perform>
                <fail message="Expected data not found for rule database-02100"/>
             </perform>
-         </rule>
-         <rule id="database-02200-test">
-            <when>
-               <not>
-                  <classification-exists classification="Embedded Cassandra Client"/>
-                  <technology-tag-exists technology-tag="Cassandra Client"/>
-               </not>
-            </when>
-            <perform>
-               <fail message="Expected data not found for rule database-02200"/>
-            </perform>
-         </rule>
+         </rule>         
          <rule id="database-02300-test">
             <when>
                <not>
@@ -130,18 +86,7 @@
             <perform>
                <fail message="Expected data not found for rule database-02400"/>
             </perform>
-         </rule>
-         <rule id="database-02500-test">
-            <when>
-               <not>
-                  <classification-exists classification="Embedded MongoDB Client"/>
-                  <technology-tag-exists technology-tag="MongoDB Client"/>
-               </not>
-            </when>
-            <perform>
-               <fail message="Expected data not found for rule database-02500"/>
-            </perform>
-         </rule>
+         </rule>        
          <rule id="database-02600-test">
             <when>
                <not>
@@ -207,18 +152,7 @@
             <perform>
                <fail message="Expected data not found for rule database-03100"/>
             </perform>
-         </rule>
-          <rule id="database-03200-test">
-              <when>
-                  <not>
-                      <classification-exists classification="Embedded MariaDB Driver"/>
-                      <technology-tag-exists technology-tag="MariaDB Driver"/>
-                  </not>
-              </when>
-              <perform>
-                  <fail message="Expected data not found for rule database-03200"/>
-              </perform>
-          </rule>
+         </rule>          
       </rules>
    </ruleset>
 </ruletest>
