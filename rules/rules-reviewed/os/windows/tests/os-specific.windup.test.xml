@@ -21,7 +21,7 @@
                 <when>
                     <not>
                         <iterable-filter size="1">
-                            <hint-exists message="The application currently relies on a Dynamic-Link Library (DLL)" />
+                            <hint-exists message="The application currently relies on a Dynamic-Link Library" />
                         </iterable-filter>
                     </not>
                 </when>
