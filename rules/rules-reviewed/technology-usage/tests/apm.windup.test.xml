@@ -17,7 +17,7 @@
                     </not>
                 </when>
                 <perform>
-                    <fail message="Keerthi - APM - Application Insights hint was not found!" />
+                    <fail message="APM - Application Insights hint was not found!" />
                 </perform>
             </rule>
             <rule id="apm-test-00001">
@@ -29,7 +29,7 @@
                     </not>
                 </when>
                 <perform>
-                    <fail message="Keerthi - APM - New Relic hint was not found!" />
+                    <fail message="APM - New Relic hint was not found!" />
                 </perform>
             </rule>
             <rule id="apm-test-00002">
@@ -53,7 +53,7 @@
                     </not>
                 </when>
                 <perform>
-                    <fail message="Keerthi - APM - Dynatrace hint was not found!" />
+                    <fail message="APM - Dynatrace hint was not found!" />
                 </perform>
             </rule>
         </rules>
