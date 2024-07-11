@@ -41,7 +41,7 @@
                     </not>
                 </when>
                 <perform>
-                    <fail message="Keerthi - APM - Elastic APM hint was not found!" />
+                    <fail message="APM - Elastic APM hint was not found!" />
                 </perform>
             </rule>
             <rule id="apm-test-00003">
