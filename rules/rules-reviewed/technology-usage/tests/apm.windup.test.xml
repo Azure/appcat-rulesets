@@ -11,41 +11,49 @@
             <rule id="apm-test-00000">
                 <when>
                     <not>
-                        <classification-exists classification="Application Performance Management \(APM\) tool - Application Insights" />
+                        <iterable-filter size="2">
+                            <hint-exists message="To migrate a Java application that uses Application Insights" />
+                        </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="APM - Application Insights hint was not found!" />
+                    <fail message="Keerthi - APM - Application Insights hint was not found!" />
                 </perform>
             </rule>
             <rule id="apm-test-00001">
                 <when>
                     <not>
-                        <classification-exists classification="Application Performance Management \(APM\) tool - New Relic" />
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses New Relic to Azure" />
+                        </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="APM - New Relic hint was not found!" />
+                    <fail message="Keerthi - APM - New Relic hint was not found!" />
                 </perform>
             </rule>
             <rule id="apm-test-00002">
                 <when>
                     <not>
-                        <classification-exists classification="Application Performance Management \(APM\) tool - Elastic APM" />
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses Elastic APM" />
+                        </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="APM - Elastic APM hint was not found!" />
+                    <fail message="Keerthi - APM - Elastic APM hint was not found!" />
                 </perform>
             </rule>
             <rule id="apm-test-00003">
                 <when>
                     <not>
-                        <classification-exists classification="Application Performance Management \(APM\) tool - Dynatrace" />
+                        <iterable-filter size="1">
+                            <hint-exists message="To migrate a Java application that uses Dynatrace" />
+                        </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="APM - Dynatrace hint was not found!" />
+                    <fail message="Keerthi - APM - Dynatrace hint was not found!" />
                 </perform>
             </rule>
         </rules>

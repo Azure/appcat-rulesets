@@ -56,7 +56,9 @@
          <rule id="3rd-party-05000-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded framework - Logstash"/>
+                  <iterable-filter size="1">
+                        <hint-exists message="The application embeds the Logstash framework" />
+                  </iterable-filter>
                   <technology-tag-exists technology-tag="Logstash"/>
                </not>
             </when>
@@ -221,7 +223,9 @@
          <rule id="3rd-party-20000-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded framework - Splunk"/>
+                  <iterable-filter size="1">
+                        <hint-exists message="The application embeds the Splunk framework" />
+                  </iterable-filter>
                   <technology-tag-exists technology-tag="Splunk"/>
                </not>
             </when>
