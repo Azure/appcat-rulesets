@@ -9,7 +9,7 @@
                 <when>
                     <not>
                         <iterable-filter size="1">
-                         <hint-exists message="The application uses EHCache" />
+                         <hint-exists message="The application embeds an Ehcache library" />
                         </iterable-filter>
                     </not>
                 </when>
