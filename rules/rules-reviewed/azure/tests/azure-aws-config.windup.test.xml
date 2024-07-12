@@ -34,7 +34,7 @@
             <rule id="azure-aws-config-test-03000">
                 <when>
                     <not>
-                        <iterable-filter size="10">
+                        <iterable-filter size="20">
                             <hint-exists message="The application contains AWS S3 configuration"/>
                         </iterable-filter>
                     </not>

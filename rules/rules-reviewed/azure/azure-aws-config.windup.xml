@@ -71,22 +71,14 @@
                     </project>
 		            <javaclass references="software.amazon.awssdk.services.s3.{*}">
                          <location>IMPORT</location>
-                    </javaclass>
-					<filecontent filename="{*}.{extensions}" pattern="aws.access_key_id"/>
-					<filecontent filename="{*}.{extensions}" pattern="aws.secret_access_key"/>
-					<filecontent filename="{*}.{extensions}" pattern="aws.s3.region"/>
-					<filecontent filename="{*}.{extensions}" pattern="aws.s3.bucket"/>
-					
+                    </javaclass>					
+					<filecontent filename="{*}.properties" pattern="aws.s3"/>				
 					<project>
                         <artifact groupId="com.amazonaws" artifactId="aws-java-sdk-s3"/>
                     </project>
 					<javaclass references="com.amazonaws.services.s3.{*}">
                             <location>IMPORT</location>
-                    </javaclass>
-					<filecontent filename="{*}.{extensions}" pattern="aws.s3.accessKey"/>
-					<filecontent filename="{*}.{extensions}" pattern="aws.s3.secretKey"/>
-					<filecontent filename="{*}.{extensions}" pattern="aws.s3.region"/>
-					<filecontent filename="{*}.{extensions}" pattern="aws.s3.bucket"/>
+                    </javaclass>		
                 </or>
             </when>
             <perform>
@@ -111,10 +103,7 @@
                     <link title="Move your data from AWS S3 to Azure Storage using AzCopy" href="https://azure.microsoft.com/blog/move-your-data-from-aws-s3-to-azure-storage-using-azcopy"/>
                     <tag>storage</tag>
                 </hint>
-            </perform>
-            <where param="extensions">
-                <matches pattern="(properties)" />
-            </where>
+            </perform>                       
         </rule>         
         <rule id="azure-aws-config-sqs-04000">
             <when>
