@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+<application id="sync"
+                 location="C:\src\projects\production\company\target\service.war"
+                 name="service"
+                 type="war"
+                 context-root="/service"/>
+</configuration>

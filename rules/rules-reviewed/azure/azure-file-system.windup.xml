@@ -50,7 +50,7 @@
                 </hint>
             </perform>
             <where param="extensions">
-                <matches pattern="(java|properties|yaml|yml)"/>
+                <matches pattern="(java|properties|yaml|yml|xml)"/>
             </where>
             <where param="path">
                 <matches pattern="\.\/."/>
