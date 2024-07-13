@@ -1,7 +1,7 @@
 package com.microsoft.appcat.rulescatalogue;
 
-import java.util.List;
+import javax.xml.transform.stream.StreamSource;
 
-public record Catalogue(String name, List<String> directories, String templateId) {
-    
+public record Catalogue(String name, String directoryPath, StreamSource xsltTemplate) {
+
 }

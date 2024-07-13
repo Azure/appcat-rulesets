@@ -3,7 +3,6 @@ package com.microsoft.appcat.rulescatalogue;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.xml.transform.Transformer;
@@ -19,64 +18,68 @@ public class Generator {
         System.setProperty("java.util.logging.SimpleFormatter.format", "[%1$tF %1$tT] [%4$-7s] %5$s %n");
     }
 
-    static String XSLT_MARKDOWN_TEMPLATE = "rules-catalogue/src/main/resources/markdown.xslt";
+    static String XSLT_MARKDOWN_TEMPLATE_PATH = "rules-catalogue/src/main/resources/";
+
+    static StreamSource XSLT_AZURE_TEMPLATE = new StreamSource(XSLT_MARKDOWN_TEMPLATE_PATH + "azure-template.xslt");
+    static StreamSource XSLT_GENERIC_TEMPLATE = new StreamSource(XSLT_MARKDOWN_TEMPLATE_PATH + "generic-template.xslt");
+
+    static String OUTPUT = "rules-catalogue/target/rules-catalogue.md";
+
+    static TransformerFactory factory = TransformerFactory.newInstance();
 
     public static void main(String[] args) {
 
-        var catalogues = List.of(
-                new Catalogue("Azure", List.of(
-                        "rules/rules-reviewed/azure",
-                        "rules/rules-overridden-azure"), "azure"),
-                new Catalogue("OpenJDK 11", List.of(
-                        "rules/rules-reviewed/openjdk11/openjdk8"), "generic"),
-                new Catalogue("OpenJDK 17", List.of(
-                        "rules/rules-reviewed/openjdk17/openjdk11"), "generic"),
-                new Catalogue("OpenJDK 21", List.of(
-                        "rules/rules-reviewed/openjdk21/openjdk17"), "generic"),
-                new Catalogue("Cloud Readiness", List.of(
-                        "rules/rules-reviewed/cloud-readiness"), "generic"),
-                new Catalogue("Linux", List.of(
-                        "rules/rules-reviewed/os/windows"), "generic"));
+        if (args.length == 1) {
+            OUTPUT = args[0];
+        }
 
-        var markdownFile = new File("rules-catalogue/target/rules-catalogue.md");
+        var catalogues = List.of(
+                new Catalogue("Azure", "rules/rules-reviewed/azure", XSLT_AZURE_TEMPLATE),
+                new Catalogue("OpenJDK 11", "rules/rules-reviewed/openjdk11/openjdk8", XSLT_GENERIC_TEMPLATE),
+                new Catalogue("OpenJDK 17", "rules/rules-reviewed/openjdk17/openjdk11", XSLT_GENERIC_TEMPLATE),
+                new Catalogue("OpenJDK 21", "rules/rules-reviewed/openjdk21/openjdk17", XSLT_GENERIC_TEMPLATE),
+                new Catalogue("Cloud Readiness", "rules/rules-reviewed/cloud-readiness", XSLT_GENERIC_TEMPLATE),
+                new Catalogue("Linux", "rules/rules-reviewed/os/windows", XSLT_GENERIC_TEMPLATE),
+                new Catalogue("Azure (overridden rules)", "rules/rules-overridden-azure", XSLT_AZURE_TEMPLATE));
+
+        var markdownFile = new File(OUTPUT);
         if (markdownFile.exists()) {
             markdownFile.delete();
         }
 
         try (FileOutputStream outputFile = new FileOutputStream(markdownFile, true)) {
-            // 1. Instantiate a TransformerFactory.
-            var factory = TransformerFactory.newInstance();
-
-            // 2. Use the TransformerFactory to create a Transformer for the XSLT.
-            var xslt = new StreamSource("rules-catalogue/src/main/resources/markdown.xslt");
-            var transformer = factory.newTransformer(xslt);
-
             // Create a Result object to capture the output.
             var output = new StreamResult(outputFile);
 
-            boolean headerWritten = false;
-
             // start loop here
             for (var entry : catalogues) {
-                var catalogueName = entry.name();
-                var directories = entry.directories();
-
-                transformer.setParameter("catalogueName", catalogueName);
-                transformer.setParameter("templateId", entry.templateId());
-
-                for (String directoryPath : directories) {
-                    var directory = new File(directoryPath);
-
-                    processDirectory(transformer, output, headerWritten, directoryPath, directory);
-                }
+                // log which catalogue is being parsed
+                LOGGER.info("Parsing catalogue: " + entry.name());
+                parseCatalogue(output, entry);
             }
-            System.out.println("Transformation completed successfully.");
+            LOGGER.info("Transformation completed successfully.");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private static void processDirectory(Transformer transformer, StreamResult output, boolean headerWritten,
+    private static void parseCatalogue(StreamResult output,
+            Catalogue entry) throws Exception {
+
+        var transformer = factory.newTransformer(entry.xsltTemplate());
+        var catalogueName = entry.name();
+        var directoryPath = entry.directoryPath();
+
+        boolean includeHeader = true;
+        transformer.setParameter("catalogueName", catalogueName);
+        transformer.setParameter("includeHeader", "true");
+
+        var directory = new File(directoryPath);
+        processDirectory(entry, transformer, output, includeHeader, directoryPath, directory);
+    }
+
+    private static void processDirectory(Catalogue entry, Transformer transformer, StreamResult output,
+            boolean includeHeader,
             String directoryPath, File directory) throws Exception {
         if (!directory.exists()) {
             LOGGER.warning("Directory does not exist: " + directoryPath);
@@ -87,15 +90,17 @@ public class Generator {
         for (var file : directory.listFiles()) {
             if (isValidRulesetFile(file)) {
                 LOGGER.info("Processing file: " + file.getAbsolutePath());
-                transformer.setParameter("filename", file.getName());
+                var filename = file.getName();
+                transformer.setParameter("filename", filename);
+
                 transformer.transform(new StreamSource(file), output);
 
-                if (!headerWritten) {
-                    headerWritten = true;
+                if (includeHeader) {
+                    includeHeader = false;
                     transformer.setParameter("includeHeader", "false");
                 }
             } else if (file.isDirectory() && !file.getName().equals("tests")) {
-                processDirectory(transformer, output, headerWritten, directoryPath, file);
+                processDirectory(entry, transformer, output, includeHeader, directoryPath, file);
             }
         }
     }
