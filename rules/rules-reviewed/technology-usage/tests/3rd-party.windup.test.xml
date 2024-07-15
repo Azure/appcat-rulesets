@@ -251,6 +251,28 @@
                <fail message="Expected data not found for rule 3rd-party-30100"/>
             </perform>
          </rule>
+          <rule id="3rd-party-30000-test">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded framework - Nacos"/>
+                  <technology-tag-exists technology-tag="Nacos"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule 3rd-party-30000"/>
+            </perform>
+         </rule>
+         <rule id="3rd-party-30300-test">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded framework - Cloud Seata"/>
+                  <technology-tag-exists technology-tag="Cloud Seata"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule 3rd-party-30100"/>
+            </perform>
+         </rule>         
       </rules>
    </ruleset>
 </ruletest>
