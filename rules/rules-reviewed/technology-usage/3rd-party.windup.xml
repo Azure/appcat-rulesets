@@ -318,5 +318,29 @@
                 <technology-tag level="INFORMATIONAL">Sentinel</technology-tag>
             </perform>
         </rule>
+        <rule id="3rd-party-30200">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="org.apache.rocketmq" artifactId="rocketmq-client"/>
+                    </project>
+                    <project>
+                        <artifact groupId="org.apache.rocketmq" artifactId="rocketmq-acl"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-starter-stream-rocketmq"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-starter-bus-rocketmq"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Rocket MQ" category-id="information" effort="0">
+                    <description>The application embeds the Rocket MQ framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Rocket MQ</technology-tag>
+            </perform>
+        </rule>
     </rules>
 </ruleset>
