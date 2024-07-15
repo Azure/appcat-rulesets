@@ -240,7 +240,7 @@
                <fail message="Expected data not found for rule 3rd-party-30100"/>
             </perform>
          </rule>
-          <rule id="3rd-party-30000-test">
+         <rule id="3rd-party-30000-test">
             <when>
                <not>
                   <classification-exists classification="Embedded framework - Nacos"/>
