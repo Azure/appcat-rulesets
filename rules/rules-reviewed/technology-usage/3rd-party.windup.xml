@@ -318,6 +318,24 @@
                 <technology-tag level="INFORMATIONAL">Sentinel</technology-tag>
             </perform>
         </rule>
+        <rule id="3rd-party-30400">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="com.aliyun.schedulerx" artifactId="schedulerx2-worker"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.aliyun.schedulerx" artifactId="schedulerx2-spring-boot-starter"/>
+                    </project>                    
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Scheduler X" category-id="information" effort="0">
+                    <description>The application embeds the Scheduler X framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Scheduler X</technology-tag>
+            </perform>
+        </rule>        
         <rule id="3rd-party-30500">
             <when>
                 <or>
