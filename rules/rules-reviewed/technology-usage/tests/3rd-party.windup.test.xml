@@ -251,6 +251,17 @@
                <fail message="Expected data not found for rule 3rd-party-30100"/>
             </perform>
          </rule>
+          <rule id="3rd-party-30500-test">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded framework - Cloud SMS"/>
+                  <technology-tag-exists technology-tag="Cloud SMS"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule 3rd-party-30500"/>
+            </perform>
+         </rule>
       </rules>
    </ruleset>
 </ruletest>
