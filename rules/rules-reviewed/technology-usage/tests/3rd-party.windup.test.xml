@@ -251,6 +251,17 @@
                <fail message="Expected data not found for rule 3rd-party-30000"/>
             </perform>
          </rule>
+         <rule id="3rd-party-30200-test">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded framework - Rocket MQ"/>
+                  <technology-tag-exists technology-tag="Rocket MQ"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule 3rd-party-30200"/>
+            </perform>
+         </rule>
          <rule id="3rd-party-30300-test">
             <when>
                <not>
@@ -261,7 +272,7 @@
             <perform>
                <fail message="Expected data not found for rule 3rd-party-30100"/>
             </perform>
-         </rule>
+         </rule>            
          <rule id="3rd-party-30400-test">
             <when>
                <not>
