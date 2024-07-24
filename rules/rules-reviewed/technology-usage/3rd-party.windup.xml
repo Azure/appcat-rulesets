@@ -335,7 +335,30 @@
                 </classification>
                 <technology-tag level="INFORMATIONAL">Scheduler X</technology-tag>
             </perform>
+        </rule>        
+        <rule id="3rd-party-30500">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="com.aliyun" artifactId="dysmsapi20170525"/>
+                    </project>                    
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-alicloud-sms"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="aliyun-sms-spring-boot-starter"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-starter-alicloud-sms"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Cloud SMS" category-id="information" effort="0">
+                    <description>The application embeds the Sentinel framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Cloud SMS</technology-tag>
+            </perform>
         </rule>
-        
     </rules>
 </ruleset>
