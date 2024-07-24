@@ -260,6 +260,8 @@
             </when>
             <perform>
                <fail message="Expected data not found for rule 3rd-party-30400"/>
+            </perform>
+         </rule>
           <rule id="3rd-party-30500-test">
             <when>
                <not>
