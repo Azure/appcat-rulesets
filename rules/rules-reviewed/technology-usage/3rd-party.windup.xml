@@ -402,5 +402,32 @@
                 <technology-tag level="INFORMATIONAL">Cloud SMS</technology-tag>
             </perform>
         </rule>
+        <rule id="3rd-party-30600">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="com.aliyun.oss" artifactId="aliyun-sdk-oss"/>
+                    </project>                    
+                    <project>
+                        <artifact groupId="com.aliyun.oss" artifactId="aliyun-sdk-oss-private"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.aliyun.oss" artifactId="aliyun-sdk-oss-console"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.aliyun.oss" artifactId="hadoop-aliyun"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.aliyun.oss" artifactId="kafka-connect-oss"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Cloud OSS" category-id="information" effort="0">
+                    <description>The application embeds the Cloud OSS framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Cloud OSS</technology-tag>
+            </perform>
+        </rule>
     </rules>
 </ruleset>
