@@ -36,7 +36,12 @@
         </rule>
         <rule id="3rd-party-03000">
             <when>
-                <file filename="spring-boot{*}.jar"/>
+                <or>
+                    <file filename="spring-boot{*}.jar"/>
+                    <project>
+                        <artifact groupId="org.springframework" artifactId="spring-boot"/>
+                    </project>
+                </or>
             </when>
             <perform>
                 <iteration>
