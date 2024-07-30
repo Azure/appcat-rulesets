@@ -662,7 +662,9 @@
          <rule id="embedded-framework-09100-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded framework - Zipkin"/>
+                  <iterable-filter size="1">
+                        <hint-exists message="The application embeds the Zipkin framework" />
+                  </iterable-filter>
                   <technology-tag-exists technology-tag="Zipkin"/>
                </not>
             </when>
@@ -673,7 +675,9 @@
          <rule id="embedded-framework-09000-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded framework - Feign"/>
+                  <iterable-filter size="1">
+                        <hint-exists message="The application embeds the Feign framework" />
+                  </iterable-filter>
                   <technology-tag-exists technology-tag="Feign"/>
                </not>
             </when>
@@ -684,7 +688,9 @@
          <rule id="embedded-framework-09300-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded framework - Eureka"/>
+                  <iterable-filter size="1">
+                        <hint-exists message="The application embeds the Eureka client" />
+                  </iterable-filter>
                   <technology-tag-exists technology-tag="Eureka"/>
                </not>
             </when>

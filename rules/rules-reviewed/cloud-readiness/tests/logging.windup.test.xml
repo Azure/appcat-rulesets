@@ -9,7 +9,7 @@
                 <when>
                     <not>
                         <iterable-filter size="12">
-  	                      <hint-exists message="If the application writes logs to a file system, local log" />
+  	                      <hint-exists message="Logging to the file system is not recommended when running applications in the cloud" />
                         </iterable-filter>
                     </not>
                 </when>
