@@ -100,7 +100,9 @@
          <rule id="security-01900-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded library - SAML"/>
+                  <iterable-filter size="2">
+                        <hint-exists message="The application embeds a SAML library" />
+                  </iterable-filter>
                   <technology-tag-exists technology-tag="SAML"/>
                </not>
             </when>
@@ -199,7 +201,9 @@
          <rule id="security-02800-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded library - OpenSAML"/>
+                  <iterable-filter size="1">
+                        <hint-exists message="The application embeds an OpenSAML library" />
+                  </iterable-filter>
                   <technology-tag-exists technology-tag="OpenSAML"/>
                </not>
             </when>

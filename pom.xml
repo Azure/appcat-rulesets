@@ -19,6 +19,7 @@
     <modules>
         <module>rules</module>
         <module>rules-themed</module>
+        <module>rules-catalogue</module>
     </modules>
 
     <properties>

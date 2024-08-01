@@ -56,7 +56,9 @@
          <rule id="3rd-party-05000-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded framework - Logstash"/>
+                  <iterable-filter size="1">
+                        <hint-exists message="The application embeds the Logstash framework" />
+                  </iterable-filter>
                   <technology-tag-exists technology-tag="Logstash"/>
                </not>
             </when>
@@ -221,12 +223,25 @@
          <rule id="3rd-party-20000-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded framework - Splunk"/>
+                  <iterable-filter size="1">
+                        <hint-exists message="The application embeds the Splunk framework" />
+                  </iterable-filter>
                   <technology-tag-exists technology-tag="Splunk"/>
                </not>
             </when>
             <perform>
                <fail message="Expected data not found for rule 3rd-party-20000"/>
+            </perform>
+         </rule>         
+         <rule id="3rd-party-30100-test">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded framework - Sentinel"/>
+                  <technology-tag-exists technology-tag="Sentinel"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule 3rd-party-30100"/>
             </perform>
          </rule>
          <rule id="3rd-party-30000-test">
@@ -240,15 +255,59 @@
                <fail message="Expected data not found for rule 3rd-party-30000"/>
             </perform>
          </rule>
-         <rule id="3rd-party-30100-test">
+         <rule id="3rd-party-30200-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded framework - Sentinel"/>
-                  <technology-tag-exists technology-tag="Sentinel"/>
+                  <classification-exists classification="Embedded framework - Rocket MQ"/>
+                  <technology-tag-exists technology-tag="Rocket MQ"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule 3rd-party-30200"/>
+            </perform>
+         </rule>
+         <rule id="3rd-party-30300-test">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded framework - Cloud Seata"/>
+                  <technology-tag-exists technology-tag="Cloud Seata"/>
                </not>
             </when>
             <perform>
                <fail message="Expected data not found for rule 3rd-party-30100"/>
+            </perform>
+         </rule>            
+         <rule id="3rd-party-30400-test">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded framework - Scheduler X"/>
+                  <technology-tag-exists technology-tag="Scheduler X"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule 3rd-party-30400"/>
+            </perform>
+         </rule>
+         <rule id="3rd-party-30500-test">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded framework - Cloud SMS"/>
+                  <technology-tag-exists technology-tag="Cloud SMS"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule 3rd-party-30500"/>
+            </perform>
+         </rule>
+         <rule id="3rd-party-30600-test">
+            <when>
+               <not>
+                  <classification-exists classification="Embedded framework - Cloud OSS"/>
+                  <technology-tag-exists technology-tag="Cloud OSS"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Expected data not found for rule 3rd-party-30600"/>
             </perform>
          </rule>
       </rules>

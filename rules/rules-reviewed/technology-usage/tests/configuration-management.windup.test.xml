@@ -12,7 +12,9 @@
          <rule id="configuration-management-0100-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded library - Spring Cloud Config"/>
+                  <iterable-filter size="3">
+                        <hint-exists message="The application embeds Spring Cloud" />
+                  </iterable-filter>
                   <technology-tag-exists technology-tag="Spring Cloud Config"/>
                </not>
             </when>
@@ -67,7 +69,9 @@
          <rule id="configuration-management-0600-test">
             <when>
                <not>
-                  <classification-exists classification="Embedded library - Spring Cloud Vault"/>
+                  <iterable-filter size="1">
+                        <hint-exists message="The application embeds Spring Cloud Vault" />
+                  </iterable-filter>
                   <technology-tag-exists technology-tag="Spring Cloud Vault"/>
                </not>
             </when>

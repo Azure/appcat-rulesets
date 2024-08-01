@@ -22,7 +22,7 @@
             <rule id="azure-aws-config-test-02000">
                 <when>
                     <not>
-                        <iterable-filter size="1">
+                        <iterable-filter size="3">
                             <hint-exists message="The application contains AWS region configuration"/>
                         </iterable-filter>
                     </not>
@@ -34,7 +34,7 @@
             <rule id="azure-aws-config-test-03000">
                 <when>
                     <not>
-                        <iterable-filter size="2">
+                        <iterable-filter size="20">
                             <hint-exists message="The application contains AWS S3 configuration"/>
                         </iterable-filter>
                     </not>
@@ -42,11 +42,11 @@
                 <perform>
                     <fail message="aws-S3-config hint was not found!"/>
                 </perform>
-            </rule>
+            </rule>            
             <rule id="azure-aws-config-test-04000">
                 <when>
                     <not>
-                        <iterable-filter size="2">
+                        <iterable-filter size="6">
                             <hint-exists message="The application contains Amazon Simple Queue Service configuration"/>
                         </iterable-filter>
                     </not>
@@ -59,7 +59,7 @@
                 <when>
                     <not>
                         <iterable-filter size="2">
-                            <hint-exists message="The application contains AWS Secrets Manager configuration." />
+                            <hint-exists message="The application contains AWS Secrets Manager configuration" />
                         </iterable-filter>
                     </not>
                 </when>

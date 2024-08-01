@@ -36,7 +36,12 @@
         </rule>
         <rule id="3rd-party-03000">
             <when>
-                <file filename="spring-boot{*}.jar"/>
+                <or>
+                    <file filename="spring-boot{*}.jar"/>
+                    <project>
+                        <artifact groupId="org.springframework" artifactId="spring-boot"/>
+                    </project>
+                </or>
             </when>
             <perform>
                 <iteration>
@@ -316,6 +321,117 @@
                     <description>The application embeds the Sentinel framework.</description>
                 </classification>
                 <technology-tag level="INFORMATIONAL">Sentinel</technology-tag>
+            </perform>
+        </rule>
+        <rule id="3rd-party-30200">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="org.apache.rocketmq" artifactId="rocketmq-client"/>
+                    </project>
+                    <project>
+                        <artifact groupId="org.apache.rocketmq" artifactId="rocketmq-acl"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-starter-stream-rocketmq"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-starter-bus-rocketmq"/>
+                  </project>
+                </or>              
+            </when>
+            <perform>
+                <classification title="Embedded framework - Rocket MQ" category-id="information" effort="0">
+                    <description>The application embeds the Rocket MQ framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Rocket MQ</technology-tag>
+            </perform>
+        </rule>
+        <rule id="3rd-party-30300">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="io.seata" artifactId="seata-spring-boot-starter"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId=">spring-cloud-starter-alibaba-seata"/>
+                    </project>                   
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Cloud Seata" category-id="information" effort="0">
+                    <description>The application embeds the Cloud Seata framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Cloud Seata</technology-tag>
+          </perform>
+      </rule>
+        <rule id="3rd-party-30400">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="com.aliyun.schedulerx" artifactId="schedulerx2-worker"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.aliyun.schedulerx" artifactId="schedulerx2-spring-boot-starter"/>
+                    </project>                    
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Scheduler X" category-id="information" effort="0">
+                    <description>The application embeds the Scheduler X framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Scheduler X</technology-tag>
+            </perform>
+        </rule>        
+        <rule id="3rd-party-30500">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="com.aliyun" artifactId="dysmsapi20170525"/>
+                    </project>                    
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-alicloud-sms"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="aliyun-sms-spring-boot-starter"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.alibaba.cloud" artifactId="spring-cloud-starter-alicloud-sms"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Cloud SMS" category-id="information" effort="0">
+                    <description>The application embeds the Sentinel framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Cloud SMS</technology-tag>
+            </perform>
+        </rule>
+        <rule id="3rd-party-30600">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="com.aliyun.oss" artifactId="aliyun-sdk-oss"/>
+                    </project>                    
+                    <project>
+                        <artifact groupId="com.aliyun.oss" artifactId="aliyun-sdk-oss-private"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.aliyun.oss" artifactId="aliyun-sdk-oss-console"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.aliyun.oss" artifactId="hadoop-aliyun"/>
+                    </project>
+                    <project>
+                        <artifact groupId="com.aliyun.oss" artifactId="kafka-connect-oss"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <classification title="Embedded framework - Cloud OSS" category-id="information" effort="0">
+                    <description>The application embeds the Cloud OSS framework.</description>
+                </classification>
+                <technology-tag level="INFORMATIONAL">Cloud OSS</technology-tag>
             </perform>
         </rule>
     </rules>

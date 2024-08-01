@@ -66,7 +66,19 @@
         <rule id="azure-aws-config-s3-03000">
             <when>
                 <or>
-                    <filecontent pattern="aws.s3"/>
+                    <project>
+                        <artifact groupId="software.amazon.awssdk" artifactId="s3"/>
+                    </project>
+		            <javaclass references="software.amazon.awssdk.services.s3.{*}">
+                         <location>IMPORT</location>
+                    </javaclass>					
+					<filecontent filename="{*}.properties" pattern="aws.s3"/>				
+					<project>
+                        <artifact groupId="com.amazonaws" artifactId="aws-java-sdk-s3"/>
+                    </project>
+					<javaclass references="com.amazonaws.services.s3.{*}">
+                            <location>IMPORT</location>
+                    </javaclass>		
                 </or>
             </when>
             <perform>
@@ -89,12 +101,19 @@
                     <link title="Azure Blob Storage documentation" href="https://learn.microsoft.com/azure/storage/blobs"/>
                     <link title="Quickstart: Azure Blob Storage client library for Java" href="https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java"/>
                     <link title="Move your data from AWS S3 to Azure Storage using AzCopy" href="https://azure.microsoft.com/blog/move-your-data-from-aws-s3-to-azure-storage-using-azcopy"/>
+                    <tag>storage</tag>
                 </hint>
-            </perform>
-        </rule>
+            </perform>                       
+        </rule>         
         <rule id="azure-aws-config-sqs-04000">
             <when>
-                <or>
+                <or>                    
+                    <project>
+                        <artifact groupId="com.amazonaws" artifactId="aws-java-sdk-sqs"/>
+                    </project>
+                    <javaclass references="com.amazonaws.services.sqs.{*}">
+                        <location>IMPORT</location>
+                    </javaclass>
                     <filecontent pattern="aws.sqs"/>
                 </or>
             </when>
@@ -113,6 +132,7 @@
                     </message>
                     <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
                     <link title="Azure Service Bus libraries for Java" href="https://learn.microsoft.com/java/api/overview/azure/service-bus"/>
+                    <tag>servicebus</tag>
                 </hint>
             </perform>
         </rule>
@@ -141,6 +161,6 @@
                     <link title="Azure Key Vault CLI" href="https://learn.microsoft.com/cli/azure/keyvault"/>
                 </hint>
             </perform>
-        </rule>
+        </rule>        
     </rules>
 </ruleset>
