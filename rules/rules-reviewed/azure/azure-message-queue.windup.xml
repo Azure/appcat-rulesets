@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruleset id="azure-mq-config"
+<ruleset id="azure-message-queue-config"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
     <metadata>
         <description>
-            This ruleset identifies message queue connection strings, usernames, or passwords.
+            This ruleset identifies message queue.
         </description>
         <dependencies>
             <addon id="org.jboss.windup.rules,windup-rules-xml,3.0.0.Final"/>
@@ -17,7 +17,7 @@
         <tag>message queue</tag>
     </metadata>
     <rules>
-        <rule id="azure-mq-config-kafka-01000">
+        <rule id="azure-message-queue-config-kafka-01000">
             <when>
                 <filecontent filename="{*}.{extensions}" pattern="{pattern}"/>
             </when>
@@ -47,7 +47,7 @@
             </where>
         </rule>
         <!-- Rule for detecting RabbitMQ configurations -->
-        <rule id="azure-mq-config-rabbitmq-01000">
+        <rule id="azure-message-queue-config-rabbitmq-01000">
             <when>
                 <filecontent filename="{*}.{extensions}" pattern="{pattern}"/>
             </when>
@@ -78,7 +78,7 @@
         </rule>
 
         <!-- Rule for detecting Artemis configurations -->
-        <rule id="azure-mq-config-artemis-01000">
+        <rule id="azure-message-queue-config-artemis-01000">
             <when>
                 <filecontent filename="{*}.{extensions}" pattern="{pattern}"/>
             </when>
@@ -108,6 +108,80 @@
             <where param="pattern">
                 <matches pattern="artemis\.(broker-url|user|password)"/>
             </where>
+        </rule>
+
+        <rule id="azure-message-queue-rabbitmq-01000">
+            <when>
+                <javaclass references="org.springframework.amqp.rabbit.{*}"/>
+            </when>
+            <perform>
+                <hint title="Spring RabbitMQ usage found in code" category-id="information" effort="0">
+                    <message>
+                        The application uses Spring RabbitMQ based on Spring AMQP. To migrate a Java application that uses Spring RabbitMQ to Azure, you can follow these recommendations:
+
+                        * Provision **Azure Service Bus**: Replace RabbitMQ with Azure Service Bus, a fully managed messaging service that offers reliable message queuing and publish/subscribe capabilities.
+
+                        * Update the application's **messaging connection** details: Modify the Java application's configuration updating the connection information and message queues/topics.
+
+                        * Configure Azure Service Bus **queues/topics**: Create appropriate queues or topics in Azure Service Bus to align with your application's messaging requirements. Configure access control and security settings as needed.
+                    </message>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
+                    <link title="Use Azure Service Bus in Spring applications" href="https://learn.microsoft.com/azure/developer/java/spring-framework/using-service-bus-in-spring-applications"/>
+                    <tag>RabbitMQ Client</tag>
+                </hint>
+                <technology-tag level="INFORMATIONAL">RabbitMQ Client</technology-tag>
+            </perform>
+        </rule>
+
+        <rule id="azure-message-queue-amqp-01000">
+            <when>
+                <javaclass references="org.springframework.amqp.{*}"/>
+            </when>
+            <perform>
+                <hint title="Spring AMQP usage found in code" category-id="information" effort="0">
+                     <message>
+                        The application uses Spring AMQP in code. To migrate a Java application that uses Spring AMQP to Azure, you can follow these recommendations:
+
+                        * Provision **Azure Service Bus**: Use Azure Service Bus, a fully managed messaging service that offers reliable message queuing and publish/subscribe capabilities.
+
+                        * Update the application's **messaging connection** details: Modify the Java application's configuration updating the connection information and message queues/topics.
+
+                        * Configure Azure Service Bus **queues/topics**: Create appropriate queues or topics in Azure Service Bus to align with your application's messaging requirements. Configure access control and security settings as needed.
+                    </message>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
+                    <link title="Use Azure Service Bus in Spring applications" href="https://learn.microsoft.com/azure/developer/java/spring-framework/using-service-bus-in-spring-applications"/>
+                    <tag>AMQP Client</tag>
+                </hint>
+                <technology-tag level="INFORMATIONAL">AMQP Client</technology-tag>
+            </perform>
+        </rule>
+
+        <rule id="azure-message-queue-amqp-02000">
+            <when>
+                <or>
+                    <file filename="{*}amqp{*}"/>
+                    <project>
+                        <artifact groupId="org.springframework.boot" artifactId="spring-boot-starter-amqp"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <hint title="Spring AMQP dependency found" category-id="information" effort="0">
+                     <message>
+                        The application uses Spring AMQP dependency. To migrate a Java application that uses Spring AMQP to Azure, you can follow these recommendations:
+
+                        * Provision **Azure Service Bus**: Use Azure Service Bus, a fully managed messaging service that offers reliable message queuing and publish/subscribe capabilities.
+
+                        * Update the application's **messaging connection** details: Modify the Java application's configuration updating the connection information and message queues/topics.
+
+                        * Configure Azure Service Bus **queues/topics**: Create appropriate queues or topics in Azure Service Bus to align with your application's messaging requirements. Configure access control and security settings as needed.
+                    </message>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
+                    <link title="Use Azure Service Bus in Spring applications" href="https://learn.microsoft.com/azure/developer/java/spring-framework/using-service-bus-in-spring-applications"/>
+                    <tag>AMQP Client</tag>
+                </hint>
+                <technology-tag level="INFORMATIONAL">AMQP Client</technology-tag>
+            </perform>
         </rule>
     </rules>
 </ruleset>
