@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruleset id="azure-message-queue-config"
+<ruleset id="azure-message-queue"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
@@ -117,7 +117,7 @@
             <perform>
                 <hint title="Spring RabbitMQ usage found in code" category-id="information" effort="0">
                     <message>
-                        The application uses Spring RabbitMQ based on Spring AMQP. To migrate a Java application that uses Spring RabbitMQ to Azure, you can follow these recommendations:
+                        The application uses Spring RabbitMQ based on Spring AMQP in code. To migrate a Java application that uses Spring RabbitMQ to Azure, you can follow these recommendations:
 
                         * Provision **Azure Service Bus**: Replace RabbitMQ with Azure Service Bus, a fully managed messaging service that offers reliable message queuing and publish/subscribe capabilities.
 

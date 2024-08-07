@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ruletest id="azure-message-queue-config-test"
+<ruletest id="azure-message-queue-test"
           xmlns="http://windup.jboss.org/schema/jboss-ruleset"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
-    <testDataPath>data/azure-message-queue-config</testDataPath>
-    <rulePath>../azure-message-queue-config.windup.xml</rulePath>
+    <testDataPath>data/azure-message-queue</testDataPath>
+    <rulePath>../azure-message-queue.windup.xml</rulePath>
     <ruleset>
         <rules>
             <rule id="azure-message-queue-config-kafka-test-01000">
@@ -16,7 +16,7 @@
                     </not>
                 </when>
                 <perform>
-                    <fail message="mq-config-kafka hint was not found!"/>
+                    <fail message="azure-message-queue-config-kafka hint was not found!"/>
                 </perform>
             </rule>
             <rule id="azure-message-queue-config-rabbitmq-test-01000">
@@ -28,7 +28,7 @@
                     </not>
                 </when>
                 <perform>
-                    <fail message="mq-config-rabbitmq hint was not found!"/>
+                    <fail message="azure-message-queue-config-rabbitmq hint was not found!"/>
                 </perform>
             </rule>
             <rule id="azure-message-queue-config-artemis-test-01000">
@@ -40,9 +40,40 @@
                     </not>
                 </when>
                 <perform>
-                    <fail message="mq-config-artemis hint was not found!"/>
+                    <fail message="azure-message-queue-config-artemis hint was not found!"/>
                 </perform>
             </rule>
+            <rule id="azure-message-queue-rabbitmq-test-01000">
+                <when>
+                    <not>
+                        <hint-exists message="The application uses Spring RabbitMQ based on Spring AMQP in code."/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="azure-message-queue-rabbitmq-01000 hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="azure-message-queue-amqp-test-01000">
+                <when>
+                    <not>
+                        <hint-exists message="The application uses Spring AMQP in code."/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="azure-message-queue-amqp-01000 hint was not found!"/>
+                </perform>
+            </rule>
+            <rule id="azure-message-queue-amqp-test-02000">
+                <when>
+                    <not>
+                        <hint-exists message="The application uses Spring AMQP dependency."/>
+                    </not>
+                </when>
+                <perform>
+                    <fail message="azure-message-queue-amqp-02000 was not found!"/>
+                </perform>
+            </rule>
+
         </rules>
     </ruleset>
 </ruletest>         
