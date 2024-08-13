@@ -17,9 +17,9 @@
 | azure-java-version-02000 | Java version found to be lower than JAVA_8 | mandatory | 3 | X | X | X | X | azure-java-version.windup.xml |
 | azure-keystore-certificates-01000 | Java KeyStore file found | potential | 3 | X | X | X | X | azure-keystore-certificates.windup.xml |
 | azure-keystore-certificates-02000 | The application loads certificates into a KeyStore | potential | 3 | X | X | X | X | azure-keystore-certificates.windup.xml |
-| azure-message-queue-config-kafka-01000 | Kafka connection string, username or password found in configuration file | information | 0 | X | X | X | X | azure-message-queue-config.windup.xml |
-| azure-message-queue-config-rabbitmq-01000 | RabbitMQ connection string, username or password found in configuration file | information | 0 | X | X | X | X | azure-message-queue-config.windup.xml |
-| azure-message-queue-config-artemis-01000 | ActiveMQ Artemis connection string, username or password found in configuration file | information | 0 | X | X | X | X | azure-message-queue-config.windup.xml |
+| azure-mq-config-kafka-01000 | Kafka connection string, username or password found in configuration file | information | 0 | X | X | X | X | azure-mq-config.windup.xml |
+| azure-mq-config-rabbitmq-01000 | RabbitMQ connection string, username or password found in configuration file | information | 0 | X | X | X | X | azure-mq-config.windup.xml |
+| azure-mq-config-artemis-01000 | ActiveMQ Artemis connection string, username or password found in configuration file | information | 0 | X | X | X | X | azure-mq-config.windup.xml |
 | azure-password-01000 | Password found in configuration file | potential | 3 | X | X | X | X | azure-password.windup.xml |
 | azure-static-content-01000 | Static content found in the application | optional | 5 | X | X | X | X | azure-static-content.windup.xml |
 | azure-system-config-01000 | Environment variables/system properties | optional | 1 | X | X | X | X | azure-system-config.windup.xml |
