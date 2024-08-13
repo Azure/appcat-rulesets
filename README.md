@@ -1,14 +1,38 @@
-# Project
+# Azure Migrate application and code assessment toolkit
 
-> This repo has been populated by an initial template to help get you started. Please
-> make sure to update the content to build a great experience for community-building.
+This project holds the rules used by Azure Migrate application and code assessment toolkit. For more information on this product, visit [aka.ms/appcat/java](https://aka.ms/appcat/java).
 
-As the maintainer of this project, please make a few updates:
+# Rulesets
 
-- Improving this README.MD file to provide a great experience
-- Updating SUPPORT.MD with content about this project's support experience
-- Understanding the security reporting process in SECURITY.MD
-- Remove this section from the README
+For details on how to develop and/or contribute rules, visit the [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/).
+
+## Directory structure
+
+The `rules` repository is organized in subdirectories:
+
+* `rules-reviewed`: this is where you can make contribution and add new rules
+* `rules-generated`: these rules are automatically generated (from the Quarkus main git repo) and you should not add new rules here
+* `rules-overridden-azure`: this is where you can override existing rules (mostly the ones under `rules-reviewed`)
+
+## Testing
+
+Tests may include vulnerable code, bad practices, hardcoded passwords, and more. Please do not report security issues related to code in the tests folders.
+
+To limit the XML-based tests (`windup.test.xml`) which are run, use `-DrunTestsMatching=...`.
+The value can be any part of the test filename to match. Like, `-DrunTestsMatching=hsearch`.
+
+By default, when executing the tests, the `href` attributes of the `<link>` tags are also tested. This means that there is an external request to each URL. 
+If you want to avoid this, you can use the `-Dtest=WindupRulesTest` flag in conjunction with the `-f` flag:
+
+```
+mvn clean test -f rules -Dtest=WindupRulesTest -DrunTestsMatching=hsearch
+```
+
+## Building from source
+
+Ensure you use the provided Maven Wrapper utility to build the project, as Windup requires Maven 3.8.8:
+
+        ./mvnw verify
 
 ## Contributing
 
@@ -32,39 +56,3 @@ trademarks or logos is subject to and must follow
 Use of Microsoft trademarks or logos in modified versions of this project must not cause confusion or imply Microsoft sponsorship.
 Any use of third-party trademarks or logos are subject to those third-party's policies.
 
-Windup Rulesets
-===============
-
-Rules and rulesets contributed by community.
-
-Follow the [Get Involved](https://github.com/windup/windup/wiki/Get-Involved) in Windup wiki.
-
-
-Directory structure
------------
-
-The `rules` module repository is organized in subdirectories:
-
-* `rules-reviewed`: this is where you can make contribution and add new rules
-* `rules-generated`: these rules are automatically generated (from the Quarkus main git repo) and you should not add new rules here
-* `rules-overridden-azure`: this is where you can override existing rules (mostly the ones under `rules-reviewed`)
-
-Testing the rules
------------
-
-To limit the XML-based tests (`windup.test.xml`) which are run, use `-DrunTestsMatching=...`.
-The value can be any part of the test filename to match. Like, `-DrunTestsMatching=hsearch`.
-
-By default, when executing the tests, the `href` attributes of the `<link>` tags are also tested. This means that there is an external request to each URL. 
-If you want to avoid this, you can use the `-Dtest=WindupRulesTest` flag in conjunction with the `-f` flag:
-
-```
-mvn clean test -f rules -Dtest=WindupRulesTest -DrunTestsMatching=hsearch
-```
-
-Building from source
------------
-
-Ensure you use the provided Maven Wrapper utility to build the project, as Windup requires Maven 3.8.8:
-
-        ./mvnw verify
