@@ -183,7 +183,7 @@
                 <technology-tag level="INFORMATIONAL">AMQP Client</technology-tag>
             </perform>
         </rule>
-        <rule id="azure-message-queue-amqp-03000">
+        <rule id="azure-message-queue-servicebus-03000">
             <when>
                 <or>
                     <project>
