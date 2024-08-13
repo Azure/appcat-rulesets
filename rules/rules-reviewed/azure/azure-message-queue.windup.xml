@@ -183,5 +183,31 @@
                 <technology-tag level="INFORMATIONAL">AMQP Client</technology-tag>
             </perform>
         </rule>
+        <rule id="azure-message-queue-amqp-03000">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="com.azure.spring" artifactId="spring-messaging-azure-servicebus"/>
+                    </project>
+                </or>
+            </when>
+            <perform>
+                <hint title="Spring Azure Service Bus dependency found" category-id="information" effort="0">
+                     <message>
+                        The application uses Spring Azure Service Bus dependency. you can follow these recommendations:
+
+                        * Provision **Azure Service Bus**: Use Azure Service Bus, a fully managed messaging service that offers reliable message queuing and publish/subscribe capabilities.
+
+                        * Update the application's **messaging connection** details: Modify the Java application's configuration updating the connection information and message queues/topics.
+
+                        * Configure Azure Service Bus **queues/topics**: Create appropriate queues or topics in Azure Service Bus to align with your application's messaging requirements. Configure access control and security settings as needed.
+                    </message>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
+                    <link title="Use Azure Service Bus in Spring applications" href="https://learn.microsoft.com/azure/developer/java/spring-framework/using-service-bus-in-spring-applications"/>
+                    <tag>Azure Service Bus Client</tag>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Azure Service Bus Client</technology-tag>
+            </perform>
+        </rule>
     </rules>
 </ruleset>
