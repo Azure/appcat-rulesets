@@ -1,8 +1,8 @@
-# Azure Migrate application and code assessment toolkit
+# Azure Migrate application and code assessment for Java
 
 This project holds the rules used by Azure Migrate application and code assessment toolkit. For more information on this product, visit [aka.ms/appcat/java](https://aka.ms/appcat/java).
 
-# Rulesets
+## Rulesets
 
 For details on how to develop and/or contribute rules, visit the [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/).
 
