@@ -193,9 +193,9 @@
                 </or>
             </when>
             <perform>
-                <hint title="Spring Azure Service Bus dependency found" category-id="information" effort="0">
+                <hint title="Azure Service Bus Spring dependency found" category-id="information" effort="0">
                      <message>
-                        The application uses Spring Azure Service Bus dependency. you can follow these recommendations:
+                        The application uses Azure Service Bus Spring dependency. you can follow these recommendations:
 
                         * Provision **Azure Service Bus**: Use Azure Service Bus, a fully managed messaging service that offers reliable message queuing and publish/subscribe capabilities.
 
