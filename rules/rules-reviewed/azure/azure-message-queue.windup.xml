@@ -163,6 +163,7 @@
                     <project>
                         <artifact groupId="org.springframework.boot" artifactId="spring-boot-starter-amqp"/>
                     </project>
+                    <filecontent filename="build.gradle" pattern="spring-boot-starter-amqp"/>
                 </or>
             </when>
             <perform>
