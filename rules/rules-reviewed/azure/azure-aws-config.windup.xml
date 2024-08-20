@@ -82,9 +82,9 @@
                 </or>
             </when>
             <perform>
-                <hint title="AWS S3 configuration" category-id="mandatory" effort="3">
+                <hint title="AWS S3 usage found" category-id="mandatory" effort="3">
                     <message>
-                        The application contains AWS S3 configuration. Consider using Azure Blob Storage instead.
+                        The application contains AWS S3 usage. Consider using Azure Blob Storage instead.
 
                         * Provision **Azure Blob Storage**: Create an Azure Blob Storage account in the Azure portal. Choose the appropriate storage tier (Hot, Cool, or Archive) based on your application's data access patterns and cost considerations.
 
