@@ -66,15 +66,19 @@
         <rule id="azure-aws-config-s3-03000">
             <when>
                 <or>
+                    <filecontent filename="{*}.properties" pattern="aws.s3"/>
                     <project>
                         <artifact groupId="software.amazon.awssdk" artifactId="s3"/>
                     </project>
-		            <javaclass references="software.amazon.awssdk.services.s3.{*}"/>				
-					<filecontent filename="{*}.properties" pattern="aws.s3"/>				
+		            <javaclass references="software.amazon.awssdk.services.s3.{*}"/>
 					<project>
                         <artifact groupId="com.amazonaws" artifactId="aws-java-sdk-s3"/>
                     </project>
 					<javaclass references="com.amazonaws.services.s3.{*}"/>
+                    <project>
+                        <artifact groupId="io.awspring.cloud" artifactId="spring-cloud-aws-starter-s3"/>
+                    </project>
+                    <javaclass references="io.awspring.cloud.s3.{*}"/>
                 </or>
             </when>
             <perform>
