@@ -30,7 +30,7 @@
             <rule id="azure-aws-config-test-03000">
                 <when>
                     <not>
-                        <hint-exists message="The application contains AWS S3 configuration"/>
+                        <hint-exists message="The application contains AWS S3"/>
                     </not>
                 </when>
                 <perform>
