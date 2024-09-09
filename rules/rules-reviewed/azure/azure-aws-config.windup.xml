@@ -67,10 +67,6 @@
             <when>
                 <or>
                     <filecontent filename="{*}.properties" pattern="aws.s3"/>
-                    <project>
-                        <artifact groupId="software.amazon.awssdk" artifactId="s3"/>
-                    </project>
-		            <javaclass references="software.amazon.awssdk.services.s3.{*}"/>
 					<project>
                         <artifact groupId="com.amazonaws" artifactId="aws-java-sdk-s3"/>
                     </project>
@@ -79,6 +75,39 @@
                         <artifact groupId="io.awspring.cloud" artifactId="spring-cloud-aws-starter-s3"/>
                     </project>
                     <javaclass references="io.awspring.cloud.s3.{*}"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="AWS S3 usage found" category-id="mandatory" effort="3">
+                    <message>
+                        The application contains AWS S3 usage. Consider using Azure Blob Storage instead.
+
+                        * Provision **Azure Blob Storage**: Create an Azure Blob Storage account in the Azure portal. Choose the appropriate storage tier (Hot, Cool, or Archive) based on your application's data access patterns and cost considerations.
+
+                        * **Update application code**: Modify the Java application's code to replace AWS SDK calls with the equivalent Azure Storage SDK calls for Azure Blob Storage. Update the code to authenticate and interact with Azure Blob Storage using the Azure SDK for Java.
+
+                        * **Map S3 functionality** to Azure Blob Storage: Understand the differences between AWS S3 and Azure Blob Storage, and adjust your application logic accordingly. Map S3 concepts (buckets, objects, permissions, etc.) to their Azure Blob Storage equivalents (containers, blobs, shared access signatures, etc.).
+
+                        * **Migrate data** from S3 to Azure Blob Storage: Plan and execute the migration of your data from AWS S3 to Azure Blob Storage. You can use Azure Storage Data Transfer Tool, AzCopy, or other migration tools to copy the data from S3 buckets to Azure Blob Storage containers.
+
+                        * Update **access permissions**: Adjust the access permissions and policies in Azure Blob Storage to match your application's requirements. Azure provides various options for controlling access, including shared access signatures (SAS), Azure AD authentication, and role-based access control (RBAC).
+
+                        * Validate functionality and **performance**: Thoroughly test the updated application to ensure that it can read from and write to Azure Blob Storage correctly. Validate the performance of data transfer and any other operations to ensure they meet your application's requirements.
+                    </message>
+                    <link title="Azure Blob Storage documentation" href="https://learn.microsoft.com/azure/storage/blobs"/>
+                    <link title="Quickstart: Azure Blob Storage client library for Java" href="https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-java"/>
+                    <link title="Move your data from AWS S3 to Azure Storage using AzCopy" href="https://azure.microsoft.com/blog/move-your-data-from-aws-s3-to-azure-storage-using-azcopy"/>
+                    <tag>storage</tag>
+                </hint>
+            </perform>                       
+        </rule> 
+        <rule id="azure-aws-config-s3-03002">
+            <when>
+                <or>
+                    <project>
+                        <artifact groupId="software.amazon.awssdk" artifactId="s3"/>
+                    </project>
+		            <javaclass references="software.amazon.awssdk.services.s3.{*}"/>
                 </or>
             </when>
             <perform>
