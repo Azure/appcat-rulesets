@@ -16,7 +16,13 @@
     <rules>
         <rule id="database-01500">
             <when>
-                <file filename="{*}mysql-connector{*}.jar"/>
+                <or>
+                    <file filename="{*}mysql-connector{*}.jar"/>
+                    <project>
+                        <artifact groupId="{*}mysql{*}" artifactId="{*}"/>
+                    </project>
+                    <filecontent filename="build.gradle" pattern="mysql"/>
+                </or>
             </when>
             <perform>
                 <hint title="MySQL database found" category-id="potential" effort="3">
@@ -46,7 +52,13 @@
         </rule>
         <rule id="database-01700">
             <when>
-                <file filename="{*}postgresql{*}.jar"/>
+                <or>
+                    <file filename="{*}postgresql{*}.jar"/>
+                    <project>
+                        <artifact groupId="{*}postgresql{*}" artifactId="{*}"/>
+                    </project>
+                    <filecontent filename="build.gradle" pattern="postgresql"/>
+                </or>
             </when>
             <perform>
                 <hint title="PostgreSQL database found" category-id="potential" effort="3">
