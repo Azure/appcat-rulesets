@@ -95,11 +95,6 @@
                 <artifactId>zip4j</artifactId>
                 <version>2.11.5</version> <!-- Override transitive dependency. -->
             </dependency>
-            <dependency>
-                <groupId>org.eclipse.platform</groupId>
-                <artifactId>org.eclipse.core.runtime</artifactId>
-                <version>3.29.0</version> <!-- Override transitive dependency. -->
-            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
