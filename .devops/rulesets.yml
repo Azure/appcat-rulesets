@@ -1,8 +1,7 @@
 
 schedules:
-  # Run at Pacific Time midnight
   - cron: "30 23 * * 6"
-    displayName: Nightly CompGov Analysis
+    displayName: Build
     always: true
     branches:
       include:
@@ -25,7 +24,7 @@ resources:
 
     - repository: appcat-rulesets
       type: GitHub
-      endpoint: Github-Java-Engineering
+      endpoint: $(ENDPOINT)
       name: Azure/appcat-rulesets
       ref: dev
 
@@ -89,10 +88,10 @@ extends:
                   </servers>
                 </settings>
                 EOF
-              displayName: 'Create Maven directory'
+              displayName: 'Create settings.xml'
 
             - task: Maven@4
-              displayName: "Build appcat-rulesets"
+              displayName: "Build appcat-rulesets appcat profile"
               env:
                 SYSTEM_ACCESSTOKEN: $(System.AccessToken)
               inputs:
