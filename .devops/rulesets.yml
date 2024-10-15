@@ -63,7 +63,7 @@ extends:
                   --name "$(ARTIFACT)" \
                   --version "${{ variables.version }}" \
                   --path .
-              displayName: "Download Maven from Azure Artifacts"
+              displayName: "Download Maven"
               env:
                 AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
 
@@ -91,7 +91,7 @@ extends:
               displayName: 'Create settings.xml'
 
             - task: Maven@4
-              displayName: "Build appcat-rulesets appcat profile"
+              displayName: "Build appcat profile"
               env:
                 SYSTEM_ACCESSTOKEN: $(System.AccessToken)
               inputs:
