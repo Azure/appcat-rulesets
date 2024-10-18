@@ -19,16 +19,8 @@ resources:
       name: 1ESPipelineTemplates/1ESPipelineTemplates
       ref: refs/tags/release
 
-    # - repository: appcat-rulesets
-    #   type: GitHub
-    #   endpoint: GitHub-AppCAT
-    #   name: Azure/appcat-rulesets
-    #   ref: dev
-
 variables:
   - group: 'appcat-variables'
-  - name: ComponentDetection.ForceScan
-    value: true
   - name: version
     value: "3.8.8"
   - name: download_dir
@@ -46,10 +38,6 @@ extends:
       sourceAnalysisPool:
         name: JEG-windows2022-x64-release
         os: windows
-      # sourceRepositoriesToScan:
-      #   include:
-      #     - repository: self
-      #   runInSingleJob: true
       credscan:
         enabled: true
         justificationForDisabling: "The suppression file is located in this repo at .devops/credscan/suppressions.json. All Credscan issues are test-only and documeted examples."
