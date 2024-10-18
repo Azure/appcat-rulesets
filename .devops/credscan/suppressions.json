@@ -1,0 +1,42 @@
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+        {
+            "file": [
+                "rules/rules-reviewed/azure/tests/data/azure-database-config/application-prod.properties",
+                "rules/rules-reviewed/azure/tests/data/azure-database-config/application.properties",
+                "rules/rules-reviewed/azure/tests/data/azure-keystore-certificates/test.jks",
+                "rules/rules-reviewed/azure/tests/data/azure-password/application-prod.properties",
+                "rules/rules-reviewed/azure/tests/data/azure-password/application.properties",
+                "rules/rules-reviewed/azure/tests/data/azure-password/application.yaml",
+                "rules/rules-reviewed/eap6/jboss-eap4/tests/samples/mysql-ds.xml",
+                "rules/rules-reviewed/azure/eap/test/data/eap-to-azure-appservice-datasource-driver/postgresql-ds.xml",
+                "rules/rules-reviewed/quarkus/springboot/tests/data/springboot-metrics/application.properties"
+            ],
+            "_justification": "Test values for unit tests run locally during CI/CD or local development only. No external systems are affected or named."
+        },
+        {
+            "file": [
+                "rules/scripts/output-data/all_rules.xml",
+                "rules/scripts/output-data/all_rules.csv",
+                "rules/rules-archived/eap6/weblogic/weblogic-webservices.windup.xml",
+                "rules/rules-reviewed/eap7/weblogic/weblogic-webservices.windup.xml",
+                "rules/migration-core/eap7/weblogic/weblogic-webservices.windup.xml"
+            ],
+            "_justification": "Documentation only, sets an example on how to use the reference model only."
+        },
+        {
+            "file": [
+                "appcat-rulesets/rules/target/classes/azure/tests/data/azure-password/application.yaml",
+                "appcat-rulesets/rules/target/classes/azure/tests/data/azure-password/application.properties",
+                "appcat-rulesets/rules/target/classes/azure/tests/data/azure-password/application-prod.properties",
+                "appcat-rulesets/rules/target/classes/azure/tests/data/azure-database-config/application.properties",
+                "appcat-rulesets/rules/target/classes/azure/tests/data/azure-database-config/application-prod.properties",
+                "appcat-rulesets/rules/target/classes/azure/tests/data/azure-keystore-certificates/test.jks",
+                "appcat-rulesets/rules/target/classes/eap6/jboss-eap4/tests/samples/mysql-ds.xml",
+                "appcat-rulesets/rules/target/classes/quarkus/springboot/tests/data/springboot-metrics/application.properties"
+            ],
+            "_justification": "These files are previously scanned and suppressed. These are used for testing purposes. These are not included in any final product."
+        }
+    ]
+}
