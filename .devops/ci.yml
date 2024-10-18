@@ -1,0 +1,117 @@
+schedules:
+  - cron: "30 23 * * 6"
+    displayName: Build
+    always: true
+    branches:
+      include:
+        - dev
+
+pr: none
+trigger:
+  branches:
+    include:
+      - dev
+
+resources:
+  repositories:
+    - repository: 1ESPipelineTemplates
+      type: git
+      name: 1ESPipelineTemplates/1ESPipelineTemplates
+      ref: refs/tags/release
+
+    # - repository: appcat-rulesets
+    #   type: GitHub
+    #   endpoint: GitHub-AppCAT
+    #   name: Azure/appcat-rulesets
+    #   ref: dev
+
+variables:
+  - group: 'appcat-variables'
+  - name: ComponentDetection.ForceScan
+    value: true
+  - name: version
+    value: "3.8.8"
+  - name: download_dir
+    value: "$(Agent.BuildDirectory)/apache-maven-$(version)"
+  - name: options
+    value: "-Dmaven.repo.local=$(Agent.BuildDirectory)/.m2/repository"
+
+appendCommitMessageToRunName: false
+name: "CI Build"
+
+extends:
+  template: v1/1ES.Official.PipelineTemplate.yml@1ESPipelineTemplates
+  parameters:
+    sdl:
+      sourceAnalysisPool:
+        name: JEG-windows2022-x64-release
+        os: windows
+      # sourceRepositoriesToScan:
+      #   include:
+      #     - repository: self
+      #   runInSingleJob: true
+      credscan:
+        enabled: true
+        justificationForDisabling: "The suppression file is located in this repo at .devops/credscan/suppressions.json. All Credscan issues are test-only and documeted examples."
+        suppressionsFile: $(Pipeline.Workspace)/s/.devops/credscan/suppressions.json
+    stages:
+    - stage:
+      displayName: "Build"
+      jobs:
+        - job: build
+          displayName: Build appcat-rulesets
+          pool:
+              name: JEG-ubuntu20.04-x64-EO
+              os: linux
+          steps:
+            - checkout: self
+              path: s/appcat-rulesets
+
+            - bash: |
+                az artifacts universal download \
+                  --organization "$(ORGANIZATION)" \
+                  --feed "$(FEED)" \
+                  --name "$(ARTIFACT)" \
+                  --version "$(version)" \
+                  --path .
+              displayName: "Download Maven"
+              env:
+                AZURE_DEVOPS_EXT_PAT: $(System.AccessToken)
+
+            - bash: |
+                tar xf apache-maven-$(version)-bin.tar.gz -C $(Agent.BuildDirectory)/
+                echo "##vso[task.prependpath]$(download_dir)/bin"
+              displayName: "Install Maven"
+
+            - bash: |
+                mkdir ~/.m2  \|| true
+                cat <<EOF > ~/.m2/settings.xml
+                <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                                              https://maven.apache.org/xsd/settings-1.0.0.xsd">
+                  <servers>
+                    <server>
+                      <id>central</id>
+                      <username>$(USERNAME)</username>
+                      <password>\${env.SYSTEM_ACCESSTOKEN}</password>
+                    </server>
+                  </servers>
+                </settings>
+                EOF
+              displayName: 'Create settings.xml'
+
+            - task: Maven@4
+              displayName: "Build appcat profile"
+              env:
+                SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+              inputs:
+                mavenPomFile: "$(Build.SourcesDirectory)/pom.xml"
+                mavenVersionOption: "Path"
+                mavenDirectory: "$(download_dir)"
+                mavenOptions: "-Xmx3072m $(options)"
+                javaHomeOption: "JDKVersion"
+                jdkVersionOption: "1.11"
+                jdkArchitectureOption: "x64"
+                publishJUnitResults: false
+                goals: "install -DskipTests -B -U -P appcat"
