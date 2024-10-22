@@ -13,7 +13,7 @@
             <when>
                <not>
                   <iterable-filter size="3">
-                        <hint-exists message="The application embeds Spring Cloud" />
+                        <hint-exists message="The application embeds Spring Cloud Config" />
                   </iterable-filter>
                   <technology-tag-exists technology-tag="Spring Cloud Config"/>
                </not>
