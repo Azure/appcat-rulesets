@@ -10,9 +10,7 @@
             <rule id="azure-aws-config-test-01000">
                 <when>
                     <not>
-                        <iterable-filter size="8">
-                            <hint-exists message="The application contains AWS credential configuration"/>
-                        </iterable-filter>
+                        <hint-exists message="The application contains AWS credential configuration"/>
                     </not>
                 </when>
                 <perform>
@@ -22,9 +20,7 @@
             <rule id="azure-aws-config-test-02000">
                 <when>
                     <not>
-                        <iterable-filter size="3">
-                            <hint-exists message="The application contains AWS region configuration"/>
-                        </iterable-filter>
+                        <hint-exists message="The application contains AWS region configuration"/>
                     </not>
                 </when>
                 <perform>
@@ -34,9 +30,7 @@
             <rule id="azure-aws-config-test-03000">
                 <when>
                     <not>
-                        <iterable-filter size="20">
-                            <hint-exists message="The application contains AWS S3 configuration"/>
-                        </iterable-filter>
+                        <hint-exists message="The application contains AWS S3"/>
                     </not>
                 </when>
                 <perform>
@@ -46,9 +40,7 @@
             <rule id="azure-aws-config-test-04000">
                 <when>
                     <not>
-                        <iterable-filter size="6">
-                            <hint-exists message="The application contains Amazon Simple Queue Service configuration"/>
-                        </iterable-filter>
+                        <hint-exists message="The application contains Amazon Simple Queue Service configuration"/>
                     </not>
                 </when>
                 <perform>
@@ -58,9 +50,7 @@
             <rule id="azure-aws-config-test-05000">
                 <when>
                     <not>
-                        <iterable-filter size="2">
-                            <hint-exists message="The application contains AWS Secrets Manager configuration" />
-                        </iterable-filter>
+                        <hint-exists message="The application contains AWS Secrets Manager configuration" />
                     </not>
                 </when>
                 <perform>
