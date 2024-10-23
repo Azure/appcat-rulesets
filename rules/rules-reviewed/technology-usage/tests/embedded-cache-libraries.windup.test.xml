@@ -7,10 +7,8 @@
         <rules>
             <rule id="embedded-cache-libraries-test-01000">
                 <when>
-                    <not>
-                        <iterable-filter size="1">
-                         <hint-exists message="The application embeds an Ehcache library" />
-                        </iterable-filter>
+                    <not>                       
+                        <classification-exists classification="Caching - Ehcache embedded library" />                        
                     </not>
                 </when>
                 <perform>

@@ -24,8 +24,8 @@
                 </or>
             </when>
             <perform>
-                <hint title="Embedded library - Spring Cloud Config" category-id="information" effort="0">
-                    <message>
+                <classification title="Embedded library - Spring Cloud Config" category-id="information" effort="0">
+                    <description>
                         The application embeds Spring Cloud Config.
 
                         If you are migrating to Azure Spring Apps, the connection info of Config Server will be injected automatically upon app start.
@@ -36,9 +36,9 @@
                         If configured in **command line parameters**, **Java system attribute**, **environment variable**: they need to be removed or you might experience conflicts and unexpected behavior.
 
                         Configure the config server after creating an Azure Spring Apps instance.
-                    </message>
+                    </description>
                     <link title="Prepare the Spring Cloud Config server" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#prepare-the-spring-cloud-config-server"/>
-                </hint>
+                </classification>
                 <technology-tag level="INFORMATIONAL">Spring Cloud Config</technology-tag>
             </perform>
         </rule>
