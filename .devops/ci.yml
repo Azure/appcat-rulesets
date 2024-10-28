@@ -49,7 +49,7 @@ extends:
         - job: build
           displayName: Build appcat-rulesets
           pool:
-              name: JEG-ubuntu20.04-x64-EO
+              name: JEG-ubuntu20.04-x64-release
               os: linux
           steps:
             - checkout: self
