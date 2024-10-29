@@ -12,8 +12,8 @@
          <rule id="configuration-management-0100-test">
             <when>
                <not>
-                  <iterable-filter size="3">
-                        <hint-exists message="The application embeds Spring Cloud" />
+                  <iterable-filter size="4">
+                        <hint-exists message="The application embeds Spring Cloud Config" />
                   </iterable-filter>
                   <technology-tag-exists technology-tag="Spring Cloud Config"/>
                </not>
