@@ -8,6 +8,7 @@
 
     <testDataPath>data/connect</testDataPath>
     <rulePath>../connect.windup.groovy</rulePath>
+    <rulePath>../connect.windup.xml</rulePath>
     <ruleset>
       <rules>
          <rule id="connect-01400-test">
@@ -20,7 +21,19 @@
             <perform>
                <fail message="Expected data not found for rule connect-01400"/>
             </perform>
-         </rule>        
+         </rule>
+         <rule id="connect-01500-test">
+               <when>
+                  <not>
+                     <iterable-filter size="1">
+                           <hint-exists message="To migrate a Java application that uses ActiveMQ to Azure, you can follow these recommendations"/>
+                     </iterable-filter>
+                  </not>
+               </when>
+               <perform>
+                  <fail message="ActiveMQ connect found hint was not found!"/>
+               </perform>
+         </rule>      
          <rule id="connect-01600-test">
             <when>
                <not>

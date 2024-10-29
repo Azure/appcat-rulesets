@@ -1,193 +1,347 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ruletest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
-          xmlns:windupfunctions="windupcustomfunctions"
-          xmlns:windup="http://windup.jboss.org/schema/jboss-ruleset"
-          id="connect-test"
-          xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+<?xml version="1.0"?>
+<ruleset id="technology-usage-connect" xmlns="http://windup.jboss.org/schema/jboss-ruleset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://windup.jboss.org/schema/jboss-ruleset http://windup.jboss.org/schema/jboss-ruleset/windup-jboss-ruleset.xsd">
+    <metadata>
+        <description>
+            This ruleset provides statistical summaries of the other connect technologies (JCA, JNI, Mail, RMI) items that were found during the analysis.
+        </description>
+        <dependencies>
+            <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
+            <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
+        </dependencies>
+        <phase>PostMigrationRulesPhase</phase>
+    </metadata>
+    <rules>
+        <rule id="technology-usage-connect-01000">
+            <when>
+                <graph-query discriminator="RMIServiceModel" />
+            </when>
+            <perform>
+                <technology-identified name="RMI">
+                    <tag name="Connect"/>
+                    <tag name="Other"/>
+                    <tag name="Java EE"/>
+                </technology-identified>
+            </perform>
+        </rule>
 
-    <testDataPath>data/connect</testDataPath>
-    <rulePath>../connect.windup.groovy</rulePath>
-    <rulePath>../connect.windup.xml</rulePath>
-    <ruleset>
-      <rules>
-         <rule id="connect-01400-test">
+        <rule id="technology-usage-connect-01100">
             <when>
-               <not>
-                  <classification-exists classification="Embedded Resource Adapter"/>
-                  <technology-tag-exists technology-tag="Resource Adapter"/>
-               </not>
+                <or>
+                    <javaclass references="java.lang.System.{systemNativeMethods}({*})">
+                        <location>METHOD_CALL</location>
+                    </javaclass>
+                    <javaclass references="java.lang.Runtime.load({*})">
+                        <location>METHOD_CALL</location>
+                    </javaclass>
+                    <javaclass references="java.lang.Runtime.loadLibrary({*})">
+                        <location>METHOD_CALL</location>
+                    </javaclass>
+                </or>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-01400"/>
+                <technology-identified name="JNI">
+                    <tag name="Connect"/>
+                    <tag name="Other"/>
+                    <tag name="Java EE"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-01500-test">
-               <when>
-                  <not>
-                     <iterable-filter size="1">
-                           <hint-exists message="To migrate a Java application that uses ActiveMQ to Azure, you can follow these recommendations"/>
-                     </iterable-filter>
-                  </not>
-               </when>
-               <perform>
-                  <fail message="ActiveMQ connect found hint was not found!"/>
-               </perform>
-         </rule>      
-         <rule id="connect-01600-test">
+            <where param="systemNativeMethods">
+                <matches pattern="(load|loadLibrary|mapLibraryName)"/>
+            </where>
+        </rule>
+
+        <rule id="technology-usage-connect-01101">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - OpenWS"/>
-                  <technology-tag-exists technology-tag="OpenWS"/>
-               </not>
+                <javaclass references="com.sun.jna.{*}">
+                    <location>CONSTRUCTOR_CALL</location>
+                    <location>IMPORT</location>
+                    <location>INHERITANCE</location>
+                    <location>METHOD_CALL</location>
+                    <location>VARIABLE_DECLARATION</location>
+                </javaclass>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-01600"/>
+                <classification title="JNA usage" effort="0" category-id="information">
+                    <description>JNA is used in the application</description>
+                </classification>
+                <technology-identified name="JNA">
+                    <tag name="Connect"/>
+                    <tag name="Other"/>
+                    <tag name="Java EE"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-01700-test">
+        </rule>
+
+        <rule id="technology-usage-connect-01200">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - WSDL"/>
-                  <technology-tag-exists technology-tag="WSDL"/>
-               </not>
+                <or>
+                    <javaclass references="javax.mail.{*}" />
+                    <javaclass references="com.sun.mail.{*}" />
+                    <javaclass references="org.simplejavamail.{*}" />
+                    <javaclass references="org.apache.commons.mail.{*}" />
+                </or>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-01700"/>
+                <classification title="Mail usage" effort="0" category-id="information">
+                    <description>Mailing is used in the application</description>
+                </classification>
+                <technology-identified name="Mail">
+                    <tag name="Connect"/>
+                    <tag name="Other"/>
+                    <tag name="Java EE"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-01800-test">
+        </rule>
+
+        <rule id="technology-usage-connect-01300">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - RabbitMQ Client"/>
-                  <technology-tag-exists technology-tag="RabbitMQ Client"/>
-               </not>
+                <or>
+                    <file filename="ra.xml" />
+                    <xmlfile matches="//*[local-name()='jms-jca-provider']"/>
+                    <javaclass references="javax.resource.{*}">
+                        <location>CONSTRUCTOR_CALL</location>
+                        <location>IMPORT</location>
+                        <location>INHERITANCE</location>
+                        <location>METHOD_CALL</location>
+                        <location>VARIABLE_DECLARATION</location>
+                    </javaclass>
+                </or>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-01800"/>
+                 <classification title="JCA usage" effort="0" category-id="information">
+                    <description>JCA is used in the application</description>
+                </classification>
+                <technology-identified name="JCA">
+                    <tag name="Connect"/>
+                    <tag name="Other"/>
+                    <tag name="Java EE"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-01900-test">
+        </rule>
+        <rule id="technology-usage-connect-01400">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - Spring Messaging Client"/>
-                  <technology-tag-exists technology-tag="Spring Messaging Client"/>
-               </not>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">Resource Adapter</property>
+                </graph-query>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-01900"/>
+                <technology-identified name="Resource Adapter">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-02000-test">
+        </rule>
+        <rule id="technology-usage-connect-01500">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - Camel Messaging Client"/>
-                  <technology-tag-exists technology-tag="Camel Messaging Client"/>
-               </not>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">ActiveMQ</property>
+                </graph-query>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-02000"/>
+                <technology-identified name="ActiveMQ library">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-02100-test">
+        </rule>
+        <rule id="technology-usage-connect-01600">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - Amazon SQS Client"/>
-                  <technology-tag-exists technology-tag="Amazon SQS Client"/>
-               </not>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">OpenWS</property>
+                </graph-query>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-02100"/>
+                <technology-identified name="OpenWS">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Web Service"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-02200-test">
+        </rule>
+        <rule id="technology-usage-connect-01700">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - HornetQ Client"/>
-                  <technology-tag-exists technology-tag="HornetQ Client"/>
-               </not>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">WSDL</property>
+                </graph-query>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-02200"/>
+                <technology-identified name="WSDL">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Web Service"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-02300-test">
+        </rule>
+        <rule id="technology-usage-connect-01800">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - AMQP Client"/>
-                  <technology-tag-exists technology-tag="AMQP Client"/>
-               </not>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">RabbitMQ Client</property>
+                </graph-query>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-02300"/>
+                <technology-identified name="RabbitMQ Client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-02400-test">
+        </rule>
+        <rule id="technology-usage-connect-01900">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - RocketMQ Client"/>
-                  <technology-tag-exists technology-tag="RocketMQ Client"/>
-               </not>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">Spring Messaging Client</property>
+                </graph-query>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-02400"/>
+                <technology-identified name="Spring Messaging Client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-02500-test">
+        </rule>
+        <rule id="technology-usage-connect-02000">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - 0MQ Client"/>
-                  <technology-tag-exists technology-tag="0MQ Client"/>
-               </not>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">Camel Messaging Client</property>
+                </graph-query>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-02500"/>
+                <technology-identified name="Camel Messaging Client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-02600-test">
+        </rule>
+        <rule id="technology-usage-connect-02100">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - JBossMQ Client"/>
-                  <technology-tag-exists technology-tag="JBossMQ Client"/>
-               </not>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">Amazon SQS Client</property>
+                </graph-query>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-02600"/>
+                <technology-identified name="Amazon SQS Client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-02700-test">
+        </rule>
+        <rule id="technology-usage-connect-02200">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - Zbus Client"/>
-                  <technology-tag-exists technology-tag="Zbus Client"/>
-               </not>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">HornetQ Client</property>
+                </graph-query>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-02700"/>
+                <technology-identified name="HornetQ Client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-02800-test">
+        </rule>
+        <rule id="technology-usage-connect-02300">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - Qpid Client"/>
-                  <technology-tag-exists technology-tag="Qpid Client"/>
-               </not>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">AMQP Client</property>
+                </graph-query>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-02800"/>
+                <technology-identified name="AMQP Client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
             </perform>
-         </rule>
-         <rule id="connect-02900-test">
+        </rule>
+        <rule id="technology-usage-connect-02400">
             <when>
-               <not>
-                  <classification-exists classification="Embedded library - Kafka Client"/>
-                  <technology-tag-exists technology-tag="Kafka Client"/>
-               </not>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">RocketMQ Client</property>
+                </graph-query>
             </when>
             <perform>
-               <fail message="Expected data not found for rule connect-02900"/>
+                <technology-identified name="RocketMQ Client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
             </perform>
-         </rule>
-      </rules>
-    </ruleset>
-</ruletest>
+        </rule>
+        <rule id="technology-usage-connect-02500">
+            <when>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">0MQ Client</property>
+                </graph-query>
+            </when>
+            <perform>
+                <technology-identified name="0MQ Client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
+            </perform>
+        </rule>
+        <rule id="technology-usage-connect-02600">
+            <when>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">JBossMQ Client</property>
+                </graph-query>
+            </when>
+            <perform>
+                <technology-identified name="JBossMQ client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
+            </perform>
+        </rule>
+        <rule id="technology-usage-connect-02700">
+            <when>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">Zbus Client</property>
+                </graph-query>
+            </when>
+            <perform>
+                <technology-identified name="Zbus Client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
+            </perform>
+        </rule>
+        <rule id="technology-usage-connect-02800">
+            <when>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">Qpid Client</property>
+                </graph-query>
+            </when>
+            <perform>
+                <technology-identified name="Qpid Client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Other"/>
+                </technology-identified>
+            </perform>
+        </rule>
+        <rule id="technology-usage-connect-02900">
+            <when>
+                <graph-query discriminator="TechnologyTagModel">
+                    <property name="name">Kafka Client</property>
+                </graph-query>
+            </when>
+            <perform>
+                <technology-identified name="Kafka Client">
+                    <tag name="Connect"/>
+                    <tag name="Embedded"/>
+                    <tag name="Streaming"/>
+                </technology-identified>
+            </perform>
+        </rule>
+    </rules>
+</ruleset>
