@@ -45,11 +45,7 @@
             <resource>
                 <filtering>false</filtering>
                 <directory>../rules-generated</directory>
-            </resource>
-            <resource>
-                <filtering>false</filtering>
-                <directory>../rules-overridden-azure</directory>
-            </resource>
+            </resource>           
         </resources>
 
         <plugins>
