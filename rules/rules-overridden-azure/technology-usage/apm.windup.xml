@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ruleset id="apm"
          xmlns="http://windup.jboss.org/schema/jboss-ruleset"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -6,12 +6,18 @@
     <metadata>
         <description>
             Identify Application Performance Management dependencies.
+            This ruleset overrides the rules/rules-reviewed/technology-usage/apm.windup.xml ruleset.
         </description>
         <dependencies>
           <addon id="org.jboss.windup.rules,windup-rules-javaee,3.0.0.Final"/>
           <addon id="org.jboss.windup.rules,windup-rules-java,3.0.0.Final"/>
         </dependencies>
+        <targetTechnology id="azure-spring-apps"/>
+        <targetTechnology id="azure-appservice"/>
+        <targetTechnology id="azure-aks"/>
+        <targetTechnology id="azure-container-apps"/>
         <tag>apm</tag>
+        <overrideRules>true</overrideRules>
     </metadata>
     <rules>
         <rule id="apm-00000">
@@ -109,3 +115,4 @@
         </rule>
     </rules>
 </ruleset>
+
