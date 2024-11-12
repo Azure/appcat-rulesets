@@ -86,6 +86,7 @@
                 <perform>
                     <fail message="aws-sqs java 2.x dependency hint was not found!" />
                 </perform>
+            </rule>
         </rules>
     </ruleset>
 </ruletest>
