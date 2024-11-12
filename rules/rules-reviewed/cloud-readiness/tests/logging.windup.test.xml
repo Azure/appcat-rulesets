@@ -38,6 +38,7 @@
                 <perform>
                     <fail message="Logging configurations about Log to file was not found" />
                 </perform>
+            </rule>
         </rules>
     </ruleset>    
 </ruletest>
