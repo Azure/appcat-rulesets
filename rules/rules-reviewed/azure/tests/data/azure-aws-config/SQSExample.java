@@ -3,6 +3,7 @@ import com.amazonaws.services.sqs.AmazonSQS;
 import com.amazonaws.services.sqs.AmazonSQSClientBuilder;
 import com.amazonaws.services.sqs.model.*;
 
+import software.amazon.awssdk.services.sqs.SqsClient;
 public class SQSExample {
 
     // Replace with your AWS region and SQS queue URL

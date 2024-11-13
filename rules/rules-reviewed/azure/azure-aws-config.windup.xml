@@ -199,7 +199,7 @@
                 </project>
             </when>
             <perform>
-                <hint title="Amazon Simple Queue Service configuration" category-id="mandatory" effort="3">
+                <hint title="Amazon Simple Queue Service Java 1.x SDK dependency" category-id="mandatory" effort="3">
                     <message>
                         The application contains dependencies for Amazon Simple Queue Service by using the AWS SDK Java 1.x. Consider using Azure Service Bus by Java SDK instead. 
 
@@ -215,7 +215,7 @@
                 <javaclass references="com.amazonaws.services.sqs.{*}"/>
             </when>
             <perform>
-                <hint title="Amazon Simple Queue Service configuration" category-id="mandatory" effort="3">
+                <hint title="Amazon Simple Queue Service Java 1.x API" category-id="mandatory" effort="3">
                     <message>
                         The application contains Amazon Simple Queue Service by using the AWS SDK Java 1.x. Consider using Azure Service Bus by Java SDK instead. 
 
