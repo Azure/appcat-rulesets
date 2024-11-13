@@ -8,13 +8,13 @@
             <rule id="logging-test-00000">
                 <when>
                     <not>
-                        <iterable-filter size="12">
-  	                      <hint-exists message="Logging to the file system is not recommended when running applications in the cloud" />
+                        <iterable-filter size="6">
+  	                      <hint-exists message="Found JAVA APIs that log to the file system" />
                         </iterable-filter>
                     </not>
                 </when>
                 <perform>
-                    <fail message="Log to file usage was not found" />
+                    <fail message="Log to file JAVA APIs usage was not found" />
                 </perform>
             </rule>
             <rule id="logging-test-00001">
@@ -27,6 +27,16 @@
                 </when>
                 <perform>
                     <fail message="java.util.logging.SocketHandler usage was not found" />
+                </perform>
+            </rule>
+            <rule id="logging-test-00002">
+                <when>
+                    <not>
+                        <hint-exists message="Found a logging configuration that logs to the file system" />
+                    </not>
+                </when>
+                <perform>
+                    <fail message="Logging configurations about Log to file was not found" />
                 </perform>
             </rule>
         </rules>
