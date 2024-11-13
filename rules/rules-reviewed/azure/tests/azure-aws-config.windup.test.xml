@@ -36,9 +36,7 @@
                 <perform>
                     <fail message="aws-S3-config hint was not found!"/>
                 </perform>
-            </rule>            
-            
-            
+            </rule>           
             <rule id="azure-aws-config-test-04000">
                 <when>
                     <not>
@@ -78,6 +76,7 @@
                 <perform>
                     <fail message="aws-sqs java 2.x api hint was not found!" />
                 </perform>
+            </rule>
             <rule id="azure-aws-config-test-04004">
                 <when>
                     <not>
