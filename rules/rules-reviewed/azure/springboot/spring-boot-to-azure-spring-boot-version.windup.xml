@@ -40,7 +40,7 @@
                         * **Test thoroughly**: Execute a comprehensive testing process to verify the compatibility and functionality of your application with the new Spring Boot version. Perform unit tests, integration tests, and system tests to validate that all components and dependencies work as expected.
                     </message>
                     <link title="Azure Spring Apps Spring Boot Version Support" href="https://learn.microsoft.com/azure/spring-apps/concept-app-customer-responsibilities#spring-boot-and-spring-cloud-versions"/>
-                    <link title="Spring Boot Supported Versions" href="https://spring.io/projects/spring-boot#support"/>
+                    <link title="Spring Boot Supported Versions" href="https://spring.io/projects/spring-boot/#support"/>
                     <link title="Spring Boot Support Policy" href="https://github.com/spring-projects/spring-boot/wiki/Supported-Versions"/>
                     <link title="Use Rewrite to migrate to Spring Boot 2 from Spring Boot 1" href="https://docs.openrewrite.org/running-recipes/popular-recipe-guides/spring-boot-2.x-migration-from-spring-boot-1.x"/>
                 </hint>
@@ -68,7 +68,7 @@
                         * **Test thoroughly**: Execute a comprehensive testing process to verify the compatibility and functionality of your application with the new Spring Boot version. Perform unit tests, integration tests, and system tests to validate that all components and dependencies work as expected.
                     </message>
                     <link title="Azure Spring Apps Spring Boot Version Support" href="https://learn.microsoft.com/azure/spring-apps/concept-app-customer-responsibilities#spring-boot-and-spring-cloud-versions"/>
-                    <link title="Spring Boot Supported Versions" href="https://spring.io/projects/spring-boot#support"/>
+                    <link title="Spring Boot Supported Versions" href="https://spring.io/projects/spring-boot/#support"/>
                     <link title="Spring Boot Support Policy" href="https://github.com/spring-projects/spring-boot/wiki/Supported-Versions"/>
                     <link title="Use Rewrite to migrate to Spring Boot 3 from Spring Boot 2" href="https://docs.openrewrite.org/running-recipes/popular-recipe-guides/migrate-to-spring-3"/>
                 </hint>
@@ -101,7 +101,7 @@
                     </message>
                     <link title="Azure Spring Apps Spring Boot Version Support" href="https://learn.microsoft.com/azure/spring-apps/concept-app-customer-responsibilities#spring-boot-and-spring-cloud-versions"/>
                     <link title="Azure Spring App Enterprise plan: Unlock Spring’s full potential with Long-Term Support (LTS)" href="https://learn.microsoft.com/azure/spring-apps/overview#unlock-springs-full-potential-with-long-term-support-lts"/>
-                    <link title="Spring Boot Supported Versions" href="https://spring.io/projects/spring-boot#support"/>
+                    <link title="Spring Boot Supported Versions" href="https://spring.io/projects/spring-boot/#support"/>
                     <link title="Spring Boot Support Policy" href="https://github.com/spring-projects/spring-boot/wiki/Supported-Versions"/>
                     <link title="Use Rewrite to migrate to Spring Boot 3 from Spring Boot 2" href="https://docs.openrewrite.org/running-recipes/popular-recipe-guides/migrate-to-spring-3"/>
                 </hint>
