@@ -20,7 +20,6 @@
         <rule id="logging-0000">
             <when>
                 <or>
-                    <filecontent filename="log{back,4j}{*}.{extension}" pattern="{filePattern}"/>
                     <javaclass references="org.apache.{*}log4j.{*}FileAppender{*}">
                         <location>IMPORT</location>
                     </javaclass>
@@ -45,7 +44,7 @@
                     <perform>
                         <hint title="Don't log to file system" effort="1" category-id="cloud-mandatory">
                             <message>
-                                Logging to the file system is not recommended when running applications in the cloud.
+                                Found JAVA APIs that log to the file system. Logging to the file system is not recommended when running applications in the cloud.
                                 Instead, use Azure Monitor for efficient and scalable logging.
 
                                 * Integrate with **Azure Monitor**: Configure your application to send logs to Azure Monitor. Azure Monitor provides a centralized platform for collecting, analyzing, and visualizing log data from various sources.
@@ -66,12 +65,6 @@
                     </perform>
                 </iteration>
             </perform>
-            <where param="filePattern">
-                <matches pattern="(?i)((Daily)?Rolling)?FileAppender|type\s*=\s*((Daily)?Rolling)?File|&lt;\/((Daily)?Rolling)?File&gt;"/>
-            </where>
-            <where param="extension">
-                <matches pattern="(xml|properties)"/>
-            </where>
         </rule>
         <rule id="logging-0001">
           <when>
@@ -96,6 +89,32 @@
                 </iteration>
                 <technology-tag level="INFORMATIONAL">Logging to Socket Handler</technology-tag>
             </perform>
+        </rule>
+        <rule id="logging-0002">
+            <when>
+                <or>
+                    <filecontent filename="log{back,4j}{*}.{extension}" pattern="{filePattern}"/>
+                    <filecontent filename="log{back,4j}{*}.{extension}" pattern="appender-ref ref=.FILE"/>
+                </or>
+            </when>
+            <perform>
+                <hint title="Don't log to file system" effort="1" category-id="cloud-mandatory">
+                    <message>
+                        Found a logging configuration that logs to the file system. Logging to the file system is not recommended when running applications in the cloud.
+                        Change your logging configuration to log to console.
+                        We recommended you to use Azure Monitor for efficient and scalable logging.
+                    </message>
+                    <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
+                    <link title="Log queries in Azure Monitor" href="https://learn.microsoft.com/azure/azure-monitor/logs/log-query-overview"/>
+                    <link title="Enable diagnostics logging for apps in Azure App Service" href="https://learn.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs"/>
+                    <link title="Log Analytics tutorial" href="https://learn.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial"/>
+                    <tag>logging</tag>
+                </hint>
+                <technology-tag level="INFORMATIONAL">Logging to file system</technology-tag>
+            </perform>
+            <where param="extension">
+                <matches pattern="(xml|properties)"/>
+            </where>
         </rule>
     </rules>
 </ruleset>

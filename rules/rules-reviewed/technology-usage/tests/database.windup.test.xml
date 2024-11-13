@@ -8,6 +8,7 @@
 
     <testDataPath>data/database</testDataPath>
     <rulePath>../database.windup.groovy</rulePath>
+    <rulePath>../database.windup.xml</rulePath>
    <ruleset>
       <rules>
          <rule id="database-01400-test">
@@ -20,7 +21,20 @@
             <perform>
                <fail message="Expected data not found for rule database-01400"/>
             </perform>
-         </rule>         
+         </rule>
+         <rule id="database-01500-test">
+            <when>
+               <not>
+                  <iterable-filter size="1">
+                     <hint-exists message="To migrate a Java application that uses a MySQL database to Azure, you can follow these recommendations"/>
+                  </iterable-filter>                  
+                  <technology-tag-exists technology-tag="MySQL Driver"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="MySQL database found hint was not found!"/>
+            </perform>
+         </rule>
          <rule id="database-01600-test">
             <when>
                <not>
@@ -31,7 +45,20 @@
             <perform>
                <fail message="Expected data not found for rule database-01600"/>
             </perform>
-         </rule>         
+         </rule>
+         <rule id="database-01700-test">
+            <when>
+               <not>    
+                  <iterable-filter size="1">
+                     <hint-exists message="To migrate a Java application that uses a PostgreSQL database to Azure, you can follow these recommendations"/>
+                  </iterable-filter>
+                  <technology-tag-exists technology-tag="PostgreSQL Driver"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="PostgreSQL database found hint was not found!"/>
+            </perform>
+         </rule>
          <rule id="database-01800-test">
             <when>
                <not>
@@ -41,6 +68,19 @@
             </when>
             <perform>
                <fail message="Expected data not found for rule database-01800"/>
+            </perform>
+         </rule>
+         <rule id="database-01900-test">
+            <when>
+               <not>
+                  <iterable-filter size="2">
+                     <hint-exists message="To migrate a Java application that uses a Microsoft SQL database to Azure, you can follow these recommendations"/>
+                  </iterable-filter>
+                  <technology-tag-exists technology-tag="Microsoft SQL Driver"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Microsoft SQL database found hint was not found!"/>
             </perform>
          </rule>
          <rule id="database-02000-test">
@@ -64,7 +104,20 @@
             <perform>
                <fail message="Expected data not found for rule database-02100"/>
             </perform>
-         </rule>         
+         </rule>
+         <rule id="database-02200-test">
+            <when>
+               <not>                   
+                  <iterable-filter size="8">
+                     <hint-exists message="To migrate a Java application that uses a Cassandra database to Azure, you can follow these recommendations"/>
+                  </iterable-filter>                    
+                  <technology-tag-exists technology-tag="Cassandra Client"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="Cassandra database found hint was not found!"/>
+            </perform>
+         </rule>
          <rule id="database-02300-test">
             <when>
                <not>
@@ -86,7 +139,20 @@
             <perform>
                <fail message="Expected data not found for rule database-02400"/>
             </perform>
-         </rule>        
+         </rule>
+         <rule id="database-02500-test">
+            <when>
+               <not>                  
+                  <iterable-filter size="6">
+                     <hint-exists message="To migrate a Java application that uses a MongoDB database to Azure, you can follow these recommendations"/>
+                  </iterable-filter>                    
+                  <technology-tag-exists technology-tag="MongoDB Client"/>
+               </not>
+            </when>
+            <perform>
+               <fail message="MongoDB database found hint was not found!"/>
+            </perform>
+         </rule>
          <rule id="database-02600-test">
             <when>
                <not>
@@ -152,7 +218,20 @@
             <perform>
                <fail message="Expected data not found for rule database-03100"/>
             </perform>
-         </rule>          
+         </rule>
+          <rule id="database-03200-test">
+              <when>
+                  <not>                      
+                     <iterable-filter size="1">
+                        <hint-exists message="To migrate a Java application that uses a MariaDB database to Azure, you can follow these recommendations"/>
+                     </iterable-filter>                   
+                      <technology-tag-exists technology-tag="MariaDB Driver"/>
+                  </not>
+              </when>
+              <perform>
+                  <fail message="MariaDB database found hint was not found!"/>
+              </perform>
+          </rule>
       </rules>
    </ruleset>
 </ruletest>

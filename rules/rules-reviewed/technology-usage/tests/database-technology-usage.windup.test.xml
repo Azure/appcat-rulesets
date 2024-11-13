@@ -8,6 +8,7 @@
 
     <testDataPath>data/database</testDataPath>
     <rulePath>../database.windup.groovy</rulePath>
+    <rulePath>../database.windup.xml</rulePath>
     <rulePath>../database-technology-usage.windup.xml</rulePath>
    <ruleset>
       <rules>

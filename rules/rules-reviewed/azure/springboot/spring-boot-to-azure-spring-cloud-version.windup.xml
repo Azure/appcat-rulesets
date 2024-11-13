@@ -40,7 +40,7 @@
                         * **Test thoroughly**: Execute a comprehensive testing process to verify the compatibility and functionality of your application with the new Spring Cloud version. Perform unit tests, integration tests, and system tests to validate that all components and dependencies work as expected.
                     </message>
                     <link title="Azure Spring Apps Spring Boot Version Support" href="https://learn.microsoft.com/azure/spring-apps/concept-app-customer-responsibilities#spring-boot-and-spring-cloud-versions"/>
-                    <link title="Spring Cloud" href="https://spring.io/projects/spring-cloud"/>
+                    <link title="Spring Cloud" href="https://spring.io/projects/spring-cloud/"/>
                     <link title="Spring Cloud Supported Versions" href="https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions"/>
                     <link title="Use Rewrite to migrate to Spring Cloud 2022" href="https://docs.openrewrite.org/recipes/java/spring/cloud2022/upgradespringcloud_2022"/>
                 </hint>
@@ -68,7 +68,7 @@
                         * **Test thoroughly**: Execute a comprehensive testing process to verify the compatibility and functionality of your application with the new Spring Cloud version. Perform unit tests, integration tests, and system tests to validate that all components and dependencies work as expected.
                     </message>
                     <link title="Azure Spring Apps Spring Boot Version Support" href="https://learn.microsoft.com/azure/spring-apps/concept-app-customer-responsibilities#spring-boot-and-spring-cloud-versions"/>
-                    <link title="Spring Cloud" href="https://spring.io/projects/spring-cloud"/>
+                    <link title="Spring Cloud" href="https://spring.io/projects/spring-cloud/"/>
                     <link title="Spring Cloud Supported Versions" href="https://github.com/spring-cloud/spring-cloud-release/wiki/Supported-Versions"/>
                     <link title="Use Rewrite to migrate to Spring Cloud 2022" href="https://docs.openrewrite.org/recipes/java/spring/cloud2022/upgradespringcloud_2022"/>
                 </hint>
