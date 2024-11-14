@@ -72,7 +72,6 @@ ruleSet("cdi-to-quarkus-groovy")
 
                 void perform(GraphRewrite event, EvaluationContext context, JavaAnnotationTypeReferenceModel payload) {
                     final String annotatedClass = payload.getAnnotatedType().getResolvedSourceSnippit()
-                    System.out.println("ANNOTATED TYPE: " + annotatedClass)
                     final boolean injectedClassHasScopeAnnotations =
                         JavaClass.references(annotatedClass)
                             .at(TypeReferenceLocation.TYPE)
@@ -88,8 +87,8 @@ ruleSet("cdi-to-quarkus-groovy")
                     if (!injectedClassHasScopeAnnotations && !injectedClassHasSingletonAnnotations) {
                         // first of all select only the file belonging to the same root project as the payload
                         // to reduce (i.e. optimize) the number of files found from the second query
-                        Query.fromType(FileModel.class).withProperty(FileModel.FILE_PATH, QueryPropertyComparisonType.CONTAINS_TOKEN, payload.getFile().getProjectModel().getRootFileModel().getPrettyPath() + "/").as(FROM_FILES_IN_PROJECT).evaluate(event, context)
-                        JavaClass.from(FROM_FILES_IN_PROJECT).references(annotatedClass).at(TypeReferenceLocation.TYPE).as(INJECT_CLASS_DECLARATION).evaluate(event, context)
+                        if (Query.fromType(FileModel.class).withProperty(FileModel.FILE_PATH, QueryPropertyComparisonType.CONTAINS_TOKEN, payload.getFile().getProjectModel().getRootFileModel().getPrettyPath() + "/").as(FROM_FILES_IN_PROJECT).evaluate(event, context)
+                            && JavaClass.from(FROM_FILES_IN_PROJECT).references(annotatedClass).at(TypeReferenceLocation.TYPE).as(INJECT_CLASS_DECLARATION).evaluate(event, context)) {
                             Iteration.over(INJECT_CLASS_DECLARATION)
                             .perform(
                                 ((Hint) Hint.titled("Injected class is missing scope annotation")
@@ -100,17 +99,18 @@ ruleSet("cdi-to-quarkus-groovy")
                                     .withIssueCategory(potentialIssueCategory)
                                     .with(guideLink)
                                     .with(cdiSpecLink)
-                                    .withEffort(1))
+                                    .withEffort(1)
+                                )
                             )
                             .endIteration()
-                        
+                        }
                     }
                 }
             }
         )
         .endIteration()
     )
-    .withId("cdi-to-quarkus-groovy-00010") 
+    .withId("cdi-to-quarkus-groovy-00010")
     // suggest to replace cdi-api TRANSITIVE dependency if no Quarkus dependency has been already added and 'javax.enterprise.{packages}.{*}' package is used somewhere in the code
     .addRule()
     .when(

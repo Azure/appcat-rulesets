@@ -1,1 +1,0 @@
-Dependencies: org.jboss.log4j.logmanager
