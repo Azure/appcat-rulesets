@@ -193,19 +193,31 @@
             </perform>                       
         </rule>        
         <rule id="azure-aws-config-sqs-04000">
-            <when>
-                <or>                    
-                    <project>
-                        <artifact groupId="com.amazonaws" artifactId="aws-java-sdk-sqs"/>
-                    </project>
-                    <javaclass references="com.amazonaws.services.sqs.{*}"/>
-                    <filecontent pattern="aws.sqs"/>
-                </or>
+            <when>                
+                <project>
+                    <artifact groupId="com.amazonaws" artifactId="aws-java-sdk-sqs"/>
+                </project>
             </when>
             <perform>
-                <hint title="Amazon Simple Queue Service configuration" category-id="mandatory" effort="3">
+                <hint title="Amazon Simple Queue Service Java 1.x SDK dependency" category-id="mandatory" effort="3">
                     <message>
-                        The application contains Amazon Simple Queue Service configuration. Consider using Azure Service Bus instead.
+                        The application contains dependencies for Amazon Simple Queue Service by using the AWS SDK Java 1.x. Consider using Azure Service Bus by Java SDK instead. 
+
+                         * **Replace AWS SDK dependency**: Update the Java application's dependencies to include the Azure Service Bus client libraries and APIs (com.azure.azure-sdk-bom and com.azure.azure-messaging-servicebus). Remove the AWS SDK Java 2.x dependency and add the Azure SDK for Java dependency to interact with Azure Service Bus.
+                    </message>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
+                    <link title="Azure Service Bus libraries for Java" href="https://learn.microsoft.com/java/api/overview/azure/service-bus"/>
+                </hint>
+            </perform>
+        </rule>
+        <rule id="azure-aws-config-sqs-04001">
+            <when>
+                <javaclass references="com.amazonaws.services.sqs.{*}"/>
+            </when>
+            <perform>
+                <hint title="Amazon Simple Queue Service Java 1.x API" category-id="mandatory" effort="3">
+                    <message>
+                        The application contains Amazon Simple Queue Service by using the AWS SDK Java 1.x. Consider using Azure Service Bus by Java SDK instead. 
 
                         * **Provision Azure Service Bus**: Create an Azure Service Bus namespace in Azure. Azure Service Bus provides reliable message queuing and publish/subscribe capabilities, serving as an equivalent messaging service to Amazon SQS.
 
@@ -217,7 +229,62 @@
                     </message>
                     <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
                     <link title="Azure Service Bus libraries for Java" href="https://learn.microsoft.com/java/api/overview/azure/service-bus"/>
-                    <tag>servicebus</tag>
+                </hint>
+            </perform>
+        </rule>
+        <rule id="azure-aws-config-sqs-04002">
+            <when>                 
+                <project>
+                    <artifact groupId="software.amazon.awssdk" artifactId="sqs"/>
+                </project>
+            </when>
+            <perform>
+                <hint title="Amazon Simple Queue Service Java 2.x SDK dependency" category-id="mandatory" effort="3">
+                    <message>
+                         The application contains dependencies for Amazon Simple Queue Service by using the AWS SDK Java 2.x. Consider using Azure Service Bus by Java SDK instead. 
+
+                         * **Replace AWS SDK dependency**: Update the Java application's dependencies to include the Azure Service Bus client libraries and APIs (com.azure.azure-sdk-bom and com.azure.azure-messaging-servicebus). Remove the AWS SDK Java 2.x dependency and add the Azure SDK for Java dependency to interact with Azure Service Bus.
+                    </message>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
+                    <link title="Azure Service Bus libraries for Java" href="https://learn.microsoft.com/java/api/overview/azure/service-bus"/>
+                </hint>
+            </perform>
+        </rule>
+        <rule id="azure-aws-config-sqs-04003">
+            <when>                 
+                <javaclass references="software.amazon.awssdk.services.sqs.{*}"/>
+            </when>
+            <perform>
+                <hint title="Amazon Simple Queue Service Java 2.x API" category-id="mandatory" effort="3">
+                    <message>
+                         The application contains Amazon Simple Queue Service by using the AWS SDK Java 2.x. Consider using Azure Service Bus by Java SDK instead. 
+
+                        * **Provision Azure Service Bus**: Create an Azure Service Bus namespace in Azure. Azure Service Bus provides reliable message queuing and publish/subscribe capabilities, serving as an equivalent messaging service to Amazon SQS.
+
+                        * **Update application code**: Modify the Java application's code to replace the AWS SDK calls with the equivalent Azure Service Bus client libraries and APIs. Update the code to authenticate and interact with Azure Service Bus using the Azure SDK for Java.
+
+                        * **Map SQS functionality** to Azure Service Bus: Understand the differences between Amazon SQS and Azure Service Bus and adjust your application logic accordingly. Map SQS concepts (queues, messages, visibility timeouts, etc.) to their Azure Service Bus equivalents (queues, messages, lock duration, etc.).
+
+                        * **Migrate queues and messages**: Plan and execute the migration of your queues and messages from Amazon SQS to Azure Service Bus.
+                    </message>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
+                    <link title="Azure Service Bus libraries for Java" href="https://learn.microsoft.com/java/api/overview/azure/service-bus"/>
+                </hint>
+            </perform>
+        </rule>
+        <rule id="azure-aws-config-sqs-04004">
+            <when>
+                <filecontent filename="{*}.properties" pattern="aws.sqs"/>
+            </when>
+            <perform>
+                <hint title="Amazon Simple Queue Service configuration" category-id="mandatory" effort="3">
+                    <message>
+                        The application contains Amazon Simple Queue Service configuration. Consider using Azure Service Bus instead.
+
+                        * **Change configurations**: Update the Java application's configuration to replace the Amazon SQS settings with the equivalent Azure Service Bus configurations. 
+                    </message>
+                    <link title="Azure Service Bus documentation" href="https://learn.microsoft.com/azure/service-bus-messaging"/>
+                    <link title="Azure Service Bus libraries for Java" href="https://learn.microsoft.com/java/api/overview/azure/service-bus"/>
                 </hint>
             </perform>
         </rule>
