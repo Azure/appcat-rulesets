@@ -211,6 +211,7 @@
                 </hint>
                 <technology-tag level="INFORMATIONAL">RabbitMQ Client</technology-tag>
             </perform>
+        </rule>
         <rule id="azure-message-queue-servicebus-03000">
             <when>
                 <or>

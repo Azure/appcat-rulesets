@@ -73,7 +73,7 @@
                     <fail message="azure-message-queue-amqp-02000 was not found!"/>
                 </perform>
             </rule>
-            <rule id="azure-message-queue-spring-jms-rabbitmq-test-01000>
+            <rule id="azure-message-queue-spring-jms-rabbitmq-test-01000">
                 <when>
                     <not>
                         <hint-exists message="The application uses Spring JMS RabbitMQ dependency"/>
@@ -82,7 +82,7 @@
                 <perform>
                     <fail message="azure-message-queue-spring-jms-rabbitmq-01000 hint was not found!"/>
                 </perform>
-
+            </rule>
         </rules>
     </ruleset>
 </ruletest>         
