@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.jboss.windup.rules</groupId>
         <artifactId>windup-rulesets-parent</artifactId>
-        <version>6.3.9.Final</version>
+        <version>6.3.0.Final</version>
     </parent>
 
     <artifactId>windup-rulesets</artifactId>
@@ -382,7 +382,6 @@
                      <include>eap6/api-jars/*.jar</include>
                      <include>eap7/api-jars/*.jar</include>
                      <include>openjdk11/api-jars/*.jar</include>
-                     <include>quarkus/api-jars/*.jar</include>
                      <include>**/*.xsl</include>
                       <include>**/rewrite.yml</include>
                   </includes>
