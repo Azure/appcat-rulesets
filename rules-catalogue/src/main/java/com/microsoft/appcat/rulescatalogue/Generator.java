@@ -39,8 +39,8 @@ public class Generator {
                 new Catalogue("OpenJDK 17", "rules/rules-reviewed/openjdk17/openjdk11", XSLT_GENERIC_TEMPLATE),
                 new Catalogue("OpenJDK 21", "rules/rules-reviewed/openjdk21/openjdk17", XSLT_GENERIC_TEMPLATE),
                 new Catalogue("Cloud Readiness", "rules/rules-reviewed/cloud-readiness", XSLT_GENERIC_TEMPLATE),
-                new Catalogue("Linux", "rules/rules-reviewed/os/windows", XSLT_GENERIC_TEMPLATE),
-                new Catalogue("Azure (overridden rules)", "rules/rules-overridden-azure", XSLT_AZURE_TEMPLATE));
+                new Catalogue("Linux", "rules/rules-reviewed/os/windows", XSLT_GENERIC_TEMPLATE));
+                // new Catalogue("Azure (overridden rules)", "rules/rules-overridden-azure", XSLT_AZURE_TEMPLATE));
 
         var markdownFile = new File(OUTPUT);
         if (markdownFile.exists()) {
