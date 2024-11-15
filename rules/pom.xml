@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.jboss.windup.rules</groupId>
         <artifactId>windup-rulesets-parent</artifactId>
-        <version>6.3.0.Final</version>
+        <version>6.3.9.Final</version>
     </parent>
 
     <artifactId>windup-rulesets</artifactId>
@@ -135,13 +135,13 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>2.0.13</version>
+            <version>2.0.16</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>2.0.13</version>
+            <version>2.0.16</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -287,11 +287,7 @@
             <resource>
                 <filtering>false</filtering>
                 <directory>rules-generated</directory>
-            </resource>
-            <resource>
-                <filtering>false</filtering>
-                <directory>rules-overridden-azure</directory>
-            </resource>
+            </resource>            
         </resources>
 
         <plugins>
@@ -351,15 +347,7 @@
                             </includes>
                             <dir>rules-generated</dir>
                             <systemId>${project.build.directory}/xsd/schema/windup-jboss-ruleset.xsd</systemId>
-                        </validationSet>
-                        <validationSet>
-                            <includes>
-                                <include>**/*.windup.xml</include>
-                                <include>**/*.windup.test.xml</include>
-                            </includes>
-                            <dir>rules-overridden-azure</dir>
-                            <systemId>${project.build.directory}/xsd/schema/windup-jboss-ruleset.xsd</systemId>
-                        </validationSet>
+                        </validationSet>                      
                     </validationSets>
                 </configuration>
             </plugin>
@@ -394,6 +382,7 @@
                      <include>eap6/api-jars/*.jar</include>
                      <include>eap7/api-jars/*.jar</include>
                      <include>openjdk11/api-jars/*.jar</include>
+                     <include>quarkus/api-jars/*.jar</include>
                      <include>**/*.xsl</include>
                       <include>**/rewrite.yml</include>
                   </includes>

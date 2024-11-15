@@ -13,9 +13,7 @@
     <rules>
         <rule id="embedded-cache-libraries-01000">
             <when>
-                <graph-query discriminator="JarArchiveModel">
-                    <property name="fileName" searchType="regex">.*ehcache.*\.jar$</property>
-                </graph-query>
+                <file filename="{*}ehcache{*}.jar"/>
             </when>
             <perform>
                 <hint title="EHCache library" category-id="potential" effort="5">

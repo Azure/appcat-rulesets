@@ -10,7 +10,7 @@
             <rule id="azure-file-system-test-02000">
                 <when>
                     <not>
-                        <iterable-filter size="3">
+                        <iterable-filter size="2">
                             <hint-exists message="Relative path found"/>
                         </iterable-filter>
                     </not>

@@ -8,6 +8,7 @@
 
     <testDataPath>data/connect</testDataPath>
     <rulePath>../connect.windup.groovy</rulePath>
+    <rulePath>../connect.windup.xml</rulePath>
     <rulePath>../connect-technology-usage.windup.xml</rulePath>
    <ruleset>
       <rules>
