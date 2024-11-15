@@ -95,6 +95,11 @@
                 <artifactId>zip4j</artifactId>
                 <version>2.11.5</version> <!-- Override transitive dependency. -->
             </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-common</artifactId>
+                <version>4.1.115.Final</version> <!-- Override dependency version. -->
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
