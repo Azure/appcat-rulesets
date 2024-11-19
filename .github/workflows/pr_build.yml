@@ -12,7 +12,7 @@ on:
         branches:
             - main
             - dev
-            - 'release-*/**'
+            - 'release-*'
 
 jobs:
     windup-build:
