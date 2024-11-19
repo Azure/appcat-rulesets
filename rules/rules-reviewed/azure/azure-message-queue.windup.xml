@@ -22,7 +22,7 @@
                 <filecontent filename="{*}.{extensions}" pattern="{pattern}"/>
             </when>
             <perform>
-                <hint title="Kafka connection string, username or password found in configuration file" category-id="information" effort="0">
+                <hint title="Kafka connection string, username or password found in configuration file" category-id="optional" effort="0">
                     <message>
                         The application uses a Kafka connection string or password. To migrate a Java application that uses a Kafka connection string to Azure, you can follow these recommendations:
 
@@ -52,7 +52,7 @@
                 <filecontent filename="{*}.{extensions}" pattern="{pattern}"/>
             </when>
             <perform>
-                <hint title="RabbitMQ connection string, username or password found in configuration file" category-id="information" effort="0">
+                <hint title="RabbitMQ connection string, username or password found in configuration file" category-id="optional" effort="0">
                     <message>
                         The application uses a RabbitMQ connection string, username, or password. To migrate a Java application that uses a RabbitMQ connection string to Azure, you can follow these recommendations:
 
@@ -83,7 +83,7 @@
                 <filecontent filename="{*}.{extensions}" pattern="{pattern}"/>
             </when>
             <perform>
-                <hint title="ActiveMQ Artemis connection string, username or password found in configuration file" category-id="information" effort="0">
+                <hint title="ActiveMQ Artemis connection string, username or password found in configuration file" category-id="optional" effort="0">
                     <message>
                         The application uses an ActiveMQ Artemis connection string, username, or password. To migrate a Java application that uses an ActiveMQ Artemis connection string to Azure, you can follow these recommendations:
 
@@ -115,7 +115,7 @@
                 <javaclass references="org.springframework.amqp.rabbit.{*}"/>
             </when>
             <perform>
-                <hint title="Spring RabbitMQ usage found in code" category-id="information" effort="0">
+                <hint title="Spring RabbitMQ usage found in code" category-id="optional" effort="0">
                     <message>
                         The application uses Spring RabbitMQ based on Spring AMQP in code. To migrate a Java application that uses Spring RabbitMQ to Azure, you can follow these recommendations:
 
@@ -138,7 +138,7 @@
                 <javaclass references="org.springframework.amqp.{*}"/>
             </when>
             <perform>
-                <hint title="Spring AMQP usage found in code" category-id="information" effort="0">
+                <hint title="Spring AMQP usage found in code" category-id="optional" effort="0">
                      <message>
                         The application uses Spring AMQP in code. To migrate a Java application that uses Spring AMQP to Azure, you can follow these recommendations:
 
@@ -167,7 +167,7 @@
                 </or>
             </when>
             <perform>
-                <hint title="Spring AMQP dependency found" category-id="information" effort="0">
+                <hint title="Spring AMQP dependency found" category-id="optional" effort="0">
                      <message>
                         The application uses Spring AMQP dependency. To migrate a Java application that uses Spring AMQP to Azure, you can follow these recommendations:
 
@@ -196,7 +196,7 @@
                 </and>
             </when>
             <perform>
-                <hint title="Spring JMS RabbitMQ dependency found" category-id="information" effort="0">
+                <hint title="Spring JMS RabbitMQ dependency found" category-id="optional" effort="0">
                      <message>
                         The application uses Spring JMS RabbitMQ dependency. It is recommended to migrate to Azure Service Bus with Spring JMS
 
@@ -221,7 +221,7 @@
                 </or>
             </when>
             <perform>
-                <hint title="Azure Service Bus Spring dependency found" category-id="information" effort="0">
+                <hint title="Azure Service Bus Spring dependency found" category-id="optional" effort="0">
                      <message>
                         The application uses Azure Service Bus Spring dependency. you can follow these recommendations:
 
@@ -245,7 +245,7 @@
                 </or>
             </when>
             <perform>
-                <hint title="Azure Service Bus Spring configuration found" category-id="information" effort="0">
+                <hint title="Azure Service Bus Spring configuration found" category-id="informational" effort="0">
                      <message>
                         The application uses Azure Service Bus Spring configurations. you can follow these recommendations:
 
