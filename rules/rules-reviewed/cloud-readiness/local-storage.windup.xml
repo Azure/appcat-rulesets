@@ -41,8 +41,9 @@
                         An application running inside a container could lose access to a file in local storage.
 
                         The following recommendations depend on the function of the file in local storage:
-
-                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+                        * Determine the **storage needs** for your application: Ephemeral storage or persistent storage. Ephemeral storage only persists until the cloud environment is restarted. Persistent storage is required for data that needs to persist across restarts.
+                        
+                        * If persistent storage is needed, consider **mounting Azure File Share** or **using Azure Blob Storage**. Mount Azure file share allows your application to access files via the mount location. Azure blob storage is a scalable object store for data objects, such as text or binary files.
 
                         * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
 
@@ -75,7 +76,9 @@
 
                         The following recommendations depend on the function of the file in local storage:
 
-                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+                        * Determine the storage needs for your application: Ephemeral storage or persistent storage. Ephemeral storage only persists until the cloud environment is restarted. Persistent storage is required for data that needs to persist across restarts.
+                        
+                        * If persistent storage is needed, consider using Azure File Share or Azure Blob Storage. Mount Azure file share allows your application to access files via the mount location. Azure blob storage is a scalable object store for data objects, such as text or binary files.
 
                         * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
 
@@ -101,12 +104,12 @@
             <perform>
                 <hint title="File system - File path URL" effort="3" category-id="cloud-mandatory">
                     <message>
-                        When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
+                        Found absolute file path in the code. When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
                         An application running inside a container could lose access to a file in local storage.
 
-                        The following recommendations depend on the function of the file in local storage:
-
-                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+                        * Determine the **storage needs** for your application: Ephemeral storage or persistent storage. Ephemeral storage only persists until the cloud environment is restarted. Persistent storage is required for data that needs to persist across restarts.
+                        
+                        * If persistent storage is needed, consider **mounting Azure File Share** or **using Azure Blob Storage**. Mount Azure file share allows your application to access files via the mount location. Azure blob storage is a scalable object store for data objects, such as text or binary files.
 
                         * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
 
@@ -115,6 +118,8 @@
                         * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
                     <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Create an Azure Files volume mount in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts-azure-files"/>
+                    <link title="Use storage mounts in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts"/>
                     <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
                     <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                     <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
@@ -123,8 +128,7 @@
             </perform>
             <where param="path1">
                 <!-- absolute paths on windows -->
-                <!-- UPDATE TO REMOVE PATTERNS STARTING WITH java: AND classpath: -->
-                <matches pattern="(([:=(,\{])([ ])*([&quot;'])?([a-zA-Z]):)(?&lt;![\&lt;\\\/\d\w])([\\\/]\w+)+(\.\w+)?"/>
+                <matches pattern="(\W|\s|^)([a-zA-Z]\:|\\\\(\w+\.?)+)([\\\/][^\n\t]+)+"/>
             </where>
             <where param="extensions">
                 <matches pattern="(\.java|\.properties|\.jsp|\.jspf|\.tag|[^pom]\.xml|\.txt)"/>
@@ -137,12 +141,12 @@
             <perform>
                 <hint title="File system - 'file://' scheme" effort="3" category-id="cloud-mandatory">
                     <message>
-                        When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
+                        Found 'file://' path in the code. When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
                         An application running inside a container could lose access to a file in local storage.
 
-                        The following recommendations depend on the function of the file in local storage:
-
-                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+                        * Determine the **storage needs** for your application: Ephemeral storage or persistent storage. Ephemeral storage only persists until the cloud environment is restarted. Persistent storage is required for data that needs to persist across restarts.
+                        
+                        * If persistent storage is needed, consider **mounting Azure File Share** or **using Azure Blob Storage**. Mount Azure file share allows your application to access files via the mount location. Azure blob storage is a scalable object store for data objects, such as text or binary files.
 
                         * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
 
@@ -151,6 +155,8 @@
                         * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
                     <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Create an Azure Files volume mount in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts-azure-files"/>
+                    <link title="Use storage mounts in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts"/>
                     <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
                     <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                     <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
@@ -191,13 +197,15 @@
 
                             The following recommendations depend on the function of the file in local storage:
 
-                            * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+                        * Determine the **storage needs** for your application: Ephemeral storage or persistent storage. Ephemeral storage only persists until the cloud environment is restarted. Persistent storage is required for data that needs to persist across restarts.
+                        
+                        * If persistent storage is needed, consider **mounting Azure File Share** or **using Azure Blob Storage**. Mount Azure file share allows your application to access files via the mount location. Azure blob storage is a scalable object store for data objects, such as text or binary files.
 
-                            * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
+                        * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
 
-                            * **Caching**: Use Azure Cache for Redis as a cache backing service.
+                        * **Caching**: Use Azure Cache for Redis as a cache backing service.
 
-                            * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
+                        * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                         </message>
                         <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
                         <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
@@ -228,13 +236,15 @@
 
                             The following recommendations depend on the function of the file in local storage:
 
-                            * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+                        * Determine the **storage needs** for your application: Ephemeral storage or persistent storage. Ephemeral storage only persists until the cloud environment is restarted. Persistent storage is required for data that needs to persist across restarts.
+                        
+                        * If persistent storage is needed, consider **mounting Azure File Share** or **using Azure Blob Storage**. Mount Azure file share allows your application to access files via the mount location. Azure blob storage is a scalable object store for data objects, such as text or binary files.
 
-                            * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
+                        * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
 
-                            * **Caching**: Use Azure Cache for Redis as a cache backing service.
+                        * **Caching**: Use Azure Cache for Redis as a cache backing service.
 
-                            * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
+                        * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                         </message>
                         <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
                         <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
