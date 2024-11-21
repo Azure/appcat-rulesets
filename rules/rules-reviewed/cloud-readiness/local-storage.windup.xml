@@ -132,7 +132,7 @@
             </perform>
             <where param="path1">
                 <!-- absolute paths on windows -->
-                <matches pattern="(\W|\s|^)([a-zA-Z]\:|\\\\(\w+\.?)+)([\\\/][^\n\t]+)+"/>
+                <matches pattern="(([:=(,\{])([ ])*([&quot;'])?([a-zA-Z]):)(?&lt;![\&lt;\\\/\d\w])([\\\/]\w+)+(\.\w+)?"/>
             </where>
             <where param="extensions">
                 <matches pattern="(\.java|\.properties|\.jsp|\.jspf|\.tag|[^pom]\.xml|\.txt)"/>
