@@ -52,6 +52,8 @@
                         * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
                     <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Create an Azure Files volume mount in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts-azure-files"/>
+                    <link title="Use storage mounts in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts"/>
                     <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
                     <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                     <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
@@ -87,6 +89,8 @@
                         * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                     </message>
                     <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Create an Azure Files volume mount in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts-azure-files"/>
+                    <link title="Use storage mounts in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts"/>
                     <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
                     <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                     <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
@@ -208,6 +212,8 @@
                         * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                         </message>
                         <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                        <link title="Create an Azure Files volume mount in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts-azure-files"/>
+                        <link title="Use storage mounts in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts"/>
                         <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
                         <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                         <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
@@ -247,6 +253,8 @@
                         * **Configuration**: Store configuration in Azure App Configuration instead of using the file system. Also store configuration settings in environment variables so that they can be updated without code changes.
                         </message>
                         <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                        <link title="Create an Azure Files volume mount in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts-azure-files"/>
+                        <link title="Use storage mounts in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts"/>
                         <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
                         <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                         <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
