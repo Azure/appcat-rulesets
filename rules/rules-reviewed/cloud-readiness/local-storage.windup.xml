@@ -111,9 +111,11 @@
                         Found absolute file path in the code. When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
                         An application running inside a container could lose access to a file in local storage.
 
-                        * Determine the **storage needs** for your application: Ephemeral storage or persistent storage. Ephemeral storage only persists until the cloud environment is restarted. Persistent storage is required for data that needs to persist across restarts.
-                        
-                        * If persistent storage is needed, consider **mounting Azure File Share** or **using Azure Blob Storage**. Mount Azure file share allows your application to access files via the mount location. Azure blob storage is a scalable object store for data objects, such as text or binary files.
+                        * **Identify the usage of the file system**: Find any instances where your services write to and/or read from the local file system. Identify where short-term/temporary files are written and read, which require ephemeral storage, and where long-lived files are written and read, which require persistent storage. Ephemeral storage only persists until the cloud environment is restarted, while persistent storage is required for data that needs to persist across restarts.
+
+                        The following recommendations depend on the function of the file in local storage:
+
+                        * **Reading/writing files**: If persistent storage is needed, consider using Azure File Share or Azure Blob Storage. Mounting an Azure File Share allows your application to access files via the mount location. Using Azure Blob Storage provides a scalable object store for data objects, such as text or binary files, accessible directly in your code.
 
                         * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
 
@@ -148,9 +150,11 @@
                         Found 'file://' path in the code. When migrating an application that relies on the file system to Azure, it's important to consider the limitations of local storage in a cloud environment.
                         An application running inside a container could lose access to a file in local storage.
 
-                        * Determine the **storage needs** for your application: Ephemeral storage or persistent storage. Ephemeral storage only persists until the cloud environment is restarted. Persistent storage is required for data that needs to persist across restarts.
-                        
-                        * If persistent storage is needed, consider **mounting Azure File Share** or **using Azure Blob Storage**. Mount Azure file share allows your application to access files via the mount location. Azure blob storage is a scalable object store for data objects, such as text or binary files.
+                        * **Identify the usage of the file system**: Find any instances where your services write to and/or read from the local file system. Identify where short-term/temporary files are written and read, which require ephemeral storage, and where long-lived files are written and read, which require persistent storage. Ephemeral storage only persists until the cloud environment is restarted, while persistent storage is required for data that needs to persist across restarts.
+
+                        The following recommendations depend on the function of the file in local storage:
+
+                        * **Reading/writing files**: If persistent storage is needed, consider using Azure File Share or Azure Blob Storage. Mounting an Azure File Share allows your application to access files via the mount location. Using Azure Blob Storage provides a scalable object store for data objects, such as text or binary files, accessible directly in your code.
 
                         * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
 
