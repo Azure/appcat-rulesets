@@ -30,11 +30,11 @@
                         Relative path found in the application. An application running inside a container could lose access to a file in local storage.
                         To migrate a Java application that uses file system to Azure:
 
-                        * **Identify the usage of the file system**: Find any instances where your services write to and/or read from the local file system. Identify where short-term/temporary files are written and read and where long-lived files are written and read.
+                        * **Identify the usage of the file system**: Find any instances where your services write to and/or read from the local file system. Identify where short-term/temporary files are written and read, which require ephemeral storage, and where long-lived files are written and read, which require persistent storage. Ephemeral storage only persists until the cloud environment is restarted, while persistent storage is required for data that needs to persist across restarts.
 
                         The following recommendations depend on the function of the file in local storage:
 
-                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+                        * **Reading/writing files**: If persistent storage is needed, consider using Azure File Share or Azure Blob Storage. Mounting an Azure File Share allows your application to access files via the mount location. Using Azure Blob Storage provides a scalable object store for data objects, such as text or binary files, accessible directly in your code.
 
                         * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
 
@@ -44,6 +44,8 @@
                     </message>
                     <link title="Relative path found in the application" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#determine-whether-and-how-the-file-system-is-used"/>
                     <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Create an Azure Files volume mount in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts-azure-files"/>
+                    <link title="Use storage mounts in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts"/>
                     <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
                     <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                     <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
@@ -66,11 +68,11 @@
                         Home path found in the application. An application running inside a container could lose access to a file in local storage.
                         To migrate a Java application that uses file system to Azure:
 
-                        * **Identify the usage of the file system**: Find any instances where your services write to and/or read from the local file system. Identify where short-term/temporary files are written and read and where long-lived files are written and read.
+                        * **Identify the usage of the file system**: Find any instances where your services write to and/or read from the local file system. Identify where short-term/temporary files are written and read, which require ephemeral storage, and where long-lived files are written and read, which require persistent storage. Ephemeral storage only persists until the cloud environment is restarted, while persistent storage is required for data that needs to persist across restarts.
 
                         The following recommendations depend on the function of the file in local storage:
 
-                        * **Reading/writing files**: Use Azure Storage services for object, block, and file storage to meet your data's highest demands.
+                        * **Reading/writing files**: If persistent storage is needed, consider using Azure File Share or Azure Blob Storage. Mounting an Azure File Share allows your application to access files via the mount location. Using Azure Blob Storage provides a scalable object store for data objects, such as text or binary files, accessible directly in your code.
 
                         * **Logging**: Log to standard output and use Azure Monitor to collect and analyze the logs.
 
@@ -80,6 +82,8 @@
                     </message>
                     <link title="Home path found in the application" href="https://learn.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier#determine-whether-and-how-the-file-system-is-used"/>
                     <link title="Azure Storage documentation" href="https://learn.microsoft.com/azure/storage"/>
+                    <link title="Create an Azure Files volume mount in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts-azure-files"/>
+                    <link title="Use storage mounts in Azure Container Apps" href="https://learn.microsoft.com/azure/container-apps/storage-mounts"/>
                     <link title="Azure Monitor Logs overview" href="https://learn.microsoft.com/azure/azure-monitor/logs/data-platform-logs"/>
                     <link title="Azure Cache for Redis documentation" href="https://learn.microsoft.com/azure/azure-cache-for-redis"/>
                     <link title="Azure App Configuration documentation" href="https://learn.microsoft.com/azure/azure-app-configuration"/>
