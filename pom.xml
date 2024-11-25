@@ -103,7 +103,7 @@
             <dependency>
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
-                <version>2.0</version> <!-- Override dependency version. -->
+                <version>2.3</version> <!-- Override dependency version. -->
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
