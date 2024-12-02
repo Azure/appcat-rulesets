@@ -112,6 +112,9 @@
                 </hint>
                 <technology-tag level="INFORMATIONAL">Logging to file system</technology-tag>
             </perform>
+            <where param="filePattern">
+                <matches pattern="(?i)((Daily)?Rolling)?FileAppender|type\s*=\s*((Daily)?Rolling)?File|&lt;\/((Daily)?Rolling)?File&gt;"/>
+            </where>
             <where param="extension">
                 <matches pattern="(xml|properties)"/>
             </where>
