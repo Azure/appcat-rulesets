@@ -98,7 +98,7 @@
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-common</artifactId>
-                <version>4.1.116.Final</version> <!-- Override dependency version. -->
+                <version>4.1.117.Final</version> <!-- Override dependency version. -->
             </dependency>
             <dependency>
                 <groupId>org.yaml</groupId>
