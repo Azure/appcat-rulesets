@@ -87,6 +87,14 @@ public class JAXBElementProvider extends AbstractJAXBProvider<JAXBElement<?>>
             Unmarshaller unmarshaller = jaxb.createUnmarshaller();
             unmarshaller = decorateUnmarshaller(type, annotations, mediaType, unmarshaller);
 
+            // Disable external entity resolution to prevent XXE attacks
+            try {
+                unmarshaller.setProperty(javax.xml.XMLConstants.ACCESS_EXTERNAL_DTD, "");
+                unmarshaller.setProperty(javax.xml.XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+            } catch (IllegalArgumentException ex) {
+                throw new JAXBUnmarshalException("Failed to disable external entity resolution", ex);
+            }
+
             if (needsSecurity())
             {
                 SecureUnmarshaller unmarshaller1 = new SecureUnmarshaller(unmarshaller, isDisableExternalEntities(), isEnableSecureProcessingFeature(), isDisableDTDs());
